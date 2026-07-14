@@ -1,48 +1,25 @@
+/* Tailwind 유틸리티와 기본 reset(Preflight)을 불러오기 */
+@import "tailwindcss";
+
+/* 문서 공통 글꼴과 렌더링 방식을 설정 */
 :root {
   font-family: system-ui, sans-serif;
-  color: #111827;
-  background: #f3f4f6;
+  color: #000000;
+  background: #ffffff;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  margin: 0;
+/* 지원할 최소 화면 너비를 지정 */
+html {
   min-width: 320px;
-  min-height: 100%;
 }
 
-body {
-  min-height: 100vh;
-  min-height: 100dvh;
-}
-
-button,
-input,
-textarea,
-select {
-  font: inherit;
-}
-
+/* React 최상위 요소가 화면 높이를 전부 차지하도록 설정 */
+body,
 #root {
-  width: 100%;
-  max-width: 480px;
   min-height: 100vh;
   min-height: 100dvh;
-  margin: 0 auto;
-  background: #ffffff;
-}
-
-.app {
-  min-height: inherit;
-  padding: 20px;
 }
