@@ -1,5 +1,5 @@
 /* Tailwind 유틸리티와 기본 reset(Preflight)을 불러오기 */
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* 문서 공통 글꼴과 렌더링 방식을 설정 */
 :root {
