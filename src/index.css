@@ -1,3 +1,5 @@
+/* Tailwind와 앱 전체에 적용할 기본 브라우저 스타일을 정의 */
+
 /* Tailwind 유틸리티와 기본 reset(Preflight)을 불러오기 */
 @import 'tailwindcss';
 
@@ -14,7 +16,7 @@
 
 /* 지원할 최소 화면 너비를 지정 */
 html {
-  min-width: 320px;
+  min-width: 450px;
 }
 
 /* React 최상위 요소가 화면 높이를 전부 차지하도록 설정 */

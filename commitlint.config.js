@@ -1,3 +1,5 @@
+// Conventional Commits 형식과 프로젝트에서 허용할 커밋 타입을 정의
+
 export default {
   extends: ['@commitlint/config-conventional'],
   rules: {
