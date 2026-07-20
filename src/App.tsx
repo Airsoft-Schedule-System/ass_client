@@ -1,10 +1,15 @@
-// 모바일 화면 너비를 제한하는 앱 최상위 레이아웃
+// 전체 화면 크기와 모바일 콘텐츠 너비를 관리하는 앱 최상위 레이아웃
+
+import { MobileLayout } from '@/app/layouts/MobileLayout';
+import { Button } from '@/components/common/Button';
 
 function App() {
   return (
-    <div className="mx-auto grid min-h-dvh w-full max-w-[480px] grid-rows-[minmax(0,1fr)] bg-white">
-      <main className="min-w-0" />
-    </div>
+    <main className="h-dvh w-full overflow-hidden bg-[var(--color-app-background)]">
+      <MobileLayout>
+        <Button variant="brand">로그인</Button>
+      </MobileLayout>
+    </main>
   );
 }
 

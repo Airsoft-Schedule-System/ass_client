@@ -3,20 +3,26 @@
 /* Tailwind 유틸리티와 기본 reset(Preflight)을 불러오기 */
 @import 'tailwindcss';
 
-/* 문서 공통 글꼴과 렌더링 방식을 설정 */
+/* 문서 공통 글꼴과 로그인 디자인의 기존 색상 팔레트를 정의 */
 :root {
+  --color-app-background: #0a0a0a; /* 앱 최상위 배경 */
+  --color-app-surface: #171717; /* 입력 필드와 카드 배경 */
+  --color-app-foreground: #fafafa; /* 제목과 주요 텍스트 */
+  --color-app-muted: #a3a3a3; /* 설명과 placeholder */
+  --color-app-border: #ffffff1a; /* 입력 외곽선과 divider */
+  --color-app-brand: #ff8a00; /* 로그인 버튼과 강조 링크 */
+  --color-app-on-brand: #0a0a0a; /* 브랜드 배경 위 텍스트와 아이콘 */
+  --color-app-brand-shadow: #ff8a0033; /* 로그인 버튼 그림자 */
+  --safe-area-top: env(safe-area-inset-top, 0px); /* 기기 상단 안전영역 */
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px); /* 기기 하단 안전영역 */
+
   font-family: system-ui, sans-serif;
-  color: #000000;
-  background: #ffffff;
+  color: var(--color-app-foreground);
+  background: var(--color-app-background);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-/* 지원할 최소 화면 너비를 지정 */
-html {
-  min-width: 450px;
 }
 
 /* React 최상위 요소가 화면 높이를 전부 차지하도록 설정 */
