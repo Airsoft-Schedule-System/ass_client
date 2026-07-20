@@ -7,7 +7,7 @@ function App() {
   return (
     <main className="h-dvh w-full overflow-hidden bg-[var(--color-app-background)]">
       <MobileLayout>
-        <Button variant="brand">로그인</Button>
+        <Button>로그인</Button>
       </MobileLayout>
     </main>
   );
