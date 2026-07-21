@@ -48,7 +48,7 @@ export function Input({
         />
 
         {trailingElement ? (
-          <span className="flex size-5 shrink-0 items-center justify-center text-[var(--color-app-muted)]">
+          <span className="flex shrink-0 items-center justify-center text-[var(--color-app-muted)]">
             {trailingElement}
           </span>
         ) : null}

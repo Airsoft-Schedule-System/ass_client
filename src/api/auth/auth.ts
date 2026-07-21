@@ -1,7 +1,7 @@
 // Supabase Auth의 회원가입·로그인·로그아웃·세션 작업을 앱용 함수로 제공
 
 import type { AuthChangeEvent, Session, User } from '@supabase/supabase-js';
-import { toAuthError } from '@/api/auth.error';
+import { toAuthError } from '@/api/auth/auth.error';
 import { supabase } from '@/lib/supabase/client';
 
 export type SignUpInput = {
