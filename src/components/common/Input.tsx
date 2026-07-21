@@ -1,10 +1,12 @@
+// 라벨과 앞뒤 요소를 지원하는 공통 입력 컴포넌트
+
 import { useId } from 'react';
 import type { ComponentPropsWithRef, ReactNode } from 'react';
 
 export type InputProps = Omit<ComponentPropsWithRef<'input'>, 'size'> & {
-  label: string;
-  leadingIcon?: ReactNode;
-  trailingElement?: ReactNode;
+  label: string; // 입력창 위에 표시할 라벨
+  leadingIcon?: ReactNode; // 입력값 앞에 표시할 아이콘
+  trailingElement?: ReactNode; // 입력값 뒤에 표시할 버튼이나 아이콘
 };
 
 export function Input({
@@ -20,9 +22,9 @@ export function Input({
   const inputId = id ?? generatedId;
 
   return (
-    <div className="flex w-full flex-col gap-2">
+    <div className="flex w-full flex-col">
       <label
-        className="text-[13px] leading-4 font-semibold text-[var(--color-app-foreground)]"
+        className="mt-2 mb-1 p-1 text-xs font-semibold text-[var(--color-app-foreground)]"
         htmlFor={inputId}
       >
         {label}

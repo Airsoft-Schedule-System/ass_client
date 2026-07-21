@@ -1,8 +1,10 @@
+// 앞뒤 아이콘을 지원하는 브랜드 공통 버튼 컴포넌트
+
 import type { ComponentPropsWithRef, ReactNode } from 'react';
 
 export type ButtonProps = ComponentPropsWithRef<'button'> & {
-  leadingIcon?: ReactNode;
-  trailingIcon?: ReactNode;
+  leadingIcon?: ReactNode; // 버튼 문구 앞에 표시할 아이콘
+  trailingIcon?: ReactNode; // 버튼 문구 뒤에 표시할 아이콘
 };
 
 export function Button({
@@ -16,7 +18,7 @@ export function Button({
   return (
     <button
       {...buttonProps}
-      className={`flex h-[54px] w-full items-center justify-center gap-2.5 rounded-lg bg-[var(--color-app-brand)] px-4 text-[15px] font-bold text-[var(--color-app-background)] shadow-[0_10px_24px_var(--color-app-shadow)] transition-opacity focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-app-brand)] enabled:cursor-pointer enabled:hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50 ${className}`}
+      className={`flex h-[54px] w-full items-center justify-center gap-2.5 rounded-lg bg-[var(--color-app-brand)] px-4 text-sm font-bold text-[var(--color-app-background)] shadow-[0_10px_24px_var(--color-app-shadow)] transition-opacity focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-app-brand)] enabled:cursor-pointer enabled:hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50 ${className}`}
       type={type}
     >
       {leadingIcon ? (
