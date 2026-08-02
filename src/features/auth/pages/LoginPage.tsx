@@ -65,7 +65,7 @@ export function LoginPage() {
 
   return (
     <MobileLayout>
-      <section className="flex h-full flex-col">
+      <section className="flex h-full min-h-0 flex-col overflow-y-auto">
         <header className="flex flex-col gap-1 pt-8">
           <h1 className="text-3xl font-bold text-[var(--color-app-foreground)]">로그인</h1>
           <p className="text-sm font-semibold text-[var(--color-app-brand)]">

@@ -77,7 +77,7 @@ export function SignUpPage() {
         </header>
 
         <form
-          className="mt-6 flex flex-col gap-5"
+          className="mt-8 flex flex-col gap-6"
           noValidate
           onSubmit={handleSubmit(handleSignUp, () => setSuccessMessage(null))}
         >
@@ -155,7 +155,7 @@ export function SignUpPage() {
             {isSubmitting ? '가입 중...' : '회원가입'}
           </Button>
 
-          <p className="pb-1 text-center text-sm text-[var(--color-app-muted)]">
+          <p className="text-center text-sm text-[var(--color-app-muted)]">
             이미 계정이 있나요?{' '}
             <Link
               className="font-semibold text-[var(--color-app-brand)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-app-brand)]"
