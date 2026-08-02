@@ -52,6 +52,8 @@
 
 - React 컴포넌트에서 Supabase 클라이언트를 직접 호출하지 않기
 - Supabase 호출은 `src/api/<도메인>/`의 도메인 함수에서 수행
+- 인증·테이블·RPC의 입력과 응답은 `@supabase/supabase-js`가 제공하는 타입과 Supabase CLI가 생성한 `Database` 타입을 우선 사용
+- Supabase 타입과 동일한 구조를 수동으로 다시 선언하지 않고 화면·도메인 용도로 변환한 모델만 별도 타입으로 정의
 - Supabase 클라이언트 생성과 공통 인증 설정은 `src/lib/supabase/client.ts`에서만 관리
 - Supabase 원본 오류는 도메인 오류 변환 함수를 거쳐 화면에 전달
 - 세션 조회와 사용자 검증처럼 의미가 다른 작업을 하나의 함수로 합치지 않기

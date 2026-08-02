@@ -1,9 +1,9 @@
-// 이메일과 비밀번호로 Supabase 로그인을 처리하는 화면
+// 사용자 정보를 입력받아 Supabase 회원가입을 처리하는 화면
 
 import { useState } from 'react';
 import type { FormEvent } from 'react';
 import { Link } from 'react-router';
-import { signIn } from '@/api/auth/auth';
+import { signUp } from '@/api/auth/auth';
 import { AuthAppError } from '@/api/auth/auth.error';
 import { MobileLayout } from '@/app/layouts/MobileLayout';
 import { Button } from '@/components/common/Button';
@@ -11,41 +11,57 @@ import { Input } from '@/components/common/Input';
 import { ArrowRightIcon } from '@/components/icons/ArrowRightIcon';
 import { EmailIcon } from '@/components/icons/EmailIcon';
 import { LockIcon } from '@/components/icons/LockIcon';
+import { UserIcon } from '@/components/icons/UserIcon';
 import { PasswordVisibilityButton } from '@/features/auth/components/PasswordVisibilityButton';
 
-export function LoginPage() {
+export function SignUpPage() {
+  const [displayName, setDisplayName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordConfirm, setPasswordConfirm] = useState('');
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [isPasswordConfirmVisible, setIsPasswordConfirmVisible] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [feedback, setFeedback] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  // 중복 제출을 막고 Supabase 세션 생성 결과를 화면에 반영
+  // 입력값을 확인한 뒤 Supabase에 회원가입을 요청
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (isSubmitting) return;
+
+    if (!displayName.trim()) {
+      setFeedback('닉네임을 입력해 주세요.');
+      return;
+    }
+
+    if (password !== passwordConfirm) {
+      setFeedback('비밀번호가 일치하지 않습니다.');
+      return;
+    }
 
     setIsSubmitting(true);
     setFeedback(null);
     setIsSuccess(false);
 
     try {
-      const { session } = await signIn(email.trim(), password);
-
-      if (!session) {
-        setFeedback('로그인 세션을 만들지 못했습니다. 다시 시도해 주세요.');
-        return;
-      }
+      const { session } = await signUp({
+        displayName: displayName.trim(),
+        email: email.trim(),
+        password,
+      });
 
       setPassword('');
+      setPasswordConfirm('');
       setIsSuccess(true);
-      setFeedback('로그인되었습니다.');
+      setFeedback(
+        session ? '회원가입이 완료되었습니다.' : '인증 메일을 보냈습니다. 이메일을 확인해 주세요.',
+      );
     } catch (error) {
       setFeedback(
         error instanceof AuthAppError
           ? error.message
-          : '로그인 중 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.',
+          : '회원가입 중 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.',
       );
     } finally {
       setIsSubmitting(false);
@@ -54,16 +70,27 @@ export function LoginPage() {
 
   return (
     <MobileLayout>
-      <section className="flex h-full flex-col">
+      <section className="flex h-full min-h-0 flex-col overflow-y-auto">
         <header className="flex flex-col gap-1 pt-8">
-          <h1 className="text-3xl font-bold text-[var(--color-app-foreground)]">로그인</h1>
+          <h1 className="text-3xl font-bold text-[var(--color-app-foreground)]">회원가입</h1>
           <p className="text-sm font-semibold text-[var(--color-app-brand)]">
             Airsoft Schedule System
           </p>
         </header>
 
-        <form className="mt-8 flex flex-col gap-6" onSubmit={handleSubmit}>
+        <form className="mt-6 flex flex-col gap-5" onSubmit={handleSubmit}>
           <div className="flex flex-col gap-2">
+            <Input
+              autoComplete="nickname"
+              label="닉네임"
+              leadingIcon={<UserIcon />}
+              maxLength={30}
+              name="displayName"
+              onChange={(event) => setDisplayName(event.target.value)}
+              placeholder="사용할 닉네임 입력"
+              required
+              value={displayName}
+            />
             <Input
               autoComplete="email"
               inputMode="email"
@@ -77,7 +104,7 @@ export function LoginPage() {
               value={email}
             />
             <Input
-              autoComplete="current-password"
+              autoComplete="new-password"
               label="비밀번호"
               leadingIcon={<LockIcon />}
               minLength={6}
@@ -94,11 +121,29 @@ export function LoginPage() {
               type={isPasswordVisible ? 'text' : 'password'}
               value={password}
             />
+            <Input
+              autoComplete="new-password"
+              label="비밀번호 확인"
+              leadingIcon={<LockIcon />}
+              minLength={6}
+              name="passwordConfirm"
+              onChange={(event) => setPasswordConfirm(event.target.value)}
+              placeholder="비밀번호 다시 입력"
+              required
+              trailingElement={
+                <PasswordVisibilityButton
+                  isVisible={isPasswordConfirmVisible}
+                  onToggle={() => setIsPasswordConfirmVisible((currentValue) => !currentValue)}
+                />
+              }
+              type={isPasswordConfirmVisible ? 'text' : 'password'}
+              value={passwordConfirm}
+            />
           </div>
 
           {feedback ? (
             <p
-              className={`text-sm font-semibold ${!isSuccess ? 'text-[var(--color-app-brand)]' : 'text-[var(--color-app-foreground)]'}`}
+              className={`text-sm font-semibold ${isSuccess ? 'text-[var(--color-app-foreground)]' : 'text-[var(--color-app-brand)]'}`}
               role={isSuccess ? 'status' : 'alert'}
             >
               {feedback}
@@ -106,16 +151,16 @@ export function LoginPage() {
           ) : null}
 
           <Button disabled={isSubmitting} trailingIcon={<ArrowRightIcon />} type="submit">
-            {isSubmitting ? '로그인 중...' : '로그인'}
+            {isSubmitting ? '가입 중...' : '회원가입'}
           </Button>
 
-          <p className="text-center text-sm text-[var(--color-app-muted)]">
-            계정이 없나요?{' '}
+          <p className="pb-1 text-center text-sm text-[var(--color-app-muted)]">
+            이미 계정이 있나요?{' '}
             <Link
               className="font-semibold text-[var(--color-app-brand)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-app-brand)]"
-              to="/signup"
+              to="/login"
             >
-              회원가입
+              로그인
             </Link>
           </p>
         </form>
