@@ -39,9 +39,24 @@
 - 상태는 사용하는 가장 가까운 컴포넌트에 두고 불필요한 전역 상태를 만들지 않기
 - 한 컴포넌트가 여러 책임을 가질 때만 의미 있는 단위로 분리
 
+## 폼과 검증
+
+- 검증이 필요하거나 여러 입력값을 관리하는 폼은 `react-hook-form`, `zod`, `@hookform/resolvers` 조합 사용
+- 단순 검색어처럼 검증이 필요 없는 단일 입력은 React state와 HTML 기본 기능만 사용 가능
+- 폼 스키마는 `src/features/<기능>/schemas/<폼>.schema.ts`에 배치
+- 폼 제출 값 타입은 Zod 스키마에서 `z.infer`, `z.input`, `z.output`으로 추론하고 같은 구조를 수동 선언하지 않기
+- React Hook Form과 Zod는 `zodResolver`로 연결하고 동일한 검증 규칙을 컴포넌트에 중복 작성하지 않기
+- 필드 간 비교처럼 여러 값이 필요한 검증은 Zod 스키마의 `refine` 또는 `superRefine`에서 처리
+- 사용자용 필드 오류는 공통 입력 컴포넌트의 오류 prop을 통해 해당 필드와 연결
+- API 오류는 필드 검증 오류와 구분하여 폼의 `root` 오류로 처리
+- 제출 상태는 React Hook Form의 `formState.isSubmitting`을 사용하고 별도 state로 중복 관리하지 않기
+- 일관된 오류 문구를 위해 스키마 검증 폼에는 `noValidate`를 사용하되 `type`, `required`, `minLength`, `autoComplete` 같은 HTML 속성은 유지
+- Zod 검증은 사용자 경험을 위한 클라이언트 검증이며 서버와 데이터베이스의 검증을 대체하지 않기
+
 ## TypeScript
 
 - `any`는 예외 없이 사용하지 않기
+- TypeScript `strict` 모드를 유지하고 새 설정이나 라이브러리를 위해 비활성화하지 않기
 - API 입력·응답과 환경변수처럼 외부 데이터와 맞닿는 경계에는 타입을 명시
 - 구현 내부에서 타입이 명확한 값은 TypeScript 타입 추론 사용
 - 타입만 import할 때는 `import type` 사용

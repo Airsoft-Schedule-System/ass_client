@@ -1,7 +1,8 @@
 // 사용자 정보를 입력받아 Supabase 회원가입을 처리하는 화면
 
 import { useState } from 'react';
-import type { FormEvent } from 'react';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
 import { Link } from 'react-router';
 import { signUp } from '@/api/auth/auth';
 import { AuthAppError } from '@/api/auth/auth.error';
@@ -13,58 +14,55 @@ import { EmailIcon } from '@/components/icons/EmailIcon';
 import { LockIcon } from '@/components/icons/LockIcon';
 import { UserIcon } from '@/components/icons/UserIcon';
 import { PasswordVisibilityButton } from '@/features/auth/components/PasswordVisibilityButton';
+import { signUpSchema } from '@/features/auth/schemas/signup.schema';
+import type { SignUpFormValues } from '@/features/auth/schemas/signup.schema';
 
 export function SignUpPage() {
-  const [displayName, setDisplayName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordConfirm, setPasswordConfirm] = useState('');
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isPasswordConfirmVisible, setIsPasswordConfirmVisible] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [feedback, setFeedback] = useState<string | null>(null);
-  const [isSuccess, setIsSuccess] = useState(false);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const {
+    clearErrors,
+    formState: { errors, isSubmitting },
+    handleSubmit,
+    register,
+    resetField,
+    setError,
+  } = useForm<SignUpFormValues>({
+    defaultValues: {
+      displayName: '',
+      email: '',
+      password: '',
+      passwordConfirm: '',
+    },
+    resolver: zodResolver(signUpSchema),
+  });
 
-  // 입력값을 확인한 뒤 Supabase에 회원가입을 요청
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    if (isSubmitting) return;
-
-    if (!displayName.trim()) {
-      setFeedback('닉네임을 입력해 주세요.');
-      return;
-    }
-
-    if (password !== passwordConfirm) {
-      setFeedback('비밀번호가 일치하지 않습니다.');
-      return;
-    }
-
-    setIsSubmitting(true);
-    setFeedback(null);
-    setIsSuccess(false);
+  // 검증을 통과한 값으로 Supabase 회원가입을 요청
+  async function handleSignUp({ displayName, email, password }: SignUpFormValues) {
+    clearErrors('root.server');
+    setSuccessMessage(null);
 
     try {
       const { session } = await signUp({
-        displayName: displayName.trim(),
-        email: email.trim(),
+        displayName,
+        email,
         password,
       });
 
-      setPassword('');
-      setPasswordConfirm('');
-      setIsSuccess(true);
-      setFeedback(
+      resetField('password');
+      resetField('passwordConfirm');
+      setSuccessMessage(
         session ? '회원가입이 완료되었습니다.' : '인증 메일을 보냈습니다. 이메일을 확인해 주세요.',
       );
     } catch (error) {
-      setFeedback(
-        error instanceof AuthAppError
-          ? error.message
-          : '회원가입 중 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.',
-      );
-    } finally {
-      setIsSubmitting(false);
+      setError('root.server', {
+        message:
+          error instanceof AuthAppError
+            ? error.message
+            : '회원가입 중 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.',
+        type: 'server',
+      });
     }
   }
 
@@ -78,38 +76,40 @@ export function SignUpPage() {
           </p>
         </header>
 
-        <form className="mt-6 flex flex-col gap-5" onSubmit={handleSubmit}>
+        <form
+          className="mt-6 flex flex-col gap-5"
+          noValidate
+          onSubmit={handleSubmit(handleSignUp, () => setSuccessMessage(null))}
+        >
           <div className="flex flex-col gap-2">
             <Input
+              {...register('displayName')}
               autoComplete="nickname"
+              errorMessage={errors.displayName?.message}
               label="닉네임"
               leadingIcon={<UserIcon />}
               maxLength={30}
-              name="displayName"
-              onChange={(event) => setDisplayName(event.target.value)}
               placeholder="사용할 닉네임 입력"
               required
-              value={displayName}
             />
             <Input
+              {...register('email')}
               autoComplete="email"
+              errorMessage={errors.email?.message}
               inputMode="email"
               label="이메일"
               leadingIcon={<EmailIcon />}
-              name="email"
-              onChange={(event) => setEmail(event.target.value)}
               placeholder="email@example.com"
               required
               type="email"
-              value={email}
             />
             <Input
+              {...register('password')}
               autoComplete="new-password"
+              errorMessage={errors.password?.message}
               label="비밀번호"
               leadingIcon={<LockIcon />}
               minLength={6}
-              name="password"
-              onChange={(event) => setPassword(event.target.value)}
               placeholder="비밀번호 입력"
               required
               trailingElement={
@@ -119,15 +119,14 @@ export function SignUpPage() {
                 />
               }
               type={isPasswordVisible ? 'text' : 'password'}
-              value={password}
             />
             <Input
+              {...register('passwordConfirm')}
               autoComplete="new-password"
+              errorMessage={errors.passwordConfirm?.message}
               label="비밀번호 확인"
               leadingIcon={<LockIcon />}
               minLength={6}
-              name="passwordConfirm"
-              onChange={(event) => setPasswordConfirm(event.target.value)}
               placeholder="비밀번호 다시 입력"
               required
               trailingElement={
@@ -137,16 +136,18 @@ export function SignUpPage() {
                 />
               }
               type={isPasswordConfirmVisible ? 'text' : 'password'}
-              value={passwordConfirm}
             />
           </div>
 
-          {feedback ? (
-            <p
-              className={`text-sm font-semibold ${isSuccess ? 'text-[var(--color-app-foreground)]' : 'text-[var(--color-app-brand)]'}`}
-              role={isSuccess ? 'status' : 'alert'}
-            >
-              {feedback}
+          {errors.root?.server?.message ? (
+            <p className="text-sm font-semibold text-[var(--color-app-brand)]" role="alert">
+              {errors.root.server.message}
+            </p>
+          ) : null}
+
+          {successMessage ? (
+            <p className="text-sm font-semibold text-[var(--color-app-foreground)]" role="status">
+              {successMessage}
             </p>
           ) : null}
 

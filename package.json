@@ -15,10 +15,13 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.7.1",
     "@supabase/supabase-js": "^2.110.7",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "react-router": "^8.2.0"
+    "react-hook-form": "^7.84.0",
+    "react-router": "^8.2.0",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.2.1",

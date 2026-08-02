@@ -1,7 +1,8 @@
 // 이메일과 비밀번호로 Supabase 로그인을 처리하는 화면
 
 import { useState } from 'react';
-import type { FormEvent } from 'react';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
 import { Link } from 'react-router';
 import { signIn } from '@/api/auth/auth';
 import { AuthAppError } from '@/api/auth/auth.error';
@@ -12,43 +13,53 @@ import { ArrowRightIcon } from '@/components/icons/ArrowRightIcon';
 import { EmailIcon } from '@/components/icons/EmailIcon';
 import { LockIcon } from '@/components/icons/LockIcon';
 import { PasswordVisibilityButton } from '@/features/auth/components/PasswordVisibilityButton';
+import { loginSchema } from '@/features/auth/schemas/login.schema';
+import type { LoginFormValues } from '@/features/auth/schemas/login.schema';
 
 export function LoginPage() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [feedback, setFeedback] = useState<string | null>(null);
-  const [isSuccess, setIsSuccess] = useState(false);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const {
+    clearErrors,
+    formState: { errors, isSubmitting },
+    handleSubmit,
+    register,
+    resetField,
+    setError,
+  } = useForm<LoginFormValues>({
+    defaultValues: {
+      email: '',
+      password: '',
+    },
+    resolver: zodResolver(loginSchema),
+  });
 
-  // 중복 제출을 막고 Supabase 세션 생성 결과를 화면에 반영
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    if (isSubmitting) return;
-
-    setIsSubmitting(true);
-    setFeedback(null);
-    setIsSuccess(false);
+  // 검증을 통과한 값으로 Supabase 세션을 생성
+  async function handleLogin({ email, password }: LoginFormValues) {
+    clearErrors('root.server');
+    setSuccessMessage(null);
 
     try {
-      const { session } = await signIn(email.trim(), password);
+      const { session } = await signIn(email, password);
 
       if (!session) {
-        setFeedback('로그인 세션을 만들지 못했습니다. 다시 시도해 주세요.');
+        setError('root.server', {
+          message: '로그인 세션을 만들지 못했습니다. 다시 시도해 주세요.',
+          type: 'server',
+        });
         return;
       }
 
-      setPassword('');
-      setIsSuccess(true);
-      setFeedback('로그인되었습니다.');
+      resetField('password');
+      setSuccessMessage('로그인되었습니다.');
     } catch (error) {
-      setFeedback(
-        error instanceof AuthAppError
-          ? error.message
-          : '로그인 중 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.',
-      );
-    } finally {
-      setIsSubmitting(false);
+      setError('root.server', {
+        message:
+          error instanceof AuthAppError
+            ? error.message
+            : '로그인 중 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.',
+        type: 'server',
+      });
     }
   }
 
@@ -62,27 +73,30 @@ export function LoginPage() {
           </p>
         </header>
 
-        <form className="mt-8 flex flex-col gap-6" onSubmit={handleSubmit}>
+        <form
+          className="mt-8 flex flex-col gap-6"
+          noValidate
+          onSubmit={handleSubmit(handleLogin, () => setSuccessMessage(null))}
+        >
           <div className="flex flex-col gap-2">
             <Input
+              {...register('email')}
               autoComplete="email"
+              errorMessage={errors.email?.message}
               inputMode="email"
               label="이메일"
               leadingIcon={<EmailIcon />}
-              name="email"
-              onChange={(event) => setEmail(event.target.value)}
               placeholder="email@example.com"
               required
               type="email"
-              value={email}
             />
             <Input
+              {...register('password')}
               autoComplete="current-password"
+              errorMessage={errors.password?.message}
               label="비밀번호"
               leadingIcon={<LockIcon />}
               minLength={6}
-              name="password"
-              onChange={(event) => setPassword(event.target.value)}
               placeholder="비밀번호 입력"
               required
               trailingElement={
@@ -92,16 +106,18 @@ export function LoginPage() {
                 />
               }
               type={isPasswordVisible ? 'text' : 'password'}
-              value={password}
             />
           </div>
 
-          {feedback ? (
-            <p
-              className={`text-sm font-semibold ${!isSuccess ? 'text-[var(--color-app-brand)]' : 'text-[var(--color-app-foreground)]'}`}
-              role={isSuccess ? 'status' : 'alert'}
-            >
-              {feedback}
+          {errors.root?.server?.message ? (
+            <p className="text-sm font-semibold text-[var(--color-app-brand)]" role="alert">
+              {errors.root.server.message}
+            </p>
+          ) : null}
+
+          {successMessage ? (
+            <p className="text-sm font-semibold text-[var(--color-app-foreground)]" role="status">
+              {successMessage}
             </p>
           ) : null}
 
