@@ -5,9 +5,11 @@ import { createRoot } from 'react-dom/client';
 import { RouterProvider } from 'react-router/dom';
 import './index.css';
 import { router } from '@/app/router';
+import { AuthSessionSync } from '@/features/auth/components/AuthSessionSync';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
+    <AuthSessionSync />
     <RouterProvider router={router} />
   </StrictMode>,
 );
