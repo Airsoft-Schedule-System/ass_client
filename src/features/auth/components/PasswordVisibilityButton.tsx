@@ -12,7 +12,7 @@ export function PasswordVisibilityButton({ isVisible, onToggle }: PasswordVisibi
     <button
       aria-label={isVisible ? '비밀번호 숨기기' : '비밀번호 표시'}
       aria-pressed={isVisible}
-      className="flex size-10 items-center justify-center rounded-md text-[var(--color-app-muted)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-app-brand)]"
+      className="flex size-10 cursor-pointer items-center justify-center rounded-md text-[var(--color-app-muted)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-app-brand)]"
       onClick={onToggle}
       type="button"
     >

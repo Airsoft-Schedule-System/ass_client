@@ -1,5 +1,5 @@
 {
-  "version": "2.14",
+  "version": "2.15",
   "children": [
     {
       "type": "frame",
@@ -32,6 +32,7 @@
             "right": 1
           },
           "strokeAlignment": "inner",
+          "strokeLinejoin": "round",
           "layout": "vertical",
           "gap": 16,
           "padding": 8,
@@ -839,6 +840,7 @@
             "bottom": 1
           },
           "strokeAlignment": "inner",
+          "strokeLinejoin": "round",
           "layout": "vertical",
           "children": [
             {
@@ -3872,6 +3874,7 @@
             "bottom": 1
           },
           "strokeAlignment": "inner",
+          "strokeLinejoin": "round",
           "alignItems": "center"
         },
         {
@@ -4636,324 +4639,2202 @@
       "clip": true,
       "width": 390,
       "height": 844,
-      "fill": "#0A0A0A",
-      "layout": "none",
+      "fill": "$--background",
+      "layout": "vertical",
+      "padding": 20,
       "children": [
         {
           "type": "frame",
-          "id": "bq6W5",
-          "x": 0,
-          "y": 0,
-          "name": "Status Bar",
-          "width": 390,
-          "height": 62,
-          "layout": "none",
-          "children": [
-            {
-              "type": "text",
-              "id": "Pon41",
-              "x": 22,
-              "y": 20,
-              "name": "Status Time",
-              "fill": "#FAFAFA",
-              "content": "9:41",
-              "fontFamily": "Inter",
-              "fontSize": 14,
-              "fontWeight": "600"
-            },
-            {
-              "type": "icon",
-              "id": "shnCa",
-              "x": 302,
-              "y": 20,
-              "name": "Signal Icon",
-              "width": 18,
-              "height": 18,
-              "icon": "signal",
-              "library": "lucide",
-              "fill": "#FAFAFA"
-            },
-            {
-              "type": "icon",
-              "id": "OR9Si",
-              "x": 326,
-              "y": 20,
-              "name": "Wifi Icon",
-              "width": 18,
-              "height": 18,
-              "icon": "wifi",
-              "library": "lucide",
-              "fill": "#FAFAFA"
-            },
-            {
-              "type": "icon",
-              "id": "m8eV7",
-              "x": 350,
-              "y": 20,
-              "name": "Battery Icon",
-              "width": 22,
-              "height": 18,
-              "icon": "battery",
-              "library": "lucide",
-              "fill": "#FAFAFA"
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "B6ZeCy",
-          "x": 20,
-          "y": 112,
-          "name": "Header Layout",
-          "width": 350,
-          "height": 96,
-          "layout": "none",
-          "children": [
-            {
-              "type": "text",
-              "id": "xBjjs",
-              "x": 0,
-              "y": 0,
-              "name": "Login Title",
-              "fill": "#FAFAFA",
-              "content": "로그인",
-              "fontFamily": "Inter",
-              "fontSize": 30,
-              "fontWeight": "700"
-            },
-            {
-              "type": "text",
-              "id": "VFtl4",
-              "x": 0,
-              "y": 48,
-              "name": "Login Subtitle",
-              "fill": "#A3A3A3",
-              "textGrowth": "fixed-width",
-              "width": 350,
-              "content": "계정 정보를 입력해 주세요.",
-              "fontFamily": "Inter",
-              "fontSize": 14,
-              "fontWeight": "normal"
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "ygpPj",
-          "x": 20,
-          "y": 240,
-          "name": "Form Layout",
-          "width": 350,
-          "height": 184,
-          "layout": "none",
-          "children": [
-            {
-              "type": "text",
-              "id": "meXTD",
-              "x": 0,
-              "y": 0,
-              "name": "Email Label",
-              "fill": "#FAFAFA",
-              "content": "이메일",
-              "fontFamily": "Inter",
-              "fontSize": 13,
-              "fontWeight": "600"
-            },
-            {
-              "type": "frame",
-              "id": "aCPmq",
-              "x": 0,
-              "y": 24,
-              "name": "Email Field",
-              "width": 350,
-              "height": 54,
-              "fill": "#171717",
-              "cornerRadius": 8,
-              "stroke": "#FFFFFF1A",
-              "strokeWidth": 1,
-              "layout": "none",
-              "children": [
-                {
-                  "type": "icon",
-                  "id": "H0yLkP",
-                  "x": 16,
-                  "y": 17,
-                  "name": "Email Field Icon",
-                  "width": 20,
-                  "height": 20,
-                  "icon": "mail",
-                  "library": "lucide",
-                  "fill": "#A3A3A3"
-                },
-                {
-                  "type": "text",
-                  "id": "OsnDC",
-                  "x": 48,
-                  "y": 18,
-                  "name": "Email Placeholder",
-                  "fill": "#A3A3A3",
-                  "content": "name@company.com",
-                  "fontFamily": "Inter",
-                  "fontSize": 14,
-                  "fontWeight": "normal"
-                }
-              ]
-            },
-            {
-              "type": "text",
-              "id": "hwpWg",
-              "x": 0,
-              "y": 100,
-              "name": "Password Label",
-              "fill": "#FAFAFA",
-              "content": "비밀번호",
-              "fontFamily": "Inter",
-              "fontSize": 13,
-              "fontWeight": "600"
-            },
-            {
-              "type": "frame",
-              "id": "ZoSBv",
-              "x": 0,
-              "y": 124,
-              "name": "Password Field",
-              "width": 350,
-              "height": 54,
-              "fill": "#171717",
-              "cornerRadius": 8,
-              "stroke": "#FFFFFF1A",
-              "strokeWidth": 1,
-              "layout": "none",
-              "children": [
-                {
-                  "type": "icon",
-                  "id": "YZClV",
-                  "x": 16,
-                  "y": 17,
-                  "name": "Password Field Icon",
-                  "width": 20,
-                  "height": 20,
-                  "icon": "lock",
-                  "library": "lucide",
-                  "fill": "#A3A3A3"
-                },
-                {
-                  "type": "text",
-                  "id": "NePjt",
-                  "x": 48,
-                  "y": 18,
-                  "name": "Password Placeholder",
-                  "fill": "#A3A3A3",
-                  "content": "••••••••",
-                  "fontFamily": "Inter",
-                  "fontSize": 14,
-                  "fontWeight": "normal"
-                },
-                {
-                  "type": "icon",
-                  "id": "KSYAU",
-                  "x": 314,
-                  "y": 17,
-                  "name": "Password Eye Icon",
-                  "width": 20,
-                  "height": 20,
-                  "icon": "eye",
-                  "library": "lucide",
-                  "fill": "#A3A3A3"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "ZJHcb",
-          "x": 20,
-          "y": 464,
-          "name": "Actions Layout",
-          "width": 350,
-          "height": 54,
-          "layout": "none",
+          "id": "hioAl",
+          "name": "Login Section",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 32,
           "children": [
             {
               "type": "frame",
-              "id": "lGpzF",
-              "x": 0,
-              "y": 0,
-              "name": "Login Button",
-              "width": 350,
-              "height": 54,
-              "fill": "#FF8A00",
-              "cornerRadius": 8,
-              "effect": {
-                "type": "shadow",
-                "shadowType": "outer",
-                "color": "#FF8A0033",
-                "offset": {
-                  "x": 0,
-                  "y": 10
-                },
-                "blur": 24
-              },
-              "gap": 10,
-              "justifyContent": "center",
-              "alignItems": "center",
+              "id": "Lm89E",
+              "name": "Auth Header",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "padding": [
+                32,
+                0,
+                0,
+                0
+              ],
               "children": [
                 {
                   "type": "text",
-                  "id": "iVhQO",
-                  "name": "Login Button Label",
-                  "fill": "#0A0A0A",
+                  "id": "e3hhm",
+                  "name": "Auth Title",
+                  "fill": "$--foreground",
                   "content": "로그인",
+                  "lineHeight": 1.2,
                   "fontFamily": "Inter",
-                  "fontSize": 15,
+                  "fontSize": 30,
                   "fontWeight": "700"
                 },
                 {
-                  "type": "icon",
-                  "id": "ZCZ3N",
-                  "name": "Login Button Icon",
-                  "width": 20,
-                  "height": 20,
-                  "icon": "arrow-right",
-                  "library": "lucide",
-                  "fill": "#0A0A0A"
+                  "type": "text",
+                  "id": "XySiN",
+                  "name": "Auth Subtitle",
+                  "fill": "$--brand",
+                  "content": "Airsoft Schedule System",
+                  "lineHeight": 1.43,
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "PjIjO",
+              "name": "Login Form",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "uSCda",
+                  "name": "Fields Group",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "JdUhy",
+                      "name": "Email Field",
+                      "width": "fill_container",
+                      "height": 90,
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "Dok1E",
+                          "name": "Email Label Area",
+                          "width": "fill_container",
+                          "height": 36,
+                          "layout": "vertical",
+                          "padding": [
+                            12,
+                            4,
+                            4,
+                            4
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "dq2CQ",
+                              "name": "Email Label",
+                              "fill": "$--foreground",
+                              "content": "이메일",
+                              "lineHeight": 1.33,
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "q6er8",
+                          "name": "Email Control",
+                          "width": "fill_container",
+                          "height": 54,
+                          "fill": "$--card",
+                          "cornerRadius": 8,
+                          "stroke": "$--border",
+                          "strokeWidth": 2,
+                          "strokeAlignment": "inner",
+                          "gap": 12,
+                          "padding": [
+                            0,
+                            16
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "JBL6x",
+                              "name": "Email Icon",
+                              "width": 20,
+                              "height": 20,
+                              "icon": "mail",
+                              "library": "lucide",
+                              "fill": "$--muted-foreground"
+                            },
+                            {
+                              "type": "text",
+                              "id": "kPJCP",
+                              "name": "Email Placeholder",
+                              "fill": "$--muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "email@example.com",
+                              "lineHeight": 1.43,
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Utb3N",
+                      "name": "Password Field",
+                      "width": "fill_container",
+                      "height": 90,
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "hcDeQ",
+                          "name": "Password Label Area",
+                          "width": "fill_container",
+                          "height": 36,
+                          "layout": "vertical",
+                          "padding": [
+                            12,
+                            4,
+                            4,
+                            4
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "bLkzH",
+                              "name": "Password Label",
+                              "fill": "$--foreground",
+                              "content": "비밀번호",
+                              "lineHeight": 1.33,
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "NDxVc",
+                          "name": "Password Control",
+                          "width": "fill_container",
+                          "height": 54,
+                          "fill": "$--card",
+                          "cornerRadius": 8,
+                          "stroke": "$--border",
+                          "strokeWidth": 2,
+                          "strokeAlignment": "inner",
+                          "gap": 12,
+                          "padding": [
+                            0,
+                            16
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "INNdQ",
+                              "name": "Password Icon",
+                              "width": 20,
+                              "height": 20,
+                              "icon": "lock-keyhole",
+                              "library": "lucide",
+                              "fill": "$--muted-foreground"
+                            },
+                            {
+                              "type": "text",
+                              "id": "ZtktO",
+                              "name": "Password Placeholder",
+                              "fill": "$--muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "비밀번호 입력",
+                              "lineHeight": 1.43,
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "V85Qq",
+                              "name": "Password Visibility Target",
+                              "width": 40,
+                              "height": 40,
+                              "cornerRadius": 6,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "RoSBW",
+                                  "name": "Password Eye Icon",
+                                  "width": 20,
+                                  "height": 20,
+                                  "icon": "eye",
+                                  "library": "lucide",
+                                  "fill": "$--muted-foreground"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "AXhkY",
+                  "name": "Login Button",
+                  "width": "fill_container",
+                  "height": 54,
+                  "fill": "$--brand",
+                  "cornerRadius": 8,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#FF8A0033",
+                    "offset": {
+                      "x": 0,
+                      "y": 10
+                    },
+                    "blur": 24
+                  },
+                  "gap": 10,
+                  "padding": [
+                    0,
+                    16
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "e29hZg",
+                      "name": "Button Label",
+                      "fill": "$--background",
+                      "content": "로그인",
+                      "lineHeight": 1.43,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "icon",
+                      "id": "k6KLXG",
+                      "name": "Button Arrow Icon",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "arrow-right",
+                      "library": "lucide",
+                      "fill": "$--background"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "a9aeC",
+                  "name": "Auth Footer",
+                  "width": "fill_container",
+                  "height": 21,
+                  "gap": 4,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Fb5Pg",
+                      "name": "Footer Prompt",
+                      "fill": "$--muted-foreground",
+                      "content": "계정이 없나요?",
+                      "lineHeight": 1.43,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "bwEvk",
+                      "name": "Footer Link",
+                      "fill": "$--brand",
+                      "content": "회원가입",
+                      "lineHeight": 1.43,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    }
+                  ]
                 }
               ]
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "EjYKq",
+      "x": 3440,
+      "y": 0,
+      "name": "Mobile Sign Up",
+      "theme": {
+        "Mode": "Dark"
+      },
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "$--background",
+      "layout": "vertical",
+      "padding": 20,
+      "children": [
         {
           "type": "frame",
-          "id": "j8HLE",
-          "x": 20,
-          "y": 558,
-          "name": "Footer Layout",
-          "width": 350,
-          "height": 24,
-          "gap": 6,
-          "justifyContent": "center",
+          "id": "yIuWx",
+          "name": "Sign Up Section",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 32,
+          "children": [
+            {
+              "type": "frame",
+              "id": "g41yqU",
+              "name": "Auth Header",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "padding": [
+                32,
+                0,
+                0,
+                0
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "aER36",
+                  "name": "Auth Title",
+                  "fill": "$--foreground",
+                  "content": "회원가입",
+                  "lineHeight": 1.2,
+                  "fontFamily": "Inter",
+                  "fontSize": 30,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "Yvrhw",
+                  "name": "Auth Subtitle",
+                  "fill": "$--brand",
+                  "content": "Airsoft Schedule System",
+                  "lineHeight": 1.43,
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "fjTRB",
+              "name": "Sign Up Form",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "eI50S",
+                  "name": "Fields Group",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "iuSxv",
+                      "name": "Nickname Field",
+                      "width": "fill_container",
+                      "height": 90,
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "a9Lct",
+                          "name": "Nickname Label Area",
+                          "width": "fill_container",
+                          "height": 36,
+                          "layout": "vertical",
+                          "padding": [
+                            12,
+                            4,
+                            4,
+                            4
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "gaK9C",
+                              "name": "Nickname Label",
+                              "fill": "$--foreground",
+                              "content": "닉네임",
+                              "lineHeight": 1.33,
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "bIpEG",
+                          "name": "Nickname Control",
+                          "width": "fill_container",
+                          "height": 54,
+                          "fill": "$--card",
+                          "cornerRadius": 8,
+                          "stroke": "$--border",
+                          "strokeWidth": 2,
+                          "strokeAlignment": "inner",
+                          "gap": 12,
+                          "padding": [
+                            0,
+                            16
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "F7SGLq",
+                              "name": "Nickname Icon",
+                              "width": 20,
+                              "height": 20,
+                              "icon": "user",
+                              "library": "lucide",
+                              "fill": "$--muted-foreground"
+                            },
+                            {
+                              "type": "text",
+                              "id": "GGfsc",
+                              "name": "Nickname Placeholder",
+                              "fill": "$--muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "사용할 닉네임 입력",
+                              "lineHeight": 1.43,
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "l1Shje",
+                      "name": "Email Field",
+                      "width": "fill_container",
+                      "height": 90,
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "p6ZHT",
+                          "name": "Email Label Area",
+                          "width": "fill_container",
+                          "height": 36,
+                          "layout": "vertical",
+                          "padding": [
+                            12,
+                            4,
+                            4,
+                            4
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "FsXwJ",
+                              "name": "Email Label",
+                              "fill": "$--foreground",
+                              "content": "이메일",
+                              "lineHeight": 1.33,
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "ssUaF",
+                          "name": "Email Control",
+                          "width": "fill_container",
+                          "height": 54,
+                          "fill": "$--card",
+                          "cornerRadius": 8,
+                          "stroke": "$--border",
+                          "strokeWidth": 2,
+                          "strokeAlignment": "inner",
+                          "gap": 12,
+                          "padding": [
+                            0,
+                            16
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "I2rEaW",
+                              "name": "Email Icon",
+                              "width": 20,
+                              "height": 20,
+                              "icon": "mail",
+                              "library": "lucide",
+                              "fill": "$--muted-foreground"
+                            },
+                            {
+                              "type": "text",
+                              "id": "nleOT",
+                              "name": "Email Placeholder",
+                              "fill": "$--muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "email@example.com",
+                              "lineHeight": 1.43,
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Qt1RG",
+                      "name": "Password Field",
+                      "width": "fill_container",
+                      "height": 90,
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "Ql3zU",
+                          "name": "Password Label Area",
+                          "width": "fill_container",
+                          "height": 36,
+                          "layout": "vertical",
+                          "padding": [
+                            12,
+                            4,
+                            4,
+                            4
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "TiciA",
+                              "name": "Password Label",
+                              "fill": "$--foreground",
+                              "content": "비밀번호",
+                              "lineHeight": 1.33,
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "GomQ2",
+                          "name": "Password Control",
+                          "width": "fill_container",
+                          "height": 54,
+                          "fill": "$--card",
+                          "cornerRadius": 8,
+                          "stroke": "$--border",
+                          "strokeWidth": 2,
+                          "strokeAlignment": "inner",
+                          "gap": 12,
+                          "padding": [
+                            0,
+                            16
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "i9Sy3x",
+                              "name": "Password Icon",
+                              "width": 20,
+                              "height": 20,
+                              "icon": "lock-keyhole",
+                              "library": "lucide",
+                              "fill": "$--muted-foreground"
+                            },
+                            {
+                              "type": "text",
+                              "id": "Asgnl",
+                              "name": "Password Placeholder",
+                              "fill": "$--muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "비밀번호 입력",
+                              "lineHeight": 1.43,
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "Q3H944",
+                              "name": "Password Visibility Target",
+                              "width": 40,
+                              "height": 40,
+                              "cornerRadius": 6,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "iJsgy",
+                                  "name": "Password Eye Icon",
+                                  "width": 20,
+                                  "height": 20,
+                                  "icon": "eye",
+                                  "library": "lucide",
+                                  "fill": "$--muted-foreground"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "RbdMT",
+                      "name": "Password Confirm Field",
+                      "width": "fill_container",
+                      "height": 90,
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "L6NiiH",
+                          "name": "Password Confirm Label Area",
+                          "width": "fill_container",
+                          "height": 36,
+                          "layout": "vertical",
+                          "padding": [
+                            12,
+                            4,
+                            4,
+                            4
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "gtPW0",
+                              "name": "Password Confirm Label",
+                              "fill": "$--foreground",
+                              "content": "비밀번호 확인",
+                              "lineHeight": 1.33,
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "RzPAX",
+                          "name": "Password Confirm Control",
+                          "width": "fill_container",
+                          "height": 54,
+                          "fill": "$--card",
+                          "cornerRadius": 8,
+                          "stroke": "$--border",
+                          "strokeWidth": 2,
+                          "strokeAlignment": "inner",
+                          "gap": 12,
+                          "padding": [
+                            0,
+                            16
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "sqBwV",
+                              "name": "Password Confirm Icon",
+                              "width": 20,
+                              "height": 20,
+                              "icon": "lock-keyhole",
+                              "library": "lucide",
+                              "fill": "$--muted-foreground"
+                            },
+                            {
+                              "type": "text",
+                              "id": "U0jYlq",
+                              "name": "Password Confirm Placeholder",
+                              "fill": "$--muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "비밀번호 다시 입력",
+                              "lineHeight": 1.43,
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "lQHzm",
+                              "name": "Password Confirm Visibility Target",
+                              "width": 40,
+                              "height": 40,
+                              "cornerRadius": 6,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "as2GT",
+                                  "name": "Password Confirm Eye Icon",
+                                  "width": 20,
+                                  "height": 20,
+                                  "icon": "eye",
+                                  "library": "lucide",
+                                  "fill": "$--muted-foreground"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "D7TSLf",
+                  "name": "Sign Up Button",
+                  "width": "fill_container",
+                  "height": 54,
+                  "fill": "$--brand",
+                  "cornerRadius": 8,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#FF8A0033",
+                    "offset": {
+                      "x": 0,
+                      "y": 10
+                    },
+                    "blur": 24
+                  },
+                  "gap": 10,
+                  "padding": [
+                    0,
+                    16
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "VnKxx",
+                      "name": "Button Label",
+                      "fill": "$--background",
+                      "content": "회원가입",
+                      "lineHeight": 1.43,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "icon",
+                      "id": "mIwEt",
+                      "name": "Button Arrow Icon",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "arrow-right",
+                      "library": "lucide",
+                      "fill": "$--background"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "mSURB",
+                  "name": "Auth Footer",
+                  "width": "fill_container",
+                  "height": 21,
+                  "gap": 4,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "M0O6q",
+                      "name": "Footer Prompt",
+                      "fill": "$--muted-foreground",
+                      "content": "이미 계정이 있나요?",
+                      "lineHeight": 1.43,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "h9dp0",
+                      "name": "Footer Link",
+                      "fill": "$--brand",
+                      "content": "로그인",
+                      "lineHeight": 1.43,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "X1SE59",
+      "x": 3910,
+      "y": 0,
+      "name": "Mobile Home",
+      "theme": {
+        "Mode": "Dark"
+      },
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "$--background",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "Nbb4p",
+          "name": "Status Bar",
+          "width": "fill_container",
+          "height": 44,
+          "padding": [
+            0,
+            20
+          ],
+          "justifyContent": "space_between",
           "alignItems": "center",
           "children": [
             {
               "type": "text",
-              "id": "JZc4C",
-              "name": "Signup Prompt",
-              "fill": "#A3A3A3",
-              "content": "계정이 없나요?",
+              "id": "lb4ra",
+              "name": "Time",
+              "fill": "$--foreground",
+              "content": "9:41",
               "fontFamily": "Inter",
               "fontSize": 13,
-              "fontWeight": "normal"
+              "fontWeight": "600"
             },
             {
-              "type": "text",
-              "id": "sjSIr",
-              "name": "Signup Link",
-              "fill": "#FF8A00",
-              "content": "가입하기",
-              "fontFamily": "Inter",
-              "fontSize": 13,
-              "fontWeight": "700"
+              "type": "frame",
+              "id": "t7qfYm",
+              "name": "Status Icons",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "IwI13",
+                  "name": "Signal",
+                  "width": 15,
+                  "height": 15,
+                  "icon": "signal",
+                  "library": "lucide",
+                  "fill": "$--foreground"
+                },
+                {
+                  "type": "icon",
+                  "id": "lilhj",
+                  "name": "Wifi",
+                  "width": 15,
+                  "height": 15,
+                  "icon": "wifi",
+                  "library": "lucide",
+                  "fill": "$--foreground"
+                },
+                {
+                  "type": "icon",
+                  "id": "xRyEM",
+                  "name": "Battery",
+                  "width": 19,
+                  "height": 19,
+                  "icon": "battery-full",
+                  "library": "lucide",
+                  "fill": "$--foreground"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "qqRkL",
+          "name": "Home App Bar",
+          "width": "fill_container",
+          "height": 62,
+          "padding": [
+            4,
+            20,
+            10,
+            20
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "XNmOZ",
+              "name": "Brand",
+              "layout": "vertical",
+              "gap": 1,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "FL9go",
+                  "name": "Brand Name",
+                  "fill": "$--brand",
+                  "content": "ASS",
+                  "fontFamily": "Inter",
+                  "fontSize": 21,
+                  "fontWeight": "800"
+                },
+                {
+                  "type": "text",
+                  "id": "d2zq0",
+                  "name": "Brand Sub",
+                  "fill": "$--muted-foreground",
+                  "content": "AIRSOFT SCHEDULE",
+                  "fontFamily": "Inter",
+                  "fontSize": 9,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "LwE4Z",
+              "name": "Notifications Button",
+              "width": 40,
+              "height": 40,
+              "fill": "$--card",
+              "cornerRadius": 8,
+              "stroke": "$--border",
+              "strokeWidth": 1,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "KoVJD",
+                  "name": "Bell",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "bell",
+                  "library": "lucide",
+                  "fill": "$--foreground"
+                },
+                {
+                  "type": "ellipse",
+                  "id": "QBOJC",
+                  "layoutPosition": "absolute",
+                  "x": 25,
+                  "y": 7,
+                  "name": "Unread Dot",
+                  "fill": "$--brand",
+                  "width": 8,
+                  "height": 8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "oIaTp",
+          "name": "Home Content",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 18,
+          "padding": [
+            12,
+            20,
+            10,
+            20
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "wCkHQ",
+              "name": "Home Intro",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 5,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "eBiFc",
+                  "name": "Home Title",
+                  "fill": "$--foreground",
+                  "content": "다가오는 게임",
+                  "lineHeight": 1.15,
+                  "fontFamily": "Inter",
+                  "fontSize": 28,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "eRa6L",
+                  "name": "Home Description",
+                  "fill": "$--muted-foreground",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "가까운 일정부터 확인하고 참가를 준비하세요.",
+                  "lineHeight": 1.45,
+                  "fontFamily": "Inter",
+                  "fontSize": 13
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "QBH5d",
+              "name": "Schedule Filters",
+              "width": "fill_container",
+              "height": 42,
+              "fill": "$--card",
+              "cornerRadius": 8,
+              "gap": 3,
+              "padding": 4,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "o3OCFm",
+                  "name": "Filter 전체",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "$--brand",
+                  "cornerRadius": 6,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "G54zJ",
+                      "name": "Filter Label",
+                      "fill": "$--brand-foreground",
+                      "content": "전체",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "WsmMj",
+                  "name": "Filter 모집 중",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#00000000",
+                  "cornerRadius": 6,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "d2R7n",
+                      "name": "Filter Label",
+                      "fill": "$--muted-foreground",
+                      "content": "모집 중",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "XtD7p",
+                  "name": "Filter 내 신청",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#00000000",
+                  "cornerRadius": 6,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "on1gu",
+                      "name": "Filter Label",
+                      "fill": "$--muted-foreground",
+                      "content": "내 신청",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "j7fiNZ",
+                  "name": "Filter 내가 만든",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#00000000",
+                  "cornerRadius": 6,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n9caDp",
+                      "name": "Filter Label",
+                      "fill": "$--muted-foreground",
+                      "content": "내가 만든",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "qYFFY",
+              "name": "List Header",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "HZUhh",
+                  "name": "List Title Group",
+                  "gap": 7,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "aWfSR",
+                      "name": "List Title",
+                      "fill": "$--foreground",
+                      "content": "이번 달 일정",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "umbU5",
+                      "name": "Schedule Count",
+                      "fill": "$--muted",
+                      "cornerRadius": 6,
+                      "padding": [
+                        3,
+                        7
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "O2et4",
+                          "name": "Count Label",
+                          "fill": "$--brand",
+                          "content": "6",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Z6UNL",
+                  "name": "Sort Control",
+                  "gap": 4,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "U0y6Yj",
+                      "name": "Sort Label",
+                      "fill": "$--muted-foreground",
+                      "content": "가까운 순",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "icon",
+                      "id": "QYd90",
+                      "name": "Sort Chevron",
+                      "width": 14,
+                      "height": 14,
+                      "icon": "chevron-down",
+                      "library": "lucide",
+                      "fill": "$--muted-foreground"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "SbyqG",
+              "name": "Schedule List",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "NvYb9",
+                  "name": "Schedule Card / OP NIGHTFALL",
+                  "width": "fill_container",
+                  "height": 126,
+                  "fill": "$--card",
+                  "cornerRadius": 8,
+                  "stroke": "$--border",
+                  "strokeWidth": 1,
+                  "gap": 12,
+                  "padding": 13,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "A2MJD",
+                      "name": "Date",
+                      "width": 45,
+                      "height": "fill_container",
+                      "layout": "vertical",
+                      "gap": 1,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "ZNHPx",
+                          "name": "Day",
+                          "fill": "$--brand",
+                          "content": "09",
+                          "lineHeight": 1,
+                          "fontFamily": "Inter",
+                          "fontSize": 24,
+                          "fontWeight": "800"
+                        },
+                        {
+                          "type": "text",
+                          "id": "IvS7t",
+                          "name": "Weekday",
+                          "fill": "$--muted-foreground",
+                          "content": "SAT",
+                          "fontFamily": "Inter",
+                          "fontSize": 10,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "o0jgMF",
+                      "name": "Schedule Info",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "layout": "vertical",
+                      "gap": 7,
+                      "justifyContent": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "HMJTR",
+                          "name": "Title Row",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "h7iSI1",
+                              "name": "Game Title",
+                              "fill": "$--foreground",
+                              "content": "OP NIGHTFALL",
+                              "fontFamily": "Inter",
+                              "fontSize": 15,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "HqAju",
+                              "name": "Recruitment Status",
+                              "fill": "#FF8A0026",
+                              "cornerRadius": 5,
+                              "padding": [
+                                3,
+                                7
+                              ],
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "OzYA9",
+                                  "name": "Status Label",
+                                  "fill": "$--brand",
+                                  "content": "모집 중",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 10,
+                                  "fontWeight": "700"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "WRlt1",
+                          "name": "Field Row",
+                          "gap": 5,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "ilali",
+                              "name": "Field Icon",
+                              "width": 13,
+                              "height": 13,
+                              "icon": "map-pin",
+                              "library": "lucide",
+                              "fill": "$--muted-foreground"
+                            },
+                            {
+                              "type": "text",
+                              "id": "k9P4Qo",
+                              "name": "Field Name",
+                              "fill": "$--muted-foreground",
+                              "content": "AREA-13 · 남양주",
+                              "fontFamily": "Inter",
+                              "fontSize": 11,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "q8SZBa",
+                          "name": "Time Row",
+                          "gap": 5,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "ibH8T",
+                              "name": "Time Icon",
+                              "width": 13,
+                              "height": 13,
+                              "icon": "clock-3",
+                              "library": "lucide",
+                              "fill": "$--muted-foreground"
+                            },
+                            {
+                              "type": "text",
+                              "id": "Z53uX",
+                              "name": "Game Time",
+                              "fill": "$--muted-foreground",
+                              "content": "19:00 - 23:00",
+                              "fontFamily": "Inter",
+                              "fontSize": 11,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "DE8NK",
+                          "name": "Capacity Track",
+                          "width": "fill_container",
+                          "height": 4,
+                          "fill": "$--muted",
+                          "cornerRadius": 2,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "HuVfy",
+                              "name": "Capacity Progress",
+                              "width": 174,
+                              "height": "fill_container",
+                              "fill": "$--brand",
+                              "cornerRadius": 2
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "vZYrt",
+                          "name": "Card Footer",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "LNqZM",
+                              "name": "Capacity",
+                              "fill": "$--foreground",
+                              "content": "21 / 30명 확정",
+                              "fontFamily": "Inter",
+                              "fontSize": 10,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "YI789",
+                              "name": "User State",
+                              "fill": "$--brand",
+                              "content": "승인 대기",
+                              "fontFamily": "Inter",
+                              "fontSize": 10,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "LiZZo",
+                  "name": "Schedule Card / URBAN STRIKE",
+                  "width": "fill_container",
+                  "height": 126,
+                  "fill": "$--card",
+                  "cornerRadius": 8,
+                  "stroke": "$--border",
+                  "strokeWidth": 1,
+                  "gap": 12,
+                  "padding": 13,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "O1baxU",
+                      "name": "Date",
+                      "width": 45,
+                      "height": "fill_container",
+                      "layout": "vertical",
+                      "gap": 1,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "PRkiS",
+                          "name": "Day",
+                          "fill": "$--brand",
+                          "content": "16",
+                          "lineHeight": 1,
+                          "fontFamily": "Inter",
+                          "fontSize": 24,
+                          "fontWeight": "800"
+                        },
+                        {
+                          "type": "text",
+                          "id": "cG1bG",
+                          "name": "Weekday",
+                          "fill": "$--muted-foreground",
+                          "content": "SAT",
+                          "fontFamily": "Inter",
+                          "fontSize": 10,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "vidFI",
+                      "name": "Schedule Info",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "layout": "vertical",
+                      "gap": 7,
+                      "justifyContent": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "iBnTi",
+                          "name": "Title Row",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "JCFfR",
+                              "name": "Game Title",
+                              "fill": "$--foreground",
+                              "content": "URBAN STRIKE",
+                              "fontFamily": "Inter",
+                              "fontSize": 15,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "Paw21",
+                              "name": "Recruitment Status",
+                              "fill": "$--muted",
+                              "cornerRadius": 5,
+                              "padding": [
+                                3,
+                                7
+                              ],
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "iju6U",
+                                  "name": "Status Label",
+                                  "fill": "$--muted-foreground",
+                                  "content": "모집 마감",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 10,
+                                  "fontWeight": "700"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "L782DE",
+                          "name": "Field Row",
+                          "gap": 5,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "UhPPj",
+                              "name": "Field Icon",
+                              "width": 13,
+                              "height": 13,
+                              "icon": "map-pin",
+                              "library": "lucide",
+                              "fill": "$--muted-foreground"
+                            },
+                            {
+                              "type": "text",
+                              "id": "BCO4K",
+                              "name": "Field Name",
+                              "fill": "$--muted-foreground",
+                              "content": "폐공장 필드 · 인천",
+                              "fontFamily": "Inter",
+                              "fontSize": 11,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "EGqs3",
+                          "name": "Time Row",
+                          "gap": 5,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "VZnAZ",
+                              "name": "Time Icon",
+                              "width": 13,
+                              "height": 13,
+                              "icon": "clock-3",
+                              "library": "lucide",
+                              "fill": "$--muted-foreground"
+                            },
+                            {
+                              "type": "text",
+                              "id": "bAz16",
+                              "name": "Game Time",
+                              "fill": "$--muted-foreground",
+                              "content": "10:00 - 16:00",
+                              "fontFamily": "Inter",
+                              "fontSize": 11,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "ql5Yk",
+                          "name": "Capacity Track",
+                          "width": "fill_container",
+                          "height": 4,
+                          "fill": "$--muted",
+                          "cornerRadius": 2,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "QhNWq",
+                              "name": "Capacity Progress",
+                              "width": 248,
+                              "height": "fill_container",
+                              "fill": "$--muted-foreground",
+                              "cornerRadius": 2
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "gKCNk",
+                          "name": "Card Footer",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "mWotY",
+                              "name": "Capacity",
+                              "fill": "$--foreground",
+                              "content": "30 / 30명 확정",
+                              "fontFamily": "Inter",
+                              "fontSize": 10,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "UPEZC",
+                              "name": "User State",
+                              "fill": "$--brand",
+                              "content": "내가 만든 일정",
+                              "fontFamily": "Inter",
+                              "fontSize": 10,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "kgEJ3",
+                  "name": "Schedule Card / WOODLAND OPS",
+                  "width": "fill_container",
+                  "height": 126,
+                  "fill": "$--card",
+                  "cornerRadius": 8,
+                  "stroke": "$--border",
+                  "strokeWidth": 1,
+                  "gap": 12,
+                  "padding": 13,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "AobHh",
+                      "name": "Date",
+                      "width": 45,
+                      "height": "fill_container",
+                      "layout": "vertical",
+                      "gap": 1,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "F4Z8hl",
+                          "name": "Day",
+                          "fill": "$--brand",
+                          "content": "23",
+                          "lineHeight": 1,
+                          "fontFamily": "Inter",
+                          "fontSize": 24,
+                          "fontWeight": "800"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Kq9Sx",
+                          "name": "Weekday",
+                          "fill": "$--muted-foreground",
+                          "content": "SAT",
+                          "fontFamily": "Inter",
+                          "fontSize": 10,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "MhEW7",
+                      "name": "Schedule Info",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "layout": "vertical",
+                      "gap": 7,
+                      "justifyContent": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "hWnNI",
+                          "name": "Title Row",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "MZsh4",
+                              "name": "Game Title",
+                              "fill": "$--foreground",
+                              "content": "WOODLAND OPS",
+                              "fontFamily": "Inter",
+                              "fontSize": 15,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "brour",
+                              "name": "Recruitment Status",
+                              "fill": "#FF8A0026",
+                              "cornerRadius": 5,
+                              "padding": [
+                                3,
+                                7
+                              ],
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "uTAzT",
+                                  "name": "Status Label",
+                                  "fill": "$--brand",
+                                  "content": "모집 중",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 10,
+                                  "fontWeight": "700"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "M6hVi",
+                          "name": "Field Row",
+                          "gap": 5,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "wwyWs",
+                              "name": "Field Icon",
+                              "width": 13,
+                              "height": 13,
+                              "icon": "map-pin",
+                              "library": "lucide",
+                              "fill": "$--muted-foreground"
+                            },
+                            {
+                              "type": "text",
+                              "id": "EwV8S",
+                              "name": "Field Name",
+                              "fill": "$--muted-foreground",
+                              "content": "RANGER FIELD · 양주",
+                              "fontFamily": "Inter",
+                              "fontSize": 11,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "y4ypfE",
+                          "name": "Time Row",
+                          "gap": 5,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "Bn9p0",
+                              "name": "Time Icon",
+                              "width": 13,
+                              "height": 13,
+                              "icon": "clock-3",
+                              "library": "lucide",
+                              "fill": "$--muted-foreground"
+                            },
+                            {
+                              "type": "text",
+                              "id": "OLZsU",
+                              "name": "Game Time",
+                              "fill": "$--muted-foreground",
+                              "content": "09:00 - 15:00",
+                              "fontFamily": "Inter",
+                              "fontSize": 11,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "yxWV4",
+                          "name": "Capacity Track",
+                          "width": "fill_container",
+                          "height": 4,
+                          "fill": "$--muted",
+                          "cornerRadius": 2,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "OXpFE",
+                              "name": "Capacity Progress",
+                              "width": 124,
+                              "height": "fill_container",
+                              "fill": "$--brand",
+                              "cornerRadius": 2
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Gu7AV",
+                          "name": "Card Footer",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "Fl97p",
+                              "name": "Capacity",
+                              "fill": "$--foreground",
+                              "content": "12 / 24명 확정",
+                              "fontFamily": "Inter",
+                              "fontSize": 10,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "fb5TZ",
+                              "name": "User State",
+                              "fill": "$--muted-foreground",
+                              "content": "참가 가능",
+                              "fontFamily": "Inter",
+                              "fontSize": 10,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "NfbqZ",
+          "name": "Bottom Navigation Wrapper",
+          "width": "fill_container",
+          "height": 78,
+          "padding": [
+            6,
+            14,
+            12,
+            14
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "HSslw",
+              "name": "Bottom Navigation",
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": "#171717F2",
+              "cornerRadius": 28,
+              "stroke": "$--border",
+              "strokeWidth": 1,
+              "gap": 2,
+              "padding": [
+                5,
+                8
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "LkBJl",
+                  "name": "Nav 홈",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#FF8A001A",
+                  "cornerRadius": 22,
+                  "layout": "vertical",
+                  "gap": 2,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "WfEzy",
+                      "name": "Nav Icon Wrap",
+                      "width": 24,
+                      "height": 24,
+                      "fill": "#00000000",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "DMFpy",
+                          "name": "Nav Icon",
+                          "width": 19,
+                          "height": 19,
+                          "icon": "house",
+                          "library": "lucide",
+                          "fill": "$--brand"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "XRMI2",
+                      "name": "Nav Label",
+                      "fill": "$--brand",
+                      "content": "홈",
+                      "fontFamily": "Inter",
+                      "fontSize": 9,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "fMpRo",
+                  "name": "Nav 일정",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#00000000",
+                  "cornerRadius": 22,
+                  "layout": "vertical",
+                  "gap": 2,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "hFK6d",
+                      "name": "Nav Icon Wrap",
+                      "width": 24,
+                      "height": 24,
+                      "fill": "#00000000",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "j7QJBE",
+                          "name": "Nav Icon",
+                          "width": 19,
+                          "height": 19,
+                          "icon": "calendar-days",
+                          "library": "lucide",
+                          "fill": "$--muted-foreground"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "U12Aei",
+                      "name": "Nav Label",
+                      "fill": "$--muted-foreground",
+                      "content": "일정",
+                      "fontFamily": "Inter",
+                      "fontSize": 9,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "q6x45",
+                  "name": "Nav 만들기",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#00000000",
+                  "cornerRadius": 22,
+                  "layout": "vertical",
+                  "gap": 2,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "UJnQd",
+                      "name": "Nav Icon Wrap",
+                      "width": 30,
+                      "height": 30,
+                      "fill": "$--brand",
+                      "cornerRadius": 15,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "p4ReRb",
+                          "name": "Nav Icon",
+                          "width": 18,
+                          "height": 18,
+                          "icon": "plus",
+                          "library": "lucide",
+                          "fill": "$--brand-foreground"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "otLnn",
+                      "name": "Nav Label",
+                      "fill": "$--muted-foreground",
+                      "content": "만들기",
+                      "fontFamily": "Inter",
+                      "fontSize": 9,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "saHSf",
+                  "name": "Nav 알림",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#00000000",
+                  "cornerRadius": 22,
+                  "layout": "vertical",
+                  "gap": 2,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "fPJCY",
+                      "name": "Nav Icon Wrap",
+                      "width": 24,
+                      "height": 24,
+                      "fill": "#00000000",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "d6RDN",
+                          "name": "Nav Icon",
+                          "width": 19,
+                          "height": 19,
+                          "icon": "bell",
+                          "library": "lucide",
+                          "fill": "$--muted-foreground"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "oAG2l",
+                      "name": "Nav Label",
+                      "fill": "$--muted-foreground",
+                      "content": "알림",
+                      "fontFamily": "Inter",
+                      "fontSize": 9,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "knHf4",
+                  "name": "Nav 내 정보",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#00000000",
+                  "cornerRadius": 22,
+                  "layout": "vertical",
+                  "gap": 2,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "CJYR4",
+                      "name": "Nav Icon Wrap",
+                      "width": 24,
+                      "height": 24,
+                      "fill": "#00000000",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "K5YmAS",
+                          "name": "Nav Icon",
+                          "width": 19,
+                          "height": 19,
+                          "icon": "user-round",
+                          "library": "lucide",
+                          "fill": "$--muted-foreground"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "MOrHh",
+                      "name": "Nav Label",
+                      "fill": "$--muted-foreground",
+                      "content": "내 정보",
+                      "fontFamily": "Inter",
+                      "fontSize": 9,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }

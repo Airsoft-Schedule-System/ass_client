@@ -41,3 +41,33 @@ body,
   min-height: 100vh;
   min-height: 100dvh;
 }
+
+/* 회원가입 완료 문구가 위에서 아래 순서로 자연스럽게 나타나도록 설정 */
+@keyframes welcome-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.welcome-fade-in {
+  opacity: 0;
+  animation: welcome-fade-in 500ms ease-out forwards;
+}
+
+.welcome-fade-in-delay {
+  animation-delay: 350ms;
+}
+
+/* 모션 축소를 요청한 사용자는 애니메이션 없이 문구를 바로 확인 */
+@media (prefers-reduced-motion: reduce) {
+  .welcome-fade-in {
+    opacity: 1;
+    animation: none;
+  }
+}

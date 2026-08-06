@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router';
-import { signUp } from '@/api/auth/auth';
+import { signOut, signUp } from '@/api/auth/auth';
 import { AuthAppError } from '@/api/auth/auth.error';
 import { MobileLayout } from '@/app/layouts/MobileLayout';
 import { Button } from '@/components/common/Button';
@@ -14,19 +14,24 @@ import { EmailIcon } from '@/components/icons/EmailIcon';
 import { LockIcon } from '@/components/icons/LockIcon';
 import { UserIcon } from '@/components/icons/UserIcon';
 import { PasswordVisibilityButton } from '@/features/auth/components/PasswordVisibilityButton';
+import { SignUpWelcome } from '@/features/auth/components/SignUpWelcome';
 import { signUpSchema } from '@/features/auth/schemas/signup.schema';
 import type { SignUpFormValues } from '@/features/auth/schemas/signup.schema';
+
+type SignUpCompletion = {
+  displayName: string; // Welcome 화면에 표시할 가입자 닉네임
+  requiresEmailConfirmation: boolean; // 로그인 전에 이메일 인증이 필요한지 여부
+};
 
 export function SignUpPage() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isPasswordConfirmVisible, setIsPasswordConfirmVisible] = useState(false);
-  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [completion, setCompletion] = useState<SignUpCompletion | null>(null);
   const {
     clearErrors,
     formState: { errors, isSubmitting },
     handleSubmit,
     register,
-    resetField,
     setError,
   } = useForm<SignUpFormValues>({
     defaultValues: {
@@ -41,7 +46,6 @@ export function SignUpPage() {
   // 검증을 통과한 값으로 Supabase 회원가입을 요청
   async function handleSignUp({ displayName, email, password }: SignUpFormValues) {
     clearErrors('root.server');
-    setSuccessMessage(null);
 
     try {
       const { session } = await signUp({
@@ -50,11 +54,12 @@ export function SignUpPage() {
         password,
       });
 
-      resetField('password');
-      resetField('passwordConfirm');
-      setSuccessMessage(
-        session ? '회원가입이 완료되었습니다.' : '인증 메일을 보냈습니다. 이메일을 확인해 주세요.',
-      );
+      if (session) await signOut();
+
+      setCompletion({
+        displayName,
+        requiresEmailConfirmation: !session,
+      });
     } catch (error) {
       setError('root.server', {
         message:
@@ -64,6 +69,17 @@ export function SignUpPage() {
         type: 'server',
       });
     }
+  }
+
+  if (completion) {
+    return (
+      <MobileLayout>
+        <SignUpWelcome
+          displayName={completion.displayName}
+          requiresEmailConfirmation={completion.requiresEmailConfirmation}
+        />
+      </MobileLayout>
+    );
   }
 
   return (
@@ -76,11 +92,7 @@ export function SignUpPage() {
           </p>
         </header>
 
-        <form
-          className="mt-8 flex flex-col gap-6"
-          noValidate
-          onSubmit={handleSubmit(handleSignUp, () => setSuccessMessage(null))}
-        >
+        <form className="mt-8 flex flex-col gap-6" noValidate onSubmit={handleSubmit(handleSignUp)}>
           <div className="flex flex-col gap-2">
             <Input
               {...register('displayName')}
@@ -142,12 +154,6 @@ export function SignUpPage() {
           {errors.root?.server?.message ? (
             <p className="text-sm font-semibold text-[var(--color-app-brand)]" role="alert">
               {errors.root.server.message}
-            </p>
-          ) : null}
-
-          {successMessage ? (
-            <p className="text-sm font-semibold text-[var(--color-app-foreground)]" role="status">
-              {successMessage}
             </p>
           ) : null}
 
