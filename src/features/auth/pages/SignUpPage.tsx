@@ -3,11 +3,12 @@
 import { useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router';
+import { Link, Navigate } from 'react-router';
 import { signOut, signUp } from '@/api/auth/auth';
-import { AuthAppError } from '@/api/auth/auth.error';
+import { toAuthError } from '@/api/auth/auth.error';
 import { MobileLayout } from '@/app/layouts/MobileLayout';
 import { Button } from '@/components/common/Button';
+import { Header } from '@/components/common/Header';
 import { Input } from '@/components/common/Input';
 import { ArrowRightIcon } from '@/components/icons/ArrowRightIcon';
 import { EmailIcon } from '@/components/icons/EmailIcon';
@@ -17,6 +18,7 @@ import { PasswordVisibilityButton } from '@/features/auth/components/PasswordVis
 import { SignUpWelcome } from '@/features/auth/components/SignUpWelcome';
 import { signUpSchema } from '@/features/auth/schemas/signup.schema';
 import type { SignUpFormValues } from '@/features/auth/schemas/signup.schema';
+import { useAuthStore } from '@/features/auth/stores/auth.store';
 
 type SignUpCompletion = {
   displayName: string; // Welcome 화면에 표시할 가입자 닉네임
@@ -26,7 +28,9 @@ type SignUpCompletion = {
 export function SignUpPage() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isPasswordConfirmVisible, setIsPasswordConfirmVisible] = useState(false);
+  const [isSigningUp, setIsSigningUp] = useState(false);
   const [completion, setCompletion] = useState<SignUpCompletion | null>(null);
+  const authStatus = useAuthStore((state) => state.status);
   const {
     clearErrors,
     formState: { errors, isSubmitting },
@@ -46,6 +50,7 @@ export function SignUpPage() {
   // 검증을 통과한 값으로 Supabase 회원가입을 요청
   async function handleSignUp({ displayName, email, password }: SignUpFormValues) {
     clearErrors('root.server');
+    setIsSigningUp(true);
 
     try {
       const { session } = await signUp({
@@ -61,15 +66,20 @@ export function SignUpPage() {
         requiresEmailConfirmation: !session,
       });
     } catch (error) {
+      setIsSigningUp(false);
       setError('root.server', {
-        message:
-          error instanceof AuthAppError
-            ? error.message
-            : '회원가입 중 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.',
+        message: toAuthError(error).message,
         type: 'server',
       });
     }
   }
+
+  // 기존 로그인 사용자는 회원가입 화면 대신 메인 화면을 사용
+  if (authStatus === 'authenticated' && !isSigningUp) {
+    return <Navigate replace to="/" />;
+  }
+
+  if (authStatus === 'initializing') return null;
 
   if (completion) {
     return (
@@ -85,12 +95,7 @@ export function SignUpPage() {
   return (
     <MobileLayout>
       <section className="flex h-full min-h-0 flex-col overflow-y-auto">
-        <header className="flex flex-col gap-1 pt-8">
-          <h1 className="text-3xl font-bold text-[var(--color-app-foreground)]">회원가입</h1>
-          <p className="text-sm font-semibold text-[var(--color-app-brand)]">
-            Airsoft Schedule System
-          </p>
-        </header>
+        <Header description="Airsoft Schedule System" title="회원가입" />
 
         <form className="mt-8 flex flex-col gap-6" noValidate onSubmit={handleSubmit(handleSignUp)}>
           <div className="flex flex-col gap-2">
@@ -158,7 +163,7 @@ export function SignUpPage() {
           ) : null}
 
           <Button disabled={isSubmitting} trailingIcon={<ArrowRightIcon />} type="submit">
-            {isSubmitting ? '가입 중...' : '회원가입'}
+            {isSubmitting ? '가입 중' : '회원가입'}
           </Button>
 
           <p className="text-center text-sm text-[var(--color-app-muted)]">

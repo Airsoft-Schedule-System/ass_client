@@ -3,11 +3,12 @@
 import { useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { signIn } from '@/api/auth/auth';
-import { AuthAppError } from '@/api/auth/auth.error';
+import { toAuthError } from '@/api/auth/auth.error';
 import { MobileLayout } from '@/app/layouts/MobileLayout';
 import { Button } from '@/components/common/Button';
+import { Header } from '@/components/common/Header';
 import { Input } from '@/components/common/Input';
 import { ArrowRightIcon } from '@/components/icons/ArrowRightIcon';
 import { EmailIcon } from '@/components/icons/EmailIcon';
@@ -15,16 +16,17 @@ import { LockIcon } from '@/components/icons/LockIcon';
 import { PasswordVisibilityButton } from '@/features/auth/components/PasswordVisibilityButton';
 import { loginSchema } from '@/features/auth/schemas/login.schema';
 import type { LoginFormValues } from '@/features/auth/schemas/login.schema';
+import { useAuthStore } from '@/features/auth/stores/auth.store';
 
 export function LoginPage() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const navigate = useNavigate();
+  const setAuthUser = useAuthStore((state) => state.setAuthUser);
   const {
     clearErrors,
     formState: { errors, isSubmitting },
     handleSubmit,
     register,
-    resetField,
     setError,
   } = useForm<LoginFormValues>({
     defaultValues: {
@@ -37,27 +39,15 @@ export function LoginPage() {
   // 검증을 통과한 값으로 Supabase 세션을 생성
   async function handleLogin({ email, password }: LoginFormValues) {
     clearErrors('root.server');
-    setSuccessMessage(null);
 
     try {
-      const { session } = await signIn(email, password);
+      const { user } = await signIn(email, password);
 
-      if (!session) {
-        setError('root.server', {
-          message: '로그인 세션을 만들지 못했습니다. 다시 시도해 주세요.',
-          type: 'server',
-        });
-        return;
-      }
-
-      resetField('password');
-      setSuccessMessage('로그인되었습니다.');
+      setAuthUser(user);
+      navigate('/', { replace: true });
     } catch (error) {
       setError('root.server', {
-        message:
-          error instanceof AuthAppError
-            ? error.message
-            : '로그인 중 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.',
+        message: toAuthError(error).message,
         type: 'server',
       });
     }
@@ -66,18 +56,9 @@ export function LoginPage() {
   return (
     <MobileLayout>
       <section className="flex h-full min-h-0 flex-col overflow-y-auto">
-        <header className="flex flex-col gap-1 pt-8">
-          <h1 className="text-3xl font-bold text-[var(--color-app-foreground)]">로그인</h1>
-          <p className="text-sm font-semibold text-[var(--color-app-brand)]">
-            Airsoft Schedule System
-          </p>
-        </header>
+        <Header description="Airsoft Schedule System" title="로그인" />
 
-        <form
-          className="mt-8 flex flex-col gap-6"
-          noValidate
-          onSubmit={handleSubmit(handleLogin, () => setSuccessMessage(null))}
-        >
+        <form className="mt-8 flex flex-col gap-6" noValidate onSubmit={handleSubmit(handleLogin)}>
           <div className="flex flex-col gap-2">
             <Input
               {...register('email')}
@@ -115,14 +96,8 @@ export function LoginPage() {
             </p>
           ) : null}
 
-          {successMessage ? (
-            <p className="text-sm font-semibold text-[var(--color-app-foreground)]" role="status">
-              {successMessage}
-            </p>
-          ) : null}
-
           <Button disabled={isSubmitting} trailingIcon={<ArrowRightIcon />} type="submit">
-            {isSubmitting ? '로그인 중...' : '로그인'}
+            {isSubmitting ? '로그인 중' : '로그인'}
           </Button>
 
           <p className="text-center text-sm text-[var(--color-app-muted)]">

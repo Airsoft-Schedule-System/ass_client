@@ -1,0 +1,46 @@
+// 로그인 이후 로그아웃 기능을 제공하는 모바일 메인 화면
+
+import { useState } from 'react';
+import { signOut } from '@/api/auth/auth';
+import { toAuthError } from '@/api/auth/auth.error';
+import { Header } from '@/components/common/Header';
+import { MobileLayout } from '@/app/layouts/MobileLayout';
+import { Button } from '@/components/common/Button';
+import { useAuthStore } from '@/features/auth/stores/auth.store';
+
+export function MainPage() {
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
+  const setAuthUser = useAuthStore((state) => state.setAuthUser);
+
+  // Supabase 세션을 종료하고 인증 가드가 로그인 화면으로 전환하도록 상태를 비움
+  async function handleLogout() {
+    setErrorMessage(null);
+    setIsLoggingOut(true);
+
+    try {
+      await signOut();
+      setAuthUser(null);
+    } catch (error) {
+      setErrorMessage(toAuthError(error).message);
+      setIsLoggingOut(false);
+    }
+  }
+
+  return (
+    <MobileLayout>
+      <Header title="메인 화면" description="Airsoft Schedule System" />
+      <div className="flex h-full flex-col gap-4 pt-8">
+        {errorMessage ? (
+          <p className="text-sm font-semibold text-[var(--color-app-brand)]" role="alert">
+            {errorMessage}
+          </p>
+        ) : null}
+
+        <Button disabled={isLoggingOut} onClick={handleLogout}>
+          {isLoggingOut ? '로그아웃 중' : '로그아웃'}
+        </Button>
+      </div>
+    </MobileLayout>
+  );
+}
