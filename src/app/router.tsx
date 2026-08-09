@@ -1,9 +1,11 @@
 // URL 경로와 React 화면 컴포넌트의 연결 관계를 정의
 
-import { Navigate, createBrowserRouter } from 'react-router';
+import { createBrowserRouter } from 'react-router';
 import App from '@/App';
+import { AuthGuard } from '@/features/auth/components/AuthGuard';
 import { LoginPage } from '@/features/auth/pages/LoginPage';
 import { SignUpPage } from '@/features/auth/pages/SignUpPage';
+import { MainPage } from '@/features/main/pages/MainPage';
 
 export const router = createBrowserRouter([
   {
@@ -11,12 +13,22 @@ export const router = createBrowserRouter([
     Component: App,
     children: [
       {
-        index: true,
-        element: <Navigate replace to="/login" />,
+        element: <AuthGuard access="authenticated" />,
+        children: [
+          {
+            index: true,
+            Component: MainPage,
+          },
+        ],
       },
       {
-        path: 'login',
-        Component: LoginPage,
+        element: <AuthGuard access="guest" />,
+        children: [
+          {
+            path: 'login',
+            Component: LoginPage,
+          },
+        ],
       },
       {
         path: 'signup',
