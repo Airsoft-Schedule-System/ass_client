@@ -46,7 +46,7 @@ export function toAuthError(error: unknown): AuthAppError {
     }
 
     if (error.code === 'weak_password') {
-      return new AuthAppError('weak_password', '더 안전한 비밀번호를 입력해 주세요.', error);
+      return new AuthAppError('weak_password', '더 안전한 비밀번호를 입력해 주세요.', error); //TODO: 비밀번호 정책 수립시 규칙에 맞는 메시지로 변경
     }
 
     if (
