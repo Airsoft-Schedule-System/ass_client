@@ -41,14 +41,6 @@ export async function signOut() {
   if (error) throw toAuthError(error);
 }
 
-// 브라우저 저장소에서 복구한 현재 세션 조회
-export async function getSession(): Promise<Session | null> {
-  const { data, error } = await supabase.auth.getSession();
-
-  if (error) throw toAuthError(error);
-  return data.session;
-}
-
 // Supabase 서버 검증을 거친 현재 사용자 조회
 export async function getCurrentUser(): Promise<User | null> {
   const { data, error } = await supabase.auth.getUser();

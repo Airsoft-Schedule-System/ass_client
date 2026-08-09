@@ -2,51 +2,21 @@
 
 import { create } from 'zustand';
 import type { User } from '@supabase/supabase-js';
-import { getSession, onAuthStateChange } from '@/api/auth/auth';
+
+type AuthStatus = 'initializing' | 'authenticated' | 'unauthenticated';
 
 type AuthStore = {
   user: User | null; // 현재 Supabase 세션에 로그인된 사용자
-  isLoading: boolean; // 저장된 세션을 처음 확인하고 있는지 여부
+  status: AuthStatus; // 세션 확인 중·로그인·비로그인 상태
+  setAuthUser: (user: User | null) => void; // 확인된 사용자와 인증 상태를 함께 반영하는 함수
 };
 
-export const useAuthStore = create<AuthStore>()(() => ({
+export const useAuthStore = create<AuthStore>()((set) => ({
   user: null,
-  isLoading: true,
+  status: 'initializing',
+  setAuthUser: (user) =>
+    set({
+      user,
+      status: user ? 'authenticated' : 'unauthenticated',
+    }),
 }));
-
-// 저장된 세션을 복구하고 이후 인증 변경을 store에 동기화
-export function startAuthSessionSync() {
-  let isActive = true;
-
-  async function restoreSession() {
-    try {
-      const session = await getSession();
-
-      if (isActive) {
-        useAuthStore.setState({
-          user: session?.user ?? null,
-          isLoading: false,
-        });
-      }
-    } catch (error) {
-      if (isActive) useAuthStore.setState({ user: null, isLoading: false });
-      console.error('Supabase 세션을 복구하지 못했습니다.', error);
-    }
-  }
-
-  void restoreSession();
-
-  const subscription = onAuthStateChange((_event, session) => {
-    if (!isActive) return;
-
-    useAuthStore.setState({
-      user: session?.user ?? null,
-      isLoading: false,
-    });
-  });
-
-  return () => {
-    isActive = false;
-    subscription.unsubscribe();
-  };
-}
