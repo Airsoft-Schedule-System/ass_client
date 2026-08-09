@@ -5718,7 +5718,8 @@
                   "content": "가까운 일정부터 확인하고 참가를 준비하세요.",
                   "lineHeight": 1.45,
                   "fontFamily": "Inter",
-                  "fontSize": 13
+                  "fontSize": 13,
+                  "fontWeight": "normal"
                 }
               ]
             },
@@ -6833,6 +6834,594 @@
                       "fontWeight": "600"
                     }
                   ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "y2eyO",
+      "x": 4380,
+      "y": 0,
+      "name": "Mobile Sign Up Welcome",
+      "theme": {
+        "Mode": "Dark"
+      },
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "$--background",
+      "layout": "vertical",
+      "padding": 20,
+      "children": [
+        {
+          "type": "frame",
+          "id": "dKFqh",
+          "name": "Sign Up Section",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 24,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "FTYfj",
+              "name": "Success Badge",
+              "width": 64,
+              "height": 64,
+              "fill": "$--card",
+              "cornerRadius": 32,
+              "stroke": "$--brand",
+              "strokeWidth": 2,
+              "strokeAlignment": "inner",
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#FF8A0033",
+                "offset": {
+                  "x": 0,
+                  "y": 10
+                },
+                "blur": 24
+              },
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "vJp2h",
+                  "name": "Check Icon",
+                  "width": 32,
+                  "height": 32,
+                  "icon": "check",
+                  "library": "lucide",
+                  "fill": "$--brand"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "D1YdGA",
+              "name": "Welcome Copy",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "p4wDNb",
+                  "name": "Fade In 1 / Welcome Title",
+                  "fill": "$--foreground",
+                  "content": "닉네임님, 환영합니다",
+                  "lineHeight": 1.2,
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 30,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "l8xJq",
+                  "name": "Fade In 2 / Welcome Message",
+                  "fill": "$--muted-foreground",
+                  "textGrowth": "fixed-width",
+                  "width": 310,
+                  "content": "가입이 완료되었습니다. 이제 새로운 게임 일정을 확인하고 참여를 시작해 보세요.",
+                  "lineHeight": 1.7,
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "dWTWX",
+                  "x": 86,
+                  "y": 75,
+                  "name": "Redirect Message",
+                  "enabled": false,
+                  "fill": "$--brand",
+                  "content": "2초 후 로그인 화면으로 이동합니다.",
+                  "lineHeight": 1.43,
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "rAdsQ",
+              "x": 0,
+              "y": 124,
+              "name": "Sign Up Form",
+              "enabled": false,
+              "width": 350,
+              "layout": "vertical",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "l6hjJ",
+                  "name": "Fields Group",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "P2ETit",
+                      "name": "Nickname Field",
+                      "width": "fill_container",
+                      "height": 90,
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "CaNT5",
+                          "name": "Nickname Label Area",
+                          "width": "fill_container",
+                          "height": 36,
+                          "layout": "vertical",
+                          "padding": [
+                            12,
+                            4,
+                            4,
+                            4
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "yRTC0",
+                              "name": "Nickname Label",
+                              "fill": "$--foreground",
+                              "content": "닉네임",
+                              "lineHeight": 1.33,
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "phsFo",
+                          "name": "Nickname Control",
+                          "width": "fill_container",
+                          "height": 54,
+                          "fill": "$--card",
+                          "cornerRadius": 8,
+                          "stroke": "$--border",
+                          "strokeWidth": 2,
+                          "strokeAlignment": "inner",
+                          "gap": 12,
+                          "padding": [
+                            0,
+                            16
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "ISZPe",
+                              "name": "Nickname Icon",
+                              "width": 20,
+                              "height": 20,
+                              "icon": "user",
+                              "library": "lucide",
+                              "fill": "$--muted-foreground"
+                            },
+                            {
+                              "type": "text",
+                              "id": "o3lv1",
+                              "name": "Nickname Placeholder",
+                              "fill": "$--muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "사용할 닉네임 입력",
+                              "lineHeight": 1.43,
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "O4IOrT",
+                      "name": "Email Field",
+                      "width": "fill_container",
+                      "height": 90,
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "gxqns",
+                          "name": "Email Label Area",
+                          "width": "fill_container",
+                          "height": 36,
+                          "layout": "vertical",
+                          "padding": [
+                            12,
+                            4,
+                            4,
+                            4
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "RwkBU",
+                              "name": "Email Label",
+                              "fill": "$--foreground",
+                              "content": "이메일",
+                              "lineHeight": 1.33,
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "SxXpF",
+                          "name": "Email Control",
+                          "width": "fill_container",
+                          "height": 54,
+                          "fill": "$--card",
+                          "cornerRadius": 8,
+                          "stroke": "$--border",
+                          "strokeWidth": 2,
+                          "strokeAlignment": "inner",
+                          "gap": 12,
+                          "padding": [
+                            0,
+                            16
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "l18TZs",
+                              "name": "Email Icon",
+                              "width": 20,
+                              "height": 20,
+                              "icon": "mail",
+                              "library": "lucide",
+                              "fill": "$--muted-foreground"
+                            },
+                            {
+                              "type": "text",
+                              "id": "wnlP4",
+                              "name": "Email Placeholder",
+                              "fill": "$--muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "email@example.com",
+                              "lineHeight": 1.43,
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "V84pH",
+                      "name": "Password Field",
+                      "width": "fill_container",
+                      "height": 90,
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "P1Sx4",
+                          "name": "Password Label Area",
+                          "width": "fill_container",
+                          "height": 36,
+                          "layout": "vertical",
+                          "padding": [
+                            12,
+                            4,
+                            4,
+                            4
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "OkU9Q",
+                              "name": "Password Label",
+                              "fill": "$--foreground",
+                              "content": "비밀번호",
+                              "lineHeight": 1.33,
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "ExKaK",
+                          "name": "Password Control",
+                          "width": "fill_container",
+                          "height": 54,
+                          "fill": "$--card",
+                          "cornerRadius": 8,
+                          "stroke": "$--border",
+                          "strokeWidth": 2,
+                          "strokeAlignment": "inner",
+                          "gap": 12,
+                          "padding": [
+                            0,
+                            16
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "e2wPF6",
+                              "name": "Password Icon",
+                              "width": 20,
+                              "height": 20,
+                              "icon": "lock-keyhole",
+                              "library": "lucide",
+                              "fill": "$--muted-foreground"
+                            },
+                            {
+                              "type": "text",
+                              "id": "LodOd",
+                              "name": "Password Placeholder",
+                              "fill": "$--muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "비밀번호 입력",
+                              "lineHeight": 1.43,
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "HQZfQ",
+                              "name": "Password Visibility Target",
+                              "width": 40,
+                              "height": 40,
+                              "cornerRadius": 6,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "vu5Cp",
+                                  "name": "Password Eye Icon",
+                                  "width": 20,
+                                  "height": 20,
+                                  "icon": "eye",
+                                  "library": "lucide",
+                                  "fill": "$--muted-foreground"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "YSGJA",
+                      "name": "Password Confirm Field",
+                      "width": "fill_container",
+                      "height": 90,
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "BSdg8",
+                          "name": "Password Confirm Label Area",
+                          "width": "fill_container",
+                          "height": 36,
+                          "layout": "vertical",
+                          "padding": [
+                            12,
+                            4,
+                            4,
+                            4
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "p89ezz",
+                              "name": "Password Confirm Label",
+                              "fill": "$--foreground",
+                              "content": "비밀번호 확인",
+                              "lineHeight": 1.33,
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "GkHwH",
+                          "name": "Password Confirm Control",
+                          "width": "fill_container",
+                          "height": 54,
+                          "fill": "$--card",
+                          "cornerRadius": 8,
+                          "stroke": "$--border",
+                          "strokeWidth": 2,
+                          "strokeAlignment": "inner",
+                          "gap": 12,
+                          "padding": [
+                            0,
+                            16
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "fP6FG",
+                              "name": "Password Confirm Icon",
+                              "width": 20,
+                              "height": 20,
+                              "icon": "lock-keyhole",
+                              "library": "lucide",
+                              "fill": "$--muted-foreground"
+                            },
+                            {
+                              "type": "text",
+                              "id": "L3esb",
+                              "name": "Password Confirm Placeholder",
+                              "fill": "$--muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "비밀번호 다시 입력",
+                              "lineHeight": 1.43,
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "SyGpx",
+                              "name": "Password Confirm Visibility Target",
+                              "width": 40,
+                              "height": 40,
+                              "cornerRadius": 6,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "M2DsT",
+                                  "name": "Password Confirm Eye Icon",
+                                  "width": 20,
+                                  "height": 20,
+                                  "icon": "eye",
+                                  "library": "lucide",
+                                  "fill": "$--muted-foreground"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "V7bup",
+                  "name": "Auth Footer",
+                  "width": "fill_container",
+                  "height": 21,
+                  "gap": 4,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "s5P14e",
+                      "name": "Footer Prompt",
+                      "fill": "$--muted-foreground",
+                      "content": "이미 계정이 있나요?",
+                      "lineHeight": 1.43,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "KFgXQ",
+                      "name": "Footer Link",
+                      "fill": "$--brand",
+                      "content": "로그인",
+                      "lineHeight": 1.43,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "d4zUE",
+              "name": "Always Visible / Login Button",
+              "width": "fill_container",
+              "height": 54,
+              "fill": "$--brand",
+              "cornerRadius": 8,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#FF8A0033",
+                "offset": {
+                  "x": 0,
+                  "y": 10
+                },
+                "blur": 24
+              },
+              "gap": 10,
+              "padding": [
+                0,
+                16
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "QoFTp",
+                  "name": "Button Label",
+                  "fill": "$--background",
+                  "content": "로그인하러 가기",
+                  "lineHeight": 1.43,
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "icon",
+                  "id": "N6sDGi",
+                  "name": "Button Arrow Icon",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "arrow-right",
+                  "library": "lucide",
+                  "fill": "$--background"
                 }
               ]
             }
