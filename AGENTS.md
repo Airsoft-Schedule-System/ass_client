@@ -90,3 +90,4 @@
 - 테스트 도구가 없을 때 임의 설정을 추가하지 않고 도입 후 인증 같은 핵심 흐름부터 검증
 - 하나의 커밋에는 하나의 목적만 담고 사용자 변경이나 관련 없는 파일을 포함하지 않기
 - 커밋은 Conventional Commits를 사용하며 허용 타입은 `feat`, `fix`, `refactor`, `perf`, `style`, `test`, `docs`, `build`, `ci`, `chore`, `revert`
+- 커밋 제목은 `type: subject` 형식을 사용하고 `type(scope): subject`처럼 괄호 scope를 작성하지 않기
