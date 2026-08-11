@@ -6,6 +6,7 @@ import { AuthGuard } from '@/features/auth/components/AuthGuard';
 import { LoginPage } from '@/features/auth/pages/LoginPage';
 import { SignUpPage } from '@/features/auth/pages/SignUpPage';
 import { MainPage } from '@/features/main/pages/MainPage';
+import { ProfileSetupPage } from '@/features/profile/pages/ProfileSetupPage';
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ export const router = createBrowserRouter([
           {
             index: true,
             Component: MainPage,
+          },
+          {
+            path: 'profile/setup',
+            Component: ProfileSetupPage,
           },
         ],
       },
