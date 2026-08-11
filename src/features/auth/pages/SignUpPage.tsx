@@ -8,7 +8,6 @@ import { signOut, signUp } from '@/api/auth/auth';
 import { toAuthError } from '@/api/auth/auth.error';
 import { MobileLayout } from '@/app/layouts/MobileLayout';
 import { Button } from '@/components/common/Button';
-import { Header } from '@/components/common/Header';
 import { Input } from '@/components/common/Input';
 import { ArrowRightIcon } from '@/components/icons/ArrowRightIcon';
 import { EmailIcon } from '@/components/icons/EmailIcon';
@@ -93,90 +92,90 @@ export function SignUpPage() {
   }
 
   return (
-    <MobileLayout>
-      <section className="flex h-full min-h-0 flex-col overflow-y-auto">
-        <Header description="Airsoft Schedule System" title="회원가입" />
+    <MobileLayout description="Airsoft Schedule System" title="회원가입">
+      <form
+        className="mt-8 flex min-h-0 flex-1 flex-col gap-6 overflow-y-auto"
+        noValidate
+        onSubmit={handleSubmit(handleSignUp)}
+      >
+        <div className="flex flex-col gap-2">
+          <Input
+            {...register('displayName')}
+            autoComplete="nickname"
+            errorMessage={errors.displayName?.message}
+            label="닉네임"
+            leadingIcon={<UserIcon />}
+            maxLength={30}
+            placeholder="사용할 닉네임 입력"
+            required
+          />
+          <Input
+            {...register('email')}
+            autoComplete="email"
+            errorMessage={errors.email?.message}
+            inputMode="email"
+            label="이메일"
+            leadingIcon={<EmailIcon />}
+            placeholder="email@example.com"
+            required
+            type="email"
+          />
+          <Input
+            {...register('password')}
+            autoComplete="new-password"
+            errorMessage={errors.password?.message}
+            label="비밀번호"
+            leadingIcon={<LockIcon />}
+            minLength={6}
+            placeholder="비밀번호 입력"
+            required
+            trailingElement={
+              <PasswordVisibilityButton
+                isVisible={isPasswordVisible}
+                onToggle={() => setIsPasswordVisible((currentValue) => !currentValue)}
+              />
+            }
+            type={isPasswordVisible ? 'text' : 'password'}
+          />
+          <Input
+            {...register('passwordConfirm')}
+            autoComplete="new-password"
+            errorMessage={errors.passwordConfirm?.message}
+            label="비밀번호 확인"
+            leadingIcon={<LockIcon />}
+            minLength={6}
+            placeholder="비밀번호 다시 입력"
+            required
+            trailingElement={
+              <PasswordVisibilityButton
+                isVisible={isPasswordConfirmVisible}
+                onToggle={() => setIsPasswordConfirmVisible((currentValue) => !currentValue)}
+              />
+            }
+            type={isPasswordConfirmVisible ? 'text' : 'password'}
+          />
+        </div>
 
-        <form className="mt-8 flex flex-col gap-6" noValidate onSubmit={handleSubmit(handleSignUp)}>
-          <div className="flex flex-col gap-2">
-            <Input
-              {...register('displayName')}
-              autoComplete="nickname"
-              errorMessage={errors.displayName?.message}
-              label="닉네임"
-              leadingIcon={<UserIcon />}
-              maxLength={30}
-              placeholder="사용할 닉네임 입력"
-              required
-            />
-            <Input
-              {...register('email')}
-              autoComplete="email"
-              errorMessage={errors.email?.message}
-              inputMode="email"
-              label="이메일"
-              leadingIcon={<EmailIcon />}
-              placeholder="email@example.com"
-              required
-              type="email"
-            />
-            <Input
-              {...register('password')}
-              autoComplete="new-password"
-              errorMessage={errors.password?.message}
-              label="비밀번호"
-              leadingIcon={<LockIcon />}
-              minLength={6}
-              placeholder="비밀번호 입력"
-              required
-              trailingElement={
-                <PasswordVisibilityButton
-                  isVisible={isPasswordVisible}
-                  onToggle={() => setIsPasswordVisible((currentValue) => !currentValue)}
-                />
-              }
-              type={isPasswordVisible ? 'text' : 'password'}
-            />
-            <Input
-              {...register('passwordConfirm')}
-              autoComplete="new-password"
-              errorMessage={errors.passwordConfirm?.message}
-              label="비밀번호 확인"
-              leadingIcon={<LockIcon />}
-              minLength={6}
-              placeholder="비밀번호 다시 입력"
-              required
-              trailingElement={
-                <PasswordVisibilityButton
-                  isVisible={isPasswordConfirmVisible}
-                  onToggle={() => setIsPasswordConfirmVisible((currentValue) => !currentValue)}
-                />
-              }
-              type={isPasswordConfirmVisible ? 'text' : 'password'}
-            />
-          </div>
-
-          {errors.root?.server?.message ? (
-            <p className="text-sm font-semibold text-[var(--color-app-brand)]" role="alert">
-              {errors.root.server.message}
-            </p>
-          ) : null}
-
-          <Button disabled={isSubmitting} trailingIcon={<ArrowRightIcon />} type="submit">
-            {isSubmitting ? '가입 중' : '회원가입'}
-          </Button>
-
-          <p className="text-center text-sm text-[var(--color-app-muted)]">
-            이미 계정이 있나요?{' '}
-            <Link
-              className="font-semibold text-[var(--color-app-brand)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-app-brand)]"
-              to="/login"
-            >
-              로그인
-            </Link>
+        {errors.root?.server?.message ? (
+          <p className="text-sm font-semibold text-[var(--color-app-brand)]" role="alert">
+            {errors.root.server.message}
           </p>
-        </form>
-      </section>
+        ) : null}
+
+        <Button disabled={isSubmitting} trailingIcon={<ArrowRightIcon />} type="submit">
+          {isSubmitting ? '가입 중' : '회원가입'}
+        </Button>
+
+        <p className="text-center text-sm text-[var(--color-app-muted)]">
+          이미 계정이 있나요?{' '}
+          <Link
+            className="font-semibold text-[var(--color-app-brand)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-app-brand)]"
+            to="/login"
+          >
+            로그인
+          </Link>
+        </p>
+      </form>
     </MobileLayout>
   );
 }

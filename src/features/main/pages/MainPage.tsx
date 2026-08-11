@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { signOut } from '@/api/auth/auth';
 import { toAuthError } from '@/api/auth/auth.error';
-import { Header } from '@/components/common/Header';
 import { MobileLayout } from '@/app/layouts/MobileLayout';
 import { Button } from '@/components/common/Button';
 import { useAuthStore } from '@/features/auth/stores/auth.store';
@@ -28,9 +27,8 @@ export function MainPage() {
   }
 
   return (
-    <MobileLayout>
-      <Header title="메인 화면" description="Airsoft Schedule System" />
-      <div className="flex h-full flex-col gap-4 pt-8">
+    <MobileLayout title="메인 화면" description="Airsoft Schedule System">
+      <div className="flex min-h-0 flex-1 flex-col gap-4 pt-8">
         {errorMessage ? (
           <p className="text-sm font-semibold text-[var(--color-app-brand)]" role="alert">
             {errorMessage}
