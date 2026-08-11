@@ -11,7 +11,7 @@ type SignUpWelcomeProps = {
 
 export function SignUpWelcome({ displayName, requiresEmailConfirmation }: SignUpWelcomeProps) {
   return (
-    <section
+    <div
       aria-labelledby="signup-welcome-title"
       aria-live="polite"
       className="flex h-full flex-col items-center justify-center text-center"
@@ -53,6 +53,6 @@ export function SignUpWelcome({ displayName, requiresEmailConfirmation }: SignUp
           </span>
         </Link>
       </div>
-    </section>
+    </div>
   );
 }
