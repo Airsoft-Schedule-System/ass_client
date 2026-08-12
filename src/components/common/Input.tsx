@@ -39,7 +39,7 @@ export function Input({
       </label>
 
       <div
-        className={`flex h-[54px] w-full items-center gap-3 rounded-lg border bg-[var(--color-app-surface)] px-4 transition-colors focus-within:border-[var(--color-app-brand)] ${errorMessage ? 'border-[var(--color-app-brand)]' : 'border-[var(--color-app-border)]'}`}
+        className={`flex h-14 w-full items-center gap-3 rounded-lg border bg-[var(--color-app-surface)] px-4 transition-colors focus-within:border-[var(--color-app-brand)] ${errorMessage ? 'border-[var(--color-app-brand)]' : 'border-[var(--color-app-border)]'}`}
       >
         {leadingIcon ? (
           <span

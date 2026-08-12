@@ -18,7 +18,7 @@ export function MobileLayout({
   title,
 }: MobileLayoutProps) {
   return (
-    <div className="mx-auto flex h-dvh min-h-0 w-full max-w-[480px] flex-col overflow-hidden bg-[var(--color-app-background)] px-5 pt-[max(20px,var(--safe-area-top))] pb-[max(20px,var(--safe-area-bottom))]">
+    <div className="mx-auto flex h-dvh min-h-0 w-full max-w-120 flex-col overflow-hidden bg-[var(--color-app-background)] px-5 pt-[max(20px,var(--safe-area-top))] pb-[max(20px,var(--safe-area-bottom))]">
       {title ? (
         <Header description={description} showBackButton={showBackButton} title={title} />
       ) : null}

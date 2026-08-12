@@ -18,7 +18,7 @@ export function Button({
   return (
     <button
       {...buttonProps}
-      className={`flex h-[54px] w-full items-center justify-center gap-2.5 rounded-lg bg-[var(--color-app-brand)] px-4 text-sm font-bold text-[var(--color-app-background)] shadow-[0_10px_24px_var(--color-app-shadow)] transition-opacity focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-app-brand)] enabled:cursor-pointer enabled:hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50 ${className}`}
+      className={`flex h-14 w-full items-center justify-center gap-2.5 rounded-lg bg-[var(--color-app-brand)] px-4 text-sm font-bold text-[var(--color-app-background)] shadow-[0_10px_24px_var(--color-app-shadow)] transition-opacity focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-app-brand)] enabled:cursor-pointer enabled:hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50 ${className}`}
       type={type}
     >
       {leadingIcon ? (

@@ -44,7 +44,7 @@ export function SignUpWelcome({ displayName, requiresEmailConfirmation }: SignUp
         </p>
 
         <Link
-          className="mt-8 flex h-[54px] w-full items-center justify-center gap-2.5 rounded-lg bg-[var(--color-app-brand)] px-4 text-sm font-bold text-[var(--color-app-background)] shadow-[0_10px_24px_var(--color-app-shadow)] transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-app-brand)]"
+          className="mt-8 flex h-14 w-full items-center justify-center gap-2.5 rounded-lg bg-[var(--color-app-brand)] px-4 text-sm font-bold text-[var(--color-app-background)] shadow-[0_10px_24px_var(--color-app-shadow)] transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-app-brand)]"
           to="/login"
         >
           <span>로그인하러 가기</span>
