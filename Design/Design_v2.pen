@@ -4634,7 +4634,7 @@
       "y": 780,
       "name": "Design System / ASS Mobile Components",
       "width": 420,
-      "fill": "$ass-bg",
+      "fill": "#0A0A0A",
       "layout": "vertical",
       "gap": 24,
       "padding": 24,
@@ -4642,34 +4642,18 @@
         {
           "type": "frame",
           "id": "azEVp",
-          "name": "ASS/Top Bar",
+          "name": "ASS/Header",
           "reusable": true,
-          "width": 342,
-          "height": 52,
-          "gap": 12,
-          "alignItems": "center",
+          "width": 350,
+          "layout": "vertical",
+          "gap": 4,
+          "padding": [
+            16,
+            0,
+            0,
+            0
+          ],
           "children": [
-            {
-              "type": "icon",
-              "id": "kcIVq",
-              "name": "Back",
-              "width": 24,
-              "height": 24,
-              "icon": "chevron-left",
-              "library": "lucide",
-              "fill": "$ass-text"
-            },
-            {
-              "type": "text",
-              "id": "HOddU",
-              "name": "Title",
-              "fill": "$ass-text",
-              "content": "화면 제목",
-              "lineHeight": 1.2,
-              "fontFamily": "$ass-font",
-              "fontSize": 30,
-              "fontWeight": "700"
-            },
             {
               "type": "icon",
               "id": "dyse7",
@@ -4682,6 +4666,52 @@
               "icon": "ellipsis",
               "library": "lucide",
               "fill": "$ass-muted"
+            },
+            {
+              "type": "frame",
+              "id": "viqzz",
+              "name": "Title Row",
+              "width": "fill_container",
+              "height": 36,
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "kcIVq",
+                  "name": "Back",
+                  "width": 24,
+                  "height": 24,
+                  "icon": "chevron-left",
+                  "library": "lucide",
+                  "fill": "$ass-text"
+                },
+                {
+                  "type": "text",
+                  "id": "HOddU",
+                  "name": "Title",
+                  "fill": "$ass-text",
+                  "content": "화면 제목",
+                  "lineHeight": 1.2,
+                  "fontFamily": "$ass-font",
+                  "fontSize": 30,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "FQXpd",
+              "x": 0,
+              "y": 0,
+              "name": "Description",
+              "enabled": false,
+              "fill": "#FF8A00",
+              "content": "페이지 설명",
+              "lineHeight": 1.43,
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "600"
             }
           ]
         },
@@ -4691,7 +4721,7 @@
           "name": "ASS/Button/Primary",
           "reusable": true,
           "width": 342,
-          "height": 52,
+          "height": 56,
           "fill": "$ass-accent",
           "cornerRadius": 6,
           "gap": 8,
@@ -4726,7 +4756,7 @@
           "name": "ASS/Button/Secondary",
           "reusable": true,
           "width": 342,
-          "height": 48,
+          "height": 56,
           "fill": "$ass-surface",
           "cornerRadius": 6,
           "stroke": "$ass-border",
@@ -4771,7 +4801,7 @@
               "id": "IJgLw",
               "name": "Field",
               "width": "fill_container",
-              "height": 48,
+              "height": 56,
               "fill": "$ass-surface",
               "cornerRadius": 6,
               "stroke": "$ass-border",
@@ -4839,10 +4869,10 @@
           "id": "knKcJ",
           "name": "ASS/Bottom Navigation",
           "reusable": true,
-          "width": 358,
-          "height": 66,
+          "width": 350,
+          "height": 68,
           "fill": "#1A1B1BEF",
-          "cornerRadius": 28,
+          "cornerRadius": 34,
           "stroke": "$ass-border",
           "strokeWidth": 1,
           "padding": [
@@ -4856,10 +4886,10 @@
               "type": "frame",
               "id": "Ej6Eu",
               "name": "Nav/게임",
-              "width": 56,
-              "height": 52,
+              "width": 60,
+              "height": 56,
               "fill": "#FF8A001D",
-              "cornerRadius": 22,
+              "cornerRadius": 24,
               "layout": "vertical",
               "gap": 3,
               "justifyContent": "center",
@@ -4891,10 +4921,10 @@
               "type": "frame",
               "id": "w8FvG",
               "name": "Nav/내 참가",
-              "width": 56,
-              "height": 52,
+              "width": 60,
+              "height": 56,
               "fill": "#00000000",
-              "cornerRadius": 22,
+              "cornerRadius": 24,
               "layout": "vertical",
               "gap": 3,
               "justifyContent": "center",
@@ -4926,10 +4956,10 @@
               "type": "frame",
               "id": "bph30",
               "name": "Nav/만들기",
-              "width": 48,
-              "height": 52,
+              "width": 56,
+              "height": 56,
               "fill": "#00000000",
-              "cornerRadius": 22,
+              "cornerRadius": 24,
               "layout": "vertical",
               "gap": 3,
               "justifyContent": "center",
@@ -4961,10 +4991,10 @@
               "type": "frame",
               "id": "gKTvI",
               "name": "Nav/운영",
-              "width": 56,
-              "height": 52,
+              "width": 60,
+              "height": 56,
               "fill": "#00000000",
-              "cornerRadius": 22,
+              "cornerRadius": 24,
               "layout": "vertical",
               "gap": 3,
               "justifyContent": "center",
@@ -4996,10 +5026,10 @@
               "type": "frame",
               "id": "e4mXto",
               "name": "Nav/내 정보",
-              "width": 56,
-              "height": 52,
+              "width": 60,
+              "height": 56,
               "fill": "#00000000",
-              "cornerRadius": 22,
+              "cornerRadius": 24,
               "layout": "vertical",
               "gap": 3,
               "justifyContent": "center",
@@ -5057,42 +5087,23 @@
           "gap": 32,
           "children": [
             {
-              "type": "frame",
-              "id": "Lm89E",
-              "name": "Auth Header",
-              "width": "fill_container",
-              "layout": "vertical",
-              "gap": 4,
-              "padding": [
-                32,
-                0,
-                0,
-                0
-              ],
-              "children": [
-                {
-                  "type": "text",
-                  "id": "e3hhm",
-                  "name": "Auth Title",
-                  "fill": "$--foreground",
-                  "content": "로그인",
-                  "lineHeight": 1.2,
-                  "fontFamily": "Inter",
-                  "fontSize": 30,
-                  "fontWeight": "700"
+              "id": "P5htdq",
+              "type": "ref",
+              "ref": "azEVp",
+              "name": "ASS/Page Header",
+              "width": 350,
+              "descendants": {
+                "kcIVq": {
+                  "enabled": false
                 },
-                {
-                  "type": "text",
-                  "id": "XySiN",
-                  "name": "Auth Subtitle",
-                  "fill": "$--brand",
-                  "content": "Airsoft Schedule System",
-                  "lineHeight": 1.43,
-                  "fontFamily": "Inter",
-                  "fontSize": 14,
-                  "fontWeight": "600"
+                "HOddU": {
+                  "content": "로그인"
+                },
+                "FQXpd": {
+                  "enabled": true,
+                  "content": "Airsoft Schedule System"
                 }
-              ]
+              }
             },
             {
               "type": "frame",
@@ -5150,7 +5161,7 @@
                           "id": "q6er8",
                           "name": "Email Control",
                           "width": "fill_container",
-                          "height": 54,
+                          "height": 56,
                           "fill": "$--card",
                           "cornerRadius": 8,
                           "stroke": "$--border",
@@ -5230,7 +5241,7 @@
                           "id": "NDxVc",
                           "name": "Password Control",
                           "width": "fill_container",
-                          "height": 54,
+                          "height": 56,
                           "fill": "$--card",
                           "cornerRadius": 8,
                           "stroke": "$--border",
@@ -5299,7 +5310,7 @@
                   "id": "AXhkY",
                   "name": "Login Button",
                   "width": "fill_container",
-                  "height": 54,
+                  "height": 56,
                   "fill": "$--brand",
                   "cornerRadius": 8,
                   "effect": {
@@ -5409,61 +5420,23 @@
           "gap": 32,
           "children": [
             {
-              "type": "frame",
-              "id": "e9DY35",
-              "name": "Auth Header / Back",
+              "id": "WXfKB",
+              "type": "ref",
+              "ref": "azEVp",
+              "name": "ASS/Page Header",
               "width": 350,
-              "gap": 12,
-              "padding": [
-                24,
-                0,
-                0,
-                0
-              ],
-              "children": [
-                {
-                  "type": "icon",
-                  "id": "EcFAd",
-                  "name": "Back",
-                  "width": 24,
-                  "height": 24,
-                  "icon": "chevron-left",
-                  "library": "lucide",
-                  "fill": "#FAFAFA"
+              "descendants": {
+                "kcIVq": {
+                  "enabled": false
                 },
-                {
-                  "type": "frame",
-                  "id": "MHXVw",
-                  "name": "Header Copy",
-                  "width": "fill_container",
-                  "layout": "vertical",
-                  "gap": 4,
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "g7qlR",
-                      "name": "Auth Title",
-                      "fill": "#FAFAFA",
-                      "content": "회원가입",
-                      "lineHeight": 1.2,
-                      "fontFamily": "Inter",
-                      "fontSize": 30,
-                      "fontWeight": "700"
-                    },
-                    {
-                      "type": "text",
-                      "id": "lgKg1",
-                      "name": "Auth Subtitle",
-                      "fill": "#FF8A00",
-                      "content": "Airsoft Schedule System",
-                      "lineHeight": 1.4,
-                      "fontFamily": "Inter",
-                      "fontSize": 14,
-                      "fontWeight": "600"
-                    }
-                  ]
+                "HOddU": {
+                  "content": "회원가입"
+                },
+                "FQXpd": {
+                  "enabled": true,
+                  "content": "Airsoft Schedule System"
                 }
-              ]
+              }
             },
             {
               "type": "frame",
@@ -5521,7 +5494,7 @@
                           "id": "bIpEG",
                           "name": "Nickname Control",
                           "width": "fill_container",
-                          "height": 54,
+                          "height": 56,
                           "fill": "$--card",
                           "cornerRadius": 8,
                           "stroke": "$--border",
@@ -5601,7 +5574,7 @@
                           "id": "ssUaF",
                           "name": "Email Control",
                           "width": "fill_container",
-                          "height": 54,
+                          "height": 56,
                           "fill": "$--card",
                           "cornerRadius": 8,
                           "stroke": "$--border",
@@ -5681,7 +5654,7 @@
                           "id": "GomQ2",
                           "name": "Password Control",
                           "width": "fill_container",
-                          "height": 54,
+                          "height": 56,
                           "fill": "$--card",
                           "cornerRadius": 8,
                           "stroke": "$--border",
@@ -5783,7 +5756,7 @@
                           "id": "RzPAX",
                           "name": "Password Confirm Control",
                           "width": "fill_container",
-                          "height": 54,
+                          "height": 56,
                           "fill": "$--card",
                           "cornerRadius": 8,
                           "stroke": "$--border",
@@ -5852,7 +5825,7 @@
                   "id": "D7TSLf",
                   "name": "Sign Up Button",
                   "width": "fill_container",
-                  "height": 54,
+                  "height": 56,
                   "fill": "$--brand",
                   "cornerRadius": 8,
                   "effect": {
@@ -6476,7 +6449,7 @@
               "id": "d4zUE",
               "name": "Always Visible / Login Button",
               "width": "fill_container",
-              "height": 54,
+              "height": 56,
               "fill": "$--brand",
               "cornerRadius": 8,
               "effect": {
@@ -6526,880 +6499,6 @@
     },
     {
       "type": "frame",
-      "id": "X1SE59",
-      "x": 4390,
-      "y": 1068,
-      "name": "10 Games / Home",
-      "theme": {
-        "Mode": "Dark"
-      },
-      "clip": true,
-      "width": 390,
-      "height": 844,
-      "fill": "$--background",
-      "layout": "vertical",
-      "children": [
-        {
-          "type": "frame",
-          "id": "Nbb4p",
-          "name": "Status Bar",
-          "width": "fill_container",
-          "height": 44,
-          "padding": [
-            0,
-            20
-          ],
-          "justifyContent": "space_between",
-          "alignItems": "center",
-          "children": [
-            {
-              "type": "text",
-              "id": "lb4ra",
-              "name": "Time",
-              "fill": "$--foreground",
-              "content": "9:41",
-              "fontFamily": "Inter",
-              "fontSize": 13,
-              "fontWeight": "600"
-            },
-            {
-              "type": "frame",
-              "id": "t7qfYm",
-              "name": "Status Icons",
-              "gap": 6,
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "icon",
-                  "id": "IwI13",
-                  "name": "Signal",
-                  "width": 15,
-                  "height": 15,
-                  "icon": "signal",
-                  "library": "lucide",
-                  "fill": "$--foreground"
-                },
-                {
-                  "type": "icon",
-                  "id": "lilhj",
-                  "name": "Wifi",
-                  "width": 15,
-                  "height": 15,
-                  "icon": "wifi",
-                  "library": "lucide",
-                  "fill": "$--foreground"
-                },
-                {
-                  "type": "icon",
-                  "id": "xRyEM",
-                  "name": "Battery",
-                  "width": 19,
-                  "height": 19,
-                  "icon": "battery-full",
-                  "library": "lucide",
-                  "fill": "$--foreground"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "qqRkL",
-          "name": "Header",
-          "width": "fill_container",
-          "layout": "vertical",
-          "gap": 4,
-          "padding": [
-            16,
-            20,
-            0,
-            20
-          ],
-          "children": [
-            {
-              "type": "text",
-              "id": "j337qe",
-              "name": "Header Title",
-              "fill": "#FAFAFA",
-              "content": "다가오는 게임",
-              "lineHeight": 1.2,
-              "fontFamily": "Inter",
-              "fontSize": 30,
-              "fontWeight": "700"
-            },
-            {
-              "type": "text",
-              "id": "itXyc",
-              "name": "Header Description",
-              "fill": "#FF8A00",
-              "content": "가까운 일정부터 확인하고 참가를 준비하세요.",
-              "lineHeight": 1.428571,
-              "fontFamily": "Inter",
-              "fontSize": 14,
-              "fontWeight": "600"
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "oIaTp",
-          "name": "Home Content",
-          "width": "fill_container",
-          "height": "fill_container",
-          "layout": "vertical",
-          "gap": 18,
-          "padding": [
-            32,
-            20,
-            10,
-            20
-          ],
-          "children": [
-            {
-              "type": "frame",
-              "id": "qYFFY",
-              "name": "List Header",
-              "width": "fill_container",
-              "justifyContent": "space_between",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "HZUhh",
-                  "name": "List Title Group",
-                  "gap": 7,
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "aWfSR",
-                      "name": "List Title",
-                      "fill": "$--foreground",
-                      "content": "이번 달 일정",
-                      "fontFamily": "Inter",
-                      "fontSize": 16,
-                      "fontWeight": "700"
-                    },
-                    {
-                      "type": "frame",
-                      "id": "umbU5",
-                      "name": "Schedule Count",
-                      "fill": "$--muted",
-                      "cornerRadius": 6,
-                      "padding": [
-                        3,
-                        7
-                      ],
-                      "justifyContent": "center",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "O2et4",
-                          "name": "Count Label",
-                          "fill": "$--brand",
-                          "content": "6",
-                          "fontFamily": "Inter",
-                          "fontSize": 11,
-                          "fontWeight": "700"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "SbyqG",
-              "name": "Schedule List",
-              "width": "fill_container",
-              "height": "fill_container",
-              "layout": "vertical",
-              "gap": 10,
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "NvYb9",
-                  "name": "Schedule Card / OP NIGHTFALL",
-                  "width": "fill_container",
-                  "height": 126,
-                  "fill": "$--card",
-                  "cornerRadius": 8,
-                  "stroke": "$--border",
-                  "strokeWidth": 1,
-                  "gap": 12,
-                  "padding": 13,
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "frame",
-                      "id": "A2MJD",
-                      "name": "Date",
-                      "width": 45,
-                      "height": "fill_container",
-                      "layout": "vertical",
-                      "gap": 1,
-                      "justifyContent": "center",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "ZNHPx",
-                          "name": "Day",
-                          "fill": "$--brand",
-                          "content": "09",
-                          "lineHeight": 1,
-                          "fontFamily": "Inter",
-                          "fontSize": 24,
-                          "fontWeight": "800"
-                        },
-                        {
-                          "type": "text",
-                          "id": "IvS7t",
-                          "name": "Weekday",
-                          "fill": "$--muted-foreground",
-                          "content": "SAT",
-                          "fontFamily": "Inter",
-                          "fontSize": 10,
-                          "fontWeight": "700"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "o0jgMF",
-                      "name": "Schedule Info",
-                      "width": "fill_container",
-                      "height": "fill_container",
-                      "layout": "vertical",
-                      "gap": 7,
-                      "justifyContent": "center",
-                      "children": [
-                        {
-                          "type": "frame",
-                          "id": "HMJTR",
-                          "name": "Title Row",
-                          "width": "fill_container",
-                          "justifyContent": "space_between",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "h7iSI1",
-                              "name": "Game Title",
-                              "fill": "$--foreground",
-                              "content": "OP NIGHTFALL",
-                              "fontFamily": "Inter",
-                              "fontSize": 15,
-                              "fontWeight": "700"
-                            },
-                            {
-                              "type": "frame",
-                              "id": "HqAju",
-                              "name": "Recruitment Status",
-                              "fill": "#FF8A0026",
-                              "cornerRadius": 5,
-                              "padding": [
-                                3,
-                                7
-                              ],
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "OzYA9",
-                                  "name": "Status Label",
-                                  "fill": "$--brand",
-                                  "content": "모집 중",
-                                  "fontFamily": "Inter",
-                                  "fontSize": 10,
-                                  "fontWeight": "700"
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "WRlt1",
-                          "name": "Field Row",
-                          "gap": 5,
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "icon",
-                              "id": "ilali",
-                              "name": "Field Icon",
-                              "width": 13,
-                              "height": 13,
-                              "icon": "map-pin",
-                              "library": "lucide",
-                              "fill": "$--muted-foreground"
-                            },
-                            {
-                              "type": "text",
-                              "id": "k9P4Qo",
-                              "name": "Field Name",
-                              "fill": "$--muted-foreground",
-                              "content": "AREA-13 · 남양주",
-                              "fontFamily": "Inter",
-                              "fontSize": 11,
-                              "fontWeight": "500"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "q8SZBa",
-                          "name": "Time Row",
-                          "gap": 5,
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "icon",
-                              "id": "ibH8T",
-                              "name": "Time Icon",
-                              "width": 13,
-                              "height": 13,
-                              "icon": "clock-3",
-                              "library": "lucide",
-                              "fill": "$--muted-foreground"
-                            },
-                            {
-                              "type": "text",
-                              "id": "Z53uX",
-                              "name": "Game Time",
-                              "fill": "$--muted-foreground",
-                              "content": "19:00 - 23:00",
-                              "fontFamily": "Inter",
-                              "fontSize": 11,
-                              "fontWeight": "500"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "DE8NK",
-                          "name": "Capacity Track",
-                          "width": "fill_container",
-                          "height": 4,
-                          "fill": "$--muted",
-                          "cornerRadius": 2,
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "HuVfy",
-                              "name": "Capacity Progress",
-                              "width": 174,
-                              "height": "fill_container",
-                              "fill": "$--brand",
-                              "cornerRadius": 2
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "vZYrt",
-                          "name": "Card Footer",
-                          "width": "fill_container",
-                          "justifyContent": "space_between",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "LNqZM",
-                              "name": "Capacity",
-                              "fill": "$--foreground",
-                              "content": "21 / 30명 확정",
-                              "fontFamily": "Inter",
-                              "fontSize": 10,
-                              "fontWeight": "600"
-                            },
-                            {
-                              "type": "text",
-                              "id": "YI789",
-                              "name": "User State",
-                              "fill": "$--brand",
-                              "content": "내 신청 · 승인 대기",
-                              "fontFamily": "Inter",
-                              "fontSize": 10,
-                              "fontWeight": "700"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "LiZZo",
-                  "name": "Schedule Card / URBAN STRIKE",
-                  "width": "fill_container",
-                  "height": 126,
-                  "fill": "$--card",
-                  "cornerRadius": 8,
-                  "stroke": "$--border",
-                  "strokeWidth": 1,
-                  "gap": 12,
-                  "padding": 13,
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "frame",
-                      "id": "O1baxU",
-                      "name": "Date",
-                      "width": 45,
-                      "height": "fill_container",
-                      "layout": "vertical",
-                      "gap": 1,
-                      "justifyContent": "center",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "PRkiS",
-                          "name": "Day",
-                          "fill": "$--brand",
-                          "content": "16",
-                          "lineHeight": 1,
-                          "fontFamily": "Inter",
-                          "fontSize": 24,
-                          "fontWeight": "800"
-                        },
-                        {
-                          "type": "text",
-                          "id": "cG1bG",
-                          "name": "Weekday",
-                          "fill": "$--muted-foreground",
-                          "content": "SAT",
-                          "fontFamily": "Inter",
-                          "fontSize": 10,
-                          "fontWeight": "700"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "vidFI",
-                      "name": "Schedule Info",
-                      "width": "fill_container",
-                      "height": "fill_container",
-                      "layout": "vertical",
-                      "gap": 7,
-                      "justifyContent": "center",
-                      "children": [
-                        {
-                          "type": "frame",
-                          "id": "iBnTi",
-                          "name": "Title Row",
-                          "width": "fill_container",
-                          "justifyContent": "space_between",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "JCFfR",
-                              "name": "Game Title",
-                              "fill": "$--foreground",
-                              "content": "URBAN STRIKE",
-                              "fontFamily": "Inter",
-                              "fontSize": 15,
-                              "fontWeight": "700"
-                            },
-                            {
-                              "type": "frame",
-                              "id": "Paw21",
-                              "name": "Recruitment Status",
-                              "fill": "$--muted",
-                              "cornerRadius": 5,
-                              "padding": [
-                                3,
-                                7
-                              ],
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "iju6U",
-                                  "name": "Status Label",
-                                  "fill": "$--muted-foreground",
-                                  "content": "모집 마감",
-                                  "fontFamily": "Inter",
-                                  "fontSize": 10,
-                                  "fontWeight": "700"
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "L782DE",
-                          "name": "Field Row",
-                          "gap": 5,
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "icon",
-                              "id": "UhPPj",
-                              "name": "Field Icon",
-                              "width": 13,
-                              "height": 13,
-                              "icon": "map-pin",
-                              "library": "lucide",
-                              "fill": "$--muted-foreground"
-                            },
-                            {
-                              "type": "text",
-                              "id": "BCO4K",
-                              "name": "Field Name",
-                              "fill": "$--muted-foreground",
-                              "content": "폐공장 필드 · 인천",
-                              "fontFamily": "Inter",
-                              "fontSize": 11,
-                              "fontWeight": "500"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "EGqs3",
-                          "name": "Time Row",
-                          "gap": 5,
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "icon",
-                              "id": "VZnAZ",
-                              "name": "Time Icon",
-                              "width": 13,
-                              "height": 13,
-                              "icon": "clock-3",
-                              "library": "lucide",
-                              "fill": "$--muted-foreground"
-                            },
-                            {
-                              "type": "text",
-                              "id": "bAz16",
-                              "name": "Game Time",
-                              "fill": "$--muted-foreground",
-                              "content": "10:00 - 16:00",
-                              "fontFamily": "Inter",
-                              "fontSize": 11,
-                              "fontWeight": "500"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "ql5Yk",
-                          "name": "Capacity Track",
-                          "width": "fill_container",
-                          "height": 4,
-                          "fill": "$--muted",
-                          "cornerRadius": 2,
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "QhNWq",
-                              "name": "Capacity Progress",
-                              "width": 248,
-                              "height": "fill_container",
-                              "fill": "$--muted-foreground",
-                              "cornerRadius": 2
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "gKCNk",
-                          "name": "Card Footer",
-                          "width": "fill_container",
-                          "justifyContent": "space_between",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "mWotY",
-                              "name": "Capacity",
-                              "fill": "$--foreground",
-                              "content": "30 / 30명 확정",
-                              "fontFamily": "Inter",
-                              "fontSize": 10,
-                              "fontWeight": "600"
-                            },
-                            {
-                              "type": "text",
-                              "id": "UPEZC",
-                              "name": "User State",
-                              "fill": "$--brand",
-                              "content": "내가 운영하는 게임",
-                              "fontFamily": "Inter",
-                              "fontSize": 10,
-                              "fontWeight": "700"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "kgEJ3",
-                  "name": "Schedule Card / WOODLAND OPS",
-                  "width": "fill_container",
-                  "height": 126,
-                  "fill": "$--card",
-                  "cornerRadius": 8,
-                  "stroke": "$--border",
-                  "strokeWidth": 1,
-                  "gap": 12,
-                  "padding": 13,
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "frame",
-                      "id": "AobHh",
-                      "name": "Date",
-                      "width": 45,
-                      "height": "fill_container",
-                      "layout": "vertical",
-                      "gap": 1,
-                      "justifyContent": "center",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "F4Z8hl",
-                          "name": "Day",
-                          "fill": "$--brand",
-                          "content": "23",
-                          "lineHeight": 1,
-                          "fontFamily": "Inter",
-                          "fontSize": 24,
-                          "fontWeight": "800"
-                        },
-                        {
-                          "type": "text",
-                          "id": "Kq9Sx",
-                          "name": "Weekday",
-                          "fill": "$--muted-foreground",
-                          "content": "SAT",
-                          "fontFamily": "Inter",
-                          "fontSize": 10,
-                          "fontWeight": "700"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "MhEW7",
-                      "name": "Schedule Info",
-                      "width": "fill_container",
-                      "height": "fill_container",
-                      "layout": "vertical",
-                      "gap": 7,
-                      "justifyContent": "center",
-                      "children": [
-                        {
-                          "type": "frame",
-                          "id": "hWnNI",
-                          "name": "Title Row",
-                          "width": "fill_container",
-                          "justifyContent": "space_between",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "MZsh4",
-                              "name": "Game Title",
-                              "fill": "$--foreground",
-                              "content": "WOODLAND OPS",
-                              "fontFamily": "Inter",
-                              "fontSize": 15,
-                              "fontWeight": "700"
-                            },
-                            {
-                              "type": "frame",
-                              "id": "brour",
-                              "name": "Recruitment Status",
-                              "fill": "#FF8A0026",
-                              "cornerRadius": 5,
-                              "padding": [
-                                3,
-                                7
-                              ],
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "uTAzT",
-                                  "name": "Status Label",
-                                  "fill": "$--brand",
-                                  "content": "모집 중",
-                                  "fontFamily": "Inter",
-                                  "fontSize": 10,
-                                  "fontWeight": "700"
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "M6hVi",
-                          "name": "Field Row",
-                          "gap": 5,
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "icon",
-                              "id": "wwyWs",
-                              "name": "Field Icon",
-                              "width": 13,
-                              "height": 13,
-                              "icon": "map-pin",
-                              "library": "lucide",
-                              "fill": "$--muted-foreground"
-                            },
-                            {
-                              "type": "text",
-                              "id": "EwV8S",
-                              "name": "Field Name",
-                              "fill": "$--muted-foreground",
-                              "content": "RANGER FIELD · 양주",
-                              "fontFamily": "Inter",
-                              "fontSize": 11,
-                              "fontWeight": "500"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "y4ypfE",
-                          "name": "Time Row",
-                          "gap": 5,
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "icon",
-                              "id": "Bn9p0",
-                              "name": "Time Icon",
-                              "width": 13,
-                              "height": 13,
-                              "icon": "clock-3",
-                              "library": "lucide",
-                              "fill": "$--muted-foreground"
-                            },
-                            {
-                              "type": "text",
-                              "id": "OLZsU",
-                              "name": "Game Time",
-                              "fill": "$--muted-foreground",
-                              "content": "09:00 - 15:00",
-                              "fontFamily": "Inter",
-                              "fontSize": 11,
-                              "fontWeight": "500"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "yxWV4",
-                          "name": "Capacity Track",
-                          "width": "fill_container",
-                          "height": 4,
-                          "fill": "$--muted",
-                          "cornerRadius": 2,
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "OXpFE",
-                              "name": "Capacity Progress",
-                              "width": 124,
-                              "height": "fill_container",
-                              "fill": "$--brand",
-                              "cornerRadius": 2
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "Gu7AV",
-                          "name": "Card Footer",
-                          "width": "fill_container",
-                          "justifyContent": "space_between",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "Fl97p",
-                              "name": "Capacity",
-                              "fill": "$--foreground",
-                              "content": "12 / 24명 확정",
-                              "fontFamily": "Inter",
-                              "fontSize": 10,
-                              "fontWeight": "600"
-                            },
-                            {
-                              "type": "text",
-                              "id": "fb5TZ",
-                              "x": 227,
-                              "y": 0,
-                              "name": "User State",
-                              "enabled": false,
-                              "fill": "$--muted-foreground",
-                              "content": "참가 가능",
-                              "fontFamily": "Inter",
-                              "fontSize": 10,
-                              "fontWeight": "700"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "NfbqZ",
-          "name": "Bottom Navigation Wrapper",
-          "width": "fill_container",
-          "height": 82,
-          "padding": [
-            8,
-            16,
-            12,
-            16
-          ],
-          "justifyContent": "center",
-          "alignItems": "center",
-          "children": [
-            {
-              "id": "JYL82",
-              "type": "ref",
-              "ref": "knKcJ",
-              "name": "ASS/Bottom Navigation",
-              "width": 358,
-              "height": 66
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "frame",
       "id": "ddwgf",
       "x": 4860,
       "y": 1068,
@@ -7407,7 +6506,7 @@
       "clip": true,
       "width": 390,
       "height": 844,
-      "fill": "$ass-bg",
+      "fill": "#0A0A0A",
       "layout": "vertical",
       "children": [
         {
@@ -7479,9 +6578,9 @@
           "gap": 16,
           "padding": [
             8,
-            24,
-            24,
-            24
+            20,
+            20,
+            20
           ],
           "children": [
             {
@@ -7490,11 +6589,11 @@
               "ref": "azEVp",
               "width": "fill_container",
               "descendants": {
-                "HOddU": {
-                  "content": "게임 상세"
-                },
                 "dyse7": {
                   "icon": "share-2"
+                },
+                "HOddU": {
+                  "content": "게임 상세"
                 }
               }
             },
@@ -7738,7 +6837,7 @@
       "clip": true,
       "width": 390,
       "height": 844,
-      "fill": "$ass-bg",
+      "fill": "#0A0A0A",
       "layout": "vertical",
       "children": [
         {
@@ -7810,43 +6909,29 @@
           "gap": 16,
           "padding": [
             8,
-            24,
+            20,
             0,
-            24
+            20
           ],
           "children": [
             {
-              "type": "frame",
-              "id": "I8NXd",
-              "name": "Header",
-              "width": "fill_container",
-              "height": 60,
-              "layout": "vertical",
-              "gap": 4,
-              "children": [
-                {
-                  "type": "text",
-                  "id": "ZfTSs",
-                  "name": "Header Title",
-                  "fill": "$ass-text",
-                  "content": "내 참가",
-                  "lineHeight": 1.2,
-                  "fontFamily": "$ass-font",
-                  "fontSize": 30,
-                  "fontWeight": "700"
+              "id": "GAOJS",
+              "type": "ref",
+              "ref": "azEVp",
+              "name": "ASS/Page Header",
+              "width": 350,
+              "descendants": {
+                "kcIVq": {
+                  "enabled": false
                 },
-                {
-                  "type": "text",
-                  "id": "twkmR",
-                  "name": "Header Description",
-                  "fill": "#FF8A00",
-                  "content": "신청한 게임과 다음 행동을 확인하세요.",
-                  "lineHeight": 1.4,
-                  "fontFamily": "Inter",
-                  "fontSize": 14,
-                  "fontWeight": "600"
+                "HOddU": {
+                  "content": "내 참가"
+                },
+                "FQXpd": {
+                  "enabled": true,
+                  "content": "신청한 게임과 다음 행동을 확인하세요."
                 }
-              ]
+              }
             },
             {
               "type": "frame",
@@ -8199,12 +7284,12 @@
           "type": "frame",
           "id": "M639W",
           "width": "fill_container",
-          "height": 82,
+          "height": 88,
           "padding": [
-            8,
-            16,
-            12,
-            16
+            0,
+            20,
+            20,
+            20
           ],
           "justifyContent": "center",
           "alignItems": "center",
@@ -8213,6 +7298,9 @@
               "id": "P3rwJ8",
               "type": "ref",
               "ref": "knKcJ",
+              "width": 350,
+              "height": 68,
+              "cornerRadius": 34,
               "descendants": {
                 "Ej6Eu": {
                   "fill": "#00000000"
@@ -8279,7 +7367,7 @@
       "clip": true,
       "width": 390,
       "height": 844,
-      "fill": "$ass-bg",
+      "fill": "#0A0A0A",
       "layout": "vertical",
       "children": [
         {
@@ -8351,9 +7439,9 @@
           "gap": 16,
           "padding": [
             8,
-            24,
-            24,
-            24
+            20,
+            20,
+            20
           ],
           "children": [
             {
@@ -8362,11 +7450,11 @@
               "ref": "azEVp",
               "width": "fill_container",
               "descendants": {
-                "HOddU": {
-                  "content": "참가 상세"
-                },
                 "dyse7": {
                   "icon": "ellipsis"
+                },
+                "HOddU": {
+                  "content": "참가 상세"
                 }
               }
             },
@@ -8682,9 +7770,6 @@
               "ref": "azEVp",
               "width": "fill_container",
               "descendants": {
-                "HOddU": {
-                  "content": "송금증 제출"
-                },
                 "dyse7": {
                   "icon": "x"
                 }
@@ -8996,9 +8081,6 @@
               "ref": "azEVp",
               "width": "fill_container",
               "descendants": {
-                "HOddU": {
-                  "content": "환불 요청"
-                },
                 "dyse7": {
                   "icon": "x"
                 }
@@ -9233,9 +8315,6 @@
               "ref": "azEVp",
               "width": "fill_container",
               "descendants": {
-                "HOddU": {
-                  "content": "나의 QR"
-                },
                 "dyse7": {
                   "icon": "rotate-cw"
                 }
@@ -11001,9 +10080,6 @@
               "ref": "azEVp",
               "width": "fill_container",
               "descendants": {
-                "HOddU": {
-                  "content": "새 게임 만들기"
-                },
                 "dyse7": {
                   "icon": "x"
                 }
@@ -11360,9 +10436,6 @@
               "ref": "azEVp",
               "width": "fill_container",
               "descendants": {
-                "HOddU": {
-                  "content": "게임 규칙"
-                },
                 "dyse7": {
                   "icon": "check"
                 }
@@ -11717,9 +10790,6 @@
               "ref": "azEVp",
               "width": "fill_container",
               "descendants": {
-                "HOddU": {
-                  "content": "OP NIGHTFALL"
-                },
                 "dyse7": {
                   "icon": "settings"
                 }
@@ -12305,9 +11375,6 @@
               "ref": "azEVp",
               "width": "fill_container",
               "descendants": {
-                "HOddU": {
-                  "content": "OP NIGHTFALL"
-                },
                 "dyse7": {
                   "icon": "settings"
                 }
@@ -12964,9 +12031,6 @@
               "ref": "azEVp",
               "width": "fill_container",
               "descendants": {
-                "HOddU": {
-                  "content": "OP NIGHTFALL"
-                },
                 "dyse7": {
                   "icon": "settings"
                 }
@@ -13589,9 +12653,6 @@
               "ref": "azEVp",
               "width": "fill_container",
               "descendants": {
-                "HOddU": {
-                  "content": "OP NIGHTFALL"
-                },
                 "dyse7": {
                   "icon": "settings"
                 }
@@ -14261,9 +13322,6 @@
               "ref": "azEVp",
               "width": "fill_container",
               "descendants": {
-                "HOddU": {
-                  "content": "신청자 상세"
-                },
                 "dyse7": {
                   "icon": "ellipsis"
                 }
@@ -14609,9 +13667,6 @@
               "ref": "azEVp",
               "width": "fill_container",
               "descendants": {
-                "HOddU": {
-                  "content": "송금증 확인"
-                },
                 "dyse7": {
                   "icon": "x"
                 }
@@ -14928,9 +13983,6 @@
               "ref": "azEVp",
               "width": "fill_container",
               "descendants": {
-                "HOddU": {
-                  "content": "QR 출석 스캔"
-                },
                 "dyse7": {
                   "icon": "x"
                 }
@@ -15094,9 +14146,6 @@
               "ref": "azEVp",
               "width": "fill_container",
               "descendants": {
-                "HOddU": {
-                  "content": "알림"
-                },
                 "dyse7": {
                   "icon": "check-check"
                 }
@@ -15949,9 +14998,6 @@
               "ref": "azEVp",
               "width": "fill_container",
               "descendants": {
-                "HOddU": {
-                  "content": "게임 정보 수정"
-                },
                 "dyse7": {
                   "icon": "x"
                 }
@@ -16253,9 +15299,6 @@
               "ref": "azEVp",
               "width": "fill_container",
               "descendants": {
-                "HOddU": {
-                  "content": "시스템 상태"
-                },
                 "dyse7": {
                   "icon": "x"
                 }
@@ -17515,9 +16558,6 @@
               "ref": "azEVp",
               "width": "fill_container",
               "descendants": {
-                "HOddU": {
-                  "content": "프로필 수정"
-                },
                 "dyse7": {
                   "icon": "x"
                 }
@@ -17792,6 +16832,971 @@
                   "icon": "check"
                 }
               }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "fNm4o",
+      "x": 4390,
+      "y": 1068,
+      "name": "10 Games / Home",
+      "theme": {
+        "Mode": "Dark"
+      },
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "$--background",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "ZsC6I",
+          "name": "Status Bar",
+          "width": "fill_container",
+          "height": 44,
+          "padding": [
+            0,
+            20
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "OCbbq",
+              "name": "Time",
+              "fill": "$--foreground",
+              "content": "9:41",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "s75b1",
+              "name": "Status Icons",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "Vja64",
+                  "name": "Signal",
+                  "width": 15,
+                  "height": 15,
+                  "icon": "signal",
+                  "library": "lucide",
+                  "fill": "$--foreground"
+                },
+                {
+                  "type": "icon",
+                  "id": "cqp0m",
+                  "name": "Wifi",
+                  "width": 15,
+                  "height": 15,
+                  "icon": "wifi",
+                  "library": "lucide",
+                  "fill": "$--foreground"
+                },
+                {
+                  "type": "icon",
+                  "id": "q7OOqk",
+                  "name": "Battery",
+                  "width": 19,
+                  "height": 19,
+                  "icon": "battery-full",
+                  "library": "lucide",
+                  "fill": "$--foreground"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "wzEve",
+          "type": "ref",
+          "ref": "azEVp",
+          "name": "ASS/Page Header",
+          "width": 390,
+          "padding": [
+            16,
+            20,
+            0,
+            20
+          ],
+          "descendants": {
+            "kcIVq": {
+              "enabled": false
+            },
+            "HOddU": {
+              "content": "다가오는 게임"
+            },
+            "FQXpd": {
+              "enabled": true,
+              "content": "가까운 일정부터 확인하고 참가를 준비하세요."
+            }
+          }
+        },
+        {
+          "type": "frame",
+          "id": "TOlPl",
+          "name": "Home Content",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 18,
+          "padding": [
+            32,
+            20,
+            10,
+            20
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "fFvZZ",
+              "x": 20,
+              "y": 32,
+              "name": "List Header",
+              "enabled": false,
+              "width": "fill_container(350)",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "xdUHC",
+                  "name": "List Title Group",
+                  "gap": 7,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "IBYQP",
+                      "name": "List Title",
+                      "fill": "$--foreground",
+                      "content": "이번 달 일정",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "jidwQ",
+                      "name": "Schedule Count",
+                      "fill": "$--muted",
+                      "cornerRadius": 6,
+                      "padding": [
+                        3,
+                        7
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "sqC98",
+                          "name": "Count Label",
+                          "fill": "$--brand",
+                          "content": "6",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "cGB9C",
+              "name": "Schedule Groups",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 20,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "XLmW1",
+                  "name": "Date Section / 8월 12일",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 7,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "LnKhp",
+                      "name": "Date Header",
+                      "width": "fill_container",
+                      "height": 24,
+                      "padding": [
+                        0,
+                        2
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "EtV5C",
+                          "name": "Date",
+                          "fill": "#FF8A00",
+                          "content": "8월 12일 (수)",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "800"
+                        },
+                        {
+                          "type": "text",
+                          "id": "rDaWI",
+                          "x": 319,
+                          "y": 5,
+                          "name": "Weekday",
+                          "enabled": false,
+                          "fill": "#A3A3A3",
+                          "content": "수요일",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Sh7rC",
+                      "name": "Games",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 7,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "uxED0",
+                          "name": "Game / OP NIGHTFALL",
+                          "width": "fill_container",
+                          "height": 108,
+                          "fill": "$ass-surface",
+                          "cornerRadius": 6,
+                          "stroke": "$ass-border",
+                          "strokeWidth": 1,
+                          "gap": 14,
+                          "padding": 14,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "B1pi7",
+                              "x": 14,
+                              "y": 14,
+                              "enabled": false,
+                              "width": 52,
+                              "height": 64,
+                              "fill": "$ass-surface-2",
+                              "cornerRadius": 5,
+                              "layout": "vertical",
+                              "gap": 2,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "gpGuI",
+                                  "fill": "$ass-muted",
+                                  "content": "8월",
+                                  "fontFamily": "$ass-font",
+                                  "fontSize": 9,
+                                  "fontWeight": "600"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "H5QWY",
+                                  "fill": "$ass-accent",
+                                  "content": "23",
+                                  "fontFamily": "$ass-font",
+                                  "fontSize": 21,
+                                  "fontWeight": "800"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "Agotq",
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "gap": 5,
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "jsCT8",
+                                  "width": "fill_container",
+                                  "justifyContent": "space_between",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "vFZN6",
+                                      "fill": "$ass-text",
+                                      "content": "OP NIGHTFALL",
+                                      "fontFamily": "$ass-font",
+                                      "fontSize": 13,
+                                      "fontWeight": "800"
+                                    },
+                                    {
+                                      "id": "pKozd",
+                                      "type": "ref",
+                                      "ref": "x9LQu2",
+                                      "fill": "#FF8A0022",
+                                      "descendants": {
+                                        "Tp6QM": {
+                                          "content": "모집중",
+                                          "fill": "$ass-accent"
+                                        }
+                                      }
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "MOo7u",
+                                  "fill": "$ass-muted",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "ARENA 51 · 19:00 - 23:00",
+                                  "fontFamily": "$ass-font",
+                                  "fontSize": 10,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "AVPaA",
+                                  "width": "fill_container",
+                                  "justifyContent": "space_between",
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "juh50",
+                                      "fill": "$ass-muted",
+                                      "content": "30,000원 · 선입금",
+                                      "fontFamily": "$ass-font",
+                                      "fontSize": 10,
+                                      "fontWeight": "500"
+                                    },
+                                    {
+                                      "type": "frame",
+                                      "id": "e1m0V2",
+                                      "name": "Attendance",
+                                      "gap": 4,
+                                      "alignItems": "center",
+                                      "children": [
+                                        {
+                                          "type": "icon",
+                                          "id": "WT4Z2",
+                                          "name": "People",
+                                          "width": 13,
+                                          "height": 13,
+                                          "icon": "users",
+                                          "library": "lucide",
+                                          "fill": "#F5F5F3"
+                                        },
+                                        {
+                                          "type": "text",
+                                          "id": "pP9OF",
+                                          "name": "Count",
+                                          "fill": "#F5F5F3",
+                                          "content": "21 / 30명",
+                                          "fontFamily": "Inter",
+                                          "fontSize": 10,
+                                          "fontWeight": "700"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "fAzND",
+                                  "fill": "$ass-accent",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "신청 마감까지 2일",
+                                  "fontFamily": "$ass-font",
+                                  "fontSize": 10,
+                                  "fontWeight": "700"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "jDs4v",
+                          "name": "Game / URBAN STRIKE",
+                          "width": "fill_container",
+                          "height": 108,
+                          "fill": "$ass-surface",
+                          "cornerRadius": 6,
+                          "stroke": "$ass-border",
+                          "strokeWidth": 1,
+                          "gap": 14,
+                          "padding": 14,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "WxfXz",
+                              "x": 14,
+                              "y": 14,
+                              "enabled": false,
+                              "width": 52,
+                              "height": 64,
+                              "fill": "$ass-surface-2",
+                              "cornerRadius": 5,
+                              "layout": "vertical",
+                              "gap": 2,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "siWuX",
+                                  "fill": "$ass-muted",
+                                  "content": "8월",
+                                  "fontFamily": "$ass-font",
+                                  "fontSize": 9,
+                                  "fontWeight": "600"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "wRZlY",
+                                  "fill": "$ass-accent",
+                                  "content": "23",
+                                  "fontFamily": "$ass-font",
+                                  "fontSize": 21,
+                                  "fontWeight": "800"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "oHN4I",
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "gap": 5,
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "NPbN3",
+                                  "width": "fill_container",
+                                  "justifyContent": "space_between",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "mRNds",
+                                      "fill": "$ass-text",
+                                      "content": "URBAN STRIKE",
+                                      "fontFamily": "$ass-font",
+                                      "fontSize": 13,
+                                      "fontWeight": "800"
+                                    },
+                                    {
+                                      "id": "rFSRT",
+                                      "type": "ref",
+                                      "ref": "x9LQu2",
+                                      "fill": "#92949222",
+                                      "descendants": {
+                                        "Tp6QM": {
+                                          "content": "모집중",
+                                          "fill": "$ass-accent"
+                                        }
+                                      }
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "tLNmQ",
+                                  "fill": "$ass-muted",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "제1전술 필드 · 10:00 - 16:00",
+                                  "fontFamily": "$ass-font",
+                                  "fontSize": 10,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "i2iBTr",
+                                  "width": "fill_container",
+                                  "justifyContent": "space_between",
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "yEiaN",
+                                      "fill": "$ass-muted",
+                                      "content": "25,000원 · 현장결제",
+                                      "fontFamily": "$ass-font",
+                                      "fontSize": 10,
+                                      "fontWeight": "500"
+                                    },
+                                    {
+                                      "type": "frame",
+                                      "id": "sj8bG",
+                                      "name": "Attendance",
+                                      "gap": 4,
+                                      "alignItems": "center",
+                                      "children": [
+                                        {
+                                          "type": "icon",
+                                          "id": "re5WM",
+                                          "name": "People",
+                                          "width": 13,
+                                          "height": 13,
+                                          "icon": "users",
+                                          "library": "lucide",
+                                          "fill": "#F5F5F3"
+                                        },
+                                        {
+                                          "type": "text",
+                                          "id": "v2kxF",
+                                          "name": "Count",
+                                          "fill": "#F5F5F3",
+                                          "content": "30 / 30명",
+                                          "fontFamily": "Inter",
+                                          "fontSize": 10,
+                                          "fontWeight": "700"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "Mmwhr",
+                                  "fill": "$ass-accent",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "대기 신청 가능",
+                                  "fontFamily": "$ass-font",
+                                  "fontSize": 10,
+                                  "fontWeight": "700"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "nD2ZU",
+                  "name": "Date Section / 8월 15일",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 7,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "moIa2",
+                      "name": "Date Header",
+                      "width": "fill_container",
+                      "height": 24,
+                      "padding": [
+                        0,
+                        2
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "mb5ol",
+                          "name": "Date",
+                          "fill": "#FF8A00",
+                          "content": "8월 15일 (토)",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "800"
+                        },
+                        {
+                          "type": "text",
+                          "id": "lyMY2",
+                          "x": 319,
+                          "y": 5,
+                          "name": "Weekday",
+                          "enabled": false,
+                          "fill": "#A3A3A3",
+                          "content": "토요일",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ruKs3",
+                      "name": "Games",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 7,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "uNIGE",
+                          "name": "Game / WOODLAND OPS",
+                          "width": "fill_container",
+                          "height": 108,
+                          "fill": "$ass-surface",
+                          "cornerRadius": 6,
+                          "stroke": "$ass-border",
+                          "strokeWidth": 1,
+                          "gap": 14,
+                          "padding": 14,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "hknbM",
+                              "x": 14,
+                              "y": 14,
+                              "enabled": false,
+                              "width": 52,
+                              "height": 64,
+                              "fill": "$ass-surface-2",
+                              "cornerRadius": 5,
+                              "layout": "vertical",
+                              "gap": 2,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "ypZXJ",
+                                  "fill": "$ass-muted",
+                                  "content": "8월",
+                                  "fontFamily": "$ass-font",
+                                  "fontSize": 9,
+                                  "fontWeight": "600"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "x3wcTr",
+                                  "fill": "$ass-accent",
+                                  "content": "23",
+                                  "fontFamily": "$ass-font",
+                                  "fontSize": 21,
+                                  "fontWeight": "800"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "RwEc1",
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "gap": 5,
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "D6zXgi",
+                                  "width": "fill_container",
+                                  "justifyContent": "space_between",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "wNwbH",
+                                      "fill": "$ass-text",
+                                      "content": "WOODLAND OPS",
+                                      "fontFamily": "$ass-font",
+                                      "fontSize": 13,
+                                      "fontWeight": "800"
+                                    },
+                                    {
+                                      "id": "HiJ7M",
+                                      "type": "ref",
+                                      "ref": "x9LQu2",
+                                      "fill": "#FF8A0022",
+                                      "descendants": {
+                                        "Tp6QM": {
+                                          "content": "모집중",
+                                          "fill": "$ass-accent"
+                                        }
+                                      }
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "YI2mE",
+                                  "fill": "$ass-muted",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "RANGER FIELD · 15:00 - 21:00",
+                                  "fontFamily": "$ass-font",
+                                  "fontSize": 10,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "C65Cl",
+                                  "width": "fill_container",
+                                  "justifyContent": "space_between",
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "sv8p5",
+                                      "fill": "$ass-muted",
+                                      "content": "20,000원 · 선입금",
+                                      "fontFamily": "$ass-font",
+                                      "fontSize": 10,
+                                      "fontWeight": "500"
+                                    },
+                                    {
+                                      "type": "frame",
+                                      "id": "VzB5k",
+                                      "name": "Attendance",
+                                      "gap": 4,
+                                      "alignItems": "center",
+                                      "children": [
+                                        {
+                                          "type": "icon",
+                                          "id": "orEDy",
+                                          "name": "People",
+                                          "width": 13,
+                                          "height": 13,
+                                          "icon": "users",
+                                          "library": "lucide",
+                                          "fill": "#F5F5F3"
+                                        },
+                                        {
+                                          "type": "text",
+                                          "id": "fm8B6",
+                                          "name": "Count",
+                                          "fill": "#F5F5F3",
+                                          "content": "12 / 24명",
+                                          "fontFamily": "Inter",
+                                          "fontSize": 10,
+                                          "fontWeight": "700"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "fa36H",
+                                  "fill": "$ass-accent",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "내가 운영하는 게임",
+                                  "fontFamily": "$ass-font",
+                                  "fontSize": 10,
+                                  "fontWeight": "700"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "HvJ8U",
+          "name": "Bottom Navigation Wrapper",
+          "width": "fill_container",
+          "height": 88,
+          "padding": [
+            0,
+            20,
+            20,
+            20
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "id": "P8djiY",
+              "type": "ref",
+              "ref": "knKcJ",
+              "name": "ASS/Bottom Navigation",
+              "width": 350,
+              "height": 68,
+              "cornerRadius": 34
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "B6uPGb",
+      "x": 2880,
+      "y": -924,
+      "name": "Design Template / Mobile Layout",
+      "theme": {
+        "Mode": "Dark"
+      },
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "$--background",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "L0lHX",
+          "name": "Status Bar",
+          "width": "fill_container",
+          "height": 44,
+          "padding": [
+            0,
+            20
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "ECtxr",
+              "name": "Time",
+              "fill": "$--foreground",
+              "content": "9:41",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "VSR2f",
+              "name": "Status Icons",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "SXnZ8",
+                  "name": "Signal",
+                  "width": 15,
+                  "height": 15,
+                  "icon": "signal",
+                  "library": "lucide",
+                  "fill": "$--foreground"
+                },
+                {
+                  "type": "icon",
+                  "id": "jHSLj",
+                  "name": "Wifi",
+                  "width": 15,
+                  "height": 15,
+                  "icon": "wifi",
+                  "library": "lucide",
+                  "fill": "$--foreground"
+                },
+                {
+                  "type": "icon",
+                  "id": "m0jNi",
+                  "name": "Battery",
+                  "width": 19,
+                  "height": 19,
+                  "icon": "battery-full",
+                  "library": "lucide",
+                  "fill": "$--foreground"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "SZPWq",
+          "type": "ref",
+          "ref": "azEVp",
+          "name": "ASS/Page Header",
+          "width": 390,
+          "padding": [
+            16,
+            20,
+            0,
+            20
+          ],
+          "descendants": {
+            "kcIVq": {
+              "enabled": false
+            },
+            "HOddU": {
+              "content": "페이지 제목"
+            },
+            "FQXpd": {
+              "content": "선택 설명",
+              "enabled": true
+            }
+          }
+        },
+        {
+          "type": "frame",
+          "id": "CWdVC",
+          "name": "Main Content / Scroll Owner",
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "#151616",
+          "cornerRadius": 8,
+          "stroke": "#FFFFFF1A",
+          "strokeWidth": 1,
+          "layout": "vertical",
+          "padding": 20,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "flnb6",
+              "name": "Main Content Label",
+              "fill": "#A3A3A3",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Main Content\n페이지별 스크롤 영역",
+              "lineHeight": 1.5,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "600"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "BYjnJ",
+          "name": "Bottom Navigation Wrapper",
+          "width": "fill_container",
+          "height": 88,
+          "padding": [
+            0,
+            20,
+            20,
+            20
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "id": "GTDtC",
+              "type": "ref",
+              "ref": "knKcJ",
+              "name": "ASS/Bottom Navigation",
+              "width": 350,
+              "height": 68,
+              "cornerRadius": 34
             }
           ]
         }
