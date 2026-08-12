@@ -1,4 +1,4 @@
-// 로그인 이후 로그아웃 기능을 제공하는 모바일 메인 화면
+// 게임 목록 Placeholder와 현재 사용자의 로그아웃 기능을 제공하는 최상위 화면
 
 import { useState } from 'react';
 import { signOut } from '@/api/auth/auth';
@@ -7,7 +7,7 @@ import { MobileLayout } from '@/app/layouts/MobileLayout';
 import { Button } from '@/components/common/Button';
 import { useAuthStore } from '@/features/auth/stores/auth.store';
 
-export function MainPage() {
+export function GamesPage() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [isLoggingOut, setIsLoggingOut] = useState(false);
   const setAuthUser = useAuthStore((state) => state.setAuthUser);
@@ -27,8 +27,10 @@ export function MainPage() {
   }
 
   return (
-    <MobileLayout title="메인 화면" description="Airsoft Schedule System">
+    <MobileLayout description="예정된 게임을 확인해 보세요" showBottomNavigation title="게임">
       <div className="flex min-h-0 flex-1 flex-col gap-4 pt-8">
+        <p className="text-sm text-[var(--color-app-muted)]">준비 중인 화면입니다.</p>
+
         {errorMessage ? (
           <p className="text-sm font-semibold text-[var(--color-app-brand)]" role="alert">
             {errorMessage}

@@ -5,7 +5,11 @@ import App from '@/App';
 import { AuthGuard } from '@/features/auth/components/AuthGuard';
 import { LoginPage } from '@/features/auth/pages/LoginPage';
 import { SignUpPage } from '@/features/auth/pages/SignUpPage';
-import { MainPage } from '@/features/main/pages/MainPage';
+import { GameCreatePage } from '@/features/games/pages/GameCreatePage';
+import { GamesPage } from '@/features/games/pages/GamesPage';
+import { OperationsPage } from '@/features/operations/pages/OperationsPage';
+import { ParticipationsPage } from '@/features/participations/pages/ParticipationsPage';
+import { ProfilePage } from '@/features/profile/pages/ProfilePage';
 import { ProfileSetupPage } from '@/features/profile/pages/ProfileSetupPage';
 
 export const router = createBrowserRouter([
@@ -18,7 +22,23 @@ export const router = createBrowserRouter([
         children: [
           {
             index: true,
-            Component: MainPage,
+            Component: GamesPage,
+          },
+          {
+            path: 'participations',
+            Component: ParticipationsPage,
+          },
+          {
+            path: 'games/new',
+            Component: GameCreatePage,
+          },
+          {
+            path: 'operations',
+            Component: OperationsPage,
+          },
+          {
+            path: 'profile',
+            Component: ProfilePage,
           },
           {
             path: 'profile/setup',
