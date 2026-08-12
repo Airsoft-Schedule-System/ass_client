@@ -13,7 +13,7 @@ export function Header({ title, description, showBackButton = false }: HeaderPro
   const navigate = useNavigate();
 
   return (
-    <header className="flex flex-col gap-1 pt-4">
+    <header className="flex w-full flex-col gap-1">
       <div className="flex items-center gap-2">
         {showBackButton ? (
           <button

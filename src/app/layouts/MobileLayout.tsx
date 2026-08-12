@@ -1,12 +1,14 @@
 // 모바일 화면의 공통 크기와 페이지 헤더·본문 구조를 관리하는 레이아웃
 
 import type { ReactNode } from 'react';
+import { BottomNavigation } from '@/components/common/BottomNavigation';
 import { Header } from '@/components/common/Header';
 
 type MobileLayoutProps = {
   children: ReactNode; // main 안에 배치할 페이지 핵심 콘텐츠
   description?: string; // 페이지 제목 아래에 표시할 선택 설명
   showBackButton?: boolean; // 페이지 헤더의 뒤로가기 버튼 표시 여부
+  showBottomNavigation?: boolean; // 최상위 인증 화면의 하단 내비게이션 표시 여부
   title?: string; // main 위에 표시할 선택 페이지 제목
 };
 
@@ -15,6 +17,7 @@ export function MobileLayout({
   children,
   description,
   showBackButton = false,
+  showBottomNavigation = false,
   title,
 }: MobileLayoutProps) {
   return (
@@ -22,7 +25,12 @@ export function MobileLayout({
       {title ? (
         <Header description={description} showBackButton={showBackButton} title={title} />
       ) : null}
-      <main className="flex min-h-0 flex-1 flex-col overflow-hidden">{children}</main>
+      <main className="my-4 flex min-h-0 w-full flex-1 flex-col overflow-y-auto">{children}</main>
+      {showBottomNavigation ? (
+        <div className="w-full shrink-0">
+          <BottomNavigation />
+        </div>
+      ) : null}
     </div>
   );
 }
