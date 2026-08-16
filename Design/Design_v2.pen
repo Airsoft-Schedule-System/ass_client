@@ -3212,7 +3212,7 @@
                   "type": "ref",
                   "ref": "C3KOZ",
                   "x": 24,
-                  "y": 24.019943701668048,
+                  "y": 24.01994370166805,
                   "width": "fill_container",
                   "descendants": {
                     "NEMHS": {
@@ -14820,6 +14820,24 @@
               ]
             },
             {
+              "id": "upfjJ",
+              "type": "ref",
+              "ref": "K7SU5",
+              "name": "Edit Profile Button",
+              "context": "Tap to navigate to 51 Account / Edit Profile (kMaXC)",
+              "width": "fill_container",
+              "height": 56,
+              "descendants": {
+                "dv6fW": {
+                  "content": "내 정보 수정"
+                },
+                "B7bbI": {
+                  "icon": "pencil",
+                  "enabled": false
+                }
+              }
+            },
+            {
               "id": "XODgE",
               "type": "ref",
               "ref": "cgdEI",
@@ -16560,6 +16578,9 @@
               "descendants": {
                 "dyse7": {
                   "icon": "x"
+                },
+                "HOddU": {
+                  "content": "내 정보 수정"
                 }
               }
             },

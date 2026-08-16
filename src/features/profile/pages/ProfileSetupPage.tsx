@@ -86,7 +86,7 @@ export function ProfileSetupPage() {
         phoneNumber: phoneNumber || null,
         teamId: teamId || null,
       });
-      navigate('/', { replace: true });
+      navigate('/profile', { replace: true });
     } catch (error) {
       setError('root.server', {
         message: toProfileError(error, 'update').message,
@@ -95,83 +95,92 @@ export function ProfileSetupPage() {
     }
   }
 
-  return (
-    <MobileLayout showBackButton title="프로필 수정">
-      {teams === null && !loadErrorMessage ? (
-        <p className="pt-8 text-sm text-[var(--color-app-muted)]" role="status">
-          프로필 정보를 불러오는 중
-        </p>
-      ) : null}
-
-      {loadErrorMessage ? (
+  // 공통 레이아웃 안에 표시할 조회 상태별 콘텐츠를 반환
+  function renderProfileSetupContent() {
+    if (loadErrorMessage) {
+      return (
         <p className="pt-8 text-sm font-semibold text-[var(--color-app-brand)]" role="alert">
           {loadErrorMessage}
         </p>
-      ) : null}
+      );
+    }
 
-      {teams ? (
-        <form
-          className="flex min-h-0 flex-1 flex-col pt-2"
-          noValidate
-          onSubmit={handleSubmit(handleProfileSave)}
-        >
-          <div className="min-h-0 flex-1 overflow-y-auto pb-4">
-            <div className="flex flex-col gap-2">
-              <Input
-                {...register('displayName')}
-                autoComplete="nickname"
-                errorMessage={errors.displayName?.message}
-                label="닉네임"
-                leadingIcon={<UserIcon />}
-                maxLength={30}
-                placeholder="사용할 닉네임 입력"
-                required
-              />
+    if (!teams) {
+      return (
+        <p className="pt-8 text-sm text-[var(--color-app-muted)]" role="status">
+          프로필 정보를 불러오는 중
+        </p>
+      );
+    }
 
-              <Select
-                {...register('teamId')}
-                errorMessage={errors.teamId?.message}
-                label="소속 팀"
-                leadingIcon={<TeamIcon />}
-              >
-                <option value="">소속 팀 없음</option>
-                {teams.map((team) => (
-                  <option key={team.id} value={team.id}>
-                    {team.name}
-                  </option>
-                ))}
-              </Select>
+    return (
+      <form
+        className="flex min-h-0 flex-1 flex-col pt-2"
+        noValidate
+        onSubmit={handleSubmit(handleProfileSave)}
+      >
+        <div className="min-h-0 flex-1 overflow-y-auto pb-4">
+          <div className="flex flex-col gap-2">
+            <Input
+              {...register('displayName')}
+              autoComplete="nickname"
+              errorMessage={errors.displayName?.message}
+              label="닉네임"
+              leadingIcon={<UserIcon />}
+              maxLength={30}
+              placeholder="사용할 닉네임 입력"
+              required
+            />
 
-              <Input
-                {...register('phoneNumber')}
-                autoComplete="tel"
-                errorMessage={errors.phoneNumber?.message}
-                inputMode="tel"
-                label="연락처"
-                leadingIcon={<PhoneIcon />}
-                maxLength={20}
-                placeholder="010-1234-5678"
-                type="tel"
-              />
-            </div>
+            <Select
+              {...register('teamId')}
+              errorMessage={errors.teamId?.message}
+              label="소속 팀"
+              leadingIcon={<TeamIcon />}
+            >
+              <option value="">소속 팀 없음</option>
+              {teams.map((team) => (
+                <option key={team.id} value={team.id}>
+                  {team.name}
+                </option>
+              ))}
+            </Select>
+
+            <Input
+              {...register('phoneNumber')}
+              autoComplete="tel"
+              errorMessage={errors.phoneNumber?.message}
+              inputMode="tel"
+              label="연락처"
+              leadingIcon={<PhoneIcon />}
+              maxLength={20}
+              placeholder="010-1234-5678"
+              type="tel"
+            />
           </div>
+        </div>
 
-          {errors.root?.server?.message ? (
-            <p className="pb-3 text-sm font-semibold text-[var(--color-app-brand)]" role="alert">
-              {errors.root.server.message}
-            </p>
-          ) : null}
+        {errors.root?.server?.message && (
+          <p className="pb-3 text-sm font-semibold text-[var(--color-app-brand)]" role="alert">
+            {errors.root.server.message}
+          </p>
+        )}
 
-          <Button
-            className="shrink-0"
-            disabled={isSubmitting}
-            trailingIcon={<CheckIcon className="size-5" />}
-            type="submit"
-          >
-            {isSubmitting ? '저장 중' : '변경사항 저장'}
-          </Button>
-        </form>
-      ) : null}
+        <Button
+          className="shrink-0"
+          disabled={isSubmitting}
+          trailingIcon={<CheckIcon className="size-5" />}
+          type="submit"
+        >
+          {isSubmitting ? '저장 중' : '변경사항 저장'}
+        </Button>
+      </form>
+    );
+  }
+
+  return (
+    <MobileLayout showBackButton title="내 정보 수정">
+      {renderProfileSetupContent()}
     </MobileLayout>
   );
 }
