@@ -95,6 +95,22 @@ export async function listParticipationsForUser(userId: string): Promise<Partici
   return data.map(toParticipationSummary);
 }
 
+// 로그인 사용자의 특정 게임 참가 상태를 단건 조회
+export async function findParticipationForUserAndSession(
+  userId: string,
+  sessionId: string,
+): Promise<ParticipationSummary | null> {
+  const { data, error } = await supabase
+    .from('participations')
+    .select(PARTICIPATION_SELECT)
+    .eq('user_id', userId)
+    .eq('game_session_id', sessionId)
+    .maybeSingle();
+
+  if (error) throw toParticipationError(error);
+  return data ? toParticipationSummary(data) : null;
+}
+
 // 호스트가 관리하는 일정의 참가 신청과 신청자 프로필 조회
 export async function listParticipationsBySession(
   sessionId: string,

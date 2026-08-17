@@ -51,7 +51,7 @@ const SESSION_SUMMARY_SELECT =
   'id,title,field_name,starts_at,ends_at,capacity,confirmed_count,game_fee,payment_method,status,created_by_user_id,fields(name)' as const;
 
 const SESSION_DETAIL_SELECT =
-  'id,title,field_name,starts_at,ends_at,capacity,confirmed_count,game_fee,payment_method,status,created_by_user_id,host_team_id,field_id,bank_name,bank_account_number,bank_account_holder,preset_id,custom_rules,cancel_deadline,created_at,updated_at,fields(name),game_rule_presets(name,rules)' as const;
+  'id,title,field_name,starts_at,ends_at,capacity,confirmed_count,game_fee,payment_method,status,created_by_user_id,host_team_id,field_id,bank_name,bank_account_number,bank_account_holder,preset_id,custom_rules,cancel_deadline,created_at,updated_at,fields(name,address),game_rule_presets(name,rules)' as const;
 
 type SessionSummaryRow = Pick<
   Tables<'game_sessions'>,
@@ -84,6 +84,7 @@ type SessionDetailRow = SessionSummaryRow &
     | 'created_at'
     | 'updated_at'
   > & {
+    fields: Pick<Tables<'fields'>, 'name' | 'address'> | null;
     game_rule_presets: Pick<Tables<'game_rule_presets'>, 'name' | 'rules'> | null;
   };
 
@@ -125,6 +126,7 @@ function toSessionDetail(row: SessionDetailRow) {
     ...toSessionSummary(row),
     hostTeamId: row.host_team_id,
     fieldId: row.field_id,
+    fieldAddress: row.fields?.address ?? null,
     bankAccount: {
       bankName: row.bank_name,
       accountNumber: row.bank_account_number,

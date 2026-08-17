@@ -6,6 +6,7 @@ import { AuthGuard } from '@/features/auth/components/AuthGuard';
 import { LoginPage } from '@/features/auth/pages/LoginPage';
 import { SignUpPage } from '@/features/auth/pages/SignUpPage';
 import { GameCreatePage } from '@/features/games/pages/GameCreatePage';
+import { GameDetailPage } from '@/features/games/pages/GameDetailPage';
 import { GamesPage } from '@/features/games/pages/GamesPage';
 import { OperationsPage } from '@/features/operations/pages/OperationsPage';
 import { ParticipationsPage } from '@/features/participations/pages/ParticipationsPage';
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
           {
             path: 'games/new',
             Component: GameCreatePage,
+          },
+          {
+            path: 'games/:sessionId',
+            Component: GameDetailPage,
           },
           {
             path: 'operations',
