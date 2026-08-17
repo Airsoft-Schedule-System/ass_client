@@ -11,46 +11,12 @@ import type { Enums, Tables } from '@/lib/supabase/database.types';
 type DatabaseParticipationStatus = Enums<'participation_status'>;
 export type ParticipationStatus = Exclude<DatabaseParticipationStatus, 'paymentReview'>;
 
-export type ParticipationSummary = {
-  id: string;
-  gameSessionId: string;
-  userId: string;
-  status: ParticipationStatus;
-  createdAt: string;
-  updatedAt: string;
-};
-
-export type SessionParticipation = ParticipationSummary & {
-  applicant: {
-    id: string;
-    displayName: string;
-    email: string | null;
-    phoneNumber: string | null;
-    teamId: string | null;
-  };
-};
-
-export type RequestParticipationResult = {
-  success: true;
-  participationId: string;
-  status: 'pendingApproval';
-};
-
-export type JoinAsOperatorResult = {
-  success: true;
-  participationId: string;
-  status: 'confirmed';
-};
-
-export type ApproveParticipationResult = {
-  success: true;
-  newStatus: 'awaitingPayment';
-};
-
-export type CancelParticipationResult = {
-  success: true;
-  refundEligible: boolean;
-};
+export type ParticipationSummary = ReturnType<typeof toParticipationSummary>;
+export type SessionParticipation = ReturnType<typeof toSessionParticipation>;
+export type RequestParticipationResult = z.infer<typeof requestResultSchema>;
+export type JoinAsOperatorResult = z.infer<typeof joinResultSchema>;
+export type ApproveParticipationResult = z.infer<typeof approveResultSchema>;
+export type CancelParticipationResult = z.infer<typeof cancelResultSchema>;
 
 const PARTICIPATION_SELECT = 'id,game_session_id,user_id,status,created_at,updated_at' as const;
 const SESSION_PARTICIPATION_SELECT =
@@ -92,7 +58,7 @@ function toParticipationStatus(status: DatabaseParticipationStatus): Participati
 }
 
 // 참가 신청 행을 화면에서 사용하는 필드 표기로 변환
-function toParticipationSummary(row: ParticipationRow): ParticipationSummary {
+function toParticipationSummary(row: ParticipationRow) {
   return {
     id: row.id,
     gameSessionId: row.game_session_id,
@@ -104,7 +70,7 @@ function toParticipationSummary(row: ParticipationRow): ParticipationSummary {
 }
 
 // 호스트 목록에 신청자 프로필을 함께 제공
-function toSessionParticipation(row: SessionParticipationRow): SessionParticipation {
+function toSessionParticipation(row: SessionParticipationRow) {
   return {
     ...toParticipationSummary(row),
     applicant: {

@@ -2,19 +2,22 @@
 
 import { toCatalogError } from '@/api/catalogs/catalogs.error';
 import { supabase } from '@/lib/supabase/client';
+import type { Tables } from '@/lib/supabase/database.types';
 
-export type TeamOption = {
-  id: string;
-  name: string;
-};
+export type TeamOption = Pick<Tables<'teams'>, 'id' | 'name'>;
 
-export type FieldOption = {
-  id: string;
-  name: string;
-  address: string | null;
-  latitude: number | null;
-  longitude: number | null;
-};
+export type FieldOption = ReturnType<typeof toFieldOption>;
+
+// 필드 좌표 컬럼을 화면에서 사용하는 이름으로 변환
+function toFieldOption(field: Pick<Tables<'fields'>, 'id' | 'name' | 'address' | 'lat' | 'lng'>) {
+  return {
+    id: field.id,
+    name: field.name,
+    address: field.address,
+    latitude: field.lat,
+    longitude: field.lng,
+  };
+}
 
 // 가입된 팀을 이름순 선택 항목으로 조회
 export async function listTeams(): Promise<TeamOption[]> {
@@ -33,11 +36,5 @@ export async function listFields(): Promise<FieldOption[]> {
 
   if (error) throw toCatalogError(error);
 
-  return data.map((field) => ({
-    id: field.id,
-    name: field.name,
-    address: field.address,
-    latitude: field.lat,
-    longitude: field.lng,
-  }));
+  return data.map(toFieldOption);
 }

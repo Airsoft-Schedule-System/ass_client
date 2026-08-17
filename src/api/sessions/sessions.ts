@@ -8,36 +8,8 @@ import type { Enums, Json, Tables } from '@/lib/supabase/database.types';
 export type GameSessionStatus = Enums<'game_session_status'>;
 export type PaymentMethod = Enums<'payment_method'>;
 
-export type SessionSummary = {
-  id: string;
-  title: string;
-  fieldName: string;
-  startsAt: string;
-  endsAt: string | null;
-  capacity: number;
-  confirmedCount: number;
-  gameFee: number;
-  paymentMethod: PaymentMethod;
-  status: GameSessionStatus;
-  createdByUserId: string;
-};
-
-export type SessionDetail = SessionSummary & {
-  hostTeamId: string | null;
-  fieldId: string | null;
-  bankAccount: {
-    bankName: string;
-    accountNumber: string;
-    accountHolder: string;
-  };
-  presetId: string | null;
-  presetName: string | null;
-  presetRules: Json | null;
-  customRules: Json | null;
-  cancelDeadline: string;
-  createdAt: string;
-  updatedAt: string;
-};
+export type SessionSummary = ReturnType<typeof toSessionSummary>;
+export type SessionDetail = ReturnType<typeof toSessionDetail>;
 
 type SessionFieldInput =
   { fieldId: string; fieldName?: never } | { fieldId?: never; fieldName: string };
@@ -71,20 +43,9 @@ export type UpdateGameSessionInput = {
   endsAt?: string;
 };
 
-export type CreateGameSessionResult = {
-  success: true;
-  gameSessionId: string;
-};
-
-export type UpdateGameSessionResult = {
-  success: true;
-  updatedFields: string[];
-};
-
-export type CancelGameSessionResult = {
-  success: true;
-  affectedParticipations: number;
-};
+export type CreateGameSessionResult = z.infer<typeof createResultSchema>;
+export type UpdateGameSessionResult = z.infer<typeof updateResultSchema>;
+export type CancelGameSessionResult = z.infer<typeof cancelResultSchema>;
 
 const SESSION_SUMMARY_SELECT =
   'id,title,field_name,starts_at,ends_at,capacity,confirmed_count,game_fee,payment_method,status,created_by_user_id,fields(name)' as const;
@@ -142,7 +103,7 @@ const cancelResultSchema = z.object({
 });
 
 // 필드 마스터와 직접 입력 필드명을 하나의 화면 값으로 정규화
-function toSessionSummary(row: SessionSummaryRow): SessionSummary {
+function toSessionSummary(row: SessionSummaryRow) {
   return {
     id: row.id,
     title: row.title,
@@ -159,7 +120,7 @@ function toSessionSummary(row: SessionSummaryRow): SessionSummary {
 }
 
 // 상세 화면에 필요한 계좌·규칙 정보를 camelCase 형태로 변환
-function toSessionDetail(row: SessionDetailRow): SessionDetail {
+function toSessionDetail(row: SessionDetailRow) {
   return {
     ...toSessionSummary(row),
     hostTeamId: row.host_team_id,

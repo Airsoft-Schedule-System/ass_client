@@ -7,29 +7,11 @@ import type { Enums, Tables } from '@/lib/supabase/database.types';
 
 export type EntryPassStatus = Enums<'entry_pass_status'>;
 
-export type EntryPass = {
-  id: string;
-  participationId: string;
-  gameSessionId: string;
-  userId: string;
-  status: EntryPassStatus;
-  issuedAt: string;
-  expiresAt: string;
-  usedAt: string | null;
-  scannedBy: string | null;
-};
+export type EntryPass = ReturnType<typeof toEntryPass>;
 
-export type EntryPassToken = {
-  entryPassId: string;
-  token: string;
-  expiresAt: string;
-};
+export type EntryPassToken = z.infer<typeof tokenResultSchema>;
 
-export type ScanEntryPassResult = {
-  success: true;
-  userId: string;
-  displayName: string;
-};
+export type ScanEntryPassResult = z.infer<typeof scanResultSchema>;
 
 const ENTRY_PASS_SELECT =
   'id,participation_id,game_session_id,user_id,status,issued_at,expires_at,used_at,scanned_by' as const;
@@ -60,7 +42,7 @@ const scanResultSchema = z.object({
 });
 
 // 입장권 행에서 토큰 해시와 비밀 버전을 제외하고 앱 표기로 변환
-function toEntryPass(row: EntryPassRow): EntryPass {
+function toEntryPass(row: EntryPassRow) {
   return {
     id: row.id,
     participationId: row.participation_id,

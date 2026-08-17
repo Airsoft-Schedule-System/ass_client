@@ -50,7 +50,9 @@
 
 - React 컴포넌트에서 Supabase를 직접 호출하지 않고 `src/api/<도메인>/` 함수 사용
 - 클라이언트 생성과 공통 인증 설정은 `src/lib/supabase/client.ts`에서만 관리
-- SDK 타입과 Supabase CLI 생성 `Database` 타입을 우선하며 같은 구조를 수동 선언하지 않기
+- Supabase 테이블의 조회 행·입력·수정·enum 타입은 `Tables`·`TablesInsert`·`TablesUpdate`·`Enums`에서 파생하고 같은 필드 타입을 수동 선언하지 않기
+- DB 응답을 camelCase나 조인 결과로 변환한 공개 타입은 변환 함수의 `ReturnType`으로 추론하고 동일 구조를 다시 선언하지 않기
+- RPC 응답 타입은 검증에 사용하는 Zod 스키마에서 `z.infer`로 추론하며 폼·컴포넌트·화면 상태·RPC 입력처럼 DB 구조와 다른 타입만 직접 선언하기
 - 원본 오류는 도메인 오류로 변환하고 의미가 다른 세션·사용자 검증 작업을 합치지 않기
 - 인증 구독은 반환된 subscription을 등록한 위치에서 해제
 - 로컬 값은 Git에서 제외된 `.env.development.local`, 변수 목록은 `.env.example`에 관리

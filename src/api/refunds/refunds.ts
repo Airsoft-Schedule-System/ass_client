@@ -7,20 +7,7 @@ import type { Enums, Tables } from '@/lib/supabase/database.types';
 
 export type RefundRequestStatus = Enums<'refund_request_status'>;
 
-export type RefundRequest = {
-  id: string;
-  participationId: string;
-  gameSessionId: string;
-  userId: string;
-  bankName: string;
-  accountHolder: string;
-  reason: string | null;
-  status: RefundRequestStatus;
-  requestedAt: string;
-  processedBy: string | null;
-  processedAt: string | null;
-  note: string | null;
-};
+export type RefundRequest = ReturnType<typeof toRefundRequest>;
 
 export type RequestRefundInput = {
   participationId: string;
@@ -30,10 +17,7 @@ export type RequestRefundInput = {
   reason?: string;
 };
 
-export type RequestRefundResult = {
-  success: true;
-  refundRequestId: string;
-};
+export type RequestRefundResult = z.infer<typeof requestResultSchema>;
 
 const REFUND_SELECT =
   'id,participation_id,game_session_id,user_id,bank_name,account_holder,reason,status,requested_at,processed_by,processed_at,note' as const;
@@ -60,7 +44,7 @@ const requestResultSchema = z.object({
 });
 
 // 암호화 계좌번호를 제외한 환불 요청 공개 필드를 앱 표기로 변환
-function toRefundRequest(row: RefundRequestRow): RefundRequest {
+function toRefundRequest(row: RefundRequestRow) {
   return {
     id: row.id,
     participationId: row.participation_id,

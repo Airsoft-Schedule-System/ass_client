@@ -7,20 +7,7 @@ import type { Enums, Tables } from '@/lib/supabase/database.types';
 
 export type PaymentSubmissionStatus = Enums<'payment_submission_status'>;
 
-export type PaymentSubmission = {
-  id: string;
-  participationId: string;
-  gameSessionId: string;
-  userId: string;
-  senderName: string;
-  amount: number;
-  receiptPath: string;
-  status: PaymentSubmissionStatus;
-  submittedAt: string;
-  reviewedBy: string | null;
-  reviewedAt: string | null;
-  rejectionReason: string | null;
-};
+export type PaymentSubmission = ReturnType<typeof toPaymentSubmission>;
 
 export type SubmitPaymentInput = {
   participationId: string;
@@ -29,10 +16,7 @@ export type SubmitPaymentInput = {
   receiptFile: File;
 };
 
-export type SubmitPaymentResult = {
-  success: true;
-  paymentSubmissionId: string;
-};
+export type SubmitPaymentResult = z.infer<typeof submitResultSchema>;
 
 const PAYMENT_SELECT =
   'id,participation_id,game_session_id,user_id,sender_name,amount,receipt_path,status,submitted_at,reviewed_by,reviewed_at,rejection_reason' as const;
@@ -64,7 +48,7 @@ const successResultSchema = z.object({ success: z.literal(true) });
 const submitResultSchema = successResultSchema.extend({ paymentSubmissionId: z.uuid() });
 
 // 결제 제출 행의 DB 컬럼을 앱 도메인 표기로 변환
-function toPaymentSubmission(row: PaymentSubmissionRow): PaymentSubmission {
+function toPaymentSubmission(row: PaymentSubmissionRow) {
   return {
     id: row.id,
     participationId: row.participation_id,

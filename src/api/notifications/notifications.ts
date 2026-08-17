@@ -2,20 +2,9 @@
 
 import { toNotificationError } from '@/api/notifications/notifications.error';
 import { supabase } from '@/lib/supabase/client';
-import type { Json, Tables } from '@/lib/supabase/database.types';
+import type { Tables } from '@/lib/supabase/database.types';
 
-export type AppNotification = {
-  id: string;
-  type: string;
-  title: string;
-  body: string;
-  actionUrl: string;
-  data: Json | null;
-  gameSessionId: string | null;
-  participationId: string | null;
-  isRead: boolean;
-  createdAt: string;
-};
+export type AppNotification = ReturnType<typeof toAppNotification>;
 
 const NOTIFICATION_SELECT =
   'id,type,title,body,action_url,data,game_session_id,participation_id,is_read,created_at' as const;
@@ -35,7 +24,7 @@ type NotificationRow = Pick<
 >;
 
 // 알림 행의 URL·읽음 필드를 앱 표기로 변환
-function toAppNotification(row: NotificationRow): AppNotification {
+function toAppNotification(row: NotificationRow) {
   return {
     id: row.id,
     type: row.type,

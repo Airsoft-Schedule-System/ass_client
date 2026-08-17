@@ -2,18 +2,9 @@
 
 import { ProfileAppError, toProfileError } from '@/api/profiles/profiles.error';
 import { supabase } from '@/lib/supabase/client';
-import type { TablesUpdate } from '@/lib/supabase/database.types';
+import type { Tables, TablesUpdate } from '@/lib/supabase/database.types';
 
-export type UserProfile = {
-  id: string;
-  email: string | null;
-  displayName: string;
-  phoneNumber: string | null;
-  teamId: string | null;
-  teamName: string | null;
-  createdAt: string;
-  lastActiveAt: string;
-};
+export type UserProfile = ReturnType<typeof toUserProfile>;
 
 export type UpdateProfileInput = {
   displayName?: string;
@@ -24,19 +15,15 @@ export type UpdateProfileInput = {
 const PROFILE_SELECT =
   'id,email,display_name,phone_number,team_id,created_at,last_active_at,teams(name)' as const;
 
-type ProfileRow = {
-  id: string;
-  email: string | null;
-  display_name: string;
-  phone_number: string | null;
-  team_id: string | null;
-  created_at: string;
-  last_active_at: string;
-  teams: { name: string } | null;
+type ProfileRow = Pick<
+  Tables<'users'>,
+  'id' | 'email' | 'display_name' | 'phone_number' | 'team_id' | 'created_at' | 'last_active_at'
+> & {
+  teams: Pick<Tables<'teams'>, 'name'> | null;
 };
 
 // DB 컬럼 표기를 앱 도메인의 camelCase 형태로 제한
-function toUserProfile(row: ProfileRow): UserProfile {
+function toUserProfile(row: ProfileRow) {
   return {
     id: row.id,
     email: row.email,

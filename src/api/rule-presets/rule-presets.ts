@@ -4,16 +4,7 @@ import { RulePresetAppError, toRulePresetError } from '@/api/rule-presets/rule-p
 import { supabase } from '@/lib/supabase/client';
 import type { Json, Tables, TablesInsert, TablesUpdate } from '@/lib/supabase/database.types';
 
-export type RulePreset = {
-  id: string;
-  name: string;
-  description: string | null;
-  rules: Json;
-  ownerId: string | null;
-  isPublic: boolean;
-  createdAt: string;
-  updatedAt: string;
-};
+export type RulePreset = ReturnType<typeof toRulePreset>;
 
 export type CreateRulePresetInput = {
   name: string;
@@ -38,7 +29,7 @@ type RulePresetRow = Pick<
 >;
 
 // 프리셋 행의 소유자·공개 여부를 앱 표기로 변환
-function toRulePreset(row: RulePresetRow): RulePreset {
+function toRulePreset(row: RulePresetRow) {
   return {
     id: row.id,
     name: row.name,
