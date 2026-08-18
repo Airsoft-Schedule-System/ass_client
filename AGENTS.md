@@ -62,7 +62,7 @@
 - 도메인 endpoint와 오류 변환은 `src/shared/api/endpoints/<domain>`에 배치하되 외부에는 `@/shared/api`로만 공개
 - DB 행·입력·수정·enum 타입은 생성 타입의 `Tables`, `TablesInsert`, `TablesUpdate`, `Enums`에서 파생
 - 인증 구독은 반환된 subscription을 등록한 위치에서 해제
-- 로컬 값은 Git에서 제외된 `.env.development.local`, 변수 목록은 `.env.example`에 관리
+- 로컬 Supabase 값은 Git에서 제외된 `.env.development.local`, 원격 스테이징 값은 `.env.staging.local`, 변수 목록은 `.env.example`에 관리
 - `VITE_` 값은 공개 정보로 간주하고 secret이나 service role key를 클라이언트에 추가하지 않기
 
 ## 스타일·레이아웃·접근성
