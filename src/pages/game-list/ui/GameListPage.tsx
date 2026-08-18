@@ -1,6 +1,7 @@
 // 다가오는 게임 일정과 현재 사용자의 참가·운영 상태를 표시하는 홈 화면
 
 import { useEffect, useState } from 'react';
+import { formatSessionDate } from '@/entities/game-session';
 import { useViewerStore } from '@/entities/viewer';
 import {
   listParticipationsForUser,
@@ -17,10 +18,51 @@ type GamesPageData = {
   sessions: SessionSummary[]; // 홈에 표시할 다가오는 게임 목록
 };
 
+type SessionDateGroup = {
+  dateKey: string; // 날짜 그룹을 구분하는 로컬 날짜 키
+  label: string; // 사용자에게 표시할 한국어 날짜
+  sessions: SessionSummary[]; // 같은 날짜에 시작하는 게임 목록
+};
+
 // 세션과 참가 API 중 실패한 도메인의 사용자 메시지를 선택
 function getGamesLoadErrorMessage(error: unknown) {
   if (error instanceof ParticipationAppError) return error.message;
   return toSessionError(error).message;
+}
+
+// 세션을 시작 시각으로 정렬한 뒤 사용자의 로컬 날짜 기준으로 묶음
+function groupSessionsByDate(sessions: SessionSummary[]) {
+  const groups = new Map<string, SessionDateGroup>();
+  const sortedSessions = [...sessions].sort((first, second) => {
+    const firstTime = new Date(first.startsAt).getTime();
+    const secondTime = new Date(second.startsAt).getTime();
+
+    return (
+      (Number.isNaN(firstTime) ? Infinity : firstTime) -
+      (Number.isNaN(secondTime) ? Infinity : secondTime)
+    );
+  });
+
+  sortedSessions.forEach((session) => {
+    const date = new Date(session.startsAt);
+    const dateKey = Number.isNaN(date.getTime())
+      ? 'unknown'
+      : `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+    const existingGroup = groups.get(dateKey);
+
+    if (existingGroup) {
+      existingGroup.sessions.push(session);
+      return;
+    }
+
+    groups.set(dateKey, {
+      dateKey,
+      label: formatSessionDate(session.startsAt),
+      sessions: [session],
+    });
+  });
+
+  return [...groups.values()];
 }
 
 export function GameListPage() {
@@ -102,19 +144,32 @@ export function GameListPage() {
     const participationBySessionId = new Map(
       data.participations.map((participation) => [participation.gameSessionId, participation]),
     );
+    const sessionDateGroups = groupSessionsByDate(data.sessions);
 
     return (
-      <ul className="flex flex-col gap-3">
-        {data.sessions.map((session) => (
-          <li key={session.id}>
-            <GameSessionCard
-              isOwned={session.createdByUserId === user?.id}
-              participationStatus={participationBySessionId.get(session.id)?.status}
-              session={session}
-            />
-          </li>
+      <div className="flex flex-col gap-6">
+        {sessionDateGroups.map(({ dateKey, label, sessions }) => (
+          <section aria-labelledby={`session-date-${dateKey}`} key={dateKey}>
+            <h2
+              className="mb-3 text-base font-extrabold text-[var(--color-app-brand)]"
+              id={`session-date-${dateKey}`}
+            >
+              {label}
+            </h2>
+            <ul className="flex flex-col gap-3">
+              {sessions.map((session) => (
+                <li key={session.id}>
+                  <GameSessionCard
+                    isOwned={session.createdByUserId === user?.id}
+                    participationStatus={participationBySessionId.get(session.id)?.status}
+                    session={session}
+                  />
+                </li>
+              ))}
+            </ul>
+          </section>
         ))}
-      </ul>
+      </div>
     );
   }
 

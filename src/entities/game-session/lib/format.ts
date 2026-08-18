@@ -16,12 +16,20 @@ const sessionTimeFormatter = new Intl.DateTimeFormat('ko-KR', {
 
 const gameFeeFormatter = new Intl.NumberFormat('ko-KR');
 
+// 시작 시각을 날짜별 목록 제목으로 변환
+export function formatSessionDate(startsAt: string) {
+  const startDate = new Date(startsAt);
+  if (Number.isNaN(startDate.getTime())) return '일정 미정';
+
+  return sessionDateFormatter.format(startDate);
+}
+
 // 시작과 종료 시각을 같은 화면 형식으로 조합
 export function formatSessionDateTime(startsAt: string, endsAt: string | null) {
   const startDate = new Date(startsAt);
   if (Number.isNaN(startDate.getTime())) return '일정 미정';
 
-  const date = sessionDateFormatter.format(startDate);
+  const date = formatSessionDate(startsAt);
   const startTime = sessionTimeFormatter.format(startDate);
 
   if (!endsAt) return `${date} ${startTime}`;
