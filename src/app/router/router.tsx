@@ -1,0 +1,69 @@
+// URL 경로와 React 화면 컴포넌트의 연결 관계를 정의
+
+import { createBrowserRouter } from 'react-router';
+import { GameCreatePage } from '@/pages/game-create';
+import { GameDetailPage } from '@/pages/game-detail';
+import { GameListPage } from '@/pages/game-list';
+import { LoginPage } from '@/pages/login';
+import { OperationListPage } from '@/pages/operation-list';
+import { ParticipationListPage } from '@/pages/participation-list';
+import { ProfilePage } from '@/pages/profile';
+import { ProfileEditPage } from '@/pages/profile-edit';
+import { SignUpPage } from '@/pages/sign-up';
+import { AuthGuard } from './AuthGuard';
+import { RootLayout } from './RootLayout';
+
+export const router = createBrowserRouter([
+  {
+    path: '/',
+    Component: RootLayout,
+    children: [
+      {
+        element: <AuthGuard access="authenticated" />,
+        children: [
+          {
+            index: true,
+            Component: GameListPage,
+          },
+          {
+            path: 'participations',
+            Component: ParticipationListPage,
+          },
+          {
+            path: 'games/new',
+            Component: GameCreatePage,
+          },
+          {
+            path: 'games/:sessionId',
+            Component: GameDetailPage,
+          },
+          {
+            path: 'operations',
+            Component: OperationListPage,
+          },
+          {
+            path: 'profile',
+            Component: ProfilePage,
+          },
+          {
+            path: 'profile/setup',
+            Component: ProfileEditPage,
+          },
+        ],
+      },
+      {
+        element: <AuthGuard access="guest" />,
+        children: [
+          {
+            path: 'login',
+            Component: LoginPage,
+          },
+        ],
+      },
+      {
+        path: 'signup',
+        Component: SignUpPage,
+      },
+    ],
+  },
+]);

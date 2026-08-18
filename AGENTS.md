@@ -2,96 +2,68 @@
 
 ## 기본 원칙
 
-- 현재 요구사항에 필요한 코드만 추가하고 사용하지 않는 계층·폴더·추상화를 미리 만들지 않기
-- 두 곳 이상에서 사용하거나 하나의 정책을 단일 기준으로 유지해야 하는 코드만 공통화
-- 기존 구조와 디자인을 먼저 확인하고 규칙과 구현이 달라지면 이 문서도 함께 수정
+- 현재 요구사항에 필요한 코드만 추가하고 사용하지 않는 레이어·slice·추상화를 미리 만들지 않기
+- 구조의 단일 기준은 `ARCHITECTURE.md`이며 코드와 기준이 달라지면 둘을 함께 수정
+- 화면 디자인, 사용자 문구, URL, API 공개 계약은 별도 요구가 없으면 유지
+
+## FSD 구조
+
+- 레이어는 `app → pages → widgets → features → entities → shared` 방향으로만 의존
+- 현재 사용하는 레이어는 `app`, `pages`, `widgets`, `entities`, `shared`이며 빈 `features`는 만들지 않기
+- `app`에는 엔트리포인트, 전역 스타일, 라우터, 인증 가드 같은 앱 조립 코드만 배치
+- 라우트 화면은 `pages/<route-slice>`, 독립적인 큰 UI 블록은 `widgets`, 비즈니스 개체는 `entities`에 배치
+- 여러 페이지에서 재사용되는 완결된 사용자 행동만 동사 중심 `features` slice로 추출
+- 범용 기반 코드는 `shared/api`, `shared/ui`에 배치하고 비즈니스 정책을 넣지 않기
+- slice 내부 segment는 `ui`, `model`, `api`, `lib`만 사용하고 `components`, `hooks`, `stores`, `schemas` 같은 기술명 segment를 만들지 않기
+- 모든 page, widget, entity slice와 `shared/api`, `shared/ui`는 루트 `index.ts` public API를 제공
+- 다른 slice는 `@/entities/viewer`처럼 public API로만 import하고 내부 경로를 직접 참조하지 않기
+- 같은 slice 내부는 상대 경로, 다른 slice는 `@/` 절대 경로를 사용
+- 같은 레이어의 다른 slice를 직접 import하지 않으며 공유 책임은 적절한 하위 레이어로 이동
+- 빈 폴더나 미래를 위한 slice는 만들지 않기
 
 ## 주석과 TypeScript
 
-- 코드 파일 상단에 역할을 한 줄로 설명하되 JSON·자동 생성·타입 선언 파일은 제외
+- 코드 파일 상단에 역할을 한 줄로 설명하되 JSON, 자동 생성 파일, 타입 선언 파일은 제외
 - 주요 타입·함수·복잡한 분기에 의도를 설명하고 코드 자체를 반복하는 주석은 생략
 - 컴포넌트가 직접 정의한 각 prop 옆에 짧은 인라인 주석 작성; React·HTML 상속 prop은 제외
-- `any`는 예외 없이 금지하고 TypeScript `strict` 모드 유지
-- 외부 데이터 경계에는 타입을 명시하고 내부 값은 타입 추론 사용
-- 타입 전용 import는 `import type`을 사용하고 assertion·검사 완화로 타입 오류를 우회하지 않기
+- `any`는 금지하고 TypeScript `strict` 모드를 유지
+- 타입 전용 import는 `import type`을 사용하고 assertion이나 검사 완화로 오류를 우회하지 않기
 - 사용하지 않는 코드와 import를 남기지 않기
-
-## 파일 구조
-
-- 기능 중심 구조를 사용하며 `app`은 라우터·전역 레이아웃 등 앱 조립만 담당
-- API는 `src/api/<도메인>/<도메인>.ts`, 오류는 `<도메인>.error.ts`에 배치
-- 도메인·API 오류의 타입·코드·변환 로직·사용자 메시지는 해당 `<도메인>.error.ts`에서만 정의
-- 페이지와 컴포넌트의 `catch`에서 API 오류 문구를 직접 작성하지 않고 도메인 오류 변환 함수를 사용
-- 기능 전용 코드는 `src/features/<기능>/` 안에서 역할별로 분리
-- 라우트 화면은 `pages`, JSX를 반환하는 기능 전용 컴포넌트는 `components`, Hook은 `hooks`, 상태는 `stores`, 검증은 `schemas`에 배치
-- 화면을 렌더링하지 않는 로직을 `components`에 두지 않기
-- 여러 기능이 공유하는 표현 컴포넌트만 `src/components/common/`에 배치
-- 기능별 오류를 하나의 공통 오류 파일에 누적하지 않기
-- SVG는 `src/components/icons/`에서 아이콘 하나당 하나의 파일로 관리하고 화면에 직접 작성하지 않기
-- `@/` 별칭을 사용하고 깊은 상대 경로 import를 만들지 않기
 
 ## React와 폼
 
-- 렌더링 중 API 호출·상태 변경·구독 등록을 하지 않고 props와 state를 직접 변경하지 않기
+- 렌더링 중 API 호출, 상태 변경, 구독 등록을 하지 않고 props와 state를 직접 변경하지 않기
 - Hook은 최상위에서만 호출하고 이벤트·구독은 등록한 위치에서 해제
-- 상태는 사용하는 가장 가까운 컴포넌트에 두고 책임이 여러 개일 때만 컴포넌트 분리
-- 여러 화면이 공유하는 클라이언트 상태는 Zustand, 화면 내부 상태는 React 지역 상태로 관리
-- Supabase 인증 store에는 사용자와 복구 상태만 두고 토큰 저장·갱신은 SDK에 위임
-- 검증이 필요하거나 입력이 여러 개인 폼은 `react-hook-form` + `zod` + `zodResolver` 사용; 단순 단일 입력은 예외
-- 폼 스키마는 `src/features/<기능>/schemas/<폼>.schema.ts`에 두고 제출 타입은 Zod에서 추론
-- 여러 폼이 같은 정책을 쓰는 필드는 기능 내부 공통 스키마로 분리하되 타입만 같다는 이유로 공통화하지 않기
-- 사용자용 검증 로직과 문구는 Zod를 기준으로 하고 필드 간 검증은 `refine` 또는 `superRefine` 사용
-- 입력값 검증 메시지는 도메인 오류 파일이 아니라 해당 Zod 스키마에서 관리
-- HTML의 `type`·`required`·길이·`autoComplete` 속성은 유지하고 스키마 폼에는 `noValidate` 사용
+- 상태는 사용하는 가장 가까운 위치에 두고 여러 화면이 공유하는 클라이언트 상태만 entity model의 Zustand로 관리
+- Supabase viewer store에는 사용자와 복구 상태만 두고 토큰 저장·갱신은 SDK에 위임
+- 검증이 필요하거나 입력이 여러 개인 폼은 `react-hook-form`, Zod, `zodResolver` 사용
+- 페이지 전용 스키마와 상태는 해당 page slice의 `model`에 배치하고 제출 타입은 Zod에서 추론
+- 사용자용 검증 문구는 Zod 스키마, API 오류 문구는 도메인 오류 변환 함수에서 관리
 - 필드 오류는 공통 입력의 오류 prop, API 오류는 폼 `root`, 제출 상태는 `formState.isSubmitting`으로 처리
-- 클라이언트 검증은 서버와 데이터베이스 검증을 대체하지 않기
 
 ## Supabase와 환경변수
 
-- React 컴포넌트에서 Supabase를 직접 호출하지 않고 `src/api/<도메인>/` 함수 사용
-- 클라이언트 생성과 공통 인증 설정은 `src/lib/supabase/client.ts`에서만 관리
-- Supabase 테이블의 조회 행·입력·수정·enum 타입은 `Tables`·`TablesInsert`·`TablesUpdate`·`Enums`에서 파생하고 같은 필드 타입을 수동 선언하지 않기
-- DB 응답을 camelCase나 조인 결과로 변환한 공개 타입은 변환 함수의 `ReturnType`으로 추론하고 동일 구조를 다시 선언하지 않기
-- RPC 응답 타입은 검증에 사용하는 Zod 스키마에서 `z.infer`로 추론하며 폼·컴포넌트·화면 상태·RPC 입력처럼 DB 구조와 다른 타입만 직접 선언하기
-- 원본 오류는 도메인 오류로 변환하고 의미가 다른 세션·사용자 검증 작업을 합치지 않기
+- React 컴포넌트에서 Supabase를 직접 호출하지 않고 `@/shared/api`의 endpoint wrapper를 사용
+- 클라이언트, 생성 DB 타입, 공통 오류 추출기는 `src/shared/api/supabase`에서 관리
+- 도메인 endpoint와 오류 변환은 `src/shared/api/endpoints/<domain>`에 배치하되 외부에는 `@/shared/api`로만 공개
+- DB 행·입력·수정·enum 타입은 생성 타입의 `Tables`, `TablesInsert`, `TablesUpdate`, `Enums`에서 파생
 - 인증 구독은 반환된 subscription을 등록한 위치에서 해제
 - 로컬 값은 Git에서 제외된 `.env.development.local`, 변수 목록은 `.env.example`에 관리
-- 배포 값은 CI/CD에서 주입하고 새 변수를 변경할 때 `.env.example`과 `src/vite-env.d.ts`도 수정
-- `VITE_` 값은 공개 정보로 간주하고 클라이언트에는 publishable key만 사용
-- secret·service role key·비밀번호를 클라이언트 코드나 저장소에 추가하지 않기
-- 필수 환경변수는 앱 시작 시 누락 여부 검증
+- `VITE_` 값은 공개 정보로 간주하고 secret이나 service role key를 클라이언트에 추가하지 않기
 
-## 스타일과 레이아웃
+## 스타일·레이아웃·접근성
 
-- Tailwind 기본 유틸리티와 `src/index.css`의 기존 색상 변수를 우선 사용
-- typography는 `text-xs`, `text-sm`, `text-base` 같은 기본 단계만 사용하고 임의 px 값 금지
-- 앱 최상위는 고정 뷰포트와 공통 배경만, 페이지 레이아웃은 콘텐츠 너비와 여백을 관리
-- 모바일 페이지는 `MobileLayout`에 헤더 값을 전달하고 내부의 단일 `main`을 사용하며 페이지에서 `main`을 중복 생성하지 않기
-- 최상위 인증 탭 화면은 `MobileLayout`의 공통 하단 내비게이션을 사용하고 상세·작성·수정 흐름은 화면 목적에 필요할 때만 표시
-- 모바일 상하 여백은 safe area와 최소값을 사용하고 추가 여백은 각 페이지에서 관리
-- 문서 전체 스크롤은 만들지 않고 필요한 페이지 내부에만 명시적 스크롤 허용
-- 부모는 `gap`·padding·wrapper로 외부 배치를, 공통 컴포넌트는 내부 구조·간격·상태를 관리
-- 같은 상위 레이아웃과 패턴을 공유하는 화면군은 너비·시작선·헤더·섹션 간격·스크롤 방식을 통일
-- 버튼과 상태 문구 끝에 불필요한 말줄임표(`...`, `…`)를 붙이지 않기
-- 화면군의 콘텐츠가 많아져도 시작 위치를 바꾸지 말고 내부 스크롤을 사용하며 변경 시 관련 화면을 함께 비교
-- 반복되는 화면군 값은 전용 레이아웃이나 공통 컴포넌트로 관리하고 예외에는 디자인 이유를 설명
-- 전체 너비 요소는 페이지 padding 밖에 배치
-- 색상값을 컴포넌트에 직접 쓰거나 디자인 근거 없이 팔레트를 추가·변경하지 않기
-- 실제 사용하는 색상만 유지하고 각 변수에 사용 목적을 인라인 주석으로 작성
-- 모바일을 우선하되 PC 확장을 막지 않고 기존 너비 정책을 임의 변경하지 않기
-- typography 외 임의값도 Tailwind 기본값이나 디자인 토큰으로 표현할 수 없을 때만 사용
-
-## 접근성
-
-- 클릭 동작에는 목적에 맞는 `button` 또는 `a`, 입력에는 연결된 label 사용
-- 필드 오류는 `aria-invalid`와 `aria-describedby`, API 오류는 `role="alert"`, 성공은 `role="status"`로 연결
-- 아이콘 버튼에는 `aria-label`을 제공하고 키보드 사용과 포커스 표시를 보장
-- 상태를 색상만으로 전달하지 않고 장식용·의미 있는 이미지의 대체 텍스트를 구분
+- Tailwind 기본 유틸리티와 `src/app/styles/index.css`의 기존 디자인 토큰을 우선 사용
+- 모바일 화면은 `@/widgets/mobile-layout`을 사용하고 페이지에서 `main`을 중복 생성하지 않기
+- 부모는 외부 배치, 공통 UI는 내부 구조와 상태를 관리하며 기존 너비·스크롤·safe area 정책을 유지
+- 클릭 동작에는 `button` 또는 `a`, 입력에는 연결된 label을 사용
+- 오류와 상태는 적절한 ARIA 속성으로 연결하고 아이콘 버튼에는 `aria-label`을 제공
+- 상태를 색상만으로 전달하지 않기
 
 ## 검증과 Git
 
-- 완료 전에 `npm run check`와 diff를 확인하고 오류가 있는 상태로 마무리하지 않기
-- 테스트 도구가 없을 때 임의 설정을 추가하지 않고 도입 후 인증 같은 핵심 흐름부터 검증
+- 완료 전 `npm run check`를 실행해 Oxlint, Steiger, Prettier, TypeScript, Vite build를 모두 통과
+- public API 우회나 import 방향 위반을 예외 처리로 숨기지 않기
+- diff와 기존 라우트·API 계약 보존 여부를 확인
 - 하나의 커밋에는 하나의 목적만 담고 사용자 변경이나 관련 없는 파일을 포함하지 않기
-- 커밋은 Conventional Commits를 사용하며 허용 타입은 `feat`, `fix`, `refactor`, `perf`, `style`, `test`, `docs`, `build`, `ci`, `chore`, `revert`
-- 커밋 제목은 `type: subject` 형식을 사용하고 `type(scope): subject`처럼 괄호 scope를 작성하지 않기
+- 커밋은 Conventional Commits의 `type: subject` 형식을 사용
