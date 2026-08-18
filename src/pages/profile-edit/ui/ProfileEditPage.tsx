@@ -111,7 +111,7 @@ export function ProfileEditPage() {
         noValidate
         onSubmit={handleSubmit(handleProfileSave)}
       >
-        <div className="min-h-0 flex-1 overflow-y-auto pb-4">
+        <div className="min-h-0 flex-1 pb-4">
           <div className="flex flex-col gap-2">
             <Input
               {...register('displayName')}

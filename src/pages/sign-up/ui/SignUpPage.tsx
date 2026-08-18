@@ -95,7 +95,7 @@ export function SignUpPage() {
   return (
     <MobileLayout description="Airsoft Schedule System" title="회원가입">
       <form
-        className="mt-8 flex min-h-0 flex-1 flex-col gap-6 overflow-y-auto"
+        className="mt-8 flex min-h-0 flex-1 flex-col gap-6"
         noValidate
         onSubmit={handleSubmit(handleSignUp)}
       >

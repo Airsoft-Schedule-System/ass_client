@@ -147,7 +147,7 @@ export function GameListPage() {
     const sessionDateGroups = groupSessionsByDate(data.sessions);
 
     return (
-      <div className="flex flex-col gap-6">
+      <div className="mb-24 flex flex-col gap-6">
         {sessionDateGroups.map(({ dateKey, label, sessions }) => (
           <section aria-labelledby={`session-date-${dateKey}`} key={dateKey}>
             <h2
@@ -174,7 +174,12 @@ export function GameListPage() {
   }
 
   return (
-    <MobileLayout description="예정된 게임을 확인해 보세요" showBottomNavigation title="게임">
+    <MobileLayout
+      description="예정된 게임을 확인해 보세요"
+      scrollable
+      showBottomNavigation
+      title="게임"
+    >
       {renderGamesContent()}
     </MobileLayout>
   );
