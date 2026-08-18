@@ -5097,7 +5097,8 @@
                   "enabled": false
                 },
                 "HOddU": {
-                  "content": "로그인"
+                  "content": "로그인",
+                  "name": "Title"
                 },
                 "FQXpd": {
                   "enabled": true,
@@ -5430,7 +5431,8 @@
                   "enabled": false
                 },
                 "HOddU": {
-                  "content": "회원가입"
+                  "content": "회원가입",
+                  "name": "Title"
                 },
                 "FQXpd": {
                   "enabled": true,
@@ -6593,7 +6595,8 @@
                   "icon": "share-2"
                 },
                 "HOddU": {
-                  "content": "게임 상세"
+                  "content": "게임 상세",
+                  "name": "Title"
                 }
               }
             },
@@ -6925,7 +6928,8 @@
                   "enabled": false
                 },
                 "HOddU": {
-                  "content": "내 참가"
+                  "content": "내 참가",
+                  "name": "Title"
                 },
                 "FQXpd": {
                   "enabled": true,
@@ -7454,7 +7458,8 @@
                   "icon": "ellipsis"
                 },
                 "HOddU": {
-                  "content": "참가 상세"
+                  "content": "참가 상세",
+                  "name": "Title"
                 }
               }
             },
@@ -7681,7 +7686,7 @@
     {
       "type": "frame",
       "id": "Ij3p7",
-      "x": 5330,
+      "x": 7406,
       "y": 2068,
       "name": "22 Participation / Payment Submission",
       "clip": true,
@@ -7772,6 +7777,10 @@
               "descendants": {
                 "dyse7": {
                   "icon": "x"
+                },
+                "HOddU": {
+                  "name": "Title",
+                  "content": "송금증 제출"
                 }
               }
             },
@@ -7995,7 +8004,7 @@
     {
       "type": "frame",
       "id": "NC3I1",
-      "x": 5800,
+      "x": 7876,
       "y": 2068,
       "name": "23 Participation / Refund Request",
       "clip": true,
@@ -8083,6 +8092,10 @@
               "descendants": {
                 "dyse7": {
                   "icon": "x"
+                },
+                "HOddU": {
+                  "name": "Title",
+                  "content": "환불 요청"
                 }
               }
             },
@@ -8229,7 +8242,7 @@
     {
       "type": "frame",
       "id": "T9r0A",
-      "x": 6270,
+      "x": 8346,
       "y": 2068,
       "name": "24 Participation / My QR",
       "clip": true,
@@ -8317,6 +8330,10 @@
               "descendants": {
                 "dyse7": {
                   "icon": "rotate-cw"
+                },
+                "HOddU": {
+                  "name": "Title",
+                  "content": "내 QR 입장권"
                 }
               }
             },
@@ -10082,6 +10099,10 @@
               "descendants": {
                 "dyse7": {
                   "icon": "x"
+                },
+                "HOddU": {
+                  "name": "Title",
+                  "content": "게임 만들기"
                 }
               }
             },
@@ -10438,6 +10459,10 @@
               "descendants": {
                 "dyse7": {
                   "icon": "check"
+                },
+                "HOddU": {
+                  "name": "Title",
+                  "content": "게임 규칙 설정"
                 }
               }
             },
@@ -10792,6 +10817,10 @@
               "descendants": {
                 "dyse7": {
                   "icon": "settings"
+                },
+                "HOddU": {
+                  "name": "Title",
+                  "content": "게임 운영"
                 }
               }
             },
@@ -11377,6 +11406,10 @@
               "descendants": {
                 "dyse7": {
                   "icon": "settings"
+                },
+                "HOddU": {
+                  "name": "Title",
+                  "content": "참가 신청자"
                 }
               }
             },
@@ -11945,8 +11978,8 @@
     {
       "type": "frame",
       "id": "PQTWh",
-      "x": 5330,
-      "y": 3980,
+      "x": 7314,
+      "y": 3943,
       "name": "37 Operations / Receipts",
       "clip": true,
       "width": 390,
@@ -12033,6 +12066,10 @@
               "descendants": {
                 "dyse7": {
                   "icon": "settings"
+                },
+                "HOddU": {
+                  "name": "Title",
+                  "content": "송금증 관리"
                 }
               }
             },
@@ -12567,8 +12604,8 @@
     {
       "type": "frame",
       "id": "Q7hcoZ",
-      "x": 6270,
-      "y": 3980,
+      "x": 8254,
+      "y": 3943,
       "name": "39 Operations / Attendance",
       "clip": true,
       "width": 390,
@@ -12655,6 +12692,10 @@
               "descendants": {
                 "dyse7": {
                   "icon": "settings"
+                },
+                "HOddU": {
+                  "name": "Title",
+                  "content": "출석 관리"
                 }
               }
             },
@@ -13324,6 +13365,10 @@
               "descendants": {
                 "dyse7": {
                   "icon": "ellipsis"
+                },
+                "HOddU": {
+                  "name": "Title",
+                  "content": "신청자 상세"
                 }
               }
             },
@@ -13581,8 +13626,8 @@
     {
       "type": "frame",
       "id": "H5eM2u",
-      "x": 5800,
-      "y": 3980,
+      "x": 7784,
+      "y": 3943,
       "name": "38 Operations / Receipt Review",
       "clip": true,
       "width": 390,
@@ -13669,6 +13714,10 @@
               "descendants": {
                 "dyse7": {
                   "icon": "x"
+                },
+                "HOddU": {
+                  "name": "Title",
+                  "content": "송금증 검수"
                 }
               }
             },
@@ -13897,8 +13946,8 @@
     {
       "type": "frame",
       "id": "R4TXp",
-      "x": 6740,
-      "y": 3980,
+      "x": 8724,
+      "y": 3943,
       "name": "40 Operations / QR Scanner",
       "clip": true,
       "width": 390,
@@ -13985,6 +14034,10 @@
               "descendants": {
                 "dyse7": {
                   "icon": "x"
+                },
+                "HOddU": {
+                  "name": "Title",
+                  "content": "QR 출석"
                 }
               }
             },
@@ -14148,6 +14201,10 @@
               "descendants": {
                 "dyse7": {
                   "icon": "check-check"
+                },
+                "HOddU": {
+                  "name": "Title",
+                  "content": "알림"
                 }
               }
             },
@@ -15018,6 +15075,10 @@
               "descendants": {
                 "dyse7": {
                   "icon": "x"
+                },
+                "HOddU": {
+                  "name": "Title",
+                  "content": "게임 수정"
                 }
               }
             },
@@ -15230,1055 +15291,6 @@
     },
     {
       "type": "frame",
-      "id": "b4Tk9v",
-      "x": 4390,
-      "y": 7068,
-      "name": "90 Reference / System States",
-      "clip": true,
-      "width": 390,
-      "height": 844,
-      "fill": "$ass-bg",
-      "layout": "vertical",
-      "children": [
-        {
-          "type": "frame",
-          "id": "VBQ9D",
-          "width": "fill_container",
-          "height": 44,
-          "padding": [
-            0,
-            18
-          ],
-          "justifyContent": "space_between",
-          "alignItems": "center",
-          "children": [
-            {
-              "type": "text",
-              "id": "ri5dO",
-              "fill": "$ass-text",
-              "content": "9:41",
-              "fontFamily": "$ass-font",
-              "fontSize": 11,
-              "fontWeight": "700"
-            },
-            {
-              "type": "frame",
-              "id": "h7jAn",
-              "gap": 5,
-              "children": [
-                {
-                  "type": "icon",
-                  "id": "KEr9y",
-                  "width": 14,
-                  "height": 14,
-                  "icon": "signal",
-                  "library": "lucide",
-                  "fill": "$ass-text"
-                },
-                {
-                  "type": "icon",
-                  "id": "n2Qbi",
-                  "width": 14,
-                  "height": 14,
-                  "icon": "wifi",
-                  "library": "lucide",
-                  "fill": "$ass-text"
-                },
-                {
-                  "type": "icon",
-                  "id": "PTSA1",
-                  "width": 14,
-                  "height": 14,
-                  "icon": "battery-full",
-                  "library": "lucide",
-                  "fill": "$ass-text"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "k0BKv",
-          "width": "fill_container",
-          "height": "fill_container",
-          "layout": "vertical",
-          "gap": 14,
-          "padding": [
-            8,
-            24,
-            24,
-            24
-          ],
-          "children": [
-            {
-              "id": "NbRCI",
-              "type": "ref",
-              "ref": "azEVp",
-              "width": "fill_container",
-              "descendants": {
-                "dyse7": {
-                  "icon": "x"
-                }
-              }
-            },
-            {
-              "type": "frame",
-              "id": "IU6OG",
-              "width": "fill_container",
-              "fill": "$ass-surface",
-              "cornerRadius": 6,
-              "stroke": "$ass-border",
-              "strokeWidth": 1,
-              "layout": "vertical",
-              "gap": 8,
-              "padding": 14,
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "y4iFy3",
-                  "width": "fill_container",
-                  "gap": 12,
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "frame",
-                      "id": "F8xuj",
-                      "width": 42,
-                      "height": 42,
-                      "fill": "$ass-surface-2",
-                      "cornerRadius": 21,
-                      "justifyContent": "center",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "icon",
-                          "id": "pslDQ",
-                          "width": 20,
-                          "height": 20,
-                          "icon": "calendar-x",
-                          "library": "lucide",
-                          "fill": "$ass-muted"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "D1eoq",
-                      "width": "fill_container",
-                      "layout": "vertical",
-                      "gap": 4,
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "A0XvB0",
-                          "fill": "$ass-text",
-                          "textGrowth": "fixed-width",
-                          "width": "fill_container",
-                          "content": "예정된 게임이 없습니다",
-                          "fontFamily": "$ass-font",
-                          "fontSize": 12,
-                          "fontWeight": "700"
-                        },
-                        {
-                          "type": "text",
-                          "id": "V69pGj",
-                          "fill": "$ass-muted",
-                          "textGrowth": "fixed-width",
-                          "width": "fill_container",
-                          "content": "새로운 게임이 등록되면 이곳에 표시됩니다.",
-                          "fontFamily": "$ass-font",
-                          "fontSize": 10,
-                          "fontWeight": "normal"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "text",
-                      "id": "Dl1uL",
-                      "fill": "$ass-accent",
-                      "content": "게임 만들기",
-                      "fontFamily": "$ass-font",
-                      "fontSize": 10,
-                      "fontWeight": "700"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "leFCw",
-              "width": "fill_container",
-              "fill": "$ass-surface",
-              "cornerRadius": 6,
-              "stroke": "$ass-border",
-              "strokeWidth": 1,
-              "layout": "vertical",
-              "gap": 8,
-              "padding": 14,
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "xgw8l",
-                  "width": "fill_container",
-                  "gap": 12,
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "frame",
-                      "id": "DKipv",
-                      "width": 42,
-                      "height": 42,
-                      "fill": "$ass-surface-2",
-                      "cornerRadius": 21,
-                      "justifyContent": "center",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "icon",
-                          "id": "WvBmT",
-                          "width": 20,
-                          "height": 20,
-                          "icon": "wifi-off",
-                          "library": "lucide",
-                          "fill": "$ass-danger"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "Kt2iQ",
-                      "width": "fill_container",
-                      "layout": "vertical",
-                      "gap": 4,
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "OyAM2",
-                          "fill": "$ass-text",
-                          "textGrowth": "fixed-width",
-                          "width": "fill_container",
-                          "content": "연결할 수 없습니다",
-                          "fontFamily": "$ass-font",
-                          "fontSize": 12,
-                          "fontWeight": "700"
-                        },
-                        {
-                          "type": "text",
-                          "id": "D90gh",
-                          "fill": "$ass-muted",
-                          "textGrowth": "fixed-width",
-                          "width": "fill_container",
-                          "content": "네트워크 상태를 확인하고 다시 시도해주세요.",
-                          "fontFamily": "$ass-font",
-                          "fontSize": 10,
-                          "fontWeight": "normal"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "text",
-                      "id": "zPTBH",
-                      "fill": "$ass-accent",
-                      "content": "다시 시도",
-                      "fontFamily": "$ass-font",
-                      "fontSize": 10,
-                      "fontWeight": "700"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "wW94l",
-              "width": "fill_container",
-              "fill": "$ass-surface",
-              "cornerRadius": 6,
-              "stroke": "$ass-border",
-              "strokeWidth": 1,
-              "layout": "vertical",
-              "gap": 8,
-              "padding": 14,
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "bBQRs",
-                  "width": "fill_container",
-                  "gap": 12,
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "frame",
-                      "id": "r88VT",
-                      "width": 42,
-                      "height": 42,
-                      "fill": "$ass-surface-2",
-                      "cornerRadius": 21,
-                      "justifyContent": "center",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "icon",
-                          "id": "Nn6lN",
-                          "width": 20,
-                          "height": 20,
-                          "icon": "camera-off",
-                          "library": "lucide",
-                          "fill": "$ass-warning"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "P858C",
-                      "width": "fill_container",
-                      "layout": "vertical",
-                      "gap": 4,
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "v6L9c",
-                          "fill": "$ass-text",
-                          "textGrowth": "fixed-width",
-                          "width": "fill_container",
-                          "content": "카메라 권한이 필요합니다",
-                          "fontFamily": "$ass-font",
-                          "fontSize": 12,
-                          "fontWeight": "700"
-                        },
-                        {
-                          "type": "text",
-                          "id": "tVoQs",
-                          "fill": "$ass-muted",
-                          "textGrowth": "fixed-width",
-                          "width": "fill_container",
-                          "content": "QR 출석을 위해 카메라 접근을 허용해주세요.",
-                          "fontFamily": "$ass-font",
-                          "fontSize": 10,
-                          "fontWeight": "normal"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "text",
-                      "id": "yhqEz",
-                      "fill": "$ass-accent",
-                      "content": "권한 설정",
-                      "fontFamily": "$ass-font",
-                      "fontSize": 10,
-                      "fontWeight": "700"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "iE3Mf",
-              "width": "fill_container",
-              "fill": "$ass-surface",
-              "cornerRadius": 6,
-              "stroke": "$ass-border",
-              "strokeWidth": 1,
-              "layout": "vertical",
-              "gap": 8,
-              "padding": 14,
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "y6Oyz",
-                  "width": "fill_container",
-                  "gap": 12,
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "frame",
-                      "id": "Gq6zI",
-                      "width": 42,
-                      "height": 42,
-                      "fill": "$ass-surface-2",
-                      "cornerRadius": 21,
-                      "justifyContent": "center",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "icon",
-                          "id": "h2J4ru",
-                          "width": 20,
-                          "height": 20,
-                          "icon": "circle-x",
-                          "library": "lucide",
-                          "fill": "$ass-danger"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "i0dciB",
-                      "width": "fill_container",
-                      "layout": "vertical",
-                      "gap": 4,
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "KZYcv",
-                          "fill": "$ass-text",
-                          "textGrowth": "fixed-width",
-                          "width": "fill_container",
-                          "content": "취소된 게임입니다",
-                          "fontFamily": "$ass-font",
-                          "fontSize": 12,
-                          "fontWeight": "700"
-                        },
-                        {
-                          "type": "text",
-                          "id": "ytwSq",
-                          "fill": "$ass-muted",
-                          "textGrowth": "fixed-width",
-                          "width": "fill_container",
-                          "content": "이 게임에서는 더 이상 참가 및 운영 작업을 할 수 없습니다.",
-                          "fontFamily": "$ass-font",
-                          "fontSize": 10,
-                          "fontWeight": "normal"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "text",
-                      "id": "a0woKS",
-                      "fill": "$ass-accent",
-                      "content": "홈으로",
-                      "fontFamily": "$ass-font",
-                      "fontSize": 10,
-                      "fontWeight": "700"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "frame",
-      "id": "YLJMV",
-      "x": 4860,
-      "y": 7068,
-      "name": "91 Reference / Home API Draft",
-      "clip": true,
-      "width": 390,
-      "height": 844,
-      "fill": "$ass-bg",
-      "layout": "vertical",
-      "children": [
-        {
-          "type": "frame",
-          "id": "BPLop",
-          "width": "fill_container",
-          "height": 44,
-          "padding": [
-            0,
-            18
-          ],
-          "justifyContent": "space_between",
-          "alignItems": "center",
-          "children": [
-            {
-              "type": "text",
-              "id": "Z8mtn",
-              "fill": "$ass-text",
-              "content": "9:41",
-              "fontFamily": "$ass-font",
-              "fontSize": 11,
-              "fontWeight": "700"
-            },
-            {
-              "type": "frame",
-              "id": "r4SRfm",
-              "gap": 5,
-              "children": [
-                {
-                  "type": "icon",
-                  "id": "R1yF9t",
-                  "width": 14,
-                  "height": 14,
-                  "icon": "signal",
-                  "library": "lucide",
-                  "fill": "$ass-text"
-                },
-                {
-                  "type": "icon",
-                  "id": "TUGzp",
-                  "width": 14,
-                  "height": 14,
-                  "icon": "wifi",
-                  "library": "lucide",
-                  "fill": "$ass-text"
-                },
-                {
-                  "type": "icon",
-                  "id": "J1EFGR",
-                  "width": 14,
-                  "height": 14,
-                  "icon": "battery-full",
-                  "library": "lucide",
-                  "fill": "$ass-text"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "j25bt5",
-          "width": "fill_container",
-          "height": "fill_container",
-          "layout": "vertical",
-          "gap": 16,
-          "padding": [
-            8,
-            24,
-            0,
-            24
-          ],
-          "children": [
-            {
-              "type": "frame",
-              "id": "iHDa9",
-              "width": "fill_container",
-              "justifyContent": "space_between",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "sXEfH",
-                  "width": "fill_container",
-                  "layout": "vertical",
-                  "gap": 4,
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "YUNnf",
-                      "fill": "$ass-text",
-                      "textGrowth": "fixed-width",
-                      "width": "fill_container",
-                      "content": "다가오는 게임",
-                      "fontFamily": "$ass-font",
-                      "fontSize": 24,
-                      "fontWeight": "800"
-                    },
-                    {
-                      "type": "text",
-                      "id": "Cg12o",
-                      "fill": "$ass-accent",
-                      "textGrowth": "fixed-width",
-                      "width": "fill_container",
-                      "content": "가까운 일정부터 확인하세요.",
-                      "fontFamily": "$ass-font",
-                      "fontSize": 11,
-                      "fontWeight": "600"
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "CMAlC",
-                  "width": 38,
-                  "height": 38,
-                  "fill": "$ass-surface",
-                  "cornerRadius": 19,
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "icon",
-                      "id": "qZb99",
-                      "width": 18,
-                      "height": 18,
-                      "icon": "bell",
-                      "library": "lucide",
-                      "fill": "$ass-text"
-                    },
-                    {
-                      "type": "ellipse",
-                      "id": "L4ou1",
-                      "layoutPosition": "absolute",
-                      "x": 27,
-                      "y": 5,
-                      "fill": "$ass-accent",
-                      "width": 7,
-                      "height": 7
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "n8UWm",
-              "width": "fill_container",
-              "fill": "$ass-surface",
-              "cornerRadius": 6,
-              "stroke": "$ass-border",
-              "strokeWidth": 1,
-              "gap": 14,
-              "padding": 14,
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "wMwN0",
-                  "width": 52,
-                  "height": 64,
-                  "fill": "$ass-surface-2",
-                  "cornerRadius": 5,
-                  "layout": "vertical",
-                  "gap": 2,
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "EhNG3",
-                      "fill": "$ass-muted",
-                      "content": "8월",
-                      "fontFamily": "$ass-font",
-                      "fontSize": 9,
-                      "fontWeight": "600"
-                    },
-                    {
-                      "type": "text",
-                      "id": "l2uFZi",
-                      "fill": "$ass-accent",
-                      "content": "09",
-                      "fontFamily": "$ass-font",
-                      "fontSize": 21,
-                      "fontWeight": "800"
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "q5WF4",
-                  "width": "fill_container",
-                  "layout": "vertical",
-                  "gap": 5,
-                  "children": [
-                    {
-                      "type": "frame",
-                      "id": "Y1yXZs",
-                      "width": "fill_container",
-                      "justifyContent": "space_between",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "ojcaB",
-                          "fill": "$ass-text",
-                          "content": "OP NIGHTFALL",
-                          "fontFamily": "$ass-font",
-                          "fontSize": 13,
-                          "fontWeight": "800"
-                        },
-                        {
-                          "id": "usAWe",
-                          "type": "ref",
-                          "ref": "x9LQu2",
-                          "fill": "#FF8A0022",
-                          "descendants": {
-                            "Tp6QM": {
-                              "content": "모집중",
-                              "fill": "$ass-accent"
-                            }
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "type": "text",
-                      "id": "NjxtA",
-                      "fill": "$ass-muted",
-                      "textGrowth": "fixed-width",
-                      "width": "fill_container",
-                      "content": "RANGER FIELD · 19:00 - 23:00",
-                      "fontFamily": "$ass-font",
-                      "fontSize": 10,
-                      "fontWeight": "normal"
-                    },
-                    {
-                      "type": "frame",
-                      "id": "E1FKo",
-                      "width": "fill_container",
-                      "justifyContent": "space_between",
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "d5JMf",
-                          "fill": "$ass-muted",
-                          "content": "30,000원 · 선입금",
-                          "fontFamily": "$ass-font",
-                          "fontSize": 10,
-                          "fontWeight": "500"
-                        },
-                        {
-                          "type": "text",
-                          "id": "f636B6",
-                          "fill": "$ass-text",
-                          "content": "6 / 20명",
-                          "fontFamily": "$ass-font",
-                          "fontSize": 10,
-                          "fontWeight": "700"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "pkmO5",
-              "width": "fill_container",
-              "fill": "$ass-surface",
-              "cornerRadius": 6,
-              "stroke": "$ass-border",
-              "strokeWidth": 1,
-              "gap": 14,
-              "padding": 14,
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "abbBq",
-                  "width": 52,
-                  "height": 64,
-                  "fill": "$ass-surface-2",
-                  "cornerRadius": 5,
-                  "layout": "vertical",
-                  "gap": 2,
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "Dzfor",
-                      "fill": "$ass-muted",
-                      "content": "8월",
-                      "fontFamily": "$ass-font",
-                      "fontSize": 9,
-                      "fontWeight": "600"
-                    },
-                    {
-                      "type": "text",
-                      "id": "P7StLf",
-                      "fill": "$ass-accent",
-                      "content": "16",
-                      "fontFamily": "$ass-font",
-                      "fontSize": 21,
-                      "fontWeight": "800"
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "isJ6e",
-                  "width": "fill_container",
-                  "layout": "vertical",
-                  "gap": 5,
-                  "children": [
-                    {
-                      "type": "frame",
-                      "id": "Sf1ET",
-                      "width": "fill_container",
-                      "justifyContent": "space_between",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "qXFw7",
-                          "fill": "$ass-text",
-                          "content": "URBAN STRIKE",
-                          "fontFamily": "$ass-font",
-                          "fontSize": 13,
-                          "fontWeight": "800"
-                        },
-                        {
-                          "id": "sjwW4",
-                          "type": "ref",
-                          "ref": "x9LQu2",
-                          "fill": "#FF8A0022",
-                          "descendants": {
-                            "Tp6QM": {
-                              "content": "모집중",
-                              "fill": "$ass-accent"
-                            }
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "type": "text",
-                      "id": "ie65g",
-                      "fill": "$ass-muted",
-                      "textGrowth": "fixed-width",
-                      "width": "fill_container",
-                      "content": "M09 FIELD · 16:00 - 22:00",
-                      "fontFamily": "$ass-font",
-                      "fontSize": 10,
-                      "fontWeight": "normal"
-                    },
-                    {
-                      "type": "frame",
-                      "id": "dSW1e",
-                      "width": "fill_container",
-                      "justifyContent": "space_between",
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "cL7F1",
-                          "fill": "$ass-muted",
-                          "content": "25,000원 · 선입금",
-                          "fontFamily": "$ass-font",
-                          "fontSize": 10,
-                          "fontWeight": "500"
-                        },
-                        {
-                          "type": "text",
-                          "id": "vgDrd",
-                          "fill": "$ass-text",
-                          "content": "18 / 20명",
-                          "fontFamily": "$ass-font",
-                          "fontSize": 10,
-                          "fontWeight": "700"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "text",
-                      "id": "b81SsS",
-                      "fill": "$ass-accent",
-                      "textGrowth": "fixed-width",
-                      "width": "fill_container",
-                      "content": "내 신청 · 승인 대기",
-                      "fontFamily": "$ass-font",
-                      "fontSize": 10,
-                      "fontWeight": "700"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "ti31F",
-              "width": "fill_container",
-              "fill": "$ass-surface",
-              "cornerRadius": 6,
-              "stroke": "$ass-border",
-              "strokeWidth": 1,
-              "gap": 14,
-              "padding": 14,
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "adHSB",
-                  "width": 52,
-                  "height": 64,
-                  "fill": "$ass-surface-2",
-                  "cornerRadius": 5,
-                  "layout": "vertical",
-                  "gap": 2,
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "HvYFM",
-                      "fill": "$ass-muted",
-                      "content": "8월",
-                      "fontFamily": "$ass-font",
-                      "fontSize": 9,
-                      "fontWeight": "600"
-                    },
-                    {
-                      "type": "text",
-                      "id": "Z25vxS",
-                      "fill": "$ass-accent",
-                      "content": "23",
-                      "fontFamily": "$ass-font",
-                      "fontSize": 21,
-                      "fontWeight": "800"
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "Z5Zxn",
-                  "width": "fill_container",
-                  "layout": "vertical",
-                  "gap": 5,
-                  "children": [
-                    {
-                      "type": "frame",
-                      "id": "hniI0",
-                      "width": "fill_container",
-                      "justifyContent": "space_between",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "b631WB",
-                          "fill": "$ass-text",
-                          "content": "WOODLAND OPS",
-                          "fontFamily": "$ass-font",
-                          "fontSize": 13,
-                          "fontWeight": "800"
-                        },
-                        {
-                          "id": "S9Vxb9",
-                          "type": "ref",
-                          "ref": "x9LQu2",
-                          "fill": "#FF8A0022",
-                          "descendants": {
-                            "Tp6QM": {
-                              "content": "모집중",
-                              "fill": "$ass-accent"
-                            }
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "type": "text",
-                      "id": "HGgJ1",
-                      "fill": "$ass-muted",
-                      "textGrowth": "fixed-width",
-                      "width": "fill_container",
-                      "content": "RANGER FIELD · 15:00 - 21:00",
-                      "fontFamily": "$ass-font",
-                      "fontSize": 10,
-                      "fontWeight": "normal"
-                    },
-                    {
-                      "type": "frame",
-                      "id": "d8uo0c",
-                      "width": "fill_container",
-                      "justifyContent": "space_between",
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "zgjLw",
-                          "fill": "$ass-muted",
-                          "content": "20,000원 · 선입금",
-                          "fontFamily": "$ass-font",
-                          "fontSize": 10,
-                          "fontWeight": "500"
-                        },
-                        {
-                          "type": "text",
-                          "id": "sVqO6",
-                          "fill": "$ass-text",
-                          "content": "12 / 24명",
-                          "fontFamily": "$ass-font",
-                          "fontSize": 10,
-                          "fontWeight": "700"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "text",
-                      "id": "D8Ukb",
-                      "fill": "$ass-accent",
-                      "textGrowth": "fixed-width",
-                      "width": "fill_container",
-                      "content": "내가 운영하는 게임",
-                      "fontFamily": "$ass-font",
-                      "fontSize": 10,
-                      "fontWeight": "700"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "X7Vqka",
-          "width": "fill_container",
-          "height": 82,
-          "padding": [
-            8,
-            16,
-            12,
-            16
-          ],
-          "justifyContent": "center",
-          "children": [
-            {
-              "id": "WvI2s",
-              "type": "ref",
-              "ref": "knKcJ",
-              "descendants": {
-                "Ej6Eu": {
-                  "fill": "#FF8A001D"
-                },
-                "P7v2l": {
-                  "fill": "$ass-accent"
-                },
-                "d1E0J": {
-                  "fill": "$ass-accent",
-                  "fontWeight": "700"
-                },
-                "w8FvG": {
-                  "fill": "#00000000"
-                },
-                "NEz0o": {
-                  "fill": "$ass-muted"
-                },
-                "pOFyr": {
-                  "fill": "$ass-muted",
-                  "fontWeight": "500"
-                },
-                "bph30": {
-                  "fill": "#00000000"
-                },
-                "v1a5yR": {
-                  "fill": "$ass-accent"
-                },
-                "n7BONe": {
-                  "fill": "$ass-muted",
-                  "fontWeight": "500"
-                },
-                "gKTvI": {
-                  "fill": "#00000000"
-                },
-                "K9ep9c": {
-                  "fill": "$ass-muted"
-                },
-                "D4xGMr": {
-                  "fill": "$ass-muted",
-                  "fontWeight": "500"
-                },
-                "e4mXto": {
-                  "fill": "#00000000"
-                },
-                "J2tQGo": {
-                  "fill": "$ass-muted"
-                },
-                "tcqik": {
-                  "fill": "$ass-muted",
-                  "fontWeight": "500"
-                }
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "frame",
       "id": "Dbhgr",
       "x": 4390,
       "y": 0,
@@ -16459,36 +15471,6 @@
     },
     {
       "type": "frame",
-      "id": "CWU0a",
-      "x": 4390,
-      "y": 7000,
-      "name": "Domain / REFERENCE · 상태 및 참고",
-      "width": 2740,
-      "height": 48,
-      "fill": "#151616",
-      "stroke": "#2B2C2C",
-      "strokeWidth": {
-        "bottom": 1
-      },
-      "padding": [
-        0,
-        16
-      ],
-      "alignItems": "center",
-      "children": [
-        {
-          "type": "text",
-          "id": "hKjm3",
-          "fill": "#FF8A00",
-          "content": "REFERENCE · 상태 및 참고",
-          "fontFamily": "Inter",
-          "fontSize": 14,
-          "fontWeight": "800"
-        }
-      ]
-    },
-    {
-      "type": "frame",
       "id": "kMaXC",
       "x": 4860,
       "y": 5068,
@@ -16580,7 +15562,8 @@
                   "icon": "x"
                 },
                 "HOddU": {
-                  "content": "내 정보 수정"
+                  "content": "내 정보 수정",
+                  "name": "Title"
                 }
               }
             },
@@ -16954,7 +15937,8 @@
               "enabled": false
             },
             "HOddU": {
-              "content": "다가오는 게임"
+              "content": "다가오는 게임",
+              "name": "Title"
             },
             "FQXpd": {
               "enabled": true,
