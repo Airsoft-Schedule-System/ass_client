@@ -8,7 +8,7 @@ import { GameSessionCard } from './GameSessionCard';
 
 export function GameListPage() {
   const user = useViewerStore((state) => state.user);
-  const { data, errorMessage, retry } = useGameList(user?.id);
+  const { data, errorMessage } = useGameList(user?.id);
 
   // 공통 레이아웃 안에 표시할 조회 상태별 콘텐츠를 반환
   function renderGamesContent() {
@@ -20,7 +20,7 @@ export function GameListPage() {
           </p>
           <button
             className="text-sm font-bold text-[var(--color-app-foreground)] underline underline-offset-4 enabled:cursor-pointer"
-            onClick={retry}
+            onClick={() => window.location.reload()}
             type="button"
           >
             다시 시도
@@ -56,16 +56,20 @@ export function GameListPage() {
     const sessionDateGroups = groupSessionsByDate(data.sessions);
 
     return (
-      <div className="mb-24 flex flex-col gap-6">
+      <div className="mb-24 flex flex-col gap-5 pt-4">
         {sessionDateGroups.map(({ dateKey, label, sessions }) => (
-          <section aria-labelledby={`session-date-${dateKey}`} key={dateKey}>
+          <section
+            aria-labelledby={`session-date-${dateKey}`}
+            className="flex flex-col gap-[7px]"
+            key={dateKey}
+          >
             <h2
-              className="mb-3 text-base font-extrabold text-[var(--color-app-brand)]"
+              className="flex h-6 items-center px-0.5 text-base font-extrabold text-[var(--color-app-brand)]"
               id={`session-date-${dateKey}`}
             >
               {label}
             </h2>
-            <ul className="flex flex-col gap-3">
+            <ul className="flex flex-col gap-[7px]">
               {sessions.map((session) => (
                 <li key={session.id}>
                   <GameSessionCard
@@ -84,10 +88,10 @@ export function GameListPage() {
 
   return (
     <MobileLayout
-      description="예정된 게임을 확인해 보세요"
+      description="가까운 일정부터 확인하고 참가를 준비하세요."
       scrollable
       showBottomNavigation
-      title="게임"
+      title="다가오는 게임"
     >
       {renderGamesContent()}
     </MobileLayout>

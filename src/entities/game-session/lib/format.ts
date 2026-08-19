@@ -40,6 +40,20 @@ export function formatSessionDateTime(startsAt: string, endsAt: string | null) {
   return `${date} ${startTime}–${sessionTimeFormatter.format(endDate)}`;
 }
 
+// 목록 카드에서 날짜를 제외한 시작·종료 시각만 표시
+export function formatSessionTimeRange(startsAt: string, endsAt: string | null) {
+  const startDate = new Date(startsAt);
+  if (Number.isNaN(startDate.getTime())) return '시간 미정';
+
+  const startTime = sessionTimeFormatter.format(startDate);
+  if (!endsAt) return startTime;
+
+  const endDate = new Date(endsAt);
+  if (Number.isNaN(endDate.getTime())) return startTime;
+
+  return `${startTime} - ${sessionTimeFormatter.format(endDate)}`;
+}
+
 // 정수 게임비를 원화 문구로 변환
 export function formatGameFee(gameFee: number) {
   return `${gameFeeFormatter.format(gameFee)}원`;

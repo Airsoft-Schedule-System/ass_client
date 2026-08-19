@@ -6,4 +6,5 @@ export {
   formatPaymentMethod,
   formatSessionDate,
   formatSessionDateTime,
+  formatSessionTimeRange,
 } from './lib/format';

@@ -22,7 +22,6 @@ function getGameListErrorMessage(error: unknown) {
 export function useGameList(userId: string | undefined) {
   const [data, setData] = useState<GameListData | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [requestVersion, setRequestVersion] = useState(0);
 
   useEffect(() => {
     if (!userId) return;
@@ -51,11 +50,10 @@ export function useGameList(userId: string | undefined) {
     return () => {
       cancelled = true;
     };
-  }, [requestVersion, userId]);
+  }, [userId]);
 
   return {
     data,
     errorMessage,
-    retry: () => setRequestVersion((version) => version + 1),
   };
 }
