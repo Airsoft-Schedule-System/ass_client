@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router';
 import { useViewerStore } from '@/entities/viewer';
 import { getMyProfile, signOut, toAuthError, toProfileError } from '@/shared/api';
 import type { UserProfile } from '@/shared/api';
-import { Button, UserIcon } from '@/shared/ui';
+import { Button, Card, UserIcon } from '@/shared/ui';
 import { MobileLayout } from '@/widgets/mobile-layout';
 
 const profileDateFormatter = new Intl.DateTimeFormat('ko-KR', {
@@ -87,10 +87,7 @@ export function ProfilePage() {
 
     return (
       <div className="flex min-h-0 flex-1 flex-col gap-4">
-        <section
-          aria-label="프로필 요약"
-          className="flex items-center gap-3 rounded-lg border border-[var(--color-app-border)] bg-[var(--color-app-surface)] p-4"
-        >
+        <Card className="flex items-center gap-3 p-4">
           <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,var(--color-app-brand)_12%,transparent)] text-[var(--color-app-brand)]">
             <UserIcon />
           </div>
@@ -102,28 +99,30 @@ export function ProfilePage() {
               {profile.teamName ?? '소속 팀 없음'}
             </p>
           </div>
-        </section>
+        </Card>
 
-        <dl className="divide-y divide-[var(--color-app-border)] rounded-lg border border-[var(--color-app-border)] bg-[var(--color-app-surface)] px-4">
-          <div className="flex items-center justify-between gap-4 py-3">
-            <dt className="shrink-0 text-xs text-[var(--color-app-muted)]">이메일</dt>
-            <dd className="truncate text-right text-xs font-medium text-[var(--color-app-foreground)]">
-              {profile.email ?? '-'}
-            </dd>
-          </div>
-          <div className="flex items-center justify-between gap-4 py-3">
-            <dt className="shrink-0 text-xs text-[var(--color-app-muted)]">연락처</dt>
-            <dd className="truncate text-right text-xs font-medium text-[var(--color-app-foreground)]">
-              {profile.phoneNumber ?? '미등록'}
-            </dd>
-          </div>
-          <div className="flex items-center justify-between gap-4 py-3">
-            <dt className="shrink-0 text-xs text-[var(--color-app-muted)]">가입 일자</dt>
-            <dd className="text-right text-xs font-medium text-[var(--color-app-foreground)]">
-              {formatProfileDate(profile.createdAt)}
-            </dd>
-          </div>
-        </dl>
+        <Card>
+          <dl className="divide-y divide-[var(--color-app-border)] px-4">
+            <div className="flex items-center justify-between gap-4 py-3">
+              <dt className="shrink-0 text-xs text-[var(--color-app-muted)]">이메일</dt>
+              <dd className="truncate text-right text-xs font-medium text-[var(--color-app-foreground)]">
+                {profile.email ?? '-'}
+              </dd>
+            </div>
+            <div className="flex items-center justify-between gap-4 py-3">
+              <dt className="shrink-0 text-xs text-[var(--color-app-muted)]">연락처</dt>
+              <dd className="truncate text-right text-xs font-medium text-[var(--color-app-foreground)]">
+                {profile.phoneNumber ?? '미등록'}
+              </dd>
+            </div>
+            <div className="flex items-center justify-between gap-4 py-3">
+              <dt className="shrink-0 text-xs text-[var(--color-app-muted)]">가입 일자</dt>
+              <dd className="text-right text-xs font-medium text-[var(--color-app-foreground)]">
+                {formatProfileDate(profile.createdAt)}
+              </dd>
+            </div>
+          </dl>
+        </Card>
 
         <div className="flex flex-col gap-2">
           <Button onClick={() => navigate('/profile/setup')}>내 정보 수정</Button>

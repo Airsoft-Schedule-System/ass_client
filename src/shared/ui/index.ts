@@ -1,6 +1,7 @@
 // 전역에서 재사용하는 표현 컴포넌트와 아이콘을 제공
 
 export { Button } from './Button';
+export { Card } from './Card';
 export { Input } from './Input';
 export { PasswordVisibilityButton } from './PasswordVisibilityButton';
 export { Select } from './Select';
