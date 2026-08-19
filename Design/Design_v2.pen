@@ -4079,10 +4079,10 @@
         "Mode": "Dark"
       },
       "width": 1080,
-      "height": 692,
-      "fill": "#0A0A0A",
+      "height": 857,
+      "fill": "$--background",
       "cornerRadius": 8,
-      "stroke": "#FFFFFF1A",
+      "stroke": "$--border",
       "strokeWidth": 1,
       "layout": "none",
       "children": [
@@ -4092,7 +4092,7 @@
           "x": 28,
           "y": 28,
           "name": "Palette Title",
-          "fill": "#FAFAFA",
+          "fill": "$--foreground",
           "content": "Project Color Palette",
           "fontFamily": "Inter",
           "fontSize": 24,
@@ -4104,8 +4104,8 @@
           "x": 28,
           "y": 62,
           "name": "Palette Source Note",
-          "fill": "#A3A3A3",
-          "content": "Code-aligned app core palette",
+          "fill": "$--muted-foreground",
+          "content": "All swatches reference Pen color variables · ASS semantic tokens included",
           "fontFamily": "Inter",
           "fontSize": 13,
           "fontWeight": "normal"
@@ -4116,7 +4116,7 @@
           "x": 28,
           "y": 106,
           "name": "Brand Section Title",
-          "fill": "#FAFAFA",
+          "fill": "$--foreground",
           "content": "Brand",
           "fontFamily": "Inter",
           "fontSize": 15,
@@ -4130,9 +4130,9 @@
           "name": "Brand Orange Color Card",
           "width": 200,
           "height": 92,
-          "fill": "#171717",
+          "fill": "$--card",
           "cornerRadius": 6,
-          "stroke": "#FFFFFF1A",
+          "stroke": "$--border",
           "strokeWidth": 1,
           "layout": "none",
           "children": [
@@ -4143,10 +4143,10 @@
               "x": 12,
               "y": 18,
               "name": "Brand Orange Swatch",
-              "fill": "#FF8A00",
+              "fill": "$--brand",
               "width": 56,
               "height": 56,
-              "stroke": "#FFFFFF1A",
+              "stroke": "$--border",
               "strokeWidth": 1
             },
             {
@@ -4155,7 +4155,7 @@
               "x": 82,
               "y": 16,
               "name": "Brand Orange Label",
-              "fill": "#FAFAFA",
+              "fill": "$--foreground",
               "content": "Brand Orange",
               "fontFamily": "Inter",
               "fontSize": 13,
@@ -4167,8 +4167,8 @@
               "x": 82,
               "y": 40,
               "name": "Brand Orange Hex",
-              "fill": "#A3A3A3",
-              "content": "#FF8A00",
+              "fill": "$--muted-foreground",
+              "content": "--brand · #FF8A00",
               "fontFamily": "IBM Plex Mono",
               "fontSize": 12,
               "fontWeight": "normal"
@@ -4179,7 +4179,7 @@
               "x": 82,
               "y": 62,
               "name": "Brand Orange Usage",
-              "fill": "#A3A3A3",
+              "fill": "$--muted-foreground",
               "content": "브랜드 강조색",
               "fontFamily": "Inter",
               "fontSize": 11,
@@ -4193,7 +4193,7 @@
           "x": 28,
           "y": 252,
           "name": "Text Section Title",
-          "fill": "#FAFAFA",
+          "fill": "$--foreground",
           "content": "Text",
           "fontFamily": "Inter",
           "fontSize": 15,
@@ -4207,9 +4207,9 @@
           "name": "Text High Color Card",
           "width": 200,
           "height": 92,
-          "fill": "#171717",
+          "fill": "$--card",
           "cornerRadius": 6,
-          "stroke": "#FFFFFF1A",
+          "stroke": "$--border",
           "strokeWidth": 1,
           "layout": "none",
           "children": [
@@ -4220,10 +4220,10 @@
               "x": 12,
               "y": 18,
               "name": "Text High Swatch",
-              "fill": "#FAFAFA",
+              "fill": "$--foreground",
               "width": 56,
               "height": 56,
-              "stroke": "#FFFFFF1A",
+              "stroke": "$--border",
               "strokeWidth": 1
             },
             {
@@ -4232,7 +4232,7 @@
               "x": 82,
               "y": 16,
               "name": "Text High Label",
-              "fill": "#FAFAFA",
+              "fill": "$--foreground",
               "content": "Text High",
               "fontFamily": "Inter",
               "fontSize": 13,
@@ -4244,8 +4244,8 @@
               "x": 82,
               "y": 40,
               "name": "Text High Hex",
-              "fill": "#A3A3A3",
-              "content": "#FAFAFA",
+              "fill": "$--muted-foreground",
+              "content": "--foreground",
               "fontFamily": "IBM Plex Mono",
               "fontSize": 12,
               "fontWeight": "normal"
@@ -4256,7 +4256,7 @@
               "x": 82,
               "y": 62,
               "name": "Text High Usage",
-              "fill": "#A3A3A3",
+              "fill": "$--muted-foreground",
               "content": "주요 텍스트",
               "fontFamily": "Inter",
               "fontSize": 11,
@@ -4272,9 +4272,9 @@
           "name": "Muted FG Color Card",
           "width": 200,
           "height": 92,
-          "fill": "#171717",
+          "fill": "$--card",
           "cornerRadius": 6,
-          "stroke": "#FFFFFF1A",
+          "stroke": "$--border",
           "strokeWidth": 1,
           "layout": "none",
           "children": [
@@ -4285,10 +4285,10 @@
               "x": 12,
               "y": 18,
               "name": "Muted FG Swatch",
-              "fill": "#A3A3A3",
+              "fill": "$--muted-foreground",
               "width": 56,
               "height": 56,
-              "stroke": "#FFFFFF1A",
+              "stroke": "$--border",
               "strokeWidth": 1
             },
             {
@@ -4297,7 +4297,7 @@
               "x": 82,
               "y": 16,
               "name": "Muted FG Label",
-              "fill": "#FAFAFA",
+              "fill": "$--foreground",
               "content": "Muted FG",
               "fontFamily": "Inter",
               "fontSize": 13,
@@ -4309,8 +4309,8 @@
               "x": 82,
               "y": 40,
               "name": "Muted FG Hex",
-              "fill": "#A3A3A3",
-              "content": "#A3A3A3",
+              "fill": "$--muted-foreground",
+              "content": "--muted-foreground",
               "fontFamily": "IBM Plex Mono",
               "fontSize": 12,
               "fontWeight": "normal"
@@ -4321,7 +4321,7 @@
               "x": 82,
               "y": 62,
               "name": "Muted FG Usage",
-              "fill": "#A3A3A3",
+              "fill": "$--muted-foreground",
               "content": "보조 텍스트",
               "fontFamily": "Inter",
               "fontSize": 11,
@@ -4335,7 +4335,7 @@
           "x": 28,
           "y": 398,
           "name": "Background Section Title",
-          "fill": "#FAFAFA",
+          "fill": "$--foreground",
           "content": "Background",
           "fontFamily": "Inter",
           "fontSize": 15,
@@ -4349,9 +4349,9 @@
           "name": "Canvas Black Color Card",
           "width": 200,
           "height": 92,
-          "fill": "#171717",
+          "fill": "$--card",
           "cornerRadius": 6,
-          "stroke": "#FFFFFF1A",
+          "stroke": "$--border",
           "strokeWidth": 1,
           "layout": "none",
           "children": [
@@ -4362,10 +4362,10 @@
               "x": 12,
               "y": 18,
               "name": "Canvas Black Swatch",
-              "fill": "#0A0A0A",
+              "fill": "$--background",
               "width": 56,
               "height": 56,
-              "stroke": "#FFFFFF1A",
+              "stroke": "$--border",
               "strokeWidth": 1
             },
             {
@@ -4374,7 +4374,7 @@
               "x": 82,
               "y": 16,
               "name": "Canvas Black Label",
-              "fill": "#FAFAFA",
+              "fill": "$--foreground",
               "content": "Canvas Black",
               "fontFamily": "Inter",
               "fontSize": 13,
@@ -4386,8 +4386,8 @@
               "x": 82,
               "y": 40,
               "name": "Canvas Black Hex",
-              "fill": "#A3A3A3",
-              "content": "#0A0A0A",
+              "fill": "$--muted-foreground",
+              "content": "--background",
               "fontFamily": "IBM Plex Mono",
               "fontSize": 12,
               "fontWeight": "normal"
@@ -4398,7 +4398,7 @@
               "x": 82,
               "y": 62,
               "name": "Canvas Black Usage",
-              "fill": "#A3A3A3",
+              "fill": "$--muted-foreground",
               "content": "최상위 배경",
               "fontFamily": "Inter",
               "fontSize": 11,
@@ -4414,9 +4414,9 @@
           "name": "Surface Dark Color Card",
           "width": 200,
           "height": 92,
-          "fill": "#171717",
+          "fill": "$--card",
           "cornerRadius": 6,
-          "stroke": "#FFFFFF1A",
+          "stroke": "$--border",
           "strokeWidth": 1,
           "layout": "none",
           "children": [
@@ -4427,10 +4427,10 @@
               "x": 12,
               "y": 18,
               "name": "Surface Dark Swatch",
-              "fill": "#171717",
+              "fill": "$--card",
               "width": 56,
               "height": 56,
-              "stroke": "#FFFFFF1A",
+              "stroke": "$--border",
               "strokeWidth": 1
             },
             {
@@ -4439,7 +4439,7 @@
               "x": 82,
               "y": 16,
               "name": "Surface Dark Label",
-              "fill": "#FAFAFA",
+              "fill": "$--foreground",
               "content": "Surface Dark",
               "fontFamily": "Inter",
               "fontSize": 13,
@@ -4451,8 +4451,8 @@
               "x": 82,
               "y": 40,
               "name": "Surface Dark Hex",
-              "fill": "#A3A3A3",
-              "content": "#171717",
+              "fill": "$--muted-foreground",
+              "content": "--card",
               "fontFamily": "IBM Plex Mono",
               "fontSize": 12,
               "fontWeight": "normal"
@@ -4463,7 +4463,7 @@
               "x": 82,
               "y": 62,
               "name": "Surface Dark Usage",
-              "fill": "#A3A3A3",
+              "fill": "$--muted-foreground",
               "content": "카드/입력 배경",
               "fontFamily": "Inter",
               "fontSize": 11,
@@ -4477,7 +4477,7 @@
           "x": 28,
           "y": 544,
           "name": "Border Section Title",
-          "fill": "#FAFAFA",
+          "fill": "$--foreground",
           "content": "Border",
           "fontFamily": "Inter",
           "fontSize": 15,
@@ -4491,9 +4491,9 @@
           "name": "Dark Border Color Card",
           "width": 200,
           "height": 92,
-          "fill": "#171717",
+          "fill": "$--card",
           "cornerRadius": 6,
-          "stroke": "#FFFFFF1A",
+          "stroke": "$--border",
           "strokeWidth": 1,
           "layout": "none",
           "children": [
@@ -4504,10 +4504,10 @@
               "x": 12,
               "y": 18,
               "name": "Dark Border Swatch",
-              "fill": "#FFFFFF1A",
+              "fill": "$--border",
               "width": 56,
               "height": 56,
-              "stroke": "#FFFFFF1A",
+              "stroke": "$--border",
               "strokeWidth": 1
             },
             {
@@ -4516,7 +4516,7 @@
               "x": 82,
               "y": 16,
               "name": "Dark Border Label",
-              "fill": "#FAFAFA",
+              "fill": "$--foreground",
               "content": "Dark Border",
               "fontFamily": "Inter",
               "fontSize": 13,
@@ -4528,8 +4528,8 @@
               "x": 82,
               "y": 40,
               "name": "Dark Border Hex",
-              "fill": "#A3A3A3",
-              "content": "#FFFFFF1A",
+              "fill": "$--muted-foreground",
+              "content": "--border",
               "fontFamily": "IBM Plex Mono",
               "fontSize": 12,
               "fontWeight": "normal"
@@ -4540,7 +4540,7 @@
               "x": 82,
               "y": 62,
               "name": "Dark Border Usage",
-              "fill": "#A3A3A3",
+              "fill": "$--muted-foreground",
               "content": "다크모드 얇은 선",
               "fontFamily": "Inter",
               "fontSize": 11,
@@ -4554,7 +4554,7 @@
           "x": 238,
           "y": 544,
           "name": "Shadow Section Title",
-          "fill": "#FAFAFA",
+          "fill": "$--foreground",
           "content": "Shadow",
           "fontFamily": "Inter",
           "fontSize": 15,
@@ -4568,9 +4568,9 @@
           "name": "Brand Shadow Color Card",
           "width": 200,
           "height": 92,
-          "fill": "#171717",
+          "fill": "$--card",
           "cornerRadius": 6,
-          "stroke": "#FFFFFF1A",
+          "stroke": "$--border",
           "strokeWidth": 1,
           "layout": "none",
           "children": [
@@ -4581,10 +4581,11 @@
               "x": 12,
               "y": 18,
               "name": "Brand Shadow Swatch",
-              "fill": "#FF8A0033",
+              "opacity": 0.2,
+              "fill": "$--brand",
               "width": 56,
               "height": 56,
-              "stroke": "#FFFFFF1A",
+              "stroke": "$--border",
               "strokeWidth": 1
             },
             {
@@ -4593,7 +4594,7 @@
               "x": 82,
               "y": 16,
               "name": "Brand Shadow Label",
-              "fill": "#FAFAFA",
+              "fill": "$--foreground",
               "content": "Brand Shadow",
               "fontFamily": "Inter",
               "fontSize": 13,
@@ -4605,8 +4606,8 @@
               "x": 82,
               "y": 40,
               "name": "Brand Shadow Hex",
-              "fill": "#A3A3A3",
-              "content": "#FF8A0033",
+              "fill": "$--muted-foreground",
+              "content": "--brand · 20%",
               "fontFamily": "IBM Plex Mono",
               "fontSize": 12,
               "fontWeight": "normal"
@@ -4617,8 +4618,215 @@
               "x": 82,
               "y": 62,
               "name": "Brand Shadow Usage",
-              "fill": "#A3A3A3",
+              "fill": "$--muted-foreground",
               "content": "로그인 버튼 그림자",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "AD0Pb",
+          "x": 28,
+          "y": 690,
+          "name": "Status Section Title",
+          "fill": "$--foreground",
+          "content": "Status / ASS Semantic",
+          "fontFamily": "Inter",
+          "fontSize": 15,
+          "fontWeight": "600"
+        },
+        {
+          "type": "frame",
+          "id": "AJGin",
+          "x": 28,
+          "y": 718,
+          "name": "ASS Danger Color Card",
+          "width": 250,
+          "height": 100,
+          "fill": "$--card",
+          "cornerRadius": 6,
+          "stroke": "$--border",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "rectangle",
+              "cornerRadius": 6,
+              "id": "bW9m9",
+              "x": 12,
+              "y": 22,
+              "name": "ASS Danger Swatch",
+              "fill": "$ass-danger",
+              "width": 56,
+              "height": 56,
+              "stroke": "$--border",
+              "strokeWidth": 1
+            },
+            {
+              "type": "text",
+              "id": "GchxN",
+              "x": 82,
+              "y": 16,
+              "name": "ASS Danger Label",
+              "fill": "$--foreground",
+              "content": "Danger",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "w8JhL",
+              "x": 82,
+              "y": 40,
+              "name": "ASS Danger Token",
+              "fill": "$--muted-foreground",
+              "content": "ass-danger → --destructive",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "B6r8o",
+              "x": 82,
+              "y": 64,
+              "name": "ASS Danger Usage",
+              "fill": "$--muted-foreground",
+              "content": "#EF4444 · 삭제/취소/거절",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "RUkeT",
+          "x": 290,
+          "y": 718,
+          "name": "ASS Warning Color Card",
+          "width": 250,
+          "height": 100,
+          "fill": "$--card",
+          "cornerRadius": 6,
+          "stroke": "$--border",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "rectangle",
+              "cornerRadius": 6,
+              "id": "RdqkZ",
+              "x": 12,
+              "y": 22,
+              "name": "ASS Warning Swatch",
+              "fill": "$ass-warning",
+              "width": 56,
+              "height": 56,
+              "stroke": "$--border",
+              "strokeWidth": 1
+            },
+            {
+              "type": "text",
+              "id": "MkVtK",
+              "x": 82,
+              "y": 16,
+              "name": "ASS Warning Label",
+              "fill": "$--foreground",
+              "content": "Warning",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "w155mm",
+              "x": 82,
+              "y": 40,
+              "name": "ASS Warning Token",
+              "fill": "$--muted-foreground",
+              "content": "ass-warning · #F2B544",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "Xccdq",
+              "x": 82,
+              "y": 64,
+              "name": "ASS Warning Usage",
+              "fill": "$--muted-foreground",
+              "content": "주의·입금 확인",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "PLPd2",
+          "x": 552,
+          "y": 718,
+          "name": "ASS Success Color Card",
+          "width": 250,
+          "height": 100,
+          "fill": "$--card",
+          "cornerRadius": 6,
+          "stroke": "$--border",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "rectangle",
+              "cornerRadius": 6,
+              "id": "idvOz",
+              "x": 12,
+              "y": 22,
+              "name": "ASS Success Swatch",
+              "fill": "$ass-success",
+              "width": 56,
+              "height": 56,
+              "stroke": "$--border",
+              "strokeWidth": 1
+            },
+            {
+              "type": "text",
+              "id": "WB2Q6",
+              "x": 82,
+              "y": 16,
+              "name": "ASS Success Label",
+              "fill": "$--foreground",
+              "content": "Success",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "GTIsP",
+              "x": 82,
+              "y": 40,
+              "name": "ASS Success Token",
+              "fill": "$--muted-foreground",
+              "content": "ass-success · #35C36E",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "xa66N",
+              "x": 82,
+              "y": 64,
+              "name": "ASS Success Usage",
+              "fill": "$--muted-foreground",
+              "content": "승인·완료",
               "fontFamily": "Inter",
               "fontSize": 11,
               "fontWeight": "normal"
@@ -4631,7 +4839,7 @@
       "type": "frame",
       "id": "b9i9W",
       "x": 2880,
-      "y": 780,
+      "y": 1055,
       "name": "Design System / ASS Mobile Components",
       "width": 420,
       "fill": "#0A0A0A",
@@ -4706,7 +4914,7 @@
               "y": 0,
               "name": "Description",
               "enabled": false,
-              "fill": "#FF8A00",
+              "fill": "$ass-accent",
               "content": "페이지 설명",
               "lineHeight": 1.43,
               "fontFamily": "Inter",
@@ -4732,7 +4940,7 @@
               "type": "text",
               "id": "dv6fW",
               "name": "Label",
-              "fill": "#101010",
+              "fill": "$--brand-foreground",
               "content": "확인",
               "fontFamily": "$ass-font",
               "fontSize": 14,
@@ -4746,7 +4954,7 @@
               "height": 18,
               "icon": "arrow-right",
               "library": "lucide",
-              "fill": "#101010"
+              "fill": "$--brand-foreground"
             }
           ]
         },
@@ -4843,7 +5051,7 @@
           "name": "ASS/Status Badge",
           "reusable": true,
           "height": 24,
-          "fill": "#FF8A0022",
+          "fill": "$ass-surface-2",
           "cornerRadius": 4,
           "padding": [
             0,
@@ -4871,7 +5079,7 @@
           "reusable": true,
           "width": 350,
           "height": 68,
-          "fill": "#1A1B1BEF",
+          "fill": "$ass-surface",
           "cornerRadius": 34,
           "stroke": "$ass-border",
           "strokeWidth": 1,
@@ -4888,7 +5096,7 @@
               "name": "Nav/게임",
               "width": 60,
               "height": 56,
-              "fill": "#FF8A001D",
+              "fill": "$ass-surface-2",
               "cornerRadius": 24,
               "layout": "vertical",
               "gap": 3,
@@ -4923,7 +5131,11 @@
               "name": "Nav/내 참가",
               "width": 60,
               "height": 56,
-              "fill": "#00000000",
+              "fill": {
+                "type": "color",
+                "color": "$--black",
+                "enabled": false
+              },
               "cornerRadius": 24,
               "layout": "vertical",
               "gap": 3,
@@ -4958,7 +5170,11 @@
               "name": "Nav/만들기",
               "width": 56,
               "height": 56,
-              "fill": "#00000000",
+              "fill": {
+                "type": "color",
+                "color": "$--black",
+                "enabled": false
+              },
               "cornerRadius": 24,
               "layout": "vertical",
               "gap": 3,
@@ -4993,7 +5209,11 @@
               "name": "Nav/운영",
               "width": 60,
               "height": 56,
-              "fill": "#00000000",
+              "fill": {
+                "type": "color",
+                "color": "$--black",
+                "enabled": false
+              },
               "cornerRadius": 24,
               "layout": "vertical",
               "gap": 3,
@@ -5028,7 +5248,11 @@
               "name": "Nav/내 정보",
               "width": 60,
               "height": 56,
-              "fill": "#00000000",
+              "fill": {
+                "type": "color",
+                "color": "$--black",
+                "enabled": false
+              },
               "cornerRadius": 24,
               "layout": "vertical",
               "gap": 3,
@@ -7686,8 +7910,8 @@
     {
       "type": "frame",
       "id": "Ij3p7",
-      "x": 7406,
-      "y": 2068,
+      "x": 8598,
+      "y": 2746,
       "name": "22 Participation / Payment Submission",
       "clip": true,
       "width": 390,
@@ -8004,8 +8228,8 @@
     {
       "type": "frame",
       "id": "NC3I1",
-      "x": 7876,
-      "y": 2068,
+      "x": 9068,
+      "y": 2746,
       "name": "23 Participation / Refund Request",
       "clip": true,
       "width": 390,
@@ -8242,8 +8466,8 @@
     {
       "type": "frame",
       "id": "T9r0A",
-      "x": 8346,
-      "y": 2068,
+      "x": 9538,
+      "y": 2746,
       "name": "24 Participation / My QR",
       "clip": true,
       "width": 390,
@@ -9447,6 +9671,7 @@
       "x": 4390,
       "y": 3068,
       "name": "30 Operations / List",
+      "context": "listOwnedSessions(userId); per-session pending/review counts derive from listParticipationsBySession(sessionId) and listPaymentSubmissionsBySession(sessionId)",
       "clip": true,
       "width": 390,
       "height": 844,
@@ -10111,6 +10336,8 @@
               "type": "ref",
               "ref": "E7R7WJ",
               "width": "fill_container",
+              "name": "Input · title",
+              "context": "create_game_session p_input.title",
               "descendants": {
                 "IIE7d": {
                   "content": "게임명"
@@ -10128,9 +10355,11 @@
               "type": "ref",
               "ref": "E7R7WJ",
               "width": "fill_container",
+              "name": "Input · fieldId or fieldName",
+              "context": "create_game_session: send exactly one of fieldId or fieldName",
               "descendants": {
                 "IIE7d": {
-                  "content": "필드"
+                  "content": "필드 선택 또는 직접 입력"
                 },
                 "qkdVv": {
                   "icon": "map-pin"
@@ -10156,9 +10385,11 @@
                       "type": "ref",
                       "ref": "E7R7WJ",
                       "width": "fill_container",
+                      "name": "Input · startsAt",
+                      "context": "create_game_session p_input.startsAt",
                       "descendants": {
                         "IIE7d": {
-                          "content": "시작"
+                          "content": "시작 일시"
                         },
                         "qkdVv": {
                           "icon": "calendar"
@@ -10180,9 +10411,11 @@
                       "type": "ref",
                       "ref": "E7R7WJ",
                       "width": "fill_container",
+                      "name": "Input · endsAt",
+                      "context": "create_game_session p_input.endsAt optional",
                       "descendants": {
                         "IIE7d": {
-                          "content": "종료"
+                          "content": "종료 일시 (선택)"
                         },
                         "qkdVv": {
                           "icon": "clock"
@@ -10212,6 +10445,8 @@
                       "type": "ref",
                       "ref": "E7R7WJ",
                       "width": "fill_container",
+                      "name": "Input · capacity",
+                      "context": "create_game_session p_input.capacity integer >= 1",
                       "descendants": {
                         "IIE7d": {
                           "content": "정원"
@@ -10236,6 +10471,8 @@
                       "type": "ref",
                       "ref": "E7R7WJ",
                       "width": "fill_container",
+                      "name": "Input · gameFee",
+                      "context": "create_game_session p_input.gameFee number >= 0",
                       "descendants": {
                         "IIE7d": {
                           "content": "게임비"
@@ -10253,60 +10490,29 @@
               ]
             },
             {
-              "type": "frame",
-              "id": "hrOQE",
+              "id": "ZXoE9",
+              "type": "ref",
+              "ref": "E7R7WJ",
+              "name": "Input · cancelDeadline",
+              "context": "create_game_session p_input.cancelDeadline optional; defaults to startsAt - 48 hours",
               "width": "fill_container",
-              "fill": "$ass-surface",
-              "cornerRadius": 6,
-              "stroke": "$ass-border",
-              "strokeWidth": 1,
-              "layout": "vertical",
-              "gap": 10,
-              "padding": 14,
-              "children": [
-                {
-                  "type": "text",
-                  "id": "a9crWx",
-                  "fill": "$ass-text",
-                  "textGrowth": "fixed-width",
-                  "width": "fill_container",
-                  "content": "입금 계좌",
-                  "fontFamily": "$ass-font",
-                  "fontSize": 13,
-                  "fontWeight": "700"
+              "descendants": {
+                "IIE7d": {
+                  "content": "입금·취소 마감 (선택 · 기본 48시간 전)"
                 },
-                {
-                  "type": "frame",
-                  "id": "q7h8g",
-                  "width": "fill_container",
-                  "justifyContent": "space_between",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "i8Xs0",
-                      "fill": "$ass-muted",
-                      "content": "카카오뱅크",
-                      "fontFamily": "$ass-font",
-                      "fontSize": 12,
-                      "fontWeight": "500"
-                    },
-                    {
-                      "type": "text",
-                      "id": "l0t1Q",
-                      "fill": "$ass-text",
-                      "content": "3333-12-1234567 · 김철수",
-                      "fontFamily": "$ass-font",
-                      "fontSize": 13,
-                      "fontWeight": "600"
-                    }
-                  ]
+                "qkdVv": {
+                  "icon": "calendar-clock"
+                },
+                "jHM2t": {
+                  "content": "2026.08.07 19:00"
                 }
-              ]
+              }
             },
             {
               "type": "frame",
               "id": "nKUYR",
+              "name": "Rules · presetId XOR customRules",
+              "context": "create_game_session: send exactly one of presetId or customRules",
               "width": "fill_container",
               "fill": "$ass-surface",
               "cornerRadius": 6,
@@ -10326,7 +10532,7 @@
                       "type": "text",
                       "id": "I9S9X",
                       "fill": "$ass-text",
-                      "content": "게임 규칙",
+                      "content": "게임 규칙 · 필수",
                       "fontFamily": "$ass-font",
                       "fontSize": 13,
                       "fontWeight": "700"
@@ -10335,12 +10541,24 @@
                       "type": "text",
                       "id": "Y404u",
                       "fill": "$ass-accent",
-                      "content": "CQB Standard  ›",
+                      "content": "CQB Standard · 프리셋  ›",
                       "fontFamily": "$ass-font",
                       "fontSize": 12,
                       "fontWeight": "700"
                     }
                   ]
+                },
+                {
+                  "type": "text",
+                  "id": "IZ42h",
+                  "name": "Rules API Hint",
+                  "fill": "$ass-muted",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "프리셋 선택 또는 직접 입력 중 하나를 사용합니다.",
+                  "fontFamily": "$ass-font",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
                 }
               ]
             },
@@ -10355,12 +10573,13 @@
               "type": "ref",
               "ref": "K7SU5",
               "width": "fill_container",
+              "context": "navigate to 32A Operations / Game Form · Host & Payment",
               "descendants": {
                 "dv6fW": {
-                  "content": "게임 만들기"
+                  "content": "다음: 주최/입금 정보"
                 },
                 "B7bbI": {
-                  "icon": "check"
+                  "icon": "arrow-right"
                 }
               }
             }
@@ -10467,12 +10686,46 @@
               }
             },
             {
+              "type": "frame",
+              "id": "C99hG",
+              "name": "Rules API Constraint",
+              "width": "fill_container",
+              "fill": "$ass-surface",
+              "cornerRadius": 5,
+              "stroke": "$ass-warning",
+              "strokeWidth": 1,
+              "gap": 10,
+              "padding": 12,
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "Ycdt1",
+                  "width": 17,
+                  "height": 17,
+                  "icon": "info",
+                  "library": "lucide",
+                  "fill": "$ass-warning"
+                },
+                {
+                  "type": "text",
+                  "id": "BrUsR",
+                  "fill": "$ass-text",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "생성: 프리셋 또는 직접 입력 중 하나 · 수정: 직접 입력 규칙만 가능",
+                  "fontFamily": "$ass-font",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
               "type": "text",
               "id": "GDDBV",
               "fill": "$ass-muted",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "프리셋",
+              "content": "프리셋 선택 · 생성 시",
               "fontFamily": "$ass-font",
               "fontSize": 12,
               "fontWeight": "700"
@@ -10480,6 +10733,8 @@
             {
               "type": "frame",
               "id": "Tj2ql",
+              "name": "Preset Option · presetId",
+              "context": "create_game_session p_input.presetId",
               "width": "fill_container",
               "fill": "$ass-surface",
               "cornerRadius": 6,
@@ -10543,6 +10798,8 @@
             {
               "type": "frame",
               "id": "stgFg",
+              "name": "Preset Option · presetId",
+              "context": "create_game_session p_input.presetId",
               "width": "fill_container",
               "fill": "$ass-surface",
               "cornerRadius": 6,
@@ -10606,6 +10863,8 @@
             {
               "type": "frame",
               "id": "TKyUk",
+              "name": "Custom Rules Option · customRules",
+              "context": "create_game_session p_input.customRules or update_game_session p_updates.customRules",
               "width": "fill_container",
               "fill": "$ass-surface",
               "cornerRadius": 6,
@@ -10644,7 +10903,7 @@
                           "fill": "$ass-text",
                           "textGrowth": "fixed-width",
                           "width": "fill_container",
-                          "content": "직접 입력",
+                          "content": "직접 입력 · 생성/수정",
                           "fontFamily": "$ass-font",
                           "fontSize": 13,
                           "fontWeight": "700"
@@ -10655,7 +10914,7 @@
                           "fill": "$ass-muted",
                           "textGrowth": "fixed-width",
                           "width": "fill_container",
-                          "content": "운영 규칙을 직접 작성",
+                          "content": "운영 규칙을 객체로 저장",
                           "fontFamily": "$ass-font",
                           "fontSize": 11,
                           "fontWeight": "normal"
@@ -10669,6 +10928,8 @@
             {
               "type": "frame",
               "id": "yoEUP",
+              "name": "Rules Preview or Custom Rules Editor",
+              "context": "preset rules preview; when custom selected, edit customRules object",
               "width": "fill_container",
               "fill": "$ass-surface",
               "cornerRadius": 6,
@@ -10684,7 +10945,7 @@
                   "fill": "$ass-muted",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "세부 규칙",
+                  "content": "선택한 규칙 미리보기",
                   "fontFamily": "$ass-font",
                   "fontSize": 12,
                   "fontWeight": "700"
@@ -10713,6 +10974,7 @@
               "type": "ref",
               "ref": "K7SU5",
               "width": "fill_container",
+              "context": "apply exactly one rules value to calling form",
               "descendants": {
                 "dv6fW": {
                   "content": "규칙 적용"
@@ -10732,6 +10994,7 @@
       "x": 4860,
       "y": 3068,
       "name": "31 Operations / Overview",
+      "context": "findSessionById(sessionId) plus listParticipationsBySession, listPaymentSubmissionsBySession and listRefundRequestsBySession",
       "clip": true,
       "width": 390,
       "height": 844,
@@ -11042,7 +11305,7 @@
                       "type": "text",
                       "id": "F7r7dL",
                       "fill": "$ass-accent",
-                      "content": "3",
+                      "content": "20",
                       "fontFamily": "$ass-font",
                       "fontSize": 22,
                       "fontWeight": "800"
@@ -11051,7 +11314,7 @@
                       "type": "text",
                       "id": "zSF4N",
                       "fill": "$ass-muted",
-                      "content": "미출석",
+                      "content": "정원",
                       "fontFamily": "$ass-font",
                       "fontSize": 9,
                       "fontWeight": "600"
@@ -11321,6 +11584,7 @@
       "x": 4390,
       "y": 3980,
       "name": "35 Operations / Applicants",
+      "context": "listParticipationsBySession(sessionId); team label maps applicant.teamId through listTeams()",
       "clip": true,
       "width": 390,
       "height": 844,
@@ -11978,8 +12242,8 @@
     {
       "type": "frame",
       "id": "PQTWh",
-      "x": 7314,
-      "y": 3943,
+      "x": 8598,
+      "y": 4109,
       "name": "37 Operations / Receipts",
       "clip": true,
       "width": 390,
@@ -12604,8 +12868,8 @@
     {
       "type": "frame",
       "id": "Q7hcoZ",
-      "x": 8254,
-      "y": 3943,
+      "x": 9538,
+      "y": 4109,
       "name": "39 Operations / Attendance",
       "clip": true,
       "width": 390,
@@ -13362,6 +13626,7 @@
               "type": "ref",
               "ref": "azEVp",
               "width": "fill_container",
+              "context": "listParticipationsBySession(sessionId) selected participation",
               "descendants": {
                 "dyse7": {
                   "icon": "ellipsis"
@@ -13375,6 +13640,7 @@
             {
               "type": "frame",
               "id": "ZIMyq",
+              "context": "SessionParticipation.applicant.displayName and teamId",
               "width": "fill_container",
               "fill": "$ass-surface",
               "cornerRadius": 6,
@@ -13463,6 +13729,7 @@
             {
               "type": "frame",
               "id": "DZUmH",
+              "context": "SessionParticipation.applicant.email, phoneNumber and participation.createdAt",
               "width": "fill_container",
               "fill": "$ass-surface",
               "cornerRadius": 6,
@@ -13581,7 +13848,7 @@
                   "fill": "$ass-text",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "참가 신청 승인 여부를 결정해주세요.",
+                  "content": "승인하면 입금 대기 상태로 변경됩니다.",
                   "fontFamily": "$ass-font",
                   "fontSize": 13,
                   "fontWeight": "600"
@@ -13599,9 +13866,10 @@
               "type": "ref",
               "ref": "K7SU5",
               "width": "fill_container",
+              "context": "approve_participation({p_participation_id}) -> awaitingPayment",
               "descendants": {
                 "dv6fW": {
-                  "content": "참가 승인"
+                  "content": "승인하고 입금 요청"
                 },
                 "B7bbI": {
                   "icon": "check"
@@ -13613,6 +13881,7 @@
               "type": "ref",
               "ref": "cgdEI",
               "width": "fill_container",
+              "context": "reject_participation({p_participation_id}); optional p_reason omitted in this direct decision flow",
               "descendants": {
                 "feYKD": {
                   "content": "신청 거절"
@@ -13626,8 +13895,8 @@
     {
       "type": "frame",
       "id": "H5eM2u",
-      "x": 7784,
-      "y": 3943,
+      "x": 9068,
+      "y": 4109,
       "name": "38 Operations / Receipt Review",
       "clip": true,
       "width": 390,
@@ -13946,8 +14215,8 @@
     {
       "type": "frame",
       "id": "R4TXp",
-      "x": 8724,
-      "y": 3943,
+      "x": 10008,
+      "y": 4109,
       "name": "40 Operations / QR Scanner",
       "clip": true,
       "width": 390,
@@ -15086,8 +15355,10 @@
               "type": "frame",
               "id": "K74fi",
               "width": "fill_container",
-              "fill": "#F2B54416",
+              "fill": "$ass-surface",
               "cornerRadius": 5,
+              "stroke": "$ass-warning",
+              "strokeWidth": 1,
               "gap": 10,
               "padding": 12,
               "children": [
@@ -15106,7 +15377,7 @@
                   "fill": "$ass-text",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "변경된 내용은 참가자에게 알림으로 전달됩니다.",
+                  "content": "수정 가능: 제목 · 종료 · 정원 증원 · 게임비 · 직접 입력 규칙 · 취소 마감",
                   "fontFamily": "$ass-font",
                   "fontSize": 11,
                   "fontWeight": "normal"
@@ -15118,6 +15389,8 @@
               "type": "ref",
               "ref": "E7R7WJ",
               "width": "fill_container",
+              "name": "Input · title",
+              "context": "update_game_session p_updates.title",
               "descendants": {
                 "IIE7d": {
                   "content": "게임명"
@@ -15135,9 +15408,11 @@
               "type": "ref",
               "ref": "E7R7WJ",
               "width": "fill_container",
+              "name": "Input · endsAt",
+              "context": "update_game_session p_updates.endsAt optional",
               "descendants": {
                 "IIE7d": {
-                  "content": "종료 시간"
+                  "content": "종료 일시 (선택)"
                 },
                 "qkdVv": {
                   "icon": "clock"
@@ -15163,9 +15438,11 @@
                       "type": "ref",
                       "ref": "E7R7WJ",
                       "width": "fill_container",
+                      "name": "Input · capacity",
+                      "context": "update_game_session p_updates.capacity; must be greater than current capacity",
                       "descendants": {
                         "IIE7d": {
-                          "content": "정원"
+                          "content": "정원 (증원만 가능)"
                         },
                         "qkdVv": {
                           "icon": "users-round"
@@ -15187,9 +15464,11 @@
                       "type": "ref",
                       "ref": "E7R7WJ",
                       "width": "fill_container",
+                      "name": "Input · gameFee",
+                      "context": "update_game_session p_updates.gameFee; editable only when confirmedCount is 0",
                       "descendants": {
                         "IIE7d": {
-                          "content": "게임비"
+                          "content": "게임비 (확정 0명일 때)"
                         },
                         "qkdVv": {
                           "icon": "banknote"
@@ -15204,8 +15483,29 @@
               ]
             },
             {
+              "id": "eEkue",
+              "type": "ref",
+              "ref": "E7R7WJ",
+              "name": "Input · cancelDeadline",
+              "context": "update_game_session p_updates.cancelDeadline optional; startsAt - 7 days through startsAt - 24 hours",
+              "width": "fill_container",
+              "descendants": {
+                "IIE7d": {
+                  "content": "입금·취소 마감 (선택)"
+                },
+                "qkdVv": {
+                  "icon": "calendar-clock"
+                },
+                "jHM2t": {
+                  "content": "2026.08.07 19:00"
+                }
+              }
+            },
+            {
               "type": "frame",
               "id": "pcacf",
+              "name": "Rules · customRules only",
+              "context": "update_game_session p_updates.customRules; preset sessions cannot change rules",
               "width": "fill_container",
               "fill": "$ass-surface",
               "cornerRadius": 6,
@@ -15234,12 +15534,24 @@
                       "type": "text",
                       "id": "VgGKk",
                       "fill": "$ass-accent",
-                      "content": "CQB Standard  ›",
+                      "content": "CQB Standard · 변경 불가",
                       "fontFamily": "$ass-font",
                       "fontSize": 11,
                       "fontWeight": "700"
                     }
                   ]
+                },
+                {
+                  "type": "text",
+                  "id": "boVSQ",
+                  "name": "Preset Edit Constraint",
+                  "fill": "$ass-muted",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "프리셋으로 만든 게임은 규칙을 변경할 수 없습니다.",
+                  "fontFamily": "$ass-font",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
                 }
               ]
             },
@@ -15254,6 +15566,7 @@
               "type": "ref",
               "ref": "K7SU5",
               "width": "fill_container",
+              "context": "submit update_game_session({p_session_id,p_updates})",
               "descendants": {
                 "dv6fW": {
                   "content": "변경사항 저장"
@@ -15266,10 +15579,12 @@
             {
               "type": "frame",
               "id": "BSxvv",
+              "name": "Button · cancel_game_session",
+              "context": "navigate to 33A Operations / Game Cancel",
               "width": "fill_container",
               "height": 48,
               "cornerRadius": 6,
-              "stroke": "$ass-danger",
+              "stroke": "$--destructive",
               "strokeWidth": 1,
               "justifyContent": "center",
               "alignItems": "center",
@@ -15277,8 +15592,8 @@
                 {
                   "type": "text",
                   "id": "XX5Ar",
-                  "fill": "$ass-danger",
-                  "content": "게임 취소",
+                  "fill": "$--destructive",
+                  "content": "게임 취소하기  ›",
                   "fontFamily": "$ass-font",
                   "fontSize": 13,
                   "fontWeight": "700"
@@ -16806,6 +17121,490 @@
           ]
         }
       ]
+    },
+    {
+      "type": "frame",
+      "id": "RUUcb",
+      "x": 6740,
+      "y": 3068,
+      "name": "32A Operations / Game Form · Host & Payment",
+      "context": "create_game_session step 2: hostTeamId and bankAccount, then submit complete p_input",
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "$ass-bg",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "wqCIS",
+          "name": "Status Bar",
+          "width": "fill_container",
+          "height": 44,
+          "padding": [
+            0,
+            18
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "YBu0k",
+              "fill": "$ass-text",
+              "content": "9:41",
+              "fontFamily": "$ass-font",
+              "fontSize": 11,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "U78a7R",
+              "gap": 5,
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "w5eND6",
+                  "width": 14,
+                  "height": 14,
+                  "icon": "signal",
+                  "library": "lucide",
+                  "fill": "$ass-text"
+                },
+                {
+                  "type": "icon",
+                  "id": "Zi8zy",
+                  "width": 14,
+                  "height": 14,
+                  "icon": "wifi",
+                  "library": "lucide",
+                  "fill": "$ass-text"
+                },
+                {
+                  "type": "icon",
+                  "id": "hcd7Z",
+                  "width": 14,
+                  "height": 14,
+                  "icon": "battery-full",
+                  "library": "lucide",
+                  "fill": "$ass-text"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "QzcZt",
+          "name": "Host & Payment Content",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 14,
+          "padding": [
+            8,
+            24,
+            24,
+            24
+          ],
+          "children": [
+            {
+              "id": "GByTo",
+              "type": "ref",
+              "ref": "azEVp",
+              "name": "Header · Host & Payment",
+              "width": "fill_container",
+              "descendants": {
+                "dyse7": {
+                  "enabled": false
+                },
+                "HOddU": {
+                  "content": "주최/입금 정보"
+                }
+              }
+            },
+            {
+              "type": "frame",
+              "id": "Nmn5x",
+              "name": "Payment Step Notice",
+              "width": "fill_container",
+              "fill": "$ass-surface",
+              "cornerRadius": 5,
+              "stroke": "$ass-warning",
+              "strokeWidth": 1,
+              "gap": 10,
+              "padding": 12,
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "UjQno",
+                  "name": "Notice Icon",
+                  "width": 17,
+                  "height": 17,
+                  "icon": "info",
+                  "library": "lucide",
+                  "fill": "$ass-warning"
+                },
+                {
+                  "type": "text",
+                  "id": "vNCZK",
+                  "name": "Notice Text",
+                  "fill": "$ass-text",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "게임 생성에 필요한 마지막 정보를 입력하세요.",
+                  "fontFamily": "$ass-font",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "id": "lPS5y",
+              "type": "ref",
+              "ref": "E7R7WJ",
+              "name": "Input · hostTeamId",
+              "context": "create_game_session p_input.hostTeamId optional",
+              "width": "fill_container",
+              "descendants": {
+                "IIE7d": {
+                  "content": "주최 팀 (선택)"
+                },
+                "qkdVv": {
+                  "icon": "shield"
+                },
+                "jHM2t": {
+                  "content": "팀을 선택하세요"
+                }
+              }
+            },
+            {
+              "type": "frame",
+              "id": "hrOQE",
+              "name": "Bank Account · required",
+              "context": "create_game_session p_input.bankAccount",
+              "width": "fill_container",
+              "fill": "$ass-surface",
+              "cornerRadius": 6,
+              "stroke": "$ass-border",
+              "strokeWidth": 1,
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 14,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "a9crWx",
+                  "fill": "$ass-text",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "입금 계좌 · 필수",
+                  "fontFamily": "$ass-font",
+                  "fontSize": 13,
+                  "fontWeight": "700"
+                },
+                {
+                  "id": "y9sfB1",
+                  "type": "ref",
+                  "ref": "E7R7WJ",
+                  "name": "Input · bankAccount.bankName",
+                  "context": "create_game_session p_input.bankAccount.bankName",
+                  "width": "fill_container",
+                  "descendants": {
+                    "IIE7d": {
+                      "content": "은행"
+                    },
+                    "qkdVv": {
+                      "icon": "landmark"
+                    },
+                    "jHM2t": {
+                      "content": "카카오뱅크"
+                    }
+                  }
+                },
+                {
+                  "id": "ePCpu",
+                  "type": "ref",
+                  "ref": "E7R7WJ",
+                  "name": "Input · bankAccount.accountNumber",
+                  "context": "create_game_session p_input.bankAccount.accountNumber",
+                  "width": "fill_container",
+                  "descendants": {
+                    "IIE7d": {
+                      "content": "계좌번호"
+                    },
+                    "qkdVv": {
+                      "icon": "credit-card"
+                    },
+                    "jHM2t": {
+                      "content": "3333-12-1234567"
+                    }
+                  }
+                },
+                {
+                  "id": "H7Uol",
+                  "type": "ref",
+                  "ref": "E7R7WJ",
+                  "name": "Input · bankAccount.accountHolder",
+                  "context": "create_game_session p_input.bankAccount.accountHolder",
+                  "width": "fill_container",
+                  "descendants": {
+                    "IIE7d": {
+                      "content": "예금주"
+                    },
+                    "qkdVv": {
+                      "icon": "user-round"
+                    },
+                    "jHM2t": {
+                      "content": "김철수"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "eeNuF",
+              "name": "Flexible Spacer",
+              "width": "fill_container",
+              "height": "fill_container"
+            },
+            {
+              "id": "tzFJc",
+              "type": "ref",
+              "ref": "K7SU5",
+              "name": "Button · submit create_game_session",
+              "context": "submit create_game_session({p_input}) with values from steps 1, 2 and rules",
+              "width": "fill_container",
+              "descendants": {
+                "dv6fW": {
+                  "content": "게임 만들기"
+                },
+                "B7bbI": {
+                  "icon": "check"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "pD0DE",
+      "x": 7210,
+      "y": 3068,
+      "name": "33A Operations / Game Cancel",
+      "context": "cancel_game_session input screen",
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "$ass-bg",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "wBjcb",
+          "name": "Status Bar",
+          "width": "fill_container",
+          "height": 44,
+          "padding": [
+            0,
+            18
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "WbBSM",
+              "fill": "$ass-text",
+              "content": "9:41",
+              "fontFamily": "$ass-font",
+              "fontSize": 11,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "o3b1cE",
+              "gap": 5,
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "tBaSb",
+                  "width": 14,
+                  "height": 14,
+                  "icon": "signal",
+                  "library": "lucide",
+                  "fill": "$ass-text"
+                },
+                {
+                  "type": "icon",
+                  "id": "L15vVf",
+                  "width": 14,
+                  "height": 14,
+                  "icon": "wifi",
+                  "library": "lucide",
+                  "fill": "$ass-text"
+                },
+                {
+                  "type": "icon",
+                  "id": "nCAqI",
+                  "width": 14,
+                  "height": 14,
+                  "icon": "battery-full",
+                  "library": "lucide",
+                  "fill": "$ass-text"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "kPxpG",
+          "name": "Game Cancel Content",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            8,
+            24,
+            24,
+            24
+          ],
+          "children": [
+            {
+              "id": "SrsFn",
+              "type": "ref",
+              "ref": "azEVp",
+              "name": "Header · Game Cancel",
+              "width": "fill_container",
+              "descendants": {
+                "dyse7": {
+                  "enabled": false
+                },
+                "HOddU": {
+                  "content": "게임 취소"
+                }
+              }
+            },
+            {
+              "type": "frame",
+              "id": "oUkvE",
+              "name": "Cancel Warning",
+              "width": "fill_container",
+              "fill": "$ass-surface",
+              "cornerRadius": 6,
+              "stroke": "$ass-danger",
+              "strokeWidth": 1,
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 14,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "vPzXV",
+                  "name": "Warning Title",
+                  "fill": "$ass-danger",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "OP NIGHTFALL을 취소할까요?",
+                  "fontFamily": "$ass-font",
+                  "fontSize": 14,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "sqyfk",
+                  "name": "Warning Description",
+                  "fill": "$ass-text",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "활성 참가 신청이 모두 취소되고 참가자에게 취소 알림이 전송됩니다.",
+                  "fontFamily": "$ass-font",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "id": "rD4d6",
+              "type": "ref",
+              "ref": "E7R7WJ",
+              "name": "Input · cancel reason",
+              "context": "cancel_game_session p_reason optional",
+              "width": "fill_container",
+              "descendants": {
+                "IIE7d": {
+                  "content": "게임 취소 사유 (선택)"
+                },
+                "qkdVv": {
+                  "icon": "message-square-warning"
+                },
+                "jHM2t": {
+                  "content": "참가자에게 전달할 사유"
+                }
+              }
+            },
+            {
+              "type": "frame",
+              "id": "dnMMG",
+              "name": "Flexible Spacer",
+              "width": "fill_container",
+              "height": "fill_container"
+            },
+            {
+              "type": "frame",
+              "id": "LUsXG",
+              "name": "Button · confirm cancel_game_session",
+              "context": "cancel_game_session({p_session_id,p_reason})",
+              "width": "fill_container",
+              "height": 56,
+              "fill": "$ass-danger",
+              "cornerRadius": 6,
+              "gap": 8,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "P5e4l",
+                  "name": "Confirm Cancel Label",
+                  "fill": "$--white",
+                  "content": "게임 취소 확정",
+                  "fontFamily": "$ass-font",
+                  "fontSize": 14,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "icon",
+                  "id": "WdTBc",
+                  "name": "Confirm Cancel Icon",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "trash-2",
+                  "library": "lucide",
+                  "fill": "$--white"
+                }
+              ]
+            },
+            {
+              "id": "Do4tR",
+              "type": "ref",
+              "ref": "cgdEI",
+              "name": "Button · back to edit",
+              "width": "fill_container",
+              "descendants": {
+                "feYKD": {
+                  "content": "돌아가기"
+                }
+              }
+            }
+          ]
+        }
+      ]
     }
   ],
   "themes": {
@@ -17595,7 +18394,7 @@
     },
     "ass-danger": {
       "type": "color",
-      "value": "#EF5B5B"
+      "value": "$--destructive"
     },
     "ass-font": {
       "type": "string",
