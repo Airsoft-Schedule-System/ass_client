@@ -88,7 +88,7 @@ export function ProfilePage() {
     return (
       <div className="flex min-h-0 flex-1 flex-col gap-4">
         <Card className="flex items-center gap-3 p-4">
-          <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,var(--color-app-brand)_12%,transparent)] text-[var(--color-app-brand)]">
+          <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-[var(--color-app-brand-subtle)] text-[var(--color-app-brand)]">
             <UserIcon />
           </div>
           <div className="min-w-0">
@@ -127,7 +127,7 @@ export function ProfilePage() {
         <div className="flex flex-col gap-2">
           <Button onClick={() => navigate('/profile/setup')}>내 정보 수정</Button>
           <button
-            className="flex h-14 w-full items-center justify-center rounded-lg border border-red-500 bg-transparent px-4 text-sm font-bold text-red-500 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500 enabled:cursor-pointer enabled:hover:bg-red-500/10 disabled:cursor-not-allowed disabled:opacity-50"
+            className="flex h-14 w-full items-center justify-center rounded-lg border border-[var(--color-app-danger)] bg-transparent px-4 text-sm font-bold text-[var(--color-app-danger)] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-app-danger)] enabled:cursor-pointer enabled:hover:bg-[var(--color-app-danger-subtle)] disabled:cursor-not-allowed disabled:opacity-50"
             disabled={isLoggingOut}
             onClick={handleLogout}
             type="button"
@@ -137,7 +137,7 @@ export function ProfilePage() {
         </div>
 
         {logoutErrorMessage && (
-          <p className="text-sm font-semibold text-red-500" role="alert">
+          <p className="text-sm font-semibold text-[var(--color-app-danger)]" role="alert">
             {logoutErrorMessage}
           </p>
         )}

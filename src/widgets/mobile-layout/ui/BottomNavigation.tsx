@@ -38,8 +38,8 @@ export function BottomNavigation() {
           className={({ isActive }) =>
             `flex h-14 ${narrow ? 'w-14' : 'w-15'} shrink-0 flex-col items-center justify-center gap-1 rounded-3xl text-xs transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-app-brand)] ${
               isActive
-                ? 'bg-[color-mix(in_srgb,var(--color-app-brand)_11%,transparent)]'
-                : 'hover:bg-[color-mix(in_srgb,var(--color-app-foreground)_5%,transparent)]'
+                ? 'bg-[var(--color-app-surface-secondary)]'
+                : 'hover:bg-[var(--color-app-surface-secondary)]'
             }`
           }
           end={end}

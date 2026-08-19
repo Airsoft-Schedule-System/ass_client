@@ -10,18 +10,17 @@ type StatusBadgeProps = {
 };
 
 const toneClassNames: Record<StatusBadgeTone, string> = {
-  brand:
-    'bg-[color-mix(in_srgb,var(--color-app-brand)_14%,transparent)] text-[var(--color-app-brand)]',
-  danger: 'bg-red-500/10 text-red-400',
-  neutral: 'bg-white/5 text-[var(--color-app-muted)]',
-  success: 'bg-emerald-400/10 text-emerald-400',
-  warning: 'bg-amber-400/10 text-amber-400',
+  brand: 'bg-[var(--color-app-brand-subtle)] text-[var(--color-app-brand)]',
+  danger: 'bg-[var(--color-app-danger-subtle)] text-[var(--color-app-danger)]',
+  neutral: 'bg-[var(--color-app-muted-subtle)] text-[var(--color-app-muted)]',
+  success: 'bg-[var(--color-app-success-subtle)] text-[var(--color-app-success)]',
+  warning: 'bg-[var(--color-app-warning-subtle)] text-[var(--color-app-warning)]',
 };
 
 export function StatusBadge({ children, tone = 'neutral' }: StatusBadgeProps) {
   return (
     <span
-      className={`inline-flex h-6 shrink-0 items-center rounded-full px-2.5 text-xs font-semibold ${toneClassNames[tone]}`}
+      className={`inline-flex h-6 shrink-0 items-center rounded-sm px-[9px] text-[10px] font-bold ${toneClassNames[tone]}`}
     >
       {children}
     </span>

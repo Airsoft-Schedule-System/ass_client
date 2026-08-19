@@ -71,6 +71,13 @@ app → pages → widgets → features → entities → shared
 - 인증 사용자 상태는 `entities/viewer`, 앱 시작 시 Supabase 세션과 연결하는 책임은 `app/viewer-session`이 담당한다. SDK의 토큰 저장·갱신 책임은 변경하지 않는다.
 - 세션과 참가 상태의 문구·색상 정책은 각 entity가 담당하고 범용 시각 표현은 `shared/ui`의 `StatusBadge`가 담당한다.
 
+## 색상 토큰
+
+- 원시 HEX·RGB·HSL 값은 `src/app/styles/index.css`의 디자인 토큰 선언과 Pencil 컬러 변수에서만 정의한다.
+- 컴포넌트와 화면은 `var(--color-app-*)`만 사용하며 Tailwind 기본 색상 팔레트나 인라인 `color-mix()`로 색상을 직접 만들지 않는다.
+- 새로운 상태나 상호작용 색상이 필요하면 의미 기반 토큰을 먼저 추가하고 코드와 Pencil 팔레트에 같은 이름·값·용도를 반영한다.
+- `transparent`와 SVG `currentColor`는 구조적 표현에 한해 예외로 허용한다.
+
 ## 자동 검사
 
 - `npm run arch:check`: Steiger로 레이어, public API, import locality 검사

@@ -24,7 +24,7 @@ export function GameSessionCard({ isOwned, participationStatus, session }: GameS
       className="group block w-full rounded-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-app-brand)]"
       to={`/games/${session.id}`}
     >
-      <Card className="flex w-full flex-col gap-4 p-4 transition-colors group-hover:border-[color-mix(in_srgb,var(--color-app-brand)_45%,transparent)]">
+      <Card className="flex w-full flex-col gap-4 p-4">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
             <p className="truncate text-base font-bold text-[var(--color-app-foreground)]">
