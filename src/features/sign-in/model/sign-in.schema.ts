@@ -2,7 +2,7 @@
 
 import { z } from 'zod';
 
-export const loginSchema = z.object({
+export const signInSchema = z.object({
   email: z
     .string()
     .trim()
@@ -12,4 +12,4 @@ export const loginSchema = z.object({
 });
 
 // 로그인 스키마에서 추론한 제출 값 타입
-export type LoginFormValues = z.infer<typeof loginSchema>;
+export type SignInFormValues = z.infer<typeof signInSchema>;

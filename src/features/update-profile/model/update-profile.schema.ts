@@ -11,7 +11,7 @@ const optionalPhoneNumberSchema = z
     '연락처에는 숫자와 전화번호 기호만 입력해 주세요.',
   );
 
-export const profileSchema = z.object({
+export const updateProfileSchema = z.object({
   displayName: z
     .string()
     .trim()
@@ -27,4 +27,4 @@ export const profileSchema = z.object({
 });
 
 // 프로필 설정 스키마에서 추론한 제출 값 타입
-export type ProfileFormValues = z.infer<typeof profileSchema>;
+export type UpdateProfileFormValues = z.infer<typeof updateProfileSchema>;

@@ -1,117 +1,26 @@
 // 다가오는 게임 일정과 현재 사용자의 참가·운영 상태를 표시하는 홈 화면
 
-import { useEffect, useState } from 'react';
-import { formatSessionDate } from '@/entities/game-session';
 import { useViewerStore } from '@/entities/viewer';
-import {
-  listParticipationsForUser,
-  listUpcomingSessions,
-  ParticipationAppError,
-  toSessionError,
-} from '@/shared/api';
-import type { ParticipationSummary, SessionSummary } from '@/shared/api';
 import { MobileLayout } from '@/widgets/mobile-layout';
+import { groupSessionsByDate } from '../lib/groupSessionsByDate';
+import { useGameList } from '../model/useGameList';
 import { GameSessionCard } from './GameSessionCard';
 
-type GamesPageData = {
-  participations: ParticipationSummary[]; // 현재 사용자의 참가 상태 목록
-  sessions: SessionSummary[]; // 홈에 표시할 다가오는 게임 목록
-};
-
-type SessionDateGroup = {
-  dateKey: string; // 날짜 그룹을 구분하는 로컬 날짜 키
-  label: string; // 사용자에게 표시할 한국어 날짜
-  sessions: SessionSummary[]; // 같은 날짜에 시작하는 게임 목록
-};
-
-// 세션과 참가 API 중 실패한 도메인의 사용자 메시지를 선택
-function getGamesLoadErrorMessage(error: unknown) {
-  if (error instanceof ParticipationAppError) return error.message;
-  return toSessionError(error).message;
-}
-
-// 세션을 시작 시각으로 정렬한 뒤 사용자의 로컬 날짜 기준으로 묶음
-function groupSessionsByDate(sessions: SessionSummary[]) {
-  const groups = new Map<string, SessionDateGroup>();
-  const sortedSessions = [...sessions].sort((first, second) => {
-    const firstTime = new Date(first.startsAt).getTime();
-    const secondTime = new Date(second.startsAt).getTime();
-
-    return (
-      (Number.isNaN(firstTime) ? Infinity : firstTime) -
-      (Number.isNaN(secondTime) ? Infinity : secondTime)
-    );
-  });
-
-  sortedSessions.forEach((session) => {
-    const date = new Date(session.startsAt);
-    const dateKey = Number.isNaN(date.getTime())
-      ? 'unknown'
-      : `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
-    const existingGroup = groups.get(dateKey);
-
-    if (existingGroup) {
-      existingGroup.sessions.push(session);
-      return;
-    }
-
-    groups.set(dateKey, {
-      dateKey,
-      label: formatSessionDate(session.startsAt),
-      sessions: [session],
-    });
-  });
-
-  return [...groups.values()];
-}
-
 export function GameListPage() {
-  const [data, setData] = useState<GamesPageData | null>(null);
-  const [loadErrorMessage, setLoadErrorMessage] = useState<string | null>(null);
-  const [requestVersion, setRequestVersion] = useState(0);
   const user = useViewerStore((state) => state.user);
-
-  useEffect(() => {
-    if (!user) return;
-
-    let cancelled = false;
-    const userId = user.id;
-
-    // 목록과 사용자 참가 상태를 병렬로 불러와 카드 표시 데이터를 구성
-    async function loadGames() {
-      setData(null);
-      setLoadErrorMessage(null);
-
-      try {
-        const [sessions, participations] = await Promise.all([
-          listUpcomingSessions(),
-          listParticipationsForUser(userId),
-        ]);
-
-        if (!cancelled) setData({ participations, sessions });
-      } catch (error) {
-        if (!cancelled) setLoadErrorMessage(getGamesLoadErrorMessage(error));
-      }
-    }
-
-    void loadGames();
-
-    return () => {
-      cancelled = true;
-    };
-  }, [requestVersion, user]);
+  const { data, errorMessage, retry } = useGameList(user?.id);
 
   // 공통 레이아웃 안에 표시할 조회 상태별 콘텐츠를 반환
   function renderGamesContent() {
-    if (loadErrorMessage) {
+    if (errorMessage) {
       return (
         <div className="flex flex-col items-start gap-3 pt-4">
           <p className="text-sm font-semibold text-[var(--color-app-brand)]" role="alert">
-            {loadErrorMessage}
+            {errorMessage}
           </p>
           <button
             className="text-sm font-bold text-[var(--color-app-foreground)] underline underline-offset-4 enabled:cursor-pointer"
-            onClick={() => setRequestVersion((version) => version + 1)}
+            onClick={retry}
             type="button"
           >
             다시 시도

@@ -11,12 +11,10 @@ import { ProfilePage } from '@/pages/profile';
 import { ProfileEditPage } from '@/pages/profile-edit';
 import { SignUpPage } from '@/pages/sign-up';
 import { AuthGuard } from './AuthGuard';
-import { RootLayout } from './RootLayout';
 
 export const router = createBrowserRouter([
   {
     path: '/',
-    Component: RootLayout,
     children: [
       {
         element: <AuthGuard access="authenticated" />,

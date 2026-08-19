@@ -9,13 +9,13 @@
 ## FSD 구조
 
 - 레이어는 `app → pages → widgets → features → entities → shared` 방향으로만 의존
-- `app`: 엔트리포인트, 전역 provider·스타일, 라우터, 인증 가드 등 앱 전체 조립만 배치하고 도메인 UI와 업무 로직은 두지 않기
+- `app`: 엔트리포인트, 전역 연결·스타일, 라우터, 인증 가드 등 앱 전체 조립만 배치하고 `viewer-session`처럼 목적이 드러나는 segment 이름 사용
 - `pages`: URL 하나를 구성하는 화면, 화면 전용 조회·상태·UI, 여러 하위 레이어의 조합을 배치
 - `widgets`: 여러 페이지에서 재사용할 수 있는 독립적인 대형 UI 블록을 배치하고 작은 컴포넌트나 한 화면 전용 UI를 억지로 올리지 않기
-- `features`: 입력·검증·요청·상태 변경 경계가 있는 완결된 사용자 행동을 동사 중심 slice로 배치하되, 둘 이상의 사용처가 있거나 독립적으로 유지할 제품 기능일 때만 생성
+- `features`: 입력·검증·요청·상태 변경 경계가 있는 완결된 사용자 행동을 동사 중심 slice로 배치하고, 재사용 횟수와 무관하게 페이지 조립과 독립적으로 유지할 제품 기능일 때 생성
 - `entities`: 하나의 비즈니스 개체에 속한 상태·표시 규칙·formatter·정책을 배치하고 같은 레이어의 다른 entity를 직접 import하지 않기
-- `shared`: 도메인 의미가 없는 API 기반 코드와 범용 UI를 배치하고 비즈니스 정책이나 특정 화면 요구사항을 넣지 않기
-- 현재 사용하는 레이어는 `app`, `pages`, `widgets`, `entities`, `shared`이며 실제 추출 조건을 만족하기 전에는 빈 `features`를 만들지 않기
+- `shared`: 특정 페이지·행동 실행 맥락이 없는 API 기반 코드와 범용 UI를 배치하고 UI 흐름이나 비즈니스 정책은 넣지 않기
+- 현재 사용하는 레이어는 `app`, `pages`, `widgets`, `features`, `entities`, `shared`이며 실제 추출 조건을 만족하지 않는 빈 slice는 만들지 않기
 
 ### FSD 배치 판단 순서
 
@@ -23,13 +23,13 @@
 2. 특정 URL 화면에서만 사용하면 `pages/<route-slice>`에 배치
 3. 하나의 비즈니스 개체만 표현하거나 그 개체의 규칙이면 `entities/<entity>`에 배치
 4. 여러 entity를 조합하지만 한 화면에서만 사용하면 해당 `page`에 두고, 여러 화면에서 독립적인 큰 블록으로 재사용될 때만 `widgets`로 이동
-5. 사용자가 수행하는 완결된 행동이며 feature 추출 조건을 만족하면 `features/<action>`으로 이동
+5. 사용자가 수행하는 완결된 행동이며 페이지의 URL·레이아웃·이동 맥락과 분리 가능하면 `features/<action>`으로 이동
 6. 도메인과 무관한 기반 코드나 범용 UI일 때만 `shared`에 배치
 
 - 두 곳에서 사용된다는 사실만으로 공통화하지 않고 책임과 변경 이유가 같을 때만 하위 레이어로 이동
 - 코드를 이동하기 전에 목적 레이어에서 필요한 import가 의존 방향이나 같은 레이어 slice 격리를 위반하지 않는지 확인
 - slice 내부 segment는 `ui`, `model`, `api`, `lib`만 사용하고 `components`, `hooks`, `stores`, `schemas` 같은 기술명 segment를 만들지 않기
-- 모든 page, widget, entity slice와 `shared/api`, `shared/ui`는 루트 `index.ts` public API를 제공
+- 모든 page, widget, feature, entity slice와 `shared/api`, `shared/ui`는 루트 `index.ts` public API를 제공
 - 다른 slice는 `@/entities/viewer`처럼 public API로만 import하고 내부 경로를 직접 참조하지 않기
 - 같은 slice 내부는 상대 경로, 다른 slice는 `@/` 절대 경로를 사용
 - 같은 레이어의 다른 slice를 직접 import하지 않으며 공유 책임은 적절한 하위 레이어로 이동
@@ -51,7 +51,7 @@
 - 상태는 사용하는 가장 가까운 위치에 두고 여러 화면이 공유하는 클라이언트 상태만 entity model의 Zustand로 관리
 - Supabase viewer store에는 사용자와 복구 상태만 두고 토큰 저장·갱신은 SDK에 위임
 - 검증이 필요하거나 입력이 여러 개인 폼은 `react-hook-form`, Zod, `zodResolver` 사용
-- 페이지 전용 스키마와 상태는 해당 page slice의 `model`에 배치하고 제출 타입은 Zod에서 추론
+- 사용자 행동의 스키마와 제출 상태는 해당 feature의 `model`, 화면 전용 조회 상태는 page의 `model`에 배치하고 제출 타입은 Zod에서 추론
 - 사용자용 검증 문구는 Zod 스키마, API 오류 문구는 도메인 오류 변환 함수에서 관리
 - 필드 오류는 공통 입력의 오류 prop, API 오류는 폼 `root`, 제출 상태는 `formState.isSubmitting`으로 처리
 

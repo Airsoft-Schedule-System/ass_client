@@ -1,6 +1,5 @@
 // 선택한 게임의 상세 정보와 현재 사용자의 참가·운영 상태를 표시
 
-import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import {
   formatGameFee,
@@ -10,98 +9,16 @@ import {
 } from '@/entities/game-session';
 import { ParticipationStatusBadge } from '@/entities/participation';
 import { useViewerStore } from '@/entities/viewer';
-import {
-  findParticipationForUserAndSession,
-  findSessionById,
-  ParticipationAppError,
-  toSessionError,
-} from '@/shared/api';
-import type { Json, ParticipationSummary, SessionDetail } from '@/shared/api';
 import { Button, CalendarIcon, MapPinIcon, UsersIcon, WalletIcon } from '@/shared/ui';
 import { MobileLayout } from '@/widgets/mobile-layout';
-
-type GameDetailData = {
-  participation: ParticipationSummary | null; // 현재 사용자의 이 게임 참가 상태
-  session: SessionDetail; // 상세 화면에 표시할 게임 세션
-};
-
-// 세션과 참가 API 중 실패한 도메인의 사용자 메시지를 선택
-function getGameDetailErrorMessage(error: unknown) {
-  if (error instanceof ParticipationAppError) return error.message;
-  return toSessionError(error).message;
-}
-
-// 규칙 JSON의 값을 사용자가 읽을 수 있는 한 줄 문구로 변환
-function formatRuleValue(value: Json | undefined) {
-  if (value === null || value === undefined) return '-';
-  if (typeof value === 'boolean') return value ? '사용' : '사용 안 함';
-  if (typeof value === 'object') return JSON.stringify(value);
-  return String(value);
-}
-
-// 프리셋 또는 커스텀 규칙을 상세 화면용 항목 목록으로 변환
-function getRuleEntries(session: SessionDetail) {
-  const rules = session.presetRules ?? session.customRules;
-  if (!rules) return [];
-
-  if (Array.isArray(rules)) {
-    return rules.map((value, index) => [`규칙 ${index + 1}`, formatRuleValue(value)] as const);
-  }
-
-  if (typeof rules === 'object') {
-    return Object.entries(rules).map(([label, value]) => [label, formatRuleValue(value)] as const);
-  }
-
-  return [['게임룰', formatRuleValue(rules)] as const];
-}
+import { getRuleEntries } from '../lib/getRuleEntries';
+import { useGameDetail } from '../model/useGameDetail';
 
 export function GameDetailPage() {
-  const [data, setData] = useState<GameDetailData | null>(null);
-  const [loadErrorMessage, setLoadErrorMessage] = useState<string | null>(null);
-  const [notFound, setNotFound] = useState(false);
-  const [requestVersion, setRequestVersion] = useState(0);
   const navigate = useNavigate();
   const { sessionId } = useParams<{ sessionId: string }>();
   const user = useViewerStore((state) => state.user);
-
-  useEffect(() => {
-    if (!sessionId || !user) return;
-
-    let cancelled = false;
-    const currentSessionId = sessionId;
-    const userId = user.id;
-
-    // 게임 상세와 사용자 참가 상태를 병렬로 조회
-    async function loadGameDetail() {
-      setData(null);
-      setLoadErrorMessage(null);
-      setNotFound(false);
-
-      try {
-        const [session, participation] = await Promise.all([
-          findSessionById(currentSessionId),
-          findParticipationForUserAndSession(userId, currentSessionId),
-        ]);
-
-        if (cancelled) return;
-
-        if (!session) {
-          setNotFound(true);
-          return;
-        }
-
-        setData({ participation, session });
-      } catch (error) {
-        if (!cancelled) setLoadErrorMessage(getGameDetailErrorMessage(error));
-      }
-    }
-
-    void loadGameDetail();
-
-    return () => {
-      cancelled = true;
-    };
-  }, [requestVersion, sessionId, user]);
+  const { data, errorMessage, notFound, retry } = useGameDetail(sessionId, user?.id);
 
   // 공통 레이아웃 안에 표시할 조회 상태별 콘텐츠를 반환
   function renderGameDetailContent() {
@@ -122,15 +39,15 @@ export function GameDetailPage() {
       );
     }
 
-    if (loadErrorMessage) {
+    if (errorMessage) {
       return (
         <div className="flex flex-col items-start gap-3 pt-4">
           <p className="text-sm font-semibold text-[var(--color-app-brand)]" role="alert">
-            {loadErrorMessage}
+            {errorMessage}
           </p>
           <button
             className="text-sm font-bold text-[var(--color-app-foreground)] underline underline-offset-4 enabled:cursor-pointer"
-            onClick={() => setRequestVersion((version) => version + 1)}
+            onClick={retry}
             type="button"
           >
             다시 시도
