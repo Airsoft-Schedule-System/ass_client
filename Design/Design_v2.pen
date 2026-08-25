@@ -4761,7 +4761,7 @@
               "y": 64,
               "name": "ASS Warning Usage",
               "fill": "$--muted-foreground",
-              "content": "주의·입금 확인",
+              "content": "주의·확인 필요",
               "fontFamily": "Inter",
               "fontSize": 11,
               "fontWeight": "normal"
@@ -5278,6 +5278,150 @@
                   "fontFamily": "$ass-font",
                   "fontSize": 9,
                   "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "aIcHa",
+          "name": "Games/Home/Upcoming Game Card",
+          "context": "Page component props: title, status, startsAt, endsAt, fieldName, gameFee, confirmedCount, capacity",
+          "reusable": true,
+          "width": 350,
+          "height": 112,
+          "fill": "$ass-surface",
+          "cornerRadius": 6,
+          "stroke": "$ass-border",
+          "strokeWidth": 1,
+          "layout": "vertical",
+          "gap": 8,
+          "padding": 14,
+          "children": [
+            {
+              "type": "frame",
+              "id": "okayo",
+              "name": "Title and Status",
+              "width": "fill_container",
+              "height": 24,
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "XHVDm",
+                  "name": "Game Title",
+                  "fill": "$ass-text",
+                  "content": "OP NIGHTFALL",
+                  "fontFamily": "$ass-font",
+                  "fontSize": 13,
+                  "fontWeight": "800"
+                },
+                {
+                  "id": "O174I",
+                  "type": "ref",
+                  "ref": "x9LQu2",
+                  "name": "Recruiting Status"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Ci5r4",
+              "name": "Game Information",
+              "width": "fill_container",
+              "height": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "MV7u6",
+                  "name": "Schedule Field and Fee",
+                  "layout": "vertical",
+                  "gap": 3,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "mI0hY",
+                      "name": "Time",
+                      "fill": "$ass-text",
+                      "content": "8월 12일 19:00 - 23:00",
+                      "fontFamily": "$ass-font",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "bz2fn",
+                      "name": "Field Name",
+                      "fill": "$ass-text",
+                      "content": "ARENA 51",
+                      "fontFamily": "$ass-font",
+                      "fontSize": 10,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "BAONs",
+                      "name": "Game Fee",
+                      "fill": "$ass-muted",
+                      "content": "참가비 30,000원",
+                      "fontFamily": "$ass-font",
+                      "fontSize": 9,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "RoWuA",
+                  "name": "Capacity",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "m0hBnj",
+                      "name": "Capacity Label",
+                      "fill": "$ass-muted",
+                      "content": "인원",
+                      "fontFamily": "$ass-font",
+                      "fontSize": 9,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Kjjqn",
+                      "name": "Capacity Value Row",
+                      "gap": 4,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "d0xHY",
+                          "name": "People Icon",
+                          "width": 13,
+                          "height": 13,
+                          "icon": "users",
+                          "library": "lucide",
+                          "fill": "$ass-text"
+                        },
+                        {
+                          "type": "text",
+                          "id": "HH299",
+                          "name": "Capacity Value",
+                          "fill": "$ass-text",
+                          "content": "21 / 30명",
+                          "fontFamily": "$ass-font",
+                          "fontSize": 11,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    }
+                  ]
                 }
               ]
             }
@@ -6944,7 +7088,7 @@
                       "type": "text",
                       "id": "mTqMT",
                       "fill": "$ass-text",
-                      "content": "30,000원 · 선입금",
+                      "content": "30,000원",
                       "fontFamily": "$ass-font",
                       "fontSize": 13,
                       "fontWeight": "600"
@@ -7300,11 +7444,11 @@
                       "id": "wvUnR",
                       "type": "ref",
                       "ref": "x9LQu2",
-                      "fill": "#F2B54422",
+                      "fill": "$ass-surface-2",
                       "descendants": {
                         "Tp6QM": {
-                          "content": "입금 대기",
-                          "fill": "$ass-warning"
+                          "content": "참가 확정",
+                          "fill": "$ass-success"
                         }
                       }
                     }
@@ -7703,11 +7847,11 @@
                   "id": "B4dhw",
                   "type": "ref",
                   "ref": "x9LQu2",
-                  "fill": "#F2B54422",
+                  "fill": "$ass-surface-2",
                   "descendants": {
                     "Tp6QM": {
-                      "content": "입금 대기",
-                      "fill": "$ass-warning"
+                      "content": "참가 확정",
+                      "fill": "$ass-success"
                     }
                   }
                 },
@@ -7717,7 +7861,7 @@
                   "fill": "$ass-text",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "승인이 완료되었습니다.",
+                  "content": "참가가 확정되었습니다.",
                   "fontFamily": "$ass-font",
                   "fontSize": 20,
                   "fontWeight": "800"
@@ -7728,7 +7872,7 @@
                   "fill": "$ass-muted",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "게임비를 입금한 뒤 송금증을 제출하면 참석이 바로 확정됩니다.",
+                  "content": "게임 당일 현장에서 참가비 30,000원을 결제해주세요. 입장 QR은 아래에서 확인할 수 있습니다.",
                   "fontFamily": "$ass-font",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -7885,10 +8029,10 @@
               "width": "fill_container",
               "descendants": {
                 "dv6fW": {
-                  "content": "입금 안내 및 송금증 첨부"
+                  "content": "내 QR 입장권 보기"
                 },
                 "B7bbI": {
-                  "icon": "upload"
+                  "icon": "qr-code"
                 }
               }
             },
@@ -7912,7 +8056,8 @@
       "id": "Ij3p7",
       "x": 8598,
       "y": 2746,
-      "name": "22 Participation / Payment Submission",
+      "name": "22 Participation / Request Submitted",
+      "context": "participations after request_participation",
       "clip": true,
       "width": 390,
       "height": 844,
@@ -8004,7 +8149,7 @@
                 },
                 "HOddU": {
                   "name": "Title",
-                  "content": "송금증 제출"
+                  "content": "참가 신청"
                 }
               }
             },
@@ -8026,7 +8171,7 @@
                   "fill": "$ass-text",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "입금 계좌",
+                  "content": "승인 대기",
                   "fontFamily": "$ass-font",
                   "fontSize": 14,
                   "fontWeight": "700"
@@ -8042,7 +8187,7 @@
                       "type": "text",
                       "id": "c6ZBh",
                       "fill": "$ass-muted",
-                      "content": "입금 금액",
+                      "content": "게임",
                       "fontFamily": "$ass-font",
                       "fontSize": 12,
                       "fontWeight": "500"
@@ -8051,7 +8196,7 @@
                       "type": "text",
                       "id": "WGtmw",
                       "fill": "$ass-text",
-                      "content": "30,000원",
+                      "content": "OP NIGHTFALL",
                       "fontFamily": "$ass-font",
                       "fontSize": 13,
                       "fontWeight": "600"
@@ -8069,7 +8214,7 @@
                       "type": "text",
                       "id": "v4yar",
                       "fill": "$ass-muted",
-                      "content": "은행",
+                      "content": "신청 시각",
                       "fontFamily": "$ass-font",
                       "fontSize": 12,
                       "fontWeight": "500"
@@ -8078,7 +8223,7 @@
                       "type": "text",
                       "id": "U2giU",
                       "fill": "$ass-text",
-                      "content": "카카오뱅크",
+                      "content": "8월 01일 14:32",
                       "fontFamily": "$ass-font",
                       "fontSize": 13,
                       "fontWeight": "600"
@@ -8096,7 +8241,7 @@
                       "type": "text",
                       "id": "pobIh",
                       "fill": "$ass-muted",
-                      "content": "계좌번호",
+                      "content": "게임 일정",
                       "fontFamily": "$ass-font",
                       "fontSize": 12,
                       "fontWeight": "500"
@@ -8105,7 +8250,7 @@
                       "type": "text",
                       "id": "kJucS",
                       "fill": "$ass-text",
-                      "content": "3333-12-1234567",
+                      "content": "8월 09일 19:00",
                       "fontFamily": "$ass-font",
                       "fontSize": 13,
                       "fontWeight": "600"
@@ -8123,7 +8268,7 @@
                       "type": "text",
                       "id": "Z8kWAD",
                       "fill": "$ass-muted",
-                      "content": "예금주",
+                      "content": "게임비",
                       "fontFamily": "$ass-font",
                       "fontSize": 12,
                       "fontWeight": "500"
@@ -8132,7 +8277,7 @@
                       "type": "text",
                       "id": "cGto6",
                       "fill": "$ass-text",
-                      "content": "김철수",
+                      "content": "30,000원",
                       "fontFamily": "$ass-font",
                       "fontSize": 13,
                       "fontWeight": "600"
@@ -8140,23 +8285,6 @@
                   ]
                 }
               ]
-            },
-            {
-              "id": "D1LwIF",
-              "type": "ref",
-              "ref": "E7R7WJ",
-              "width": "fill_container",
-              "descendants": {
-                "IIE7d": {
-                  "content": "입금자명"
-                },
-                "qkdVv": {
-                  "icon": "user-round"
-                },
-                "jHM2t": {
-                  "content": "김철수"
-                }
-              }
             },
             {
               "type": "frame",
@@ -8177,7 +8305,7 @@
                   "id": "cVKA0",
                   "width": 28,
                   "height": 28,
-                  "icon": "image-plus",
+                  "icon": "clock-3",
                   "library": "lucide",
                   "fill": "$ass-accent"
                 },
@@ -8185,7 +8313,7 @@
                   "type": "text",
                   "id": "nxlb0",
                   "fill": "$ass-text",
-                  "content": "송금증 이미지 첨부",
+                  "content": "운영자 승인 대기",
                   "fontFamily": "$ass-font",
                   "fontSize": 13,
                   "fontWeight": "700"
@@ -8194,7 +8322,7 @@
                   "type": "text",
                   "id": "FnIuc",
                   "fill": "$ass-muted",
-                  "content": "JPG, PNG, WEBP · 최대 5MB",
+                  "content": "승인 결과는 알림으로 안내됩니다.",
                   "fontFamily": "$ass-font",
                   "fontSize": 10,
                   "fontWeight": "normal"
@@ -8214,10 +8342,10 @@
               "width": "fill_container",
               "descendants": {
                 "dv6fW": {
-                  "content": "30,000원 송금증 제출"
+                  "content": "내 참가에서 확인"
                 },
                 "B7bbI": {
-                  "icon": "check"
+                  "icon": "list-checks"
                 }
               }
             }
@@ -8230,7 +8358,8 @@
       "id": "NC3I1",
       "x": 9068,
       "y": 2746,
-      "name": "23 Participation / Refund Request",
+      "name": "23 Participation / Cancel Request",
+      "context": "cancel_participation(participation_id, reason)",
       "clip": true,
       "width": 390,
       "height": 844,
@@ -8319,7 +8448,7 @@
                 },
                 "HOddU": {
                   "name": "Title",
-                  "content": "환불 요청"
+                  "content": "참가 취소"
                 }
               }
             },
@@ -8342,7 +8471,7 @@
                   "fill": "#35C36E22",
                   "descendants": {
                     "Tp6QM": {
-                      "content": "환불 가능",
+                      "content": "취소 가능",
                       "fill": "$ass-success"
                     }
                   }
@@ -8364,63 +8493,12 @@
                   "fill": "$ass-muted",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "환불 계좌는 암호화되어 저장되며 운영 처리 목적으로만 사용됩니다.",
+                  "content": "취소하면 참가 상태가 취소됨으로 변경되고 발급된 입장권을 사용할 수 없습니다.",
                   "fontFamily": "$ass-font",
                   "fontSize": 11,
                   "fontWeight": "normal"
                 }
               ]
-            },
-            {
-              "id": "WlQ5m",
-              "type": "ref",
-              "ref": "E7R7WJ",
-              "width": "fill_container",
-              "descendants": {
-                "IIE7d": {
-                  "content": "은행"
-                },
-                "qkdVv": {
-                  "icon": "landmark"
-                },
-                "jHM2t": {
-                  "content": "카카오뱅크"
-                }
-              }
-            },
-            {
-              "id": "ur1vl",
-              "type": "ref",
-              "ref": "E7R7WJ",
-              "width": "fill_container",
-              "descendants": {
-                "IIE7d": {
-                  "content": "계좌번호"
-                },
-                "qkdVv": {
-                  "icon": "credit-card"
-                },
-                "jHM2t": {
-                  "content": "3333-12-1234567"
-                }
-              }
-            },
-            {
-              "id": "dfmV7",
-              "type": "ref",
-              "ref": "E7R7WJ",
-              "width": "fill_container",
-              "descendants": {
-                "IIE7d": {
-                  "content": "예금주"
-                },
-                "qkdVv": {
-                  "icon": "user-round"
-                },
-                "jHM2t": {
-                  "content": "최삐뺩"
-                }
-              }
             },
             {
               "id": "y5bYc",
@@ -8452,10 +8530,10 @@
               "width": "fill_container",
               "descendants": {
                 "dv6fW": {
-                  "content": "환불 요청 제출"
+                  "content": "참가 취소하기"
                 },
                 "B7bbI": {
-                  "icon": "check"
+                  "icon": "circle-x"
                 }
               }
             }
@@ -9671,7 +9749,7 @@
       "x": 4390,
       "y": 3068,
       "name": "30 Operations / List",
-      "context": "listOwnedSessions(userId); per-session pending/review counts derive from listParticipationsBySession(sessionId) and listPaymentSubmissionsBySession(sessionId)",
+      "context": "listOwnedSessions(userId); per-session counts derive from game_sessions.confirmed_count and list_session_participants",
       "clip": true,
       "width": 390,
       "height": 844,
@@ -9754,7 +9832,7 @@
               "id": "CLgJI",
               "name": "Header",
               "width": "fill_container",
-              "height": 60,
+              "height": 64,
               "layout": "vertical",
               "gap": 4,
               "children": [
@@ -10150,7 +10228,7 @@
                   "fill": "#FF8A0022",
                   "descendants": {
                     "Tp6QM": {
-                      "content": "검수 3건",
+                      "content": "모집중",
                       "fill": "$ass-accent"
                     }
                   }
@@ -10498,7 +10576,7 @@
               "width": "fill_container",
               "descendants": {
                 "IIE7d": {
-                  "content": "입금·취소 마감 (선택 · 기본 48시간 전)"
+                  "content": "참가 취소 마감 (선택 · 기본 48시간 전)"
                 },
                 "qkdVv": {
                   "icon": "calendar-clock"
@@ -10573,10 +10651,10 @@
               "type": "ref",
               "ref": "K7SU5",
               "width": "fill_container",
-              "context": "navigate to 32A Operations / Game Form · Host & Payment",
+              "context": "navigate to 32A Operations / Game Form · Host",
               "descendants": {
                 "dv6fW": {
-                  "content": "다음: 주최/입금 정보"
+                  "content": "다음: 주최 정보"
                 },
                 "B7bbI": {
                   "icon": "arrow-right"
@@ -10994,7 +11072,7 @@
       "x": 4860,
       "y": 3068,
       "name": "31 Operations / Overview",
-      "context": "findSessionById(sessionId) plus listParticipationsBySession, listPaymentSubmissionsBySession and listRefundRequestsBySession",
+      "context": "game_sessions + list_session_participants + entry_passes",
       "clip": true,
       "width": 390,
       "height": 844,
@@ -11183,7 +11261,7 @@
                       "type": "text",
                       "id": "hgWUf",
                       "fill": "$ass-muted",
-                      "content": "송금증",
+                      "content": "입장권",
                       "fontFamily": "$ass-font",
                       "fontSize": 10,
                       "fontWeight": "500"
@@ -11407,7 +11485,7 @@
                       "id": "MUgp3",
                       "width": 18,
                       "height": 18,
-                      "icon": "receipt",
+                      "icon": "ticket-check",
                       "library": "lucide",
                       "fill": "$ass-accent"
                     },
@@ -11417,7 +11495,7 @@
                       "fill": "$ass-text",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "송금증 미검수",
+                      "content": "활성 입장권",
                       "fontFamily": "$ass-font",
                       "fontSize": 12,
                       "fontWeight": "600"
@@ -11426,7 +11504,7 @@
                       "type": "text",
                       "id": "Y4qpcM",
                       "fill": "$ass-muted",
-                      "content": "3건",
+                      "content": "6개",
                       "fontFamily": "$ass-font",
                       "fontSize": 11,
                       "fontWeight": "700"
@@ -11514,7 +11592,7 @@
                       "type": "text",
                       "id": "m5RaD",
                       "fill": "$ass-text",
-                      "content": "환불 요청",
+                      "content": "참가 취소 마감",
                       "fontFamily": "$ass-font",
                       "fontSize": 13,
                       "fontWeight": "700"
@@ -11526,7 +11604,7 @@
                       "fill": "#F2B54422",
                       "descendants": {
                         "Tp6QM": {
-                          "content": "1건",
+                          "content": "D-2",
                           "fill": "$ass-warning"
                         }
                       }
@@ -11539,7 +11617,7 @@
                   "fill": "$ass-muted",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "김민수 · 카카오뱅크 · 예금주 김민수",
+                  "content": "8월 07일 19:00",
                   "fontFamily": "$ass-font",
                   "fontSize": 11,
                   "fontWeight": "normal"
@@ -11550,7 +11628,7 @@
                   "fill": "$ass-text",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "사유: 개인 일정",
+                  "content": "마감 전까지 참가자가 직접 취소할 수 있습니다.",
                   "fontFamily": "$ass-font",
                   "fontSize": 11,
                   "fontWeight": "normal"
@@ -11773,7 +11851,7 @@
                       "type": "text",
                       "id": "fk6Jb",
                       "fill": "$ass-muted",
-                      "content": "송금증",
+                      "content": "입장권",
                       "fontFamily": "$ass-font",
                       "fontSize": 10,
                       "fontWeight": "500"
@@ -11874,7 +11952,7 @@
                       "type": "text",
                       "id": "oyD2O",
                       "fill": "$ass-muted",
-                      "content": "입금 대기 1",
+                      "content": "참가 확정 4",
                       "fontFamily": "$ass-font",
                       "fontSize": 10,
                       "fontWeight": "700"
@@ -12047,11 +12125,11 @@
                       "id": "F7Xi2",
                       "type": "ref",
                       "ref": "x9LQu2",
-                      "fill": "#F2B54422",
+                      "fill": "$ass-surface-2",
                       "descendants": {
                         "Tp6QM": {
-                          "content": "입금 대기",
-                          "fill": "$ass-warning"
+                          "content": "참가 확정",
+                          "fill": "$ass-success"
                         }
                       }
                     }
@@ -12244,7 +12322,8 @@
       "id": "PQTWh",
       "x": 8598,
       "y": 4109,
-      "name": "37 Operations / Receipts",
+      "name": "37 Operations / Entry Passes",
+      "context": "entry_passes by game_session_id",
       "clip": true,
       "width": 390,
       "height": 844,
@@ -12333,7 +12412,7 @@
                 },
                 "HOddU": {
                   "name": "Title",
-                  "content": "송금증 관리"
+                  "content": "입장권 현황"
                 }
               }
             },
@@ -12433,7 +12512,7 @@
                       "type": "text",
                       "id": "COl2X",
                       "fill": "$ass-text",
-                      "content": "송금증",
+                      "content": "입장권",
                       "fontFamily": "$ass-font",
                       "fontSize": 10,
                       "fontWeight": "700"
@@ -12494,7 +12573,7 @@
                       "type": "text",
                       "id": "a9e0I",
                       "fill": "$ass-muted",
-                      "content": "미검수",
+                      "content": "사용 가능",
                       "fontFamily": "$ass-font",
                       "fontSize": 9,
                       "fontWeight": "600"
@@ -12526,7 +12605,7 @@
                       "type": "text",
                       "id": "GuvFy",
                       "fill": "$ass-muted",
-                      "content": "검수 완료",
+                      "content": "사용 완료",
                       "fontFamily": "$ass-font",
                       "fontSize": 9,
                       "fontWeight": "600"
@@ -12558,7 +12637,7 @@
                       "type": "text",
                       "id": "N0tEN",
                       "fill": "$ass-muted",
-                      "content": "반려",
+                      "content": "만료",
                       "fontFamily": "$ass-font",
                       "fontSize": 9,
                       "fontWeight": "600"
@@ -12601,7 +12680,7 @@
                           "id": "hrrZH",
                           "width": 22,
                           "height": 22,
-                          "icon": "image",
+                          "icon": "ticket-check",
                           "library": "lucide",
                           "fill": "$ass-muted"
                         }
@@ -12631,7 +12710,7 @@
                           "fill": "$ass-muted",
                           "textGrowth": "fixed-width",
                           "width": "fill_container",
-                          "content": "입금자 이도윤",
+                          "content": "발급 8월 02일 11:24",
                           "fontFamily": "$ass-font",
                           "fontSize": 10,
                           "fontWeight": "normal"
@@ -12642,7 +12721,7 @@
                           "fill": "$ass-text",
                           "textGrowth": "fixed-width",
                           "width": "fill_container",
-                          "content": "30,000원",
+                          "content": "만료 8월 10일 00:00",
                           "fontFamily": "$ass-font",
                           "fontSize": 11,
                           "fontWeight": "600"
@@ -12653,11 +12732,11 @@
                       "id": "OO7BH",
                       "type": "ref",
                       "ref": "x9LQu2",
-                      "fill": "#F2B54422",
+                      "fill": "$ass-surface-2",
                       "descendants": {
                         "Tp6QM": {
-                          "content": "미검수",
-                          "fill": "$ass-warning"
+                          "content": "사용 가능",
+                          "fill": "$ass-success"
                         }
                       }
                     }
@@ -12699,7 +12778,7 @@
                           "id": "husL0",
                           "width": 22,
                           "height": 22,
-                          "icon": "image",
+                          "icon": "ticket-check",
                           "library": "lucide",
                           "fill": "$ass-muted"
                         }
@@ -12729,7 +12808,7 @@
                           "fill": "$ass-muted",
                           "textGrowth": "fixed-width",
                           "width": "fill_container",
-                          "content": "입금자 최지우",
+                          "content": "사용 8월 09일 18:52",
                           "fontFamily": "$ass-font",
                           "fontSize": 10,
                           "fontWeight": "normal"
@@ -12740,7 +12819,7 @@
                           "fill": "$ass-text",
                           "textGrowth": "fixed-width",
                           "width": "fill_container",
-                          "content": "30,000원",
+                          "content": "스캔 운영자 김철수",
                           "fontFamily": "$ass-font",
                           "fontSize": 11,
                           "fontWeight": "600"
@@ -12751,11 +12830,11 @@
                       "id": "rsZbX",
                       "type": "ref",
                       "ref": "x9LQu2",
-                      "fill": "#35C36E22",
+                      "fill": "$ass-surface-2",
                       "descendants": {
                         "Tp6QM": {
-                          "content": "검수 완료",
-                          "fill": "$ass-success"
+                          "content": "사용 완료",
+                          "fill": "$ass-muted"
                         }
                       }
                     }
@@ -12797,7 +12876,7 @@
                           "id": "E4Ege8",
                           "width": 22,
                           "height": 22,
-                          "icon": "image",
+                          "icon": "ticket-check",
                           "library": "lucide",
                           "fill": "$ass-muted"
                         }
@@ -12827,7 +12906,7 @@
                           "fill": "$ass-muted",
                           "textGrowth": "fixed-width",
                           "width": "fill_container",
-                          "content": "입금자 한예준",
+                          "content": "만료 8월 09일 18:00",
                           "fontFamily": "$ass-font",
                           "fontSize": 10,
                           "fontWeight": "normal"
@@ -12838,7 +12917,7 @@
                           "fill": "$ass-text",
                           "textGrowth": "fixed-width",
                           "width": "fill_container",
-                          "content": "25,000원",
+                          "content": "미사용",
                           "fontFamily": "$ass-font",
                           "fontSize": 11,
                           "fontWeight": "600"
@@ -12849,11 +12928,11 @@
                       "id": "QVlct",
                       "type": "ref",
                       "ref": "x9LQu2",
-                      "fill": "#EF5B5B22",
+                      "fill": "$ass-surface-2",
                       "descendants": {
                         "Tp6QM": {
-                          "content": "금액 확인",
-                          "fill": "$ass-danger"
+                          "content": "만료",
+                          "fill": "$ass-muted"
                         }
                       }
                     }
@@ -13059,7 +13138,7 @@
                       "type": "text",
                       "id": "eyT5q",
                       "fill": "$ass-muted",
-                      "content": "송금증",
+                      "content": "입장권",
                       "fontFamily": "$ass-font",
                       "fontSize": 10,
                       "fontWeight": "500"
@@ -13848,7 +13927,7 @@
                   "fill": "$ass-text",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "승인하면 입금 대기 상태로 변경됩니다.",
+                  "content": "승인하면 참가가 확정되고 입장권이 발급됩니다.",
                   "fontFamily": "$ass-font",
                   "fontSize": 13,
                   "fontWeight": "600"
@@ -13866,13 +13945,13 @@
               "type": "ref",
               "ref": "K7SU5",
               "width": "fill_container",
-              "context": "approve_participation({p_participation_id}) -> awaitingPayment",
+              "context": "approve_participation({p_participation_id}) -> confirmed and issue entry pass",
               "descendants": {
                 "dv6fW": {
-                  "content": "승인하고 입금 요청"
+                  "content": "참가 승인"
                 },
                 "B7bbI": {
-                  "icon": "check"
+                  "icon": "user-check"
                 }
               }
             },
@@ -13897,7 +13976,8 @@
       "id": "H5eM2u",
       "x": 9068,
       "y": 4109,
-      "name": "38 Operations / Receipt Review",
+      "name": "38 Operations / Entry Pass Detail",
+      "context": "entry_passes + participations + users",
       "clip": true,
       "width": 390,
       "height": 844,
@@ -13986,7 +14066,7 @@
                 },
                 "HOddU": {
                   "name": "Title",
-                  "content": "송금증 검수"
+                  "content": "입장권 상세"
                 }
               }
             },
@@ -14038,7 +14118,7 @@
                       "type": "text",
                       "id": "v8FQln",
                       "fill": "$ass-muted",
-                      "content": "입금자명",
+                      "content": "입장권 상태",
                       "fontFamily": "$ass-font",
                       "fontSize": 11,
                       "fontWeight": "500"
@@ -14046,8 +14126,8 @@
                     {
                       "type": "text",
                       "id": "WKPLS",
-                      "fill": "$ass-text",
-                      "content": "이도윤",
+                      "fill": "$ass-success",
+                      "content": "사용 가능",
                       "fontFamily": "$ass-font",
                       "fontSize": 12,
                       "fontWeight": "600"
@@ -14064,7 +14144,7 @@
                       "type": "text",
                       "id": "e5APv8",
                       "fill": "$ass-muted",
-                      "content": "제출 금액",
+                      "content": "발급 시각",
                       "fontFamily": "$ass-font",
                       "fontSize": 11,
                       "fontWeight": "500"
@@ -14073,7 +14153,7 @@
                       "type": "text",
                       "id": "v1reh",
                       "fill": "$ass-text",
-                      "content": "30,000원",
+                      "content": "8월 02일 11:24",
                       "fontFamily": "$ass-font",
                       "fontSize": 12,
                       "fontWeight": "600"
@@ -14090,7 +14170,7 @@
                       "type": "text",
                       "id": "z3Is3",
                       "fill": "$ass-muted",
-                      "content": "게임비",
+                      "content": "만료 시각",
                       "fontFamily": "$ass-font",
                       "fontSize": 11,
                       "fontWeight": "500"
@@ -14099,7 +14179,7 @@
                       "type": "text",
                       "id": "hHz3j",
                       "fill": "$ass-text",
-                      "content": "30,000원",
+                      "content": "8월 10일 00:00",
                       "fontFamily": "$ass-font",
                       "fontSize": 12,
                       "fontWeight": "600"
@@ -14116,7 +14196,7 @@
                       "type": "text",
                       "id": "O8Mvny",
                       "fill": "$ass-muted",
-                      "content": "제출 시각",
+                      "content": "입장권 ID",
                       "fontFamily": "$ass-font",
                       "fontSize": 11,
                       "fontWeight": "500"
@@ -14125,7 +14205,7 @@
                       "type": "text",
                       "id": "tYgG6",
                       "fill": "$ass-text",
-                      "content": "8월 02일 11:24",
+                      "content": "8f3c…a91d",
                       "fontFamily": "$ass-font",
                       "fontSize": 12,
                       "fontWeight": "600"
@@ -14138,7 +14218,7 @@
               "type": "frame",
               "id": "atnxw",
               "width": "fill_container",
-              "height": 270,
+              "height": 180,
               "fill": "$ass-surface",
               "cornerRadius": 6,
               "stroke": "$ass-border",
@@ -14153,7 +14233,7 @@
                   "id": "JKcrz",
                   "width": 42,
                   "height": 42,
-                  "icon": "receipt-text",
+                  "icon": "qr-code",
                   "library": "lucide",
                   "fill": "$ass-muted"
                 },
@@ -14161,7 +14241,7 @@
                   "type": "text",
                   "id": "scM3v",
                   "fill": "$ass-muted",
-                  "content": "송금증 이미지",
+                  "content": "입장 QR",
                   "fontFamily": "$ass-font",
                   "fontSize": 13,
                   "fontWeight": "600"
@@ -14170,7 +14250,7 @@
                   "type": "text",
                   "id": "t1t3OI",
                   "fill": "$ass-muted",
-                  "content": "눌러서 확대",
+                  "content": "참가자 화면에서 발급됨",
                   "fontFamily": "$ass-font",
                   "fontSize": 10,
                   "fontWeight": "normal"
@@ -14190,10 +14270,10 @@
               "width": "fill_container",
               "descendants": {
                 "dv6fW": {
-                  "content": "검수 완료 표시"
+                  "content": "수동 출석 처리"
                 },
                 "B7bbI": {
-                  "icon": "check"
+                  "icon": "user-check"
                 }
               }
             },
@@ -14204,7 +14284,7 @@
               "width": "fill_container",
               "descendants": {
                 "feYKD": {
-                  "content": "송금증 반려"
+                  "content": "목록으로"
                 }
               }
             }
@@ -14551,7 +14631,7 @@
                       "fill": "$ass-text",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "참가 신청이 승인되었습니다",
+                      "content": "참가가 확정되었습니다",
                       "fontFamily": "$ass-font",
                       "fontSize": 13,
                       "fontWeight": "700"
@@ -14562,7 +14642,7 @@
                       "fill": "$ass-muted",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "OP NIGHTFALL 게임비를 입금해주세요.",
+                      "content": "OP NIGHTFALL 입장 QR이 발급되었습니다.",
                       "fontFamily": "$ass-font",
                       "fontSize": 11,
                       "fontWeight": "normal"
@@ -14637,7 +14717,7 @@
                       "fill": "$ass-text",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "참석이 확정되었습니다",
+                      "content": "게임 시작이 가까워졌습니다",
                       "fontFamily": "$ass-font",
                       "fontSize": 13,
                       "fontWeight": "700"
@@ -14648,7 +14728,7 @@
                       "fill": "$ass-muted",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "송금증이 제출되어 QR 입장권이 발급되었습니다.",
+                      "content": "오늘 19:00 시작입니다. 현장에서 참가비를 결제해주세요.",
                       "fontFamily": "$ass-font",
                       "fontSize": 11,
                       "fontWeight": "normal"
@@ -15491,7 +15571,7 @@
               "width": "fill_container",
               "descendants": {
                 "IIE7d": {
-                  "content": "입금·취소 마감 (선택)"
+                  "content": "참가 취소 마감 (선택)"
                 },
                 "qkdVv": {
                   "icon": "calendar-clock"
@@ -15912,7 +15992,7 @@
                   "icon": "users"
                 },
                 "jHM2t": {
-                  "content": "RANGER FIELD"
+                  "content": "RANGER"
                 }
               }
             },
@@ -15952,7 +16032,7 @@
                   "x": 176,
                   "y": 0,
                   "enabled": false,
-                  "width": "fill_container(166)",
+                  "width": 166,
                   "children": [
                     {
                       "id": "dLDbX",
@@ -15981,7 +16061,7 @@
               "x": 24,
               "y": 335,
               "enabled": false,
-              "width": "fill_container(342)",
+              "width": 342,
               "gap": 10,
               "children": [
                 {
@@ -16036,66 +16116,11 @@
             },
             {
               "type": "frame",
-              "id": "Jois3",
-              "x": 24,
-              "y": 422,
-              "enabled": false,
-              "width": "fill_container(342)",
-              "fill": "$ass-surface",
-              "cornerRadius": 6,
-              "stroke": "$ass-border",
-              "strokeWidth": 1,
-              "layout": "vertical",
-              "gap": 10,
-              "padding": 14,
-              "children": [
-                {
-                  "type": "text",
-                  "id": "upvWv",
-                  "fill": "$ass-text",
-                  "textGrowth": "fixed-width",
-                  "width": "fill_container",
-                  "content": "입금 계좌",
-                  "fontFamily": "$ass-font",
-                  "fontSize": 13,
-                  "fontWeight": "700"
-                },
-                {
-                  "type": "frame",
-                  "id": "r6oER",
-                  "width": "fill_container",
-                  "justifyContent": "space_between",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "vvc1X",
-                      "fill": "$ass-muted",
-                      "content": "카카오뱅크",
-                      "fontFamily": "$ass-font",
-                      "fontSize": 12,
-                      "fontWeight": "500"
-                    },
-                    {
-                      "type": "text",
-                      "id": "WLlTp",
-                      "fill": "$ass-text",
-                      "content": "3333-12-1234567 · 김철수",
-                      "fontFamily": "$ass-font",
-                      "fontSize": 13,
-                      "fontWeight": "600"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "frame",
               "id": "bQbAD",
               "x": 24,
               "y": 512,
               "enabled": false,
-              "width": "fill_container(342)",
+              "width": 342,
               "fill": "$ass-surface",
               "cornerRadius": 6,
               "stroke": "$ass-border",
@@ -16396,318 +16421,46 @@
                       "gap": 7,
                       "children": [
                         {
-                          "type": "frame",
-                          "id": "uxED0",
-                          "name": "Game / OP NIGHTFALL",
+                          "id": "VZWNW",
+                          "type": "ref",
+                          "ref": "aIcHa",
+                          "name": "Upcoming Game Card / OP NIGHTFALL",
                           "width": "fill_container",
-                          "height": 108,
-                          "fill": "$ass-surface",
-                          "cornerRadius": 6,
-                          "stroke": "$ass-border",
-                          "strokeWidth": 1,
-                          "gap": 14,
-                          "padding": 14,
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "B1pi7",
-                              "x": 14,
-                              "y": 14,
-                              "enabled": false,
-                              "width": 52,
-                              "height": 64,
-                              "fill": "$ass-surface-2",
-                              "cornerRadius": 5,
-                              "layout": "vertical",
-                              "gap": 2,
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "gpGuI",
-                                  "fill": "$ass-muted",
-                                  "content": "8월",
-                                  "fontFamily": "$ass-font",
-                                  "fontSize": 9,
-                                  "fontWeight": "600"
-                                },
-                                {
-                                  "type": "text",
-                                  "id": "H5QWY",
-                                  "fill": "$ass-accent",
-                                  "content": "23",
-                                  "fontFamily": "$ass-font",
-                                  "fontSize": 21,
-                                  "fontWeight": "800"
-                                }
-                              ]
+                          "descendants": {
+                            "XHVDm": {
+                              "content": "OP NIGHTFALL"
                             },
-                            {
-                              "type": "frame",
-                              "id": "Agotq",
-                              "width": "fill_container",
-                              "layout": "vertical",
-                              "gap": 5,
-                              "children": [
-                                {
-                                  "type": "frame",
-                                  "id": "jsCT8",
-                                  "width": "fill_container",
-                                  "justifyContent": "space_between",
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "text",
-                                      "id": "vFZN6",
-                                      "fill": "$ass-text",
-                                      "content": "OP NIGHTFALL",
-                                      "fontFamily": "$ass-font",
-                                      "fontSize": 13,
-                                      "fontWeight": "800"
-                                    },
-                                    {
-                                      "id": "pKozd",
-                                      "type": "ref",
-                                      "ref": "x9LQu2",
-                                      "fill": "#FF8A0022",
-                                      "descendants": {
-                                        "Tp6QM": {
-                                          "content": "모집중",
-                                          "fill": "$ass-accent"
-                                        }
-                                      }
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "text",
-                                  "id": "MOo7u",
-                                  "fill": "$ass-muted",
-                                  "textGrowth": "fixed-width",
-                                  "width": "fill_container",
-                                  "content": "ARENA 51 · 19:00 - 23:00",
-                                  "fontFamily": "$ass-font",
-                                  "fontSize": 10,
-                                  "fontWeight": "normal"
-                                },
-                                {
-                                  "type": "frame",
-                                  "id": "AVPaA",
-                                  "width": "fill_container",
-                                  "justifyContent": "space_between",
-                                  "children": [
-                                    {
-                                      "type": "text",
-                                      "id": "juh50",
-                                      "fill": "$ass-muted",
-                                      "content": "30,000원 · 선입금",
-                                      "fontFamily": "$ass-font",
-                                      "fontSize": 10,
-                                      "fontWeight": "500"
-                                    },
-                                    {
-                                      "type": "frame",
-                                      "id": "e1m0V2",
-                                      "name": "Attendance",
-                                      "gap": 4,
-                                      "alignItems": "center",
-                                      "children": [
-                                        {
-                                          "type": "icon",
-                                          "id": "WT4Z2",
-                                          "name": "People",
-                                          "width": 13,
-                                          "height": 13,
-                                          "icon": "users",
-                                          "library": "lucide",
-                                          "fill": "#F5F5F3"
-                                        },
-                                        {
-                                          "type": "text",
-                                          "id": "pP9OF",
-                                          "name": "Count",
-                                          "fill": "#F5F5F3",
-                                          "content": "21 / 30명",
-                                          "fontFamily": "Inter",
-                                          "fontSize": 10,
-                                          "fontWeight": "700"
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "text",
-                                  "id": "fAzND",
-                                  "fill": "$ass-accent",
-                                  "textGrowth": "fixed-width",
-                                  "width": "fill_container",
-                                  "content": "신청 마감까지 2일",
-                                  "fontFamily": "$ass-font",
-                                  "fontSize": 10,
-                                  "fontWeight": "700"
-                                }
-                              ]
+                            "mI0hY": {
+                              "content": "8월 12일 19:00 - 23:00"
+                            },
+                            "bz2fn": {
+                              "content": "ARENA 51"
+                            },
+                            "BAONs": {
+                              "content": "참가비 30,000원"
                             }
-                          ]
+                          }
                         },
                         {
-                          "type": "frame",
-                          "id": "jDs4v",
-                          "name": "Game / URBAN STRIKE",
+                          "id": "OXgKZ",
+                          "type": "ref",
+                          "ref": "aIcHa",
+                          "name": "Upcoming Game Card / URBAN STRIKE",
                           "width": "fill_container",
-                          "height": 108,
-                          "fill": "$ass-surface",
-                          "cornerRadius": 6,
-                          "stroke": "$ass-border",
-                          "strokeWidth": 1,
-                          "gap": 14,
-                          "padding": 14,
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "WxfXz",
-                              "x": 14,
-                              "y": 14,
-                              "enabled": false,
-                              "width": 52,
-                              "height": 64,
-                              "fill": "$ass-surface-2",
-                              "cornerRadius": 5,
-                              "layout": "vertical",
-                              "gap": 2,
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "siWuX",
-                                  "fill": "$ass-muted",
-                                  "content": "8월",
-                                  "fontFamily": "$ass-font",
-                                  "fontSize": 9,
-                                  "fontWeight": "600"
-                                },
-                                {
-                                  "type": "text",
-                                  "id": "wRZlY",
-                                  "fill": "$ass-accent",
-                                  "content": "23",
-                                  "fontFamily": "$ass-font",
-                                  "fontSize": 21,
-                                  "fontWeight": "800"
-                                }
-                              ]
+                          "descendants": {
+                            "XHVDm": {
+                              "content": "URBAN STRIKE"
                             },
-                            {
-                              "type": "frame",
-                              "id": "oHN4I",
-                              "width": "fill_container",
-                              "layout": "vertical",
-                              "gap": 5,
-                              "children": [
-                                {
-                                  "type": "frame",
-                                  "id": "NPbN3",
-                                  "width": "fill_container",
-                                  "justifyContent": "space_between",
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "text",
-                                      "id": "mRNds",
-                                      "fill": "$ass-text",
-                                      "content": "URBAN STRIKE",
-                                      "fontFamily": "$ass-font",
-                                      "fontSize": 13,
-                                      "fontWeight": "800"
-                                    },
-                                    {
-                                      "id": "rFSRT",
-                                      "type": "ref",
-                                      "ref": "x9LQu2",
-                                      "fill": "#92949222",
-                                      "descendants": {
-                                        "Tp6QM": {
-                                          "content": "모집중",
-                                          "fill": "$ass-accent"
-                                        }
-                                      }
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "text",
-                                  "id": "tLNmQ",
-                                  "fill": "$ass-muted",
-                                  "textGrowth": "fixed-width",
-                                  "width": "fill_container",
-                                  "content": "제1전술 필드 · 10:00 - 16:00",
-                                  "fontFamily": "$ass-font",
-                                  "fontSize": 10,
-                                  "fontWeight": "normal"
-                                },
-                                {
-                                  "type": "frame",
-                                  "id": "i2iBTr",
-                                  "width": "fill_container",
-                                  "justifyContent": "space_between",
-                                  "children": [
-                                    {
-                                      "type": "text",
-                                      "id": "yEiaN",
-                                      "fill": "$ass-muted",
-                                      "content": "25,000원 · 현장결제",
-                                      "fontFamily": "$ass-font",
-                                      "fontSize": 10,
-                                      "fontWeight": "500"
-                                    },
-                                    {
-                                      "type": "frame",
-                                      "id": "sj8bG",
-                                      "name": "Attendance",
-                                      "gap": 4,
-                                      "alignItems": "center",
-                                      "children": [
-                                        {
-                                          "type": "icon",
-                                          "id": "re5WM",
-                                          "name": "People",
-                                          "width": 13,
-                                          "height": 13,
-                                          "icon": "users",
-                                          "library": "lucide",
-                                          "fill": "#F5F5F3"
-                                        },
-                                        {
-                                          "type": "text",
-                                          "id": "v2kxF",
-                                          "name": "Count",
-                                          "fill": "#F5F5F3",
-                                          "content": "30 / 30명",
-                                          "fontFamily": "Inter",
-                                          "fontSize": 10,
-                                          "fontWeight": "700"
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "text",
-                                  "id": "Mmwhr",
-                                  "fill": "$ass-accent",
-                                  "textGrowth": "fixed-width",
-                                  "width": "fill_container",
-                                  "content": "대기 신청 가능",
-                                  "fontFamily": "$ass-font",
-                                  "fontSize": 10,
-                                  "fontWeight": "700"
-                                }
-                              ]
+                            "mI0hY": {
+                              "content": "8월 12일 10:00 - 16:00"
+                            },
+                            "bz2fn": {
+                              "content": "제1전술 필드"
+                            },
+                            "BAONs": {
+                              "content": "참가비 25,000원"
                             }
-                          ]
+                          }
                         }
                       ]
                     }
@@ -16767,161 +16520,25 @@
                       "gap": 7,
                       "children": [
                         {
-                          "type": "frame",
-                          "id": "uNIGE",
-                          "name": "Game / WOODLAND OPS",
+                          "id": "KYwYG",
+                          "type": "ref",
+                          "ref": "aIcHa",
+                          "name": "Upcoming Game Card / WOODLAND OPS",
                           "width": "fill_container",
-                          "height": 108,
-                          "fill": "$ass-surface",
-                          "cornerRadius": 6,
-                          "stroke": "$ass-border",
-                          "strokeWidth": 1,
-                          "gap": 14,
-                          "padding": 14,
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "hknbM",
-                              "x": 14,
-                              "y": 14,
-                              "enabled": false,
-                              "width": 52,
-                              "height": 64,
-                              "fill": "$ass-surface-2",
-                              "cornerRadius": 5,
-                              "layout": "vertical",
-                              "gap": 2,
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "ypZXJ",
-                                  "fill": "$ass-muted",
-                                  "content": "8월",
-                                  "fontFamily": "$ass-font",
-                                  "fontSize": 9,
-                                  "fontWeight": "600"
-                                },
-                                {
-                                  "type": "text",
-                                  "id": "x3wcTr",
-                                  "fill": "$ass-accent",
-                                  "content": "23",
-                                  "fontFamily": "$ass-font",
-                                  "fontSize": 21,
-                                  "fontWeight": "800"
-                                }
-                              ]
+                          "descendants": {
+                            "XHVDm": {
+                              "content": "WOODLAND OPS"
                             },
-                            {
-                              "type": "frame",
-                              "id": "RwEc1",
-                              "width": "fill_container",
-                              "layout": "vertical",
-                              "gap": 5,
-                              "children": [
-                                {
-                                  "type": "frame",
-                                  "id": "D6zXgi",
-                                  "width": "fill_container",
-                                  "justifyContent": "space_between",
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "text",
-                                      "id": "wNwbH",
-                                      "fill": "$ass-text",
-                                      "content": "WOODLAND OPS",
-                                      "fontFamily": "$ass-font",
-                                      "fontSize": 13,
-                                      "fontWeight": "800"
-                                    },
-                                    {
-                                      "id": "HiJ7M",
-                                      "type": "ref",
-                                      "ref": "x9LQu2",
-                                      "fill": "#FF8A0022",
-                                      "descendants": {
-                                        "Tp6QM": {
-                                          "content": "모집중",
-                                          "fill": "$ass-accent"
-                                        }
-                                      }
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "text",
-                                  "id": "YI2mE",
-                                  "fill": "$ass-muted",
-                                  "textGrowth": "fixed-width",
-                                  "width": "fill_container",
-                                  "content": "RANGER FIELD · 15:00 - 21:00",
-                                  "fontFamily": "$ass-font",
-                                  "fontSize": 10,
-                                  "fontWeight": "normal"
-                                },
-                                {
-                                  "type": "frame",
-                                  "id": "C65Cl",
-                                  "width": "fill_container",
-                                  "justifyContent": "space_between",
-                                  "children": [
-                                    {
-                                      "type": "text",
-                                      "id": "sv8p5",
-                                      "fill": "$ass-muted",
-                                      "content": "20,000원 · 선입금",
-                                      "fontFamily": "$ass-font",
-                                      "fontSize": 10,
-                                      "fontWeight": "500"
-                                    },
-                                    {
-                                      "type": "frame",
-                                      "id": "VzB5k",
-                                      "name": "Attendance",
-                                      "gap": 4,
-                                      "alignItems": "center",
-                                      "children": [
-                                        {
-                                          "type": "icon",
-                                          "id": "orEDy",
-                                          "name": "People",
-                                          "width": 13,
-                                          "height": 13,
-                                          "icon": "users",
-                                          "library": "lucide",
-                                          "fill": "#F5F5F3"
-                                        },
-                                        {
-                                          "type": "text",
-                                          "id": "fm8B6",
-                                          "name": "Count",
-                                          "fill": "#F5F5F3",
-                                          "content": "12 / 24명",
-                                          "fontFamily": "Inter",
-                                          "fontSize": 10,
-                                          "fontWeight": "700"
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "text",
-                                  "id": "fa36H",
-                                  "fill": "$ass-accent",
-                                  "textGrowth": "fixed-width",
-                                  "width": "fill_container",
-                                  "content": "내가 운영하는 게임",
-                                  "fontFamily": "$ass-font",
-                                  "fontSize": 10,
-                                  "fontWeight": "700"
-                                }
-                              ]
+                            "mI0hY": {
+                              "content": "8월 15일 15:00 - 21:00"
+                            },
+                            "bz2fn": {
+                              "content": "RANGER FIELD"
+                            },
+                            "BAONs": {
+                              "content": "참가비 20,000원"
                             }
-                          ]
+                          }
                         }
                       ]
                     }
@@ -17127,8 +16744,8 @@
       "id": "RUUcb",
       "x": 6740,
       "y": 3068,
-      "name": "32A Operations / Game Form · Host & Payment",
-      "context": "create_game_session step 2: hostTeamId and bankAccount, then submit complete p_input",
+      "name": "32A Operations / Game Form · Host",
+      "context": "create_game_session step 2: hostTeamId, then submit complete p_input",
       "clip": true,
       "width": 390,
       "height": 844,
@@ -17196,7 +16813,7 @@
         {
           "type": "frame",
           "id": "QzcZt",
-          "name": "Host & Payment Content",
+          "name": "Host Content",
           "width": "fill_container",
           "height": "fill_container",
           "layout": "vertical",
@@ -17212,21 +16829,21 @@
               "id": "GByTo",
               "type": "ref",
               "ref": "azEVp",
-              "name": "Header · Host & Payment",
+              "name": "Header · Host",
               "width": "fill_container",
               "descendants": {
                 "dyse7": {
                   "enabled": false
                 },
                 "HOddU": {
-                  "content": "주최/입금 정보"
+                  "content": "주최 정보"
                 }
               }
             },
             {
               "type": "frame",
               "id": "Nmn5x",
-              "name": "Payment Step Notice",
+              "name": "Host Step Notice",
               "width": "fill_container",
               "fill": "$ass-surface",
               "cornerRadius": 5,
@@ -17252,7 +16869,7 @@
                   "fill": "$ass-text",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "게임 생성에 필요한 마지막 정보를 입력하세요.",
+                  "content": "게임을 생성할 주최 팀을 선택하세요. 선택하지 않으면 개인 주최로 등록됩니다.",
                   "fontFamily": "$ass-font",
                   "fontSize": 11,
                   "fontWeight": "normal"
@@ -17277,90 +16894,6 @@
                   "content": "팀을 선택하세요"
                 }
               }
-            },
-            {
-              "type": "frame",
-              "id": "hrOQE",
-              "name": "Bank Account · required",
-              "context": "create_game_session p_input.bankAccount",
-              "width": "fill_container",
-              "fill": "$ass-surface",
-              "cornerRadius": 6,
-              "stroke": "$ass-border",
-              "strokeWidth": 1,
-              "layout": "vertical",
-              "gap": 12,
-              "padding": 14,
-              "children": [
-                {
-                  "type": "text",
-                  "id": "a9crWx",
-                  "fill": "$ass-text",
-                  "textGrowth": "fixed-width",
-                  "width": "fill_container",
-                  "content": "입금 계좌 · 필수",
-                  "fontFamily": "$ass-font",
-                  "fontSize": 13,
-                  "fontWeight": "700"
-                },
-                {
-                  "id": "y9sfB1",
-                  "type": "ref",
-                  "ref": "E7R7WJ",
-                  "name": "Input · bankAccount.bankName",
-                  "context": "create_game_session p_input.bankAccount.bankName",
-                  "width": "fill_container",
-                  "descendants": {
-                    "IIE7d": {
-                      "content": "은행"
-                    },
-                    "qkdVv": {
-                      "icon": "landmark"
-                    },
-                    "jHM2t": {
-                      "content": "카카오뱅크"
-                    }
-                  }
-                },
-                {
-                  "id": "ePCpu",
-                  "type": "ref",
-                  "ref": "E7R7WJ",
-                  "name": "Input · bankAccount.accountNumber",
-                  "context": "create_game_session p_input.bankAccount.accountNumber",
-                  "width": "fill_container",
-                  "descendants": {
-                    "IIE7d": {
-                      "content": "계좌번호"
-                    },
-                    "qkdVv": {
-                      "icon": "credit-card"
-                    },
-                    "jHM2t": {
-                      "content": "3333-12-1234567"
-                    }
-                  }
-                },
-                {
-                  "id": "H7Uol",
-                  "type": "ref",
-                  "ref": "E7R7WJ",
-                  "name": "Input · bankAccount.accountHolder",
-                  "context": "create_game_session p_input.bankAccount.accountHolder",
-                  "width": "fill_container",
-                  "descendants": {
-                    "IIE7d": {
-                      "content": "예금주"
-                    },
-                    "qkdVv": {
-                      "icon": "user-round"
-                    },
-                    "jHM2t": {
-                      "content": "김철수"
-                    }
-                  }
-                }
-              ]
             },
             {
               "type": "frame",

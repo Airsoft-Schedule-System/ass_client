@@ -1,6 +1,11 @@
 export type Json = string | number | boolean | null | { [key: string]: Json | undefined } | Json[];
 
 export type Database = {
+  // Allows to automatically instantiate createClient with right options
+  // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
+  __InternalSupabase: {
+    PostgrestVersion: '14.5';
+  };
   public: {
     Tables: {
       entry_passes: {
@@ -179,22 +184,18 @@ export type Database = {
       };
       game_sessions: {
         Row: {
-          bank_account_holder: string;
-          bank_account_number: string;
-          bank_name: string;
           cancel_deadline: string;
           capacity: number;
           confirmed_count: number;
           created_at: string;
           created_by_user_id: string;
-          custom_rules: Json | null;
+          custom_rules: Json;
           ends_at: string | null;
           field_id: string | null;
           field_name: string | null;
           game_fee: number;
           host_team_id: string | null;
           id: string;
-          payment_method: Database['public']['Enums']['payment_method'];
           preset_id: string | null;
           reminder_sent: boolean;
           starts_at: string;
@@ -203,22 +204,18 @@ export type Database = {
           updated_at: string;
         };
         Insert: {
-          bank_account_holder: string;
-          bank_account_number: string;
-          bank_name: string;
           cancel_deadline: string;
           capacity: number;
           confirmed_count?: number;
           created_at?: string;
           created_by_user_id: string;
-          custom_rules?: Json | null;
+          custom_rules: Json;
           ends_at?: string | null;
           field_id?: string | null;
           field_name?: string | null;
           game_fee: number;
           host_team_id?: string | null;
           id?: string;
-          payment_method?: Database['public']['Enums']['payment_method'];
           preset_id?: string | null;
           reminder_sent?: boolean;
           starts_at: string;
@@ -227,22 +224,18 @@ export type Database = {
           updated_at?: string;
         };
         Update: {
-          bank_account_holder?: string;
-          bank_account_number?: string;
-          bank_name?: string;
           cancel_deadline?: string;
           capacity?: number;
           confirmed_count?: number;
           created_at?: string;
           created_by_user_id?: string;
-          custom_rules?: Json | null;
+          custom_rules?: Json;
           ends_at?: string | null;
           field_id?: string | null;
           field_name?: string | null;
           game_fee?: number;
           host_team_id?: string | null;
           id?: string;
-          payment_method?: Database['public']['Enums']['payment_method'];
           preset_id?: string | null;
           reminder_sent?: boolean;
           starts_at?: string;
@@ -387,157 +380,6 @@ export type Database = {
           },
         ];
       };
-      payment_submissions: {
-        Row: {
-          amount: number;
-          game_session_id: string;
-          id: string;
-          participation_id: string;
-          receipt_path: string;
-          rejection_reason: string | null;
-          reviewed_at: string | null;
-          reviewed_by: string | null;
-          sender_name: string;
-          status: Database['public']['Enums']['payment_submission_status'];
-          submitted_at: string;
-          user_id: string;
-        };
-        Insert: {
-          amount: number;
-          game_session_id: string;
-          id?: string;
-          participation_id: string;
-          receipt_path: string;
-          rejection_reason?: string | null;
-          reviewed_at?: string | null;
-          reviewed_by?: string | null;
-          sender_name: string;
-          status?: Database['public']['Enums']['payment_submission_status'];
-          submitted_at?: string;
-          user_id: string;
-        };
-        Update: {
-          amount?: number;
-          game_session_id?: string;
-          id?: string;
-          participation_id?: string;
-          receipt_path?: string;
-          rejection_reason?: string | null;
-          reviewed_at?: string | null;
-          reviewed_by?: string | null;
-          sender_name?: string;
-          status?: Database['public']['Enums']['payment_submission_status'];
-          submitted_at?: string;
-          user_id?: string;
-        };
-        Relationships: [
-          {
-            foreignKeyName: 'payment_submissions_game_session_id_fkey';
-            columns: ['game_session_id'];
-            isOneToOne: false;
-            referencedRelation: 'game_sessions';
-            referencedColumns: ['id'];
-          },
-          {
-            foreignKeyName: 'payment_submissions_participation_id_fkey';
-            columns: ['participation_id'];
-            isOneToOne: false;
-            referencedRelation: 'participations';
-            referencedColumns: ['id'];
-          },
-          {
-            foreignKeyName: 'payment_submissions_reviewed_by_fkey';
-            columns: ['reviewed_by'];
-            isOneToOne: false;
-            referencedRelation: 'users';
-            referencedColumns: ['id'];
-          },
-          {
-            foreignKeyName: 'payment_submissions_user_id_fkey';
-            columns: ['user_id'];
-            isOneToOne: false;
-            referencedRelation: 'users';
-            referencedColumns: ['id'];
-          },
-        ];
-      };
-      refund_requests: {
-        Row: {
-          account_holder: string;
-          account_number_encrypted: string;
-          bank_name: string;
-          game_session_id: string;
-          id: string;
-          note: string | null;
-          participation_id: string;
-          processed_at: string | null;
-          processed_by: string | null;
-          reason: string | null;
-          requested_at: string;
-          status: Database['public']['Enums']['refund_request_status'];
-          user_id: string;
-        };
-        Insert: {
-          account_holder: string;
-          account_number_encrypted: string;
-          bank_name: string;
-          game_session_id: string;
-          id?: string;
-          note?: string | null;
-          participation_id: string;
-          processed_at?: string | null;
-          processed_by?: string | null;
-          reason?: string | null;
-          requested_at?: string;
-          status?: Database['public']['Enums']['refund_request_status'];
-          user_id: string;
-        };
-        Update: {
-          account_holder?: string;
-          account_number_encrypted?: string;
-          bank_name?: string;
-          game_session_id?: string;
-          id?: string;
-          note?: string | null;
-          participation_id?: string;
-          processed_at?: string | null;
-          processed_by?: string | null;
-          reason?: string | null;
-          requested_at?: string;
-          status?: Database['public']['Enums']['refund_request_status'];
-          user_id?: string;
-        };
-        Relationships: [
-          {
-            foreignKeyName: 'refund_requests_game_session_id_fkey';
-            columns: ['game_session_id'];
-            isOneToOne: false;
-            referencedRelation: 'game_sessions';
-            referencedColumns: ['id'];
-          },
-          {
-            foreignKeyName: 'refund_requests_participation_id_fkey';
-            columns: ['participation_id'];
-            isOneToOne: true;
-            referencedRelation: 'participations';
-            referencedColumns: ['id'];
-          },
-          {
-            foreignKeyName: 'refund_requests_processed_by_fkey';
-            columns: ['processed_by'];
-            isOneToOne: false;
-            referencedRelation: 'users';
-            referencedColumns: ['id'];
-          },
-          {
-            foreignKeyName: 'refund_requests_user_id_fkey';
-            columns: ['user_id'];
-            isOneToOne: false;
-            referencedRelation: 'users';
-            referencedColumns: ['id'];
-          },
-        ];
-      };
       teams: {
         Row: {
           created_at: string;
@@ -568,7 +410,7 @@ export type Database = {
         };
         Insert: {
           created_at?: string;
-          display_name?: string;
+          display_name: string;
           email?: string | null;
           id: string;
           last_active_at?: string;
@@ -599,14 +441,13 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
-      app_error: {
-        Args: { p_code: string; p_detail?: string; p_message: string };
-        Returns: undefined;
-      };
+      app_error: { Args: { err_code: string; msg: string }; Returns: undefined };
       approve_participation: {
         Args: { p_participation_id: string };
         Returns: Json;
       };
+      approve_payment: { Args: { p_submission_id: string }; Returns: Json };
+      assert_game_rules: { Args: { p_rules: Json }; Returns: undefined };
       assert_profile_complete: { Args: { p_uid: string }; Returns: undefined };
       assert_session_owner: {
         Args: {
@@ -655,11 +496,23 @@ export type Database = {
         Returns: string;
       };
       join_as_operator: { Args: { p_session_id: string }; Returns: Json };
-      mark_attendance: { Args: { p_participation_id: string }; Returns: Json };
-      mark_payment_reviewed: {
-        Args: { p_submission_id: string };
-        Returns: Json;
+      list_session_participants: {
+        Args: { p_session_id: string };
+        Returns: {
+          created_at: string;
+          display_name: string;
+          entry_pass_status: Database['public']['Enums']['entry_pass_status'];
+          game_session_id: string;
+          participation_id: string;
+          phone_number: string;
+          status: Database['public']['Enums']['participation_status'];
+          team_id: string;
+          team_name: string;
+          updated_at: string;
+          user_id: string;
+        }[];
       };
+      mark_attendance: { Args: { p_participation_id: string }; Returns: Json };
       notify: {
         Args: {
           p_action_url: string;
@@ -677,32 +530,9 @@ export type Database = {
         Args: { p_participation_id: string; p_reason?: string };
         Returns: Json;
       };
-      reject_payment: {
-        Args: { p_reason: string; p_submission_id: string };
-        Returns: Json;
-      };
       request_participation: { Args: { p_session_id: string }; Returns: Json };
-      request_refund: {
-        Args: {
-          p_account_holder: string;
-          p_account_number: string;
-          p_bank_name: string;
-          p_participation_id: string;
-          p_reason?: string;
-        };
-        Returns: Json;
-      };
       scan_entry_pass: {
         Args: { p_entry_pass_id: string; p_token: string };
-        Returns: Json;
-      };
-      submit_payment: {
-        Args: {
-          p_amount: number;
-          p_participation_id: string;
-          p_receipt_path: string;
-          p_sender_name: string;
-        };
         Returns: Json;
       };
       try_timestamptz: { Args: { p: string }; Returns: string };
@@ -717,18 +547,7 @@ export type Database = {
       entry_pass_status: 'active' | 'used' | 'revoked' | 'expired';
       fcm_platform: 'web' | 'ios' | 'android';
       game_session_status: 'recruiting' | 'closed' | 'inProgress' | 'completed' | 'cancelled';
-      participation_status:
-        | 'pendingApproval'
-        | 'rejected'
-        | 'awaitingPayment'
-        | 'paymentReview'
-        | 'confirmed'
-        | 'cancelled'
-        | 'refundRequested'
-        | 'attended';
-      payment_method: 'pre_transfer';
-      payment_submission_status: 'pending' | 'approved' | 'rejected';
-      refund_request_status: 'requested' | 'approved' | 'completed' | 'rejected';
+      participation_status: 'pendingApproval' | 'rejected' | 'confirmed' | 'cancelled' | 'attended';
     };
     CompositeTypes: {
       [_ in never]: never;
@@ -853,19 +672,7 @@ export const Constants = {
       entry_pass_status: ['active', 'used', 'revoked', 'expired'],
       fcm_platform: ['web', 'ios', 'android'],
       game_session_status: ['recruiting', 'closed', 'inProgress', 'completed', 'cancelled'],
-      participation_status: [
-        'pendingApproval',
-        'rejected',
-        'awaitingPayment',
-        'paymentReview',
-        'confirmed',
-        'cancelled',
-        'refundRequested',
-        'attended',
-      ],
-      payment_method: ['pre_transfer'],
-      payment_submission_status: ['pending', 'approved', 'rejected'],
-      refund_request_status: ['requested', 'approved', 'completed', 'rejected'],
+      participation_status: ['pendingApproval', 'rejected', 'confirmed', 'cancelled', 'attended'],
     },
   },
 } as const;

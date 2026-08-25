@@ -3,7 +3,7 @@
 export { GameSessionStatusBadge } from './ui/GameSessionStatusBadge';
 export {
   formatGameFee,
-  formatPaymentMethod,
+  formatSessionCardDateTime,
   formatSessionDate,
   formatSessionDateTime,
   formatSessionTimeRange,

@@ -7,6 +7,7 @@ export type ParticipationErrorCode =
   | 'permission_denied'
   | 'not_found'
   | 'already_exists'
+  | 'capacity_filled'
   | 'invalid_input'
   | 'invalid_state'
   | 'unsupported_status'
@@ -31,6 +32,10 @@ export function toParticipationError(error: unknown): ParticipationAppError {
   if (error instanceof ParticipationAppError) return error;
 
   const details = getSupabaseErrorDetails(error);
+
+  if (details?.details === 'capacityFilled') {
+    return new ParticipationAppError('capacity_filled', '참가 정원이 마감되었습니다.', error);
+  }
 
   switch (details?.hint) {
     case 'unauthenticated':
