@@ -50,9 +50,6 @@ export function GameListPage() {
       );
     }
 
-    const participationBySessionId = new Map(
-      data.participations.map((participation) => [participation.gameSessionId, participation]),
-    );
     const sessionDateGroups = groupSessionsByDate(data.sessions);
 
     return (
@@ -72,11 +69,7 @@ export function GameListPage() {
             <ul className="flex flex-col gap-[7px]">
               {sessions.map((session) => (
                 <li key={session.id}>
-                  <GameSessionCard
-                    isOwned={session.createdByUserId === user?.id}
-                    participationStatus={participationBySessionId.get(session.id)?.status}
-                    session={session}
-                  />
+                  <GameSessionCard session={session} />
                 </li>
               ))}
             </ul>

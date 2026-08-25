@@ -6,7 +6,14 @@ import type { Enums, Json, Tables } from '../../supabase/database.types';
 import { SessionAppError, toSessionError } from './sessions.error';
 
 export type GameSessionStatus = Enums<'game_session_status'>;
-export type PaymentMethod = Enums<'payment_method'>;
+
+export type GameRules = Record<string, Json | undefined> & {
+  muzzleVelocityFps: number;
+  bbWeightGrams?: number | null;
+  bioBbRequired?: boolean | null;
+  magazineLimit?: number | null;
+  noteBlocks?: Array<{ title: string; body: string }>;
+};
 
 export type SessionSummary = ReturnType<typeof toSessionSummary>;
 export type SessionDetail = ReturnType<typeof toSessionDetail>;
@@ -14,29 +21,21 @@ export type SessionDetail = ReturnType<typeof toSessionDetail>;
 type SessionFieldInput =
   { fieldId: string; fieldName?: never } | { fieldId?: never; fieldName: string };
 
-type SessionRulesInput =
-  | { presetId: string; customRules?: never }
-  | { presetId?: never; customRules: Record<string, Json | undefined> };
-
-export type CreateGameSessionInput = SessionFieldInput &
-  SessionRulesInput & {
-    title: string;
-    startsAt: string;
-    endsAt?: string;
-    hostTeamId?: string;
-    capacity: number;
-    gameFee: number;
-    bankAccount: {
-      bankName: string;
-      accountNumber: string;
-      accountHolder: string;
-    };
-    cancelDeadline?: string;
-  };
+export type CreateGameSessionInput = SessionFieldInput & {
+  title: string;
+  startsAt: string;
+  endsAt?: string;
+  hostTeamId?: string;
+  capacity: number;
+  gameFee: number;
+  customRules: GameRules;
+  presetId?: string;
+  cancelDeadline?: string;
+};
 
 export type UpdateGameSessionInput = {
   title?: string;
-  customRules?: Record<string, Json | undefined>;
+  customRules?: GameRules;
   cancelDeadline?: string;
   capacity?: number;
   gameFee?: number;
@@ -48,10 +47,10 @@ export type UpdateGameSessionResult = z.infer<typeof updateResultSchema>;
 export type CancelGameSessionResult = z.infer<typeof cancelResultSchema>;
 
 const SESSION_SUMMARY_SELECT =
-  'id,title,field_name,starts_at,ends_at,capacity,confirmed_count,game_fee,payment_method,status,created_by_user_id,fields(name)' as const;
+  'id,title,field_name,starts_at,ends_at,capacity,confirmed_count,game_fee,status,created_by_user_id,fields(name)' as const;
 
 const SESSION_DETAIL_SELECT =
-  'id,title,field_name,starts_at,ends_at,capacity,confirmed_count,game_fee,payment_method,status,created_by_user_id,host_team_id,field_id,bank_name,bank_account_number,bank_account_holder,preset_id,custom_rules,cancel_deadline,created_at,updated_at,fields(name,address),game_rule_presets(name,rules)' as const;
+  'id,title,field_name,starts_at,ends_at,capacity,confirmed_count,game_fee,status,created_by_user_id,host_team_id,field_id,preset_id,custom_rules,cancel_deadline,created_at,updated_at,fields(name,address),game_rule_presets(name)' as const;
 
 type SessionSummaryRow = Pick<
   Tables<'game_sessions'>,
@@ -63,7 +62,6 @@ type SessionSummaryRow = Pick<
   | 'capacity'
   | 'confirmed_count'
   | 'game_fee'
-  | 'payment_method'
   | 'status'
   | 'created_by_user_id'
 > & {
@@ -75,9 +73,6 @@ type SessionDetailRow = SessionSummaryRow &
     Tables<'game_sessions'>,
     | 'host_team_id'
     | 'field_id'
-    | 'bank_name'
-    | 'bank_account_number'
-    | 'bank_account_holder'
     | 'preset_id'
     | 'custom_rules'
     | 'cancel_deadline'
@@ -85,7 +80,7 @@ type SessionDetailRow = SessionSummaryRow &
     | 'updated_at'
   > & {
     fields: Pick<Tables<'fields'>, 'name' | 'address'> | null;
-    game_rule_presets: Pick<Tables<'game_rule_presets'>, 'name' | 'rules'> | null;
+    game_rule_presets: Pick<Tables<'game_rule_presets'>, 'name'> | null;
   };
 
 const createResultSchema = z.object({
@@ -114,27 +109,20 @@ function toSessionSummary(row: SessionSummaryRow) {
     capacity: row.capacity,
     confirmedCount: row.confirmed_count,
     gameFee: row.game_fee,
-    paymentMethod: row.payment_method,
     status: row.status,
     createdByUserId: row.created_by_user_id,
   };
 }
 
-// 상세 화면에 필요한 계좌·규칙 정보를 camelCase 형태로 변환
+// 상세 화면에 필요한 필드·규칙 정보를 camelCase 형태로 변환
 function toSessionDetail(row: SessionDetailRow) {
   return {
     ...toSessionSummary(row),
     hostTeamId: row.host_team_id,
     fieldId: row.field_id,
     fieldAddress: row.fields?.address ?? null,
-    bankAccount: {
-      bankName: row.bank_name,
-      accountNumber: row.bank_account_number,
-      accountHolder: row.bank_account_holder,
-    },
     presetId: row.preset_id,
     presetName: row.game_rule_presets?.name ?? null,
-    presetRules: row.game_rule_presets?.rules ?? null,
     customRules: row.custom_rules,
     cancelDeadline: row.cancel_deadline,
     createdAt: row.created_at,
@@ -185,7 +173,7 @@ function toCreateSessionJson(input: CreateGameSessionInput): Json {
     startsAt: input.startsAt,
     capacity: input.capacity,
     gameFee: input.gameFee,
-    bankAccount: input.bankAccount,
+    customRules: input.customRules,
   };
 
   if (input.endsAt !== undefined) value.endsAt = input.endsAt;
@@ -194,8 +182,6 @@ function toCreateSessionJson(input: CreateGameSessionInput): Json {
   if (input.fieldId !== undefined) value.fieldId = input.fieldId;
   if (input.fieldName !== undefined) value.fieldName = input.fieldName;
   if (input.presetId !== undefined) value.presetId = input.presetId;
-  if (input.customRules !== undefined) value.customRules = input.customRules;
-
   return value;
 }
 

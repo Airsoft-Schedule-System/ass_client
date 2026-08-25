@@ -2,11 +2,10 @@
 
 import { z } from 'zod';
 import { supabase } from '../../supabase/client';
-import type { Enums, Tables } from '../../supabase/database.types';
+import type { Database, Enums, Tables } from '../../supabase/database.types';
 import { ParticipationAppError, toParticipationError } from './participations.error';
 
-type DatabaseParticipationStatus = Enums<'participation_status'>;
-export type ParticipationStatus = Exclude<DatabaseParticipationStatus, 'paymentReview'>;
+export type ParticipationStatus = Enums<'participation_status'>;
 
 export type ParticipationSummary = ReturnType<typeof toParticipationSummary>;
 export type SessionParticipation = ReturnType<typeof toSessionParticipation>;
@@ -16,17 +15,14 @@ export type ApproveParticipationResult = z.infer<typeof approveResultSchema>;
 export type CancelParticipationResult = z.infer<typeof cancelResultSchema>;
 
 const PARTICIPATION_SELECT = 'id,game_session_id,user_id,status,created_at,updated_at' as const;
-const SESSION_PARTICIPATION_SELECT =
-  'id,game_session_id,user_id,status,created_at,updated_at,users(id,display_name,email,phone_number,team_id)' as const;
 
 type ParticipationRow = Pick<
   Tables<'participations'>,
   'id' | 'game_session_id' | 'user_id' | 'status' | 'created_at' | 'updated_at'
 >;
 
-type SessionParticipationRow = ParticipationRow & {
-  users: Pick<Tables<'users'>, 'id' | 'display_name' | 'email' | 'phone_number' | 'team_id'>;
-};
+type SessionParticipantRow =
+  Database['public']['Functions']['list_session_participants']['Returns'][number];
 
 const successResultSchema = z.object({ success: z.literal(true) });
 const requestResultSchema = successResultSchema.extend({
@@ -38,21 +34,10 @@ const joinResultSchema = successResultSchema.extend({
   status: z.literal('confirmed'),
 });
 const approveResultSchema = successResultSchema.extend({
-  newStatus: z.literal('awaitingPayment'),
+  entryPassId: z.uuid(),
+  newStatus: z.literal('confirmed'),
 });
 const cancelResultSchema = successResultSchema.extend({ refundEligible: z.boolean() });
-
-// DB에 호환용으로 남은 paymentReview 상태가 화면으로 유출되지 않게 차단
-function toParticipationStatus(status: DatabaseParticipationStatus): ParticipationStatus {
-  if (status === 'paymentReview') {
-    throw new ParticipationAppError(
-      'unsupported_status',
-      '지원하지 않는 이전 참가 상태가 포함되어 있습니다.',
-    );
-  }
-
-  return status;
-}
 
 // 참가 신청 행을 화면에서 사용하는 필드 표기로 변환
 function toParticipationSummary(row: ParticipationRow) {
@@ -60,22 +45,28 @@ function toParticipationSummary(row: ParticipationRow) {
     id: row.id,
     gameSessionId: row.game_session_id,
     userId: row.user_id,
-    status: toParticipationStatus(row.status),
+    status: row.status,
     createdAt: row.created_at,
     updatedAt: row.updated_at,
   };
 }
 
-// 호스트 목록에 신청자 프로필을 함께 제공
-function toSessionParticipation(row: SessionParticipationRow) {
+// 호스트 조회 정책이 적용된 RPC 행을 화면 모델로 변환
+function toSessionParticipation(row: SessionParticipantRow) {
   return {
-    ...toParticipationSummary(row),
+    id: row.participation_id,
+    gameSessionId: row.game_session_id,
+    userId: row.user_id,
+    status: row.status,
+    createdAt: row.created_at,
+    updatedAt: row.updated_at,
+    entryPassStatus: row.entry_pass_status,
     applicant: {
-      id: row.users.id,
-      displayName: row.users.display_name,
-      email: row.users.email,
-      phoneNumber: row.users.phone_number,
-      teamId: row.users.team_id,
+      id: row.user_id,
+      displayName: row.display_name,
+      phoneNumber: row.phone_number,
+      teamId: row.team_id,
+      teamName: row.team_name,
     },
   };
 }
@@ -108,15 +99,13 @@ export async function findParticipationForUserAndSession(
   return data ? toParticipationSummary(data) : null;
 }
 
-// 호스트가 관리하는 일정의 참가 신청과 신청자 프로필 조회
+// 호스트 전용 RPC로 개인정보 노출 정책이 적용된 참가자 목록 조회
 export async function listParticipationsBySession(
   sessionId: string,
 ): Promise<SessionParticipation[]> {
-  const { data, error } = await supabase
-    .from('participations')
-    .select(SESSION_PARTICIPATION_SELECT)
-    .eq('game_session_id', sessionId)
-    .order('created_at');
+  const { data, error } = await supabase.rpc('list_session_participants', {
+    p_session_id: sessionId,
+  });
 
   if (error) throw toParticipationError(error);
   return data.map(toSessionParticipation);
@@ -142,7 +131,7 @@ export async function requestParticipation(sessionId: string): Promise<RequestPa
   return result.data;
 }
 
-// 호스트 자신을 결제 없이 확정 참가자로 등록
+// 호스트 자신을 확정 참가자로 등록
 export async function joinAsOperator(sessionId: string): Promise<JoinAsOperatorResult> {
   const { data, error } = await supabase.rpc('join_as_operator', {
     p_session_id: sessionId,
@@ -162,7 +151,7 @@ export async function joinAsOperator(sessionId: string): Promise<JoinAsOperatorR
   return result.data;
 }
 
-// 호스트가 참가 신청을 승인해 입금 대기 상태로 변경
+// 호스트가 참가 신청을 승인해 참석을 확정
 export async function approveParticipation(
   participationId: string,
 ): Promise<ApproveParticipationResult> {
@@ -203,7 +192,7 @@ export async function rejectParticipation(participationId: string, reason?: stri
   }
 }
 
-// 본인 또는 호스트가 참가 신청을 취소하고 환불 가능 여부 확인
+// 본인 또는 호스트가 참가 신청을 취소하고 마감 전 취소 여부 확인
 export async function cancelParticipation(
   participationId: string,
   reason?: string,

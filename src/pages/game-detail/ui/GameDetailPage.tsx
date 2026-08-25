@@ -3,16 +3,15 @@
 import { useNavigate, useParams } from 'react-router';
 import {
   formatGameFee,
-  formatPaymentMethod,
   formatSessionDateTime,
   GameSessionStatusBadge,
 } from '@/entities/game-session';
-import { ParticipationStatusBadge } from '@/entities/participation';
 import { useViewerStore } from '@/entities/viewer';
 import { Button, CalendarIcon, Card, MapPinIcon, UsersIcon, WalletIcon } from '@/shared/ui';
 import { MobileLayout } from '@/widgets/mobile-layout';
 import { getRuleEntries } from '../lib/getRuleEntries';
 import { useGameDetail } from '../model/useGameDetail';
+import { ParticipationStatusBadge } from './ParticipationStatusBadge';
 
 export function GameDetailPage() {
   const navigate = useNavigate();
@@ -137,10 +136,10 @@ export function GameDetailPage() {
               <div className="flex items-center gap-3 py-3">
                 <dt className="flex size-5 shrink-0 items-center justify-center text-[var(--color-app-brand)]">
                   <WalletIcon />
-                  <span className="sr-only">게임비와 결제 방식</span>
+                  <span className="sr-only">게임비</span>
                 </dt>
                 <dd className="text-sm text-[var(--color-app-foreground)]">
-                  {formatGameFee(session.gameFee)} · {formatPaymentMethod(session.paymentMethod)}
+                  {formatGameFee(session.gameFee)}
                 </dd>
               </div>
             </dl>
