@@ -16,7 +16,7 @@ export const updateProfileSchema = z.object({
     .string()
     .trim()
     .min(1, '닉네임을 입력해 주세요.')
-    .max(30, '닉네임은 30글자 이하로 입력해 주세요.'),
+    .max(20, '닉네임은 20글자 이하로 입력해 주세요.'),
   teamId: z
     .string()
     .refine(

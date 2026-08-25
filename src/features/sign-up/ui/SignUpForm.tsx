@@ -82,7 +82,7 @@ export function SignUpForm({ footer, onSigningUpChange, onSuccess }: SignUpFormP
           errorMessage={errors.displayName?.message}
           label="닉네임"
           leadingIcon={<UserIcon />}
-          maxLength={30}
+          maxLength={20}
           placeholder="사용할 닉네임 입력"
           required
         />

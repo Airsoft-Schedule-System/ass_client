@@ -3,7 +3,13 @@
 import { getSupabaseErrorDetails } from '../../supabase/error';
 
 export type ProfileErrorCode =
-  'invalid_input' | 'not_found' | 'permission_denied' | 'load_failed' | 'update_failed' | 'unknown';
+  | 'display_name_taken'
+  | 'invalid_input'
+  | 'not_found'
+  | 'permission_denied'
+  | 'load_failed'
+  | 'update_failed'
+  | 'unknown';
 
 // 프로필 화면에 안전한 코드와 메시지를 제공
 export class ProfileAppError extends Error {
@@ -23,6 +29,10 @@ export function toProfileError(error: unknown, operation: 'load' | 'update'): Pr
   if (error instanceof ProfileAppError) return error;
 
   const details = getSupabaseErrorDetails(error);
+
+  if (details?.code === '23505') {
+    return new ProfileAppError('display_name_taken', '이미 사용 중인 닉네임입니다.', error);
+  }
 
   if (details?.hint === 'not-found' || details?.code === 'PGRST116') {
     return new ProfileAppError('not_found', '사용자 프로필을 찾을 수 없습니다.', error);
