@@ -14,14 +14,14 @@ app → pages → widgets → features → entities → shared
 
 ## 레이어 책임
 
-| 레이어     | 책임                                          | 현재 예시                                 |
-| ---------- | --------------------------------------------- | ----------------------------------------- |
-| `app`      | 앱 시작, 전역 연결, 스타일, 라우터, 인증 가드 | `entrypoint`, `viewer-session`, `router`  |
-| `pages`    | 라우트 단위 화면과 화면 전용 조회·상태·UI     | `game-list`, `profile-edit`               |
-| `widgets`  | 여러 하위 개체를 조합하는 독립적인 큰 UI 블록 | `mobile-layout`                           |
-| `features` | 독립적인 입력·요청·상태 변경의 사용자 행동    | `sign-in`, `sign-up`, `update-profile`    |
-| `entities` | 비즈니스 개체의 상태·표현·정책                | `viewer`, `game-session`, `participation` |
-| `shared`   | 특정 UI 실행 맥락에 종속되지 않은 기반 코드   | `api`, `ui`                               |
+| 레이어     | 책임                                          | 현재 예시                                |
+| ---------- | --------------------------------------------- | ---------------------------------------- |
+| `app`      | 앱 시작, 전역 연결, 스타일, 라우터, 인증 가드 | `entrypoint`, `viewer-session`, `router` |
+| `pages`    | 라우트 단위 화면과 화면 전용 조회·상태·UI     | `game-list`, `profile-edit`              |
+| `widgets`  | 여러 하위 개체를 조합하는 독립적인 큰 UI 블록 | `mobile-layout`                          |
+| `features` | 독립적인 입력·요청·상태 변경의 사용자 행동    | `sign-in`, `sign-up`, `update-profile`   |
+| `entities` | 비즈니스 개체의 상태·표현·정책                | `viewer`, `game-session`                 |
+| `shared`   | 특정 UI 실행 맥락에 종속되지 않은 기반 코드   | `api`, `ui`                              |
 
 ## 배치 결정표
 
@@ -41,6 +41,29 @@ app → pages → widgets → features → entities → shared
 - 기술 이름인 `components`, `hooks`, `stores`, `schemas`를 segment 이름으로 사용하지 않는다.
 - 필요하지 않은 segment와 빈 slice는 만들지 않는다.
 - `shared`와 `app`은 slice 없이 segment가 바로 위치할 수 있다.
+
+## 관심사별 레이어 구성
+
+같은 관심사를 다루더라도 레이어마다 책임과 slice 이름이 다르다. 화면은 URL, feature는 사용자 행동, entity는 비즈니스 대상을 기준으로 이름을 정한다.
+
+```text
+프로필 관심사
+pages/profile-edit          프로필 수정 URL과 화면 조립
+└── features/update-profile 입력 검증과 프로필 수정 요청
+    └── entities/viewer     현재 로그인 사용자 상태
+
+게임 관심사
+pages/game-list             게임 목록 URL과 조회 화면
+pages/game-detail           게임 상세 URL과 조회 화면
+└── entities/game-session   게임 상태와 날짜·금액 표시 규칙
+
+인증 관심사
+pages/login                 로그인 URL과 성공 후 이동
+└── features/sign-in        로그인 입력 검증과 인증 요청
+    └── entities/viewer     인증된 사용자 상태
+```
+
+예를 들어 `profile-edit`, `update-profile`, `viewer`는 이름이 다르지만 모두 프로필 관심사에 참여한다. 반대로 이름을 맞추기 위해 `pages/profile`, `features/profile`, `entities/profile`처럼 동일한 명사 slice를 기계적으로 만들지 않는다.
 
 ## Public API와 import
 
@@ -69,7 +92,8 @@ app → pages → widgets → features → entities → shared
 - `shared/api`의 endpoint는 서버 도메인 계약을 알 수 있지만 어느 페이지에서 왜 호출하는지, 성공 후 무엇을 하는지는 알지 않는다.
 - UI는 Supabase SDK를 직접 호출하지 않고 `@/shared/api`를 통한다.
 - 인증 사용자 상태는 `entities/viewer`, 앱 시작 시 Supabase 세션과 연결하는 책임은 `app/viewer-session`이 담당한다. SDK의 토큰 저장·갱신 책임은 변경하지 않는다.
-- 세션과 참가 상태의 문구·색상 정책은 각 entity가 담당하고 범용 시각 표현은 `shared/ui`의 `StatusBadge`가 담당한다.
+- 여러 화면에서 쓰이는 게임 세션의 문구·색상 정책은 `entities/game-session`이 담당한다.
+- 한 화면에서만 쓰이는 참가 상태 표현은 해당 page에 두고, 범용 시각 표현은 `shared/ui`의 `StatusBadge`가 담당한다.
 
 ## 색상 토큰
 
