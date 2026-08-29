@@ -6,6 +6,7 @@ import { GameDetailPage } from '@/pages/game-detail';
 import { GameListPage } from '@/pages/game-list';
 import { LoginPage } from '@/pages/login';
 import { OperationListPage } from '@/pages/operation-list';
+import { ParticipationDetailPage } from '@/pages/participation-detail';
 import { ParticipationListPage } from '@/pages/participation-list';
 import { ProfilePage } from '@/pages/profile';
 import { ProfileEditPage } from '@/pages/profile-edit';
@@ -26,6 +27,10 @@ export const router = createBrowserRouter([
           {
             path: 'participations',
             Component: ParticipationListPage,
+          },
+          {
+            path: 'participations/:participationId',
+            Component: ParticipationDetailPage,
           },
           {
             path: 'games/new',

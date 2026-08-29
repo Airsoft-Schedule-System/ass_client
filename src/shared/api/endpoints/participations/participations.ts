@@ -8,6 +8,7 @@ import { ParticipationAppError, toParticipationError } from './participations.er
 export type ParticipationStatus = Enums<'participation_status'>;
 
 export type ParticipationSummary = ReturnType<typeof toParticipationSummary>;
+export type UserParticipation = ReturnType<typeof toUserParticipation>;
 export type SessionParticipation = ReturnType<typeof toSessionParticipation>;
 export type RequestParticipationResult = z.infer<typeof requestResultSchema>;
 export type JoinAsOperatorResult = z.infer<typeof joinResultSchema>;
@@ -15,11 +16,29 @@ export type ApproveParticipationResult = z.infer<typeof approveResultSchema>;
 export type CancelParticipationResult = z.infer<typeof cancelResultSchema>;
 
 const PARTICIPATION_SELECT = 'id,game_session_id,user_id,status,created_at,updated_at' as const;
+const USER_PARTICIPATION_SELECT =
+  'id,game_session_id,user_id,status,created_at,updated_at,game_sessions!inner(id,title,starts_at,ends_at,field_name,game_fee,status,created_by_user_id,fields(name))' as const;
 
 type ParticipationRow = Pick<
   Tables<'participations'>,
   'id' | 'game_session_id' | 'user_id' | 'status' | 'created_at' | 'updated_at'
 >;
+
+type UserParticipationRow = ParticipationRow & {
+  game_sessions: Pick<
+    Tables<'game_sessions'>,
+    | 'id'
+    | 'title'
+    | 'starts_at'
+    | 'ends_at'
+    | 'field_name'
+    | 'game_fee'
+    | 'status'
+    | 'created_by_user_id'
+  > & {
+    fields: Pick<Tables<'fields'>, 'name'> | null;
+  };
+};
 
 type SessionParticipantRow =
   Database['public']['Functions']['list_session_participants']['Returns'][number];
@@ -51,6 +70,29 @@ function toParticipationSummary(row: ParticipationRow) {
   };
 }
 
+// 참가 신청과 연결된 게임 정보를 내 참가 화면용 모델로 변환
+function toUserParticipation(row: UserParticipationRow) {
+  const fieldName = row.game_sessions.field_name ?? row.game_sessions.fields?.name;
+
+  if (!fieldName) {
+    throw new ParticipationAppError('invalid_response', '게임 필드 정보를 확인할 수 없습니다.');
+  }
+
+  return {
+    ...toParticipationSummary(row),
+    session: {
+      id: row.game_sessions.id,
+      title: row.game_sessions.title,
+      startsAt: row.game_sessions.starts_at,
+      endsAt: row.game_sessions.ends_at,
+      fieldName,
+      gameFee: row.game_sessions.game_fee,
+      status: row.game_sessions.status,
+      createdByUserId: row.game_sessions.created_by_user_id,
+    },
+  };
+}
+
 // 호스트 조회 정책이 적용된 RPC 행을 화면 모델로 변환
 function toSessionParticipation(row: SessionParticipantRow) {
   return {
@@ -71,16 +113,32 @@ function toSessionParticipation(row: SessionParticipantRow) {
   };
 }
 
-// 사용자의 전체 참가 신청을 최신 생성순으로 조회
-export async function listParticipationsForUser(userId: string): Promise<ParticipationSummary[]> {
+// 사용자의 전체 참가 신청과 연결된 게임 정보를 조회
+export async function listParticipationsForUser(userId: string): Promise<UserParticipation[]> {
   const { data, error } = await supabase
     .from('participations')
-    .select(PARTICIPATION_SELECT)
+    .select(USER_PARTICIPATION_SELECT)
     .eq('user_id', userId)
-    .order('created_at', { ascending: false });
+    .order('starts_at', { referencedTable: 'game_sessions' });
 
   if (error) throw toParticipationError(error);
-  return data.map(toParticipationSummary);
+  return data.map(toUserParticipation);
+}
+
+// 참가 ID로 로그인 사용자의 참가 신청과 연결된 게임 정보를 단건 조회
+export async function findParticipationForUserById(
+  userId: string,
+  participationId: string,
+): Promise<UserParticipation | null> {
+  const { data, error } = await supabase
+    .from('participations')
+    .select(USER_PARTICIPATION_SELECT)
+    .eq('id', participationId)
+    .eq('user_id', userId)
+    .maybeSingle();
+
+  if (error) throw toParticipationError(error);
+  return data ? toUserParticipation(data) : null;
 }
 
 // 로그인 사용자의 특정 게임 참가 상태를 단건 조회

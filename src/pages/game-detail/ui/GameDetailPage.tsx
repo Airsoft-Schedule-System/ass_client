@@ -6,12 +6,12 @@ import {
   formatSessionDateTime,
   GameSessionStatusBadge,
 } from '@/entities/game-session';
+import { ParticipationStatusBadge } from '@/entities/participation';
 import { useViewerStore } from '@/entities/viewer';
 import { Button, CalendarIcon, Card, MapPinIcon, UsersIcon, WalletIcon } from '@/shared/ui';
 import { MobileLayout } from '@/widgets/mobile-layout';
 import { getRuleEntries } from '../lib/getRuleEntries';
 import { useGameDetail } from '../model/useGameDetail';
-import { ParticipationStatusBadge } from './ParticipationStatusBadge';
 
 export function GameDetailPage() {
   const navigate = useNavigate();
