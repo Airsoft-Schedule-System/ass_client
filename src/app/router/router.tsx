@@ -3,8 +3,10 @@
 import { createBrowserRouter } from 'react-router';
 import { GameCreatePage } from '@/pages/game-create';
 import { GameDetailPage } from '@/pages/game-detail';
+import { GameEditPage } from '@/pages/game-edit';
 import { GameListPage } from '@/pages/game-list';
 import { LoginPage } from '@/pages/login';
+import { OperationApplicantsPage } from '@/pages/operation-applicants';
 import { OperationListPage } from '@/pages/operation-list';
 import { OperationOverviewPage } from '@/pages/operation-overview';
 import { ParticipationDetailPage } from '@/pages/participation-detail';
@@ -48,6 +50,14 @@ export const router = createBrowserRouter([
           {
             path: 'operations/:sessionId',
             Component: OperationOverviewPage,
+          },
+          {
+            path: 'operations/:sessionId/applicants',
+            Component: OperationApplicantsPage,
+          },
+          {
+            path: 'operations/:sessionId/edit',
+            Component: GameEditPage,
           },
           {
             path: 'profile',
