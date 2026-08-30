@@ -6,6 +6,7 @@ import { GameDetailPage } from '@/pages/game-detail';
 import { GameListPage } from '@/pages/game-list';
 import { LoginPage } from '@/pages/login';
 import { OperationListPage } from '@/pages/operation-list';
+import { OperationOverviewPage } from '@/pages/operation-overview';
 import { ParticipationDetailPage } from '@/pages/participation-detail';
 import { ParticipationListPage } from '@/pages/participation-list';
 import { ProfilePage } from '@/pages/profile';
@@ -43,6 +44,10 @@ export const router = createBrowserRouter([
           {
             path: 'operations',
             Component: OperationListPage,
+          },
+          {
+            path: 'operations/:sessionId',
+            Component: OperationOverviewPage,
           },
           {
             path: 'profile',

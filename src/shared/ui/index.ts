@@ -12,6 +12,7 @@ export { ArrowRightIcon } from './icons/ArrowRightIcon';
 export { CalendarIcon } from './icons/CalendarIcon';
 export { CheckIcon } from './icons/CheckIcon';
 export { ChevronDownIcon } from './icons/ChevronDownIcon';
+export { ChevronRightIcon } from './icons/ChevronRightIcon';
 export { EmailIcon } from './icons/EmailIcon';
 export { EyeIcon } from './icons/EyeIcon';
 export { LockIcon } from './icons/LockIcon';
